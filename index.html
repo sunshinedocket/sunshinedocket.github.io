@@ -184,13 +184,13 @@ section p strong { color: var(--text); }
   border: 1px solid var(--border);
   padding: 24px 28px;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr auto;
   gap: 16px;
   align-items: start;
   transition: border-color 0.3s;
 }
 .card:hover { border-color: var(--accent-dim); }
-a.card { text-decoration: none; color: inherit; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
+a.card { text-decoration: none; color: inherit; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: start; }
 a.card:hover { border-color: var(--accent); text-decoration: none; }
 a.card:hover .card-name { color: var(--accent); transition: color 0.2s; }
 .card-name {
@@ -342,10 +342,74 @@ footer .footer-accent {
 
 /* RESPONSIVE */
 @media (max-width: 640px) {
-  .card { grid-template-columns: 1fr; }
-  .badge { justify-self: start; }
+  .card { grid-template-columns: auto 1fr; }
+  .badge { grid-column: 1 / -1; justify-self: start; }
   .stats-bar { grid-template-columns: repeat(2, 1fr); }
   nav .container { gap: 16px; }
+}
+
+/* CONTACT BANNER */
+.contact-banner {
+  background: var(--surface);
+  border: 1px solid var(--accent-dim);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0 0;
+  flex-wrap: wrap;
+}
+.contact-banner p {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin: 0;
+}
+.contact-banner a.contact-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 10px 24px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.contact-banner a.contact-btn:hover { opacity: 0.85; text-decoration: none; }
+
+/* HEADSHOT CIRCLES */
+.card-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  border: 2px solid var(--border);
+}
+.card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-photo.initials {
+  border: 1.5px solid var(--border);
+}
+.card-photo.initials-conflict { background: var(--red-dim); color: var(--red); border-color: rgba(196,92,74,0.3); }
+.card-photo.initials-clean { background: var(--green-dim); color: var(--green); border-color: rgba(90,158,111,0.3); }
+.card-photo.initials-monitoring { background: var(--yellow-dim); color: var(--yellow); border-color: rgba(201,168,76,0.3); }
+.card-photo.initials-revolving { background: var(--blue-dim); color: var(--blue); border-color: rgba(90,130,180,0.3); }
+
+@media (max-width: 640px) {
+  .contact-banner { flex-direction: column; text-align: center; }
+  .card-photo { width: 44px; height: 44px; font-size: 16px; }
 }
 </style>
 </head>
@@ -391,6 +455,12 @@ footer .footer-accent {
       <div class="stat-number">2</div>
       <div class="stat-label">Parties Covered</div>
     </div>
+</div>
+
+<div class="container">
+  <div class="contact-banner fade-in">
+    <p><strong>Have a tip?</strong> Know about an undisclosed conflict, a filing discrepancy, or a legislator we should analyze? We verify everything before publishing.</p>
+    <a href="mailto:sunshinedocket@proton.me" class="contact-btn">Send a Tip</a>
   </div>
 </div>
 
@@ -404,6 +474,7 @@ footer .footer-accent {
     <div class="card-grid">
 
       <a href="profiles/pedersen.html" class="card fade-in">
+        <div class="card-photo"><img src="images/pedersen.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Sen. Jamie Pedersen <span class="party party-d">D-43</span></div>
           <div class="card-meta">Senate Majority Leader &bull; EVP &amp; General Counsel, McKinstry Co.</div>
@@ -413,6 +484,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/billig.html" class="card fade-in">
+        <div class="card-photo"><img src="images/billig.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Sen. Andy Billig <span class="party party-d">D-3</span></div>
           <div class="card-meta">Former Senate Majority Leader &bull; CEO, Brett Sports &bull; Senior Adviser, SkyNRG</div>
@@ -422,6 +494,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/frame.html" class="card fade-in">
+        <div class="card-photo"><img src="images/frame.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Sen. Noel Frame <span class="party party-d">D-36</span></div>
           <div class="card-meta">Vice Chair of Finance, Ways &amp; Means &bull; Managing Partner, Uncommon Bridges</div>
@@ -431,6 +504,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/berry.html" class="card fade-in">
+        <div class="card-photo"><img src="images/berry.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Rep. Liz Berry <span class="party party-d">D-36</span></div>
           <div class="card-meta">Summit Strategy Group</div>
@@ -440,6 +514,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/fitzgibbon.html" class="card fade-in">
+        <div class="card-photo"><img src="images/fitzgibbon.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Rep. Joe Fitzgibbon <span class="party party-d">D-34</span></div>
           <div class="card-meta">House Majority Leader</div>
@@ -449,6 +524,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/macewen.html" class="card fade-in">
+        <div class="card-photo"><img src="images/macewen.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Sen. Drew MacEwen <span class="party party-r">R-35</span></div>
           <div class="card-meta">Senate Deputy Republican Leader &bull; Falcon Financial &bull; Mountain Lakes Capital</div>
@@ -458,6 +534,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/brown.html" class="card fade-in">
+        <div class="card-photo"><img src="images/brown.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">AG Nick Brown <span class="party party-d">&nbsp;</span></div>
           <div class="card-meta">Attorney General &bull; Formerly Pacifica Law Group</div>
@@ -467,6 +544,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/reed.html" class="card fade-in">
+        <div class="card-photo"><img src="images/reed.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Rep. Julia Reed <span class="party party-d">D-36</span></div>
           <div class="card-meta">Management Consultant, Kinetic West</div>
@@ -476,6 +554,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/couture.html" class="card fade-in">
+        <div class="card-photo"><img src="images/couture.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Rep. Travis Couture <span class="party party-r">R-35</span></div>
           <div class="card-meta">Sunlight Woodenworks</div>
@@ -485,6 +564,7 @@ footer .footer-accent {
       </a>
 
       <a href="profiles/bernbaum.html" class="card fade-in">
+        <div class="card-photo"><img src="images/bernbaum.jpg" alt="" loading="lazy"></div>
         <div>
           <div class="card-name">Rep. Adam Bernbaum <span class="party party-d">D-24</span></div>
           <div class="card-meta">Former Legislative Assistant</div>
