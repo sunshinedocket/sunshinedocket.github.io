@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sen. Drew MacEwen | Sunshine Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c; --surface: #111114; --surface2: #1a1a1f; --border: #2a2a30;
+  --text: #e8e6e1; --text-dim: #8a8880; --accent: #c9a84c; --accent-dim: #8a7433;
+  --red: #c45c4a; --red-dim: rgba(196,92,74,0.12); --green: #5a9e6f; --green-dim: rgba(90,158,111,0.12);
+  --blue: #5a82b4; --blue-dim: rgba(90,130,180,0.12); --yellow: #c9a84c; --yellow-dim: rgba(201,168,76,0.12);
+  --font-display: 'Source Serif 4', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+body::before { content:''; position:fixed; top:0;left:0;width:100%;height:100%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+.container { max-width:900px; margin:0 auto; padding:0 24px; }
+header { border-bottom:1px solid var(--border); padding:24px 0; }
+.site-name { font-family:var(--font-mono); font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); }
+.back { font-family:var(--font-mono); font-size:12px; letter-spacing:1px; color:var(--text-dim); margin-top:8px; }
+.profile-header { padding:48px 0 32px; border-bottom:1px solid var(--border); }
+.profile-header h1 { font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:700; margin-bottom:8px; }
+.profile-header .subtitle { font-size:16px; color:var(--text-dim); margin-bottom:16px; }
+.badge { font-family:var(--font-mono); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; padding:6px 14px; border:1px solid; display:inline-block; }
+.badge-conflict { color:var(--red); border-color:var(--red); background:var(--red-dim); }
+.badge-clean { color:var(--green); border-color:var(--green); background:var(--green-dim); }
+.badge-monitoring { color:var(--yellow); border-color:var(--yellow); background:var(--yellow-dim); }
+.badge-revolving { color:var(--blue); border-color:var(--blue); background:var(--blue-dim); }
+.party-d { color:#6688cc; } .party-r { color:#cc6666; }
+section { padding:40px 0; border-bottom:1px solid var(--border); }
+section:last-of-type { border-bottom:none; }
+h2 { font-family:var(--font-display); font-size:24px; font-weight:600; margin-bottom:16px; color:var(--text); }
+h3 { font-family:var(--font-mono); font-size:13px; letter-spacing:1px; color:var(--accent); margin-bottom:8px; text-transform:uppercase; }
+p { margin-bottom:14px; color:var(--text-dim); } p strong { color:var(--text); }
+table { width:100%; border-collapse:collapse; margin:16px 0; }
+th { font-family:var(--font-mono); font-size:11px; letter-spacing:1px; text-transform:uppercase; background:var(--surface2); color:var(--accent); text-align:left; padding:10px 14px; border:1px solid var(--border); }
+td { font-size:14px; padding:10px 14px; border:1px solid var(--border); color:var(--text-dim); }
+td strong { color:var(--text); }
+tr:nth-child(even) td { background:var(--surface); }
+.highlight { background:var(--red-dim); border-left:3px solid var(--red); padding:16px 20px; margin:20px 0; }
+.highlight-green { background:var(--green-dim); border-left:3px solid var(--green); padding:16px 20px; margin:20px 0; }
+.api-block { background:var(--surface); border:1px solid var(--border); padding:14px 18px; margin:12px 0; overflow-x:auto; }
+.api-block code { font-family:var(--font-mono); font-size:12px; color:var(--accent); word-break:break-all; }
+footer { border-top:1px solid var(--border); padding:32px 0; text-align:center; }
+footer p { font-size:13px; color:var(--text-dim); }
+.footer-accent { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
+@media (max-width:640px) { table { font-size:13px; } td,th { padding:8px 10px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="site-name">Sunshine Docket</div>
+    <div class="back"><a href="../index.html">&larr; Back to all findings</a></div>
+  </div>
+</header>
+<div class="profile-header">
+  <div class="container">
+    <h1>Sen. Drew MacEwen</h1>
+    <div class="subtitle">R-35 | Senate Deputy Republican Leader | Falcon Financial | Mountain Lakes Capital</div>
+    <div class="badge badge-conflict">Conflict</div>
+  </div>
+</div>
+<div class="container">
+
+<section>
+  <h2>Summary</h2>
+  <p>MacEwen manages the Nova Satus Venture Fund through Mountain Lakes Capital Management LLC (99% owner). The fund's holdings are <strong>not disclosed</strong> on his F1. He sits on the Environment, Energy &amp; Technology Committee, where lobbyist-heavy donors (Green Diamond, Premera, Altria) have direct business. The disclosure system was not designed for venture fund managers who hold undisclosed portfolio positions.</p>
+  <div class="highlight"><p><strong>The issue is opacity.</strong> Without knowing what the fund invests in, voters cannot assess whether MacEwen's committee votes affect his portfolio.</p></div>
+</section>
+<section>
+  <h2>Verification</h2>
+  <h3>F1 Disclosure</h3>
+  <div class="api-block"><code>data.wa.gov/resource/ehbc-shxw.json?id=132313</code></div>
+</section>
+
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-accent">Sunshine Docket</div>
+    <p>A citizen accountability project. Not affiliated with any political party, campaign, or organization.<br>
+    All data sourced from official public disclosure filings and government databases.</p>
+  </div>
+</footer>
+</body>
+</html>

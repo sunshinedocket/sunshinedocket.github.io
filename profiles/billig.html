@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sen. Andy Billig | Sunshine Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c; --surface: #111114; --surface2: #1a1a1f; --border: #2a2a30;
+  --text: #e8e6e1; --text-dim: #8a8880; --accent: #c9a84c; --accent-dim: #8a7433;
+  --red: #c45c4a; --red-dim: rgba(196,92,74,0.12); --green: #5a9e6f; --green-dim: rgba(90,158,111,0.12);
+  --blue: #5a82b4; --blue-dim: rgba(90,130,180,0.12); --yellow: #c9a84c; --yellow-dim: rgba(201,168,76,0.12);
+  --font-display: 'Source Serif 4', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+body::before { content:''; position:fixed; top:0;left:0;width:100%;height:100%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+.container { max-width:900px; margin:0 auto; padding:0 24px; }
+header { border-bottom:1px solid var(--border); padding:24px 0; }
+.site-name { font-family:var(--font-mono); font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); }
+.back { font-family:var(--font-mono); font-size:12px; letter-spacing:1px; color:var(--text-dim); margin-top:8px; }
+.profile-header { padding:48px 0 32px; border-bottom:1px solid var(--border); }
+.profile-header h1 { font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:700; margin-bottom:8px; }
+.profile-header .subtitle { font-size:16px; color:var(--text-dim); margin-bottom:16px; }
+.badge { font-family:var(--font-mono); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; padding:6px 14px; border:1px solid; display:inline-block; }
+.badge-conflict { color:var(--red); border-color:var(--red); background:var(--red-dim); }
+.badge-clean { color:var(--green); border-color:var(--green); background:var(--green-dim); }
+.badge-monitoring { color:var(--yellow); border-color:var(--yellow); background:var(--yellow-dim); }
+.badge-revolving { color:var(--blue); border-color:var(--blue); background:var(--blue-dim); }
+.party-d { color:#6688cc; } .party-r { color:#cc6666; }
+section { padding:40px 0; border-bottom:1px solid var(--border); }
+section:last-of-type { border-bottom:none; }
+h2 { font-family:var(--font-display); font-size:24px; font-weight:600; margin-bottom:16px; color:var(--text); }
+h3 { font-family:var(--font-mono); font-size:13px; letter-spacing:1px; color:var(--accent); margin-bottom:8px; text-transform:uppercase; }
+p { margin-bottom:14px; color:var(--text-dim); } p strong { color:var(--text); }
+table { width:100%; border-collapse:collapse; margin:16px 0; }
+th { font-family:var(--font-mono); font-size:11px; letter-spacing:1px; text-transform:uppercase; background:var(--surface2); color:var(--accent); text-align:left; padding:10px 14px; border:1px solid var(--border); }
+td { font-size:14px; padding:10px 14px; border:1px solid var(--border); color:var(--text-dim); }
+td strong { color:var(--text); }
+tr:nth-child(even) td { background:var(--surface); }
+.highlight { background:var(--red-dim); border-left:3px solid var(--red); padding:16px 20px; margin:20px 0; }
+.highlight-green { background:var(--green-dim); border-left:3px solid var(--green); padding:16px 20px; margin:20px 0; }
+.api-block { background:var(--surface); border:1px solid var(--border); padding:14px 18px; margin:12px 0; overflow-x:auto; }
+.api-block code { font-family:var(--font-mono); font-size:12px; color:var(--accent); word-break:break-all; }
+footer { border-top:1px solid var(--border); padding:32px 0; text-align:center; }
+footer p { font-size:13px; color:var(--text-dim); }
+.footer-accent { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
+@media (max-width:640px) { table { font-size:13px; } td,th { padding:8px 10px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="site-name">Sunshine Docket</div>
+    <div class="back"><a href="../index.html">&larr; Back to all findings</a></div>
+  </div>
+</header>
+<div class="profile-header">
+  <div class="container">
+    <h1>Sen. Andy Billig</h1>
+    <div class="subtitle">D-3 | Former Senate Majority Leader | CEO, Brett Sports | Senior Adviser, SkyNRG Americas</div>
+    <div class="badge badge-revolving">Revolving Door</div>
+  </div>
+</div>
+<div class="container">
+
+<section>
+  <h2>Summary</h2>
+  <p>Billig sponsored SB 5447 (2023), creating a <strong>$2/gallon tax incentive for sustainable aviation fuel</strong> while serving as Senate Majority Leader. After leaving office, he was hired as Senior Adviser by <strong>SkyNRG Americas</strong>, the company that announced an $800M production facility in Washington directly because of his legislation. He now earns $30K-$60K/year from SkyNRG. The incentive he created is worth up to $100M in forgone state revenue.</p>
+  <div class="highlight"><p><strong>The pipeline:</strong> Sponsor the tax incentive as Majority Leader &rarr; leave office &rarr; get hired by the company that benefited most from your legislation &rarr; the company continues receiving state grants and tax benefits.</p></div>
+</section>
+<section>
+  <h2>Income (Six Sources)</h2>
+  <table>
+    <tr><th>Source</th><th>Role</th><th>Income</th></tr>
+    <tr><td><strong>Longball Inc. (Spokane Indians)</strong></td><td>Executive &amp; co-owner (6.55%)</td><td><strong>$100K-$200K</strong></td></tr>
+    <tr><td>Rancho Baseball LLC (Rancho Cucamonga Quakes)</td><td>Executive &amp; co-owner</td><td>$0-$30K</td></tr>
+    <tr><td>WA State Senate</td><td>State Senator</td><td>$60K-$100K</td></tr>
+    <tr><td>Hat Trick Inc. (Spokane Chiefs Hockey)</td><td>Executive Adviser</td><td>$30K-$60K</td></tr>
+    <tr><td><strong>Brett Sports &amp; Entertainment</strong></td><td>CEO (15% owner)</td><td>$30K-$60K</td></tr>
+    <tr><td><strong>SkyNRG Americas</strong></td><td>Senior Adviser</td><td>$30K-$60K</td></tr>
+  </table>
+</section>
+<section>
+  <h2>State Agency Payments</h2>
+  <p>Both Brett Sports and Longball Inc. disclose agency payments on Billig's F1. Amounts are undisclosed (older filing format), but the breadth of government entities is notable:</p>
+  <table>
+    <tr><th>Entity</th><th>Agency</th><th>Purpose</th></tr>
+    <tr><td>Brett Sports &amp; Entertainment</td><td>City of Spokane Parks</td><td>Consulting &amp; sales support</td></tr>
+    <tr><td>Brett Sports &amp; Entertainment</td><td>Spokane Public Facilities District</td><td>Advertising, promotion, consulting</td></tr>
+    <tr><td>Longball Inc.</td><td>City of Spokane</td><td>Advertising &amp; promotion</td></tr>
+    <tr><td>Longball Inc.</td><td>WA State Lottery</td><td>Advertising &amp; promotions</td></tr>
+    <tr><td>Longball Inc.</td><td>Spokane International Airport</td><td>Advertising &amp; promotions</td></tr>
+    <tr><td>Longball Inc.</td><td>Dept. of Veterans Affairs</td><td>Advertising &amp; promotions</td></tr>
+    <tr><td>Longball Inc.</td><td>Spokane County</td><td>Advertising &amp; promotions</td></tr>
+    <tr><td>Longball Inc.</td><td>SCRAPS</td><td>Advertising &amp; promotions</td></tr>
+  </table>
+</section>
+<section>
+  <h2>SkyNRG: The Revolving Door</h2>
+  <p><strong>SkyNRG has maintained registered lobbyists in Olympia from 2021 through 2025</strong> (Insight Strategic Partners LLC). The lobbying overlaps with Billig's sponsorship of SB 5447 in 2023.</p>
+  <p>After the bill passed, SkyNRG received:</p>
+  <p><strong>$1.5M</strong> Commerce grant (Governor's Economic Development Strategic Reserve Fund) for the Walla Walla facility.</p>
+  <p><strong>$10M</strong> legislative appropriation for the Cascadia Sustainable Aviation Accelerator (which SkyNRG participates in).</p>
+  <p>In January 2026, Billig appeared on a public panel as "SkyNRG Senior Adviser" alongside executives from Boeing, Amazon, and the Port of Seattle.</p>
+</section>
+<section>
+  <h2>Campaign Finance: $1,090,827 career</h2>
+  <p>Top organizational donors include Avista Corp ($8,150), Credit Union Legislative Action Fund ($8,000), and Washington Hospital PAC.</p>
+</section>
+<section>
+  <h2>Verification</h2>
+  <h3>F1 Disclosure</h3>
+  <div class="api-block"><code>data.wa.gov/resource/ehbc-shxw.json?id=123159</code></div>
+  <h3>SkyNRG Lobbyist Registrations</h3>
+  <div class="api-block"><code>data.wa.gov/resource/xhn7-64im.json?$where=employer_name like '%SkyNRG%'</code></div>
+  <h3>SB 5447 (SAF Tax Incentive)</h3>
+  <div class="api-block"><code>app.leg.wa.gov/billsummary?BillNumber=5447&Year=2023</code></div>
+</section>
+
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-accent">Sunshine Docket</div>
+    <p>A citizen accountability project. Not affiliated with any political party, campaign, or organization.<br>
+    All data sourced from official public disclosure filings and government databases.</p>
+  </div>
+</footer>
+</body>
+</html>
