@@ -1,0 +1,4033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Legislature | Sunshine Docket</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --mn: #c4b830; --cl: #40b868;
+  --ccb: rgba(217,64,64,.08); --rvb: rgba(217,140,64,.08);
+  --mnb: rgba(217,201,64,.06); --clb: rgba(64,184,104,.06);
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+    --ccb: rgba(217,64,64,.05); --rvb: rgba(217,140,64,.05);
+    --mnb: rgba(217,201,64,.03); --clb: rgba(64,184,104,.03);
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.6; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px; }
+header { text-align: center; margin-bottom: 36px; }
+header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
+.subtitle { font-size: 15px; color: var(--tm); font-style: italic; }
+.meta { font-family: var(--mono); font-size: 12px; color: var(--td); margin-top: 10px; }
+.stats { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+.stat { text-align: center; padding: 8px 16px; background: var(--sf); border: 1px solid var(--bd); border-radius: 4px; }
+.stat-n { font-family: var(--mono); font-size: 22px; font-weight: 700; display: block; }
+.stat-n.xc { color: var(--cc); } .stat-n.xr { color: var(--rv); }
+.stat-n.xm { color: var(--mn); } .stat-n.xl { color: var(--cl); }
+.stat-n.xa { color: var(--ac); }
+.stat-l { font-size: 11px; color: var(--tm); text-transform: uppercase; letter-spacing: 0.5px; font-family: var(--mono); }
+.controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; align-items: center; }
+.search { flex: 1; min-width: 200px; background: var(--sf); border: 1px solid var(--bd); color: var(--tx); padding: 8px 14px; font-size: 14px; font-family: var(--serif); border-radius: 4px; }
+.search::placeholder { color: var(--td); } .search:focus { outline: none; border-color: var(--ac); }
+.fbtn { background: var(--sf); border: 1px solid var(--bd); color: var(--tm); padding: 5px 11px; font-size: 12px; font-family: var(--mono); cursor: pointer; border-radius: 3px; transition: all 0.15s; }
+.fbtn:hover { border-color: var(--tm); color: var(--tx); }
+.fbtn.on { background: var(--ac); border-color: var(--ac); color: #fff; }
+.flabel { font-size: 11px; color: var(--td); text-transform: uppercase; letter-spacing: 0.5px; font-family: var(--mono); }
+.rcount { font-family: var(--mono); font-size: 12px; color: var(--td); margin-left: auto; }
+.dist-block { margin-bottom: 20px; border: 1px solid var(--bd); border-radius: 5px; overflow: hidden; background: var(--sf); }
+.dist-block.hot { border-left: 3px solid var(--cc); }
+.dist-block.warm { border-left: 3px solid var(--rv); }
+.dist-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: var(--sf2); border-bottom: 1px solid var(--bd); cursor: pointer; }
+.dist-head:hover { background: var(--bd); }
+.dist-label { display: flex; align-items: baseline; gap: 10px; }
+.dist-num { font-family: var(--mono); font-weight: 700; font-size: 15px; }
+.dist-area { font-size: 13px; color: var(--tm); font-style: italic; }
+.dist-count { font-family: var(--mono); font-size: 12px; color: var(--td); }
+.dist-members { padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; }
+.leg-card { padding: 12px 14px; border-radius: 4px; border: 1px solid var(--bd); transition: border-color 0.15s; }
+.leg-card:hover { border-color: var(--bl); }
+.bg-conflict { background: var(--ccb); } .bg-review { background: var(--rvb); }
+.bg-monitoring { background: var(--mnb); } .bg-clean { background: var(--clb); }
+.card-top { display: flex; gap: 10px; align-items: flex-start; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; font-family: var(--mono); color: #fff; flex-shrink: 0; }
+.av-conflict { background: var(--cc); } .av-review { background: var(--rv); }
+.av-monitoring { background: var(--mn); } .av-clean { background: var(--cl); }
+.card-info { flex: 1; min-width: 0; }
+.name-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.card-name { font-weight: 700; font-size: 15px; }
+.party-pill { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 3px; font-family: var(--mono); }
+.party-d { background: #1a3a5c; color: #6db3f2; }
+.party-r { background: #5c1a1a; color: #f26d6d; }
+.party-u { background: #333; color: #999; }
+@media (prefers-color-scheme: light) {
+  .party-d { background: #dbeafe; color: #1e40af; }
+  .party-r { background: #fee2e2; color: #991b1b; }
+  .party-u { background: #f3f4f6; color: #6b7280; }
+}
+.badge-pill { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 2px 7px; border-radius: 3px; font-family: var(--mono); color: #fff; }
+.bp-conflict { background: var(--cc); } .bp-review { background: var(--rv); }
+.bp-monitoring { background: var(--mn); } .bp-clean { background: var(--cl); }
+.card-summary { font-size: 13px; color: var(--tm); margin-top: 3px; line-height: 1.5; }
+.inc-list, .flag-list { margin-top: 6px; padding-left: 24px; font-size: 12px; color: var(--tm); list-style: disc; }
+.inc-list li, .flag-list li { margin-bottom: 1px; }
+.inc-list li::marker, .flag-list li::marker { color: var(--td); font-size: 10px; }
+.household-flag, .agency-flag { margin-top: 5px; font-size: 12px; padding: 5px 9px; border-radius: 3px; border-left: 3px solid var(--cc); background: var(--ccb); color: var(--tm); }
+.card-foot { display: flex; align-items: center; gap: 10px; margin-top: 8px; padding-top: 6px; border-top: 1px solid var(--bd); }
+.score-lbl { font-family: var(--mono); font-size: 11px; color: var(--td); }
+.f1-ref { font-family: var(--mono); font-size: 11px; color: var(--td); }
+.deep-link { margin-left: auto; font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--ac); text-decoration: none; padding: 2px 8px; border: 1px solid var(--ac); border-radius: 3px; transition: all 0.15s; }
+.deep-link:hover { background: var(--ac); color: #fff; }
+.meth { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--bd); font-size: 14px; color: var(--tm); }
+.meth h2 { font-size: 18px; color: var(--tx); margin-bottom: 10px; }
+.meth p { margin-bottom: 8px; line-height: 1.7; }
+.meth code { font-family: var(--mono); background: var(--sf2); border: 1px solid var(--bd); padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+.foot { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--bd); text-align: center; font-size: 12px; color: var(--td); font-family: var(--mono); }
+.foot a { color: var(--ac); text-decoration: none; } .foot a:hover { text-decoration: underline; }
+@media (max-width: 640px) {
+  .card-top { flex-direction: column; } .avatar { display: none; }
+  .controls { flex-direction: column; } .stats { gap: 6px; }
+  .stat { padding: 5px 8px; min-width: 55px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Washington State Legislature</h1>
+  <div class="subtitle">Financial Disclosure Conflict Screener &middot; CY2025</div>
+  <div class="meta">167 legislators &middot; 49 districts &middot; Updated 2026-04-01</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><span class="stat-n">167</span><span class="stat-l">Screened</span></div>
+  <div class="stat"><span class="stat-n xc">49</span><span class="stat-l">Conflict</span></div>
+  <div class="stat"><span class="stat-n xr">49</span><span class="stat-l">Review</span></div>
+  <div class="stat"><span class="stat-n xm">4</span><span class="stat-l">Monitor</span></div>
+  <div class="stat"><span class="stat-n xl">65</span><span class="stat-l">Clean</span></div>
+  <div class="stat"><span class="stat-n xa">2</span><span class="stat-l">Deep Dives</span></div>
+</div>
+
+<div class="controls">
+  <input type="text" class="search" id="srch" placeholder="Search by name or district number...">
+  <span class="flabel">Status:</span>
+  <button class="fbtn on" data-g="badge" data-f="all">All</button>
+  <button class="fbtn" data-g="badge" data-f="conflict">Conflict</button>
+  <button class="fbtn" data-g="badge" data-f="review">Review</button>
+  <button class="fbtn" data-g="badge" data-f="clean">Clean</button>
+  <span class="flabel">Party:</span>
+  <button class="fbtn on" data-g="party" data-f="all">All</button>
+  <button class="fbtn" data-g="party" data-f="D">D</button>
+  <button class="fbtn" data-g="party" data-f="R">R</button>
+  <span class="flabel">Chamber:</span>
+  <button class="fbtn on" data-g="chamber" data-f="all">All</button>
+  <button class="fbtn" data-g="chamber" data-f="house">House</button>
+  <button class="fbtn" data-g="chamber" data-f="senate">Senate</button>
+  <span class="rcount" id="cnt">31 districts</span>
+</div>
+
+<div id="dists">
+
+    <div class="dist-block" id="ld-statewide">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">Statewide</span>
+          <span class="dist-area">Attorney General, other offices</span>
+        </div>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">AB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Avanti Bergquist</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 200000-499999 from Rental income</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Renton School District (0-29999)</li>
+<li>Dr. Avanti Bergquist, PLLC (60000-99999)</li>
+<li>Kootenai Health (200000-499999)</li>
+<li><em>Spouse:</em> Rental income (200000-499999)</li></ul><ul class="flag-list"><li>Spouse income 200000-499999 from Rental income</li><li>Outside income 60000-99999 from Dr. Avanti Bergquist, PLLC</li><li>Outside income 200000-499999 from Kootenai Health</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>140</b></span>
+          <span class="f1-ref">F1: 132793</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">SH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Sam Hunt</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from Washington State Department of Retirement Systems</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>State of Washington (0-29999)</li>
+<li>Washington State Department of Retirement Systems (30000-59999)</li>
+<li>Social Security Administration (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from Washington State Department of Retirement Systems</li><li>Outside income 30000-59999 from Social Security Administration</li><li>Income &#x27;State of Washington&#x27; matches lobbyist employer &#x27;WASHINGTON STATE ALLIANCE OF YMCAS&#x27; (1 lobby</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>46</b></span>
+          <span class="f1-ref">F1: 130466</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">AH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Adam J Hall</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from State of Washington</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> State of Washington (100000-199999)</li>
+<li>Seattle University (0-29999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from State of Washington</li><li>Income &#x27;State of Washington&#x27; matches lobbyist employer &#x27;WASHINGTON STATE ALLIANCE OF YMCAS&#x27; (1 lobby</li><li>Income &#x27;State of Washington&#x27; matches lobbyist employer &#x27;AAUW OF WASHINGTON STATE&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>45</b></span>
+          <span class="f1-ref">F1: 132539</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">SS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Sarah Sumadi</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Registered lobbyist in household: </div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Everytown for Gun Safety (60000-99999)</li>
+<li><em>Spouse:</em> Seattle Public Schools (100000-199999)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Registered lobbyist in household: </li><li>Spouse income 100000-199999 from Seattle Public Schools</li><li>Outside income 60000-99999 from Everytown for Gun Safety</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>26</b></span>
+          <span class="f1-ref">F1: 131096</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">DE</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Dawn Eychaner</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;Rent&#x27; matches lobbyist employer &#x27;PARENT TRUST FOR WA CHILDREN&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Rent (0-29999)</li>
+<li>Sale of stock investments (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Rent&#x27; matches lobbyist employer &#x27;PARENT TRUST FOR WA CHILDREN&#x27; (1 lobbyists)</li><li>Income &#x27;Rent&#x27; matches lobbyist employer &#x27;PLANNED PARENTHOOD ALLIANCE ADVOCATES&#x27; (3 lobbyists)</li><li>Income &#x27;Rent&#x27; matches lobbyist employer &#x27;CITY OF RENTON&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>24</b></span>
+          <span class="f1-ref">F1: 130500</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">MW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Megan M. Wargacki</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;Rent&#x27; matches lobbyist employer &#x27;PARENT TRUST FOR WA CHILDREN&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Rent (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Rent&#x27; matches lobbyist employer &#x27;PARENT TRUST FOR WA CHILDREN&#x27; (1 lobbyists)</li><li>Income &#x27;Rent&#x27; matches lobbyist employer &#x27;PLANNED PARENTHOOD ALLIANCE ADVOCATES&#x27; (3 lobbyists)</li><li>Income &#x27;Rent&#x27; matches lobbyist employer &#x27;CITY OF RENTON&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>24</b></span>
+          <span class="f1-ref">F1: 131917</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">DH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Daniel A. Himebaugh</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Registered lobbyist in household: </div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Building Industry Association of Washington (0-29999)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Registered lobbyist in household: </li><li>Income &#x27;Building Industry Association of Washington&#x27; matches lobbyist employer &#x27;NONPROFIT ASSOCIATIO</li><li>Income &#x27;Business: Washington Construction Industry Council&#x27; matches lobbyist employer &#x27;CONSTRUCTION </li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>22</b></span>
+          <span class="f1-ref">F1: 129843</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">MP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. MARTIN PRESLEY</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Registered lobbyist in household: </div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Avista (100000-199999)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Registered lobbyist in household: </li><li>Spouse income 100000-199999 from Avista</li><li>Income &#x27;Avista&#x27; matches lobbyist employer &#x27;AVISTA CORP&#x27; (2 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>19</b></span>
+          <span class="f1-ref">F1: 132624</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">SJ</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. SUSAN M. JONES</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;Pierce County&#x27; matches lobbyist employer &#x27;PIERCE COUNTY REGIONAL COUNCIL&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Pierce County (0-29999)</li>
+<li><em>Spouse:</em> Department of Retirement Systems (60000-99999)</li>
+<li>Vanguard Fiduciary Trust Company (0-29999)</li>
+<li><em>Spouse:</em> Social security (30000-59999)</li></ul><ul class="flag-list"><li>Income &#x27;Pierce County&#x27; matches lobbyist employer &#x27;PIERCE COUNTY REGIONAL COUNCIL&#x27; (1 lobbyists)</li><li>Income &#x27;Pierce County&#x27; matches lobbyist employer &#x27;PIERCE COUNTY&#x27; (1 lobbyists)</li><li>Income &#x27;Pierce County&#x27; matches lobbyist employer &#x27;TACOMA-PIERCE COUNTY ASSOCIATION OF REALTORS&#x27; (1 l</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>16</b></span>
+          <span class="f1-ref">F1: 132839</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">HG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. HAYLEY E GAMBLE</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Registered lobbyist in household: </div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Liquor and Cannabis Board (100000-199999)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Registered lobbyist in household: </li><li>Spouse income 100000-199999 from Liquor and Cannabis Board</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>15</b></span>
+          <span class="f1-ref">F1: 132639</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">AC</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. AMANDA G CECIL</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Registered lobbyist in household: </div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Self (0-29999)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Registered lobbyist in household: </li><li>Income &#x27;Self&#x27; matches lobbyist employer &#x27;WA ST SELF STORAGE ASSN&#x27; (2 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>14</b></span>
+          <span class="f1-ref">F1: 133008</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">HH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Hannah M. Sabio Howell</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Washington Community Alliance</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Washington Community Alliance (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Washington Community Alliance</li><li>Income &#x27;Washington Community Alliance&#x27; matches lobbyist employer &#x27;WASHINGTON COMMUNITY ALLIANCE ACTI</li><li>Income &#x27;Business: Northwest Immigrant Rights Project&#x27; matches lobbyist employer &#x27;NORTHWEST IMMIGRANT</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>13</b></span>
+          <span class="f1-ref">F1: 131929</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">WT</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. William R. Trondsen</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Washington State Office of the Insurance Commissioner</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Washington State Office of the Insurance Commissioner (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Washington State Office of the Insurance Commissioner</li><li>Income &#x27;Washington State Office of the Insurance Commissioner&#x27; matches lobbyist employer &#x27;AAUW OF WA</li><li>Income &#x27;Washington State Office of the Insurance Commissioner&#x27; matches lobbyist employer &#x27;THE ARC OF</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>13</b></span>
+          <span class="f1-ref">F1: 131397</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">JM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Morishima, James K.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;University of Washington&#x27; matches lobbyist employer &#x27;UNIVERSITY OF WASHINGTON&#x27; (5 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> University of Washington (60000-99999)</li></ul><ul class="flag-list"><li>Income &#x27;University of Washington&#x27; matches lobbyist employer &#x27;UNIVERSITY OF WASHINGTON&#x27; (5 lobbyists)</li><li>Income &#x27;University of Washington&#x27; matches lobbyist employer &#x27;ASSOCIATED STUDENTS OF THE UNIVERSITY O</li><li>Income &#x27;University of Washington&#x27; matches lobbyist employer &#x27;THE GRADUATE AND PROFESSIONAL STUDENT A</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>12</b></span>
+          <span class="f1-ref">F1: 133003</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">OL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Ohad Michael Lowy</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;Washington State Department of Children, Youth and Families&#x27; matches lobbyist employer &#x27;AAUW OF WASHINGTON STATE&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Washington State Department of Children, Youth and Families (30000-59999)</li></ul><ul class="flag-list"><li>Income &#x27;Washington State Department of Children, Youth and Families&#x27; matches lobbyist employer &#x27;AAUW</li><li>Income &#x27;Business: South Puget Sound K9 Search and Rescue&#x27; matches lobbyist employer &#x27;SOUND&#x27; (1 lobby</li><li>Income &#x27;Business: Thurston County Search &amp; Rescue Council&#x27; matches lobbyist employer &#x27;THURSTON COUNT</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>12</b></span>
+          <span class="f1-ref">F1: 130355</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">SS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Sandra Stith </span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;Costco&#x27; matches lobbyist employer &#x27;COSTCO WHOLESALE&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Costco (30000-59999)</li>
+<li>Principal (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Costco&#x27; matches lobbyist employer &#x27;COSTCO WHOLESALE&#x27; (1 lobbyists)</li><li>Income &#x27;Principal&#x27; matches lobbyist employer &#x27;ASSN OF WA SCHOOL PRINCIPALS&#x27; (4 lobbyists)</li><li>Income &#x27;Principal&#x27; matches lobbyist employer &#x27;WASHINGTON OUTDOOR SCHOOL CONSORTIUM ON BEHALF WA SCHO</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>12</b></span>
+          <span class="f1-ref">F1: 130079</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">DF</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Dan Paul Frizzell</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from Social Security</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Self (0-29999)</li>
+<li>Social Security (30000-59999)</li>
+<li><em>Spouse:</em> Social Security (0-29999)</li>
+<li>PERS 2 (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from Social Security</li><li>Outside income 30000-59999 from PERS 2</li><li>Income &#x27;Self&#x27; matches lobbyist employer &#x27;WA ST SELF STORAGE ASSN&#x27; (2 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>10</b></span>
+          <span class="f1-ref">F1: 131721</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">AH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Alison Hellberg</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Olympia Tumwater Foundation</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Olympia Downtown Alliance (60000-99999)</li>
+<li><em>Spouse:</em> Olympia Tumwater Foundation (100000-199999)</li>
+<li><em>Spouse:</em> rental property (0-29999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Olympia Tumwater Foundation</li><li>Income &#x27;Olympia Tumwater Foundation&#x27; matches lobbyist employer &#x27;OLYMPIA TUMWATER FOUNDATION&#x27; (1 lobb</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>9</b></span>
+          <span class="f1-ref">F1: 131620</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">BO</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Benjamin R Omdal</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Tacoma Public Schools</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Tacoma Public Schools (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Tacoma Public Schools</li><li>Income &#x27;Tacoma Public Schools&#x27; matches lobbyist employer &#x27;TACOMA PUBLIC SCHOOLS&#x27; (2 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>9</b></span>
+          <span class="f1-ref">F1: 131598</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">KE</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. KAREN N. EPPS</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Seattle Shellfish</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Seattle Shellfish (100000-199999)</li>
+<li><em>Spouse:</em> Lease income (0-29999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Seattle Shellfish</li><li>Income &#x27;Business: Pacific Coast Shellfish Growers Association&#x27; matches lobbyist employer &#x27;PACIFIC CO</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>9</b></span>
+          <span class="f1-ref">F1: 132827</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">MS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Matthew T. Shepard-Koningsor</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from City of Federal Way</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> City of Federal Way (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from City of Federal Way</li><li>Income &#x27;City of Federal Way&#x27; matches lobbyist employer &#x27;CITY OF FEDERAL WAY&#x27; (2 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>9</b></span>
+          <span class="f1-ref">F1: 132165</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">SG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Samantha Faye Gatto</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 500000-749999 from DELL</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> DELL (500000-749999)</li></ul><ul class="flag-list"><li>Spouse income 500000-749999 from DELL</li><li>Income &#x27;DELL&#x27; matches lobbyist employer &#x27;DELL TECHNOLOGIES INC. C/O 50 TO 1 LLC&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>9</b></span>
+          <span class="f1-ref">F1: 132419</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">AW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Alma Weber</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from Rental income</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Self employed (0-29999)</li>
+<li><em>Spouse:</em> Rental income (30000-59999)</li>
+<li><em>Spouse:</em> Rental 2 (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from Rental income</li><li>Outside income 30000-59999 from Rental 2</li><li>6 business associations (complex)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>8</b></span>
+          <span class="f1-ref">F1: 133041</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">MP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Melissa Palmer</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;Self&#x27; matches lobbyist employer &#x27;WA ST SELF STORAGE ASSN&#x27; (2 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Self (0-29999)</li>
+<li><em>Spouse:</em> self (0-29999)</li>
+<li><em>Spouse:</em> Renters (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Self&#x27; matches lobbyist employer &#x27;WA ST SELF STORAGE ASSN&#x27; (2 lobbyists)</li><li>Income &#x27;self&#x27; matches lobbyist employer &#x27;WA ST SELF STORAGE ASSN&#x27; (2 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>8</b></span>
+          <span class="f1-ref">F1: 133083</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">TB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Tucker Bronkema</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;Rover&#x27; matches lobbyist employer &#x27;A PLACE FOR ROVER, INC.&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Rover (0-29999)</li>
+<li><em>Spouse:</em> Market Street Research (0-29999)</li>
+<li><em>Spouse:</em> Olympia School District (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Rover&#x27; matches lobbyist employer &#x27;A PLACE FOR ROVER, INC.&#x27; (1 lobbyists)</li><li>Income &#x27;Olympia School District&#x27; matches lobbyist employer &#x27;OLYMPIA SCHOOL DISTRICT&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>8</b></span>
+          <span class="f1-ref">F1: 130803</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">MI</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Maya Itah</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from Pierce County Department of Assigned Counsel</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Pierce County Department of Assigned Counsel (60000-99999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from Pierce County Department of Assigned Counsel</li><li>Income &#x27;Pierce County Department of Assigned Counsel&#x27; matches lobbyist employer &#x27;PIERCE COUNTY&#x27; (1 l</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>7</b></span>
+          <span class="f1-ref">F1: 132446</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">VS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Vini Elizabeth Samuel</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 200000-499999 from Grays Harbor County and State of Washington</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Vini Samuel, Attorney at Law (0-29999)</li>
+<li>Grays Harbor County and State of Washington (200000-499999)</li></ul><ul class="flag-list"><li>Outside income 200000-499999 from Grays Harbor County and State of Washington</li><li>Income &#x27;Grays Harbor County and State of Washington&#x27; matches lobbyist employer &#x27;AAUW OF WASHINGTON S</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>7</b></span>
+          <span class="f1-ref">F1: 132691</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">AO</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Alec Osenbach</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 200000-499999 from Frank Freed Subit and Thomas LLP</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Frank Freed Subit and Thomas LLP (200000-499999)</li>
+<li>Airbnb Rental Income (0-29999)</li></ul><ul class="flag-list"><li>Spouse income 200000-499999 from Frank Freed Subit and Thomas LLP</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 131200</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">BM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Bryon Moore</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Caseload Forecast Council</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Caseload Forecast Council (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Caseload Forecast Council</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 131884</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">CV</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Catherine Veninga</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Walla Walla Community College</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Walla Walla Community College (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Walla Walla Community College</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132797</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">JC</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Clarke, Jordan</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 200000-499999 from Fenwick &amp; West LLP</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Fenwick &amp; West LLP (200000-499999)</li></ul><ul class="flag-list"><li>Spouse income 200000-499999 from Fenwick &amp; West LLP</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132434</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">CR</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Colleen Rust</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Fidelity Investments</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Fidelity Investments (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Fidelity Investments</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132980</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">DM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Daniel B Masterson</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Office of Financial Management</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Office of Financial Management (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Office of Financial Management</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132123</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">DJ</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Daniel J. Jones</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Office of the Attorney General</div>
+          </div>
+        </div>
+        <ul class="flag-list"><li>Spouse income 100000-199999 from Office of the Attorney General</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 131851</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">DM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. David Victor Munnecke</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from North Thurston School District</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> North Thurston School District (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from North Thurston School District</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132012</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">GB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Guy Samuel Bergstrom</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 200000-499999 from Grays Harbor County and State of WA</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Grays Harbor County and State of WA (200000-499999)</li></ul><ul class="flag-list"><li>Spouse income 200000-499999 from Grays Harbor County and State of WA</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132531</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">HL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Heather Lewis-Lechner</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from MultiCare Foundations</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> MultiCare Foundations (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from MultiCare Foundations</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132527</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">CH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Hill, Clayton A.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Department of Children, Youth, &amp; Families</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Department of Children, Youth, &amp; Families (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Department of Children, Youth, &amp; Families</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132051</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">IL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Ingrid Lewis</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from WA AOC</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> WA AOC (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from WA AOC</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 129830</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">JL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Jacob Kean Lipson</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Perkins Coie</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Perkins Coie (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Perkins Coie</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132177</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">JH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Jessica Van Horne</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Washington Permanente P.C.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Oregon Health and Sciences University (30000-59999)</li>
+<li><em>Spouse:</em> Washington Permanente P.C. (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Washington Permanente P.C.</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132056</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">JM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Joe McKittrick</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Sibylline</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Sibylline (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Sibylline</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132466</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">KE</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. KATO AILEY E</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from F5 Networks Inc.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> F5 Networks Inc. (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from F5 Networks Inc.</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132785</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">KF</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Kelsey-Anne Fung</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Office of Financial Management</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Office of Financial Management (100000-199999)</li>
+<li><em>Spouse:</em> Joyce A. Siefering Dynasty Trust (0-29999)</li>
+<li><em>Spouse:</em> WA Paid Family and Medical Leave (0-29999)</li>
+<li>WA Paid Family and Medical Leave (0-29999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Office of Financial Management</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 133007</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">MH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Maria C Hovde</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Army Corps of Engineers</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Army Corps of Engineers (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Army Corps of Engineers</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132178</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">MM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Matt Mazur-Hart</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from US Department of Agriculture</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> US Department of Agriculture (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from US Department of Agriculture</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 133001</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">MM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Megan B. McPhaden</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from States Newsroom</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> States Newsroom (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from States Newsroom</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 133169</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">MG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Melissa J. Van Gorkom</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 500000-749999 from Oracle</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Oracle (500000-749999)</li></ul><ul class="flag-list"><li>Spouse income 500000-749999 from Oracle</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132564</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">MF</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Monica Fontaine</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Employment Security Department</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Employment Security Department (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Employment Security Department</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 131649</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">MM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Morris, Meghan E.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Boyce Construction</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Boyce Construction (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Boyce Construction</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 133203</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">YB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Yelena M. Baker</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Washington State Attorney General</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> DFASIN/JAREA (0-29999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Washington State Attorney General</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 132649</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">BK</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. BRIDGES WILLIAM K</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Business: City of Tacoma, Public Utility Board&#x27; matches lobbyist employer &#x27;CITY OF TACOMA&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Advanced Health Care (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Business: City of Tacoma, Public Utility Board&#x27; matches lobbyist employer &#x27;CITY OF TACOMA&#x27; (</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 131859</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">BP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Brandon M. Popovac</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Olympia School District No. 111&#x27; matches lobbyist employer &#x27;OLYMPIA SCHOOL DISTRICT&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Olympia School District No. 111 (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Olympia School District No. 111&#x27; matches lobbyist employer &#x27;OLYMPIA SCHOOL DISTRICT&#x27; (1 lobb</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 132310</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">ES</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Erik P Smith</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Business: Mainstream Republicans of Thurston County&#x27; matches lobbyist employer &#x27;THURSTON COUNTY&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="flag-list"><li>Income &#x27;Business: Mainstream Republicans of Thurston County&#x27; matches lobbyist employer &#x27;THURSTON COU</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 133006</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">JG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Jeanine M. Gorrell</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;City of Olympia&#x27; matches lobbyist employer &#x27;CITY OF OLYMPIA&#x27; (3 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>City of Olympia (0-29999)</li>
+<li>Little Garden Cafe (0-29999)</li>
+<li>Althauser Rayan Abbarno, LLP (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;City of Olympia&#x27; matches lobbyist employer &#x27;CITY OF OLYMPIA&#x27; (3 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 132524</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">JO</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Jeff Olsen</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Olympia School District&#x27; matches lobbyist employer &#x27;OLYMPIA SCHOOL DISTRICT&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Olympia School District (60000-99999)</li></ul><ul class="flag-list"><li>Income &#x27;Olympia School District&#x27; matches lobbyist employer &#x27;OLYMPIA SCHOOL DISTRICT&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 131259</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">JB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. John C. Burzynski</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Business: Timberland Regional Library Staff Association / American Federation of State, County &amp; Municipal Employees - Local 3758 Base Unit&#x27; matches lobbyist employer &#x27;ASSOCIATION OF AMERICAN PUBLISHERS&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Timberland Regional Library (30000-59999)</li></ul><ul class="flag-list"><li>Income &#x27;Business: Timberland Regional Library Staff Association / American Federation of State, Coun</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 132370</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">DP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Pringle, David T.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Pacific Lutheran University&#x27; matches lobbyist employer &#x27;PACIFIC LUTHERAN UNIVERSITY&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Pacific Lutheran University (60000-99999)</li>
+<li>Rental income (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Pacific Lutheran University&#x27; matches lobbyist employer &#x27;PACIFIC LUTHERAN UNIVERSITY&#x27; (1 lobb</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 131608</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">SP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Pskowski, Samantha</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Fresenius Medical Care North America&#x27; matches lobbyist employer &#x27;FRESENIUS MEDICAL CARE&#x27; (2 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Fresenius Medical Care North America (60000-99999)</li></ul><ul class="flag-list"><li>Income &#x27;Fresenius Medical Care North America&#x27; matches lobbyist employer &#x27;FRESENIUS MEDICAL CARE&#x27; (2 </li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 132832</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">LW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Wickham, Luke S.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Olympia School District&#x27; matches lobbyist employer &#x27;OLYMPIA SCHOOL DISTRICT&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Olympia School District (0-29999)</li>
+<li><em>Spouse:</em> Renters at 1322 Central Street (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Olympia School District&#x27; matches lobbyist employer &#x27;OLYMPIA SCHOOL DISTRICT&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 131433</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-monitoring">JM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Jennifer H. Masterson</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-monitoring">Monitoring</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from Office of Financial Management</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Office of Financial Management (100000-199999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from Office of Financial Management</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>3</b></span>
+          <span class="f1-ref">F1: 132915</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-monitoring">KS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Kyle D. Siefering</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-monitoring">Monitoring</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from Office of Financial Management</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Office of Financial Management (100000-199999)</li>
+<li>Joyce A. Siefering Dynasty Trust (0-29999)</li>
+<li>WA Paid Family and Medical Leave (0-29999)</li>
+<li><em>Spouse:</em> WA Paid Family and Medical Leave (0-29999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from Office of Financial Management</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>3</b></span>
+          <span class="f1-ref">F1: 133018</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-monitoring">NG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Nicholas David George</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-monitoring">Monitoring</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from Grays Harbor County</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Grays Harbor County (60000-99999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from Grays Harbor County</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>3</b></span>
+          <span class="f1-ref">F1: 132174</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">AB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Alex Bond</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132414</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">AT</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Anthony Nicholas Trujillo</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132634</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">AG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Anton Grose</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Archbright (60000-99999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132266</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">AV</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Audrey Vasek</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Rainier School District No. 307 (60000-99999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132270</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">BC</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. BANNISTER SARAH C</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Fastenal (30000-59999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131687</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">CL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Carolina Landa</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131345</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">CW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Christine L. Thomas Walker</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131621</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">MC</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Clogston, Mary</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131842</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">CB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Colby James Buell</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130956</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">CN</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Corban Nemeth</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Talentlign, Inc. (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 133011</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">CP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Corey Shea Patton</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Resort Association Partners LLC (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130538</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">DQ</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Dana C. Quam</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 133064</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">DM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Daniel J. McDonald</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Ethereum network (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132875</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">DT</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Dawn M Thomas</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>City of Montesano (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132179</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">EB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Elena Becker</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130269</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">ER</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Elizabeth N. Rehn</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130505</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">EK</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Erik Vaughn Kiffe</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130564</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">GV</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Gregory Vogel</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130373</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">JK</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. James Kettel</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131264</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">JS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Jarrett K Sacks</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130432</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">JF</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Jenna Forty</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130664</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">JH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Jennifer M. Hansen</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131366</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">JT</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Julie Tran</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131809</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">KL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Kathleen Lawrence</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Martin Brower (60000-99999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131925</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">PK</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Kitchen, Peter</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132426</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">KK</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Kristina Elizabeth King</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131516</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">XL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Li, Xianyu</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132558</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">LM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Linda J. Merelle</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132633</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">MC</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Marissa Ann Chavez</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Rental income on rental property (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 129905</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">MW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Martha Wehling</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130927</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="D" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">MH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Mary Amanda Hubik</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>City of Anacortes (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132006</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">MB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Matthew J Bridges</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130898</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">MA</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Mayowa Aina</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131195</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">EM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. McCarley, Erik J.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131613</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">MM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Megan M. Mulvihill</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Brett Mulvihill (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131846</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">MA</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Michele L. Alishahi</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 133016</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">NH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Natalie Hart</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132471</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">OH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Omeara E. Harrington</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132975</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">PA</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Paulette R Avalos</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Department of Ecology (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131196</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">KP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Payne, Kelley</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132676</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">RH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Rachelle Harris</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130764</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">RP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Rebecca Podszus</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Paid Family Medical Leave Program (WA State Employment Security Dept.) (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132646</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">RL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Richard Kent Livingston</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Evergreen School District (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132182</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">AR</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Ruble, Amy E.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Pilates Bodies in Motion (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132948</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">RG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Ryan Giannini</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131843</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">RS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Ryan James Simonis</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131993</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">SS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. SARIAN SCOTT</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131796</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">SB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Samuel D. Brown</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132189</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">JS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Sattgast, John M.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Exceptional Foresters, Inc. (0-29999)</li>
+<li>Burger Management Systems Washington In (0-29999)</li>
+<li><em>Spouse:</em> Social Security Administration (0-29999)</li>
+<li>Social Security Administration (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132688</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">SR</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Saundra D. Richartz</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130862</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">SD</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Serena Dolly</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Gallatin Valley YMCA (0-29999)</li>
+<li>Discovery Kid Zone (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131731</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">SB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Shani L. Bauer</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Rental income (0-29999)</li>
+<li><em>Spouse:</em> Rental Income (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 130078</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">SJ</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Sydney Victoria Aliya Jeffrey</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132802</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">TT</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Tango, Trudes</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132712</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">TT</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Taylor, Tracey L.</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131602</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">TL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Tianyi Lan</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131648</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">TP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Trevor Press </span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132220</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">WM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. WIRTZ KIMBERLY M</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Eastside Club (0-29999)</li>
+<li>Firecracker Media Strategies, LLC (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132871</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">WB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Wendy Brown</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132637</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">YW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Yvonne Walker</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131915</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="dist-block hot" id="ld-02">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 02</span>
+          
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">AB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Andrew Barkis</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from Washington State</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Washington State (60000-99999)</li>
+<li>Hometown Property Management Inc (100000-199999)</li>
+<li><em>Spouse:</em> Hometown Property Management Inc (60000-99999)</li>
+<li>Rent (60000-99999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from Washington State</li><li>Outside income 100000-199999 from Hometown Property Management Inc</li><li>Outside income 60000-99999 from Rent</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>151</b></span>
+          <span class="f1-ref">F1: 133192</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">CT</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Christopher F. Thomas</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 200000-499999 from Gene C &amp; Beverly A. Thomas Trust</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Public Hospital District #2 (0-29999)</li>
+<li>Gene C &amp; Beverly A. Thomas Trust (200000-499999)</li></ul><ul class="flag-list"><li>Outside income 200000-499999 from Gene C &amp; Beverly A. Thomas Trust</li><li>Income &#x27;Public Hospital District #2&#x27; matches lobbyist employer &#x27;SAMARITAN HEALTHCARE (GRANT COUNTY P</li><li>Income &#x27;Public Hospital District #2&#x27; matches lobbyist employer &#x27;SKAGIT COUNTY PUBLIC HOSPITAL DISTRI</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>19</b></span>
+          <span class="f1-ref">F1: 131285</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-04">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 04</span>
+          
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">LC</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. LEONARD G CHRISTIAN</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from VA</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Self employed (0-29999)</li>
+<li>Defense Finance (0-29999)</li>
+<li>VA (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from VA</li><li>Income &#x27;VA&#x27; matches lobbyist employer &#x27;VALLEY MEDICAL CENTER&#x27; (1 lobbyists)</li><li>Income &#x27;VA&#x27; matches lobbyist employer &#x27;ELEVANCE HEALTH, AND ITS AFFILIATES&#x27; (3 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>223</b></span>
+          <span class="f1-ref">F1: 130043</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">SS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Suzanne Annette Schmidt</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> U.S. Army Corps of Engineers (60000-99999)</li>
+<li><em>Spouse:</em> U.S. Army Coprs of Engineers (60000-99999)</li>
+<li><em>Spouse:</em> Sale of Stocks (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132758</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-07">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 07</span>
+          
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="R" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">HA</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Hunter Magnuson Abell</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 200000-499999 from Williams Kastner &amp; Gibbs, PLLC</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Williams Kastner &amp; Gibbs, PLLC (200000-499999)</li>
+<li>United States Navy - Defense Finance Accounting Service (0-29999)</li></ul><ul class="flag-list"><li>Outside income 200000-499999 from Williams Kastner &amp; Gibbs, PLLC</li><li>Income &#x27;Business: Ferry County Bar Association&#x27; matches lobbyist employer &#x27;KING COUNTY BAR ASSOCIATI</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>7</b></span>
+          <span class="f1-ref">F1: 133251</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-09">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 09</span>
+          
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">MS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Mark Schoesler</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from USDA Farm Service Agency</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>USDA Farm Service Agency (100000-199999)</li>
+<li>Schoesler Farming &amp; Ranching (100000-199999)</li>
+<li>Self-Employed (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from USDA Farm Service Agency</li><li>Outside income 100000-199999 from Schoesler Farming &amp; Ranching</li><li>Outside income 30000-59999 from Self-Employed</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>10</b></span>
+          <span class="f1-ref">F1: 131461</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">JS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Joe Schmick</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from Affiliated Services LLC</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Affiliated Services LLC (30000-59999)</li>
+<li><em>Spouse:</em> People 4 Schmick (0-29999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from Affiliated Services LLC</li><li>Career fundraising: $773,735</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 132120</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-10">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 10</span>
+          <span class="dist-area">Island County, Skagit, Whidbey</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="D" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">CS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Clyde Shavers</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from WA State Legislature</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>WA State Legislature (60000-99999)</li>
+<li>Lyda Law Firm (100000-199999)</li>
+<li>Department of Veterans Affairs (0-29999)</li>
+<li>Investment Property (0-29999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from WA State Legislature</li><li>Outside income 100000-199999 from Lyda Law Firm</li><li>Career fundraising: $968,278</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>7</b></span>
+          <span class="f1-ref">F1: 133072</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-11">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 11</span>
+          <span class="dist-area">Renton, Tukwila, White Center</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">SB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. STEVEN BERGQUIST</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 200000-499999 from Kootenai Health</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Washington State House or Representatives (60000-99999)</li>
+<li>Renton School District (0-29999)</li>
+<li><em>Spouse:</em> Dr. Avanti Bergquist, PLLC (60000-99999)</li>
+<li><em>Spouse:</em> Kootenai Health (200000-499999)</li></ul><ul class="flag-list"><li>Spouse income 200000-499999 from Kootenai Health</li><li>Spouse income 200000-499999 from Rental income</li><li>Outside income 200000-499999 from Rental income</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>135</b></span>
+          <span class="f1-ref">F1: 132794</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-12">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 12</span>
+          <span class="dist-area">Wenatchee, Ellensburg, Chelan</span>
+        </div>
+        <span class="dist-count">3 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">KG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Keith W. Goehner</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from Dept of the Treasury</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>State of Washington (0-29999)</li>
+<li><em>Spouse:</em> State of Washington (0-29999)</li>
+<li>Dept of the Treasury (30000-59999)</li>
+<li><em>Spouse:</em> Dept of Treasury (0-29999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from Dept of the Treasury</li><li>Income &#x27;State of Washington&#x27; matches lobbyist employer &#x27;WASHINGTON STATE ALLIANCE OF YMCAS&#x27; (1 lobby</li><li>Income &#x27;State of Washington&#x27; matches lobbyist employer &#x27;AAUW OF WASHINGTON STATE&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>79</b></span>
+          <span class="f1-ref">F1: 132742</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">BB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Brian Burnett</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from Seattle&#x27;s Finest Security &amp; Traffic Control</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Seattle&#x27;s Finest Security &amp; Traffic Control (60000-99999)</li>
+<li>Washington State Sheriffs Association (0-29999)</li>
+<li><em>Spouse:</em> do Terra (0-29999)</li>
+<li>Ethan Burnett (0-29999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from Seattle&#x27;s Finest Security &amp; Traffic Control</li><li>Income &#x27;Seattle&#x27;s Finest Security &amp; Traffic Control&#x27; matches lobbyist employer &#x27;SEATTLE&#x27;S FINEST SEC</li><li>Income &#x27;Washington State Sheriffs Association&#x27; matches lobbyist employer &#x27;WASHINGTON STATE VETERINAR</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>51</b></span>
+          <span class="f1-ref">F1: 132328</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">MS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Michael A. Steele</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from Lake Chelan Chamber of Commerce</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Lake Chelan Chamber of Commerce (100000-199999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from Lake Chelan Chamber of Commerce</li><li>Income &#x27;Lake Chelan Chamber of Commerce&#x27; matches lobbyist employer &#x27;BELLEVUE CHAMBER OF COMMERCE&#x27; (2</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>7</b></span>
+          <span class="f1-ref">F1: 132753</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-18">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 18</span>
+          <span class="dist-area">Vancouver, Camas, Washougal</span>
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="D" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">AC</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Adrian E. Cortes</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from Camas School District</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Camas School District (100000-199999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from Camas School District</li><li>Career fundraising: $503,102</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 130722</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">MA</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. MCCLINTOCK STEPHANIE A</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from United Grain Corporation</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>United Grain Corporation (100000-199999)</li>
+<li>Washington State (60000-99999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from United Grain Corporation</li><li>Outside income 60000-99999 from Washington State</li><li>Income &#x27;Washington State&#x27; matches lobbyist employer &#x27;WASHINGTON STATE ALLIANCE OF YMCAS&#x27; (1 lobbyist</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>118</b></span>
+          <span class="f1-ref">F1: 133062</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-19">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 19</span>
+          <span class="dist-area">Long Beach, Centralia, Chehalis</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="R" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">SW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Stephen Jeffrey Wilson</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Income &#x27;Port Of Longview&#x27; matches lobbyist employer &#x27;PORT OF LONGVIEW&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Port Of Longview (0-29999)</li></ul><ul class="flag-list"><li>Income &#x27;Port Of Longview&#x27; matches lobbyist employer &#x27;PORT OF LONGVIEW&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 130739</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-20">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 20</span>
+          <span class="dist-area">Lacey, Tumwater</span>
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">PA</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Peter Abbarno</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 200000-499999 from Althauser Rayan Abbarno, LLP</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Althauser Rayan Abbarno, LLP (200000-499999)</li>
+<li><em>Spouse:</em> Centralia School District (60000-99999)</li>
+<li><em>Spouse:</em> Centralia College (0-29999)</li>
+<li><em>Spouse:</em> Centralia Christian School (0-29999)</li></ul><ul class="flag-list"><li>Outside income 200000-499999 from Althauser Rayan Abbarno, LLP</li><li>Income &#x27;Business: United Way of Lewis County&#x27; matches lobbyist employer &#x27;LEWIS COUNTY&#x27; (3 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>7</b></span>
+          <span class="f1-ref">F1: 131606</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">EO</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Edmund T Orcutt</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Cascade Forest Management (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132804</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-21">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 21</span>
+          <span class="dist-area">Edmonds, Lynnwood, Mountlake Terrace</span>
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">SP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Strom Peterson</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 200000-499999 from MAM Consulting</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>State of Washington (60000-99999)</li>
+<li>Snohomish County (100000-199999)</li>
+<li><em>Spouse:</em> MAM Consulting (200000-499999)</li>
+<li>rental payment (0-29999)</li></ul><ul class="flag-list"><li>Spouse income 200000-499999 from MAM Consulting</li><li>Outside income 60000-99999 from State of Washington</li><li>Outside income 100000-199999 from Snohomish County</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>63</b></span>
+          <span class="f1-ref">F1: 132041</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">LO</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Lillian Ortiz-Self</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Spain Abroad (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 131716</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-22">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 22</span>
+          <span class="dist-area">Olympia, Tumwater</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">P"</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. PARSHLEY DOROTHY E &quot;Lisa&quot;</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from BluePearl Vet, LLC</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>BluePearl Vet, LLC (60000-99999)</li>
+<li>City of Olympia (0-29999)</li>
+<li><em>Spouse:</em> BluePearl Vet, LLC (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from BluePearl Vet, LLC</li><li>Outside income 60000-99999 from BluePearl Vet, LLC</li><li>Income &#x27;City of Olympia&#x27; matches lobbyist employer &#x27;CITY OF OLYMPIA&#x27; (3 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>12</b></span>
+          <span class="f1-ref">F1: 132357</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-23">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 23</span>
+          <span class="dist-area">Bainbridge Island, Gig Harbor, Sequim</span>
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">DH</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Drew Hansen</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 200000-499999 from Susman Godfrey LLP</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Susman Godfrey LLP (200000-499999)</li></ul><ul class="flag-list"><li>Outside income 200000-499999 from Susman Godfrey LLP</li><li>Career fundraising: $880,287</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 131047</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">GN</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Greg Nance</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Income &#x27;Business: Kitsap Mental Health Services&#x27; matches lobbyist employer &#x27;COLUMBIA RIVER MENTAL HEALTH SERVICES&#x27; (1 lobbyists)</div>
+          </div>
+        </div>
+        <ul class="flag-list"><li>Income &#x27;Business: Kitsap Mental Health Services&#x27; matches lobbyist employer &#x27;COLUMBIA RIVER MENTAL HE</li><li>Income &#x27;Business: Kitsap Mental Health Services&#x27; matches lobbyist employer &#x27;KITSAP MENTAL HEALTH SER</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>8</b></span>
+          <span class="f1-ref">F1: 133201</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-24">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 24</span>
+          <span class="dist-area">Olympic Peninsula, Forks, Aberdeen</span>
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="D" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">AB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Adam Bernbaum</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Spanaway Water Company</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Spanaway Water Company (100000-199999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Spanaway Water Company</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>5</b></span>
+          <span class="f1-ref">F1: 133152</span>
+          <a href="profiles/bernbaum.html" class="deep-link">Full Analysis &rarr;</a>
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="D" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">ST</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Steve Tharinger</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from Social Security Administration</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Social Security Administration (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from Social Security Administration</li><li>Career fundraising: $569,416</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 132844</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-25">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 25</span>
+          <span class="dist-area">Puyallup, South Prairie, Sumner</span>
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="R" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">CG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Chris Gildon</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from US Army</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Marshall&#x27;s Enterprises (0-29999)</li>
+<li>Marshalls Enterprises (0-29999)</li>
+<li>US Army (60000-99999)</li>
+<li>US Army (0-29999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from US Army</li><li>Outside income 30000-59999 from Rental Property</li><li>Career fundraising: $576,239</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>7</b></span>
+          <span class="f1-ref">F1: 132540</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">MK</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Michael D Keaton</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from MTSI</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>MTSI (60000-99999)</li>
+<li>USAF (30000-59999)</li>
+<li>Raytheon Technologies (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from MTSI</li><li>Outside income 30000-59999 from USAF</li><li>Outside income 30000-59999 from Raytheon Technologies</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>9</b></span>
+          <span class="f1-ref">F1: 133196</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-26">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 26</span>
+          <span class="dist-area">Kitsap, Bremerton, Port Orchard</span>
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">KM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. KRISHNADASAN DEBORAH M</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 750000-999999 from Pulse Heart Institute / MultiCare Health Systems</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Pulse Heart Institute / MultiCare Health Systems (750000-999999)</li>
+<li><em>Spouse:</em> Intuitive Surgical (60000-99999)</li></ul><ul class="flag-list"><li>Spouse income 750000-999999 from Pulse Heart Institute / MultiCare Health Systems</li><li>Income &#x27;Pulse Heart Institute / MultiCare Health Systems&#x27; matches lobbyist employer &#x27;MULTICARE HEALT</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>9</b></span>
+          <span class="f1-ref">F1: 132945</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">MV</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Michelle Valdez</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Subaru of Puyallup</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Subaru of Puyallup (100000-199999)</li>
+<li>Berkshire Life Insurance Company (30000-59999)</li>
+<li>Rental Income (30000-59999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Subaru of Puyallup</li><li>Outside income 30000-59999 from Berkshire Life Insurance Company</li><li>Outside income 30000-59999 from Rental Income</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>20</b></span>
+          <span class="f1-ref">F1: 130133</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-28">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 28</span>
+          <span class="dist-area">Lakewood, University Place</span>
+        </div>
+        <span class="dist-count">2 members</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-monitoring">TN</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. T&#x27;wina Nobles</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-monitoring">Monitoring</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from American Leadership Forum</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>American Leadership Forum (100000-199999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from American Leadership Forum</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>3</b></span>
+          <span class="f1-ref">F1: 132308</span>
+          
+        </div>
+      </div>
+
+      <div class="leg-card bg-review" data-party="D" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">DB</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Daniel A. Bronoske</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from Pierce Co. Fire Dist. No.3</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Pierce Co. Fire Dist. No.3 (100000-199999)</li>
+<li><em>Spouse:</em> State of WA Department of Revenue (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from Pierce Co. Fire Dist. No.3</li><li>Career fundraising: $622,229</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 132681</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block" id="ld-29">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 29</span>
+          <span class="dist-area">Tacoma (north), Fircrest</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-clean" data-party="D" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-clean">MM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Melanie Morgan</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 133021</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-30">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 30</span>
+          <span class="dist-area">Federal Way, Des Moines</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="D" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-review">CW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Claire Wilson</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from Social Security Administration</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Social Security Administration (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from Social Security Administration</li><li>Career fundraising: $888,570</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>4</b></span>
+          <span class="f1-ref">F1: 130725</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-34">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 34</span>
+          <span class="dist-area">West Seattle, Burien, Vashon</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-review">EA</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Emily Alvarado</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-review">Needs Review</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from Enterprise Community Partners</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Enterprise Community Partners (100000-199999)</li>
+<li><em>Spouse:</em> Recreational Equipment, Inc. (60000-99999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from Enterprise Community Partners</li><li>Income &#x27;Enterprise Community Partners&#x27; matches lobbyist employer &#x27;ENTERPRISE COMMUNITY PARTNERS, INC</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>7</b></span>
+          <span class="f1-ref">F1: 133053</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-35">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 35</span>
+          <span class="dist-area">Mason County, Shelton, Belfair</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">DM</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Drew C. MacEwen</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from The 612 Group LLC</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Falcon Financial Inc (100000-199999)</li>
+<li><em>Spouse:</em> PNW Hospitality (0-29999)</li>
+<li><em>Spouse:</em> The 612 Group LLC (100000-199999)</li>
+<li>Skookum Creek (0-29999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from The 612 Group LLC</li><li>Outside income 100000-199999 from Falcon Financial Inc</li><li>Income &#x27;VA&#x27; matches lobbyist employer &#x27;VALLEY MEDICAL CENTER&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>231</b></span>
+          <span class="f1-ref">F1: 132313</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-37">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 37</span>
+          <span class="dist-area">Beacon Hill, Rainier Valley, Columbia City</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">CS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Chipalo Street</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Leone Solution Group</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Microsoft (200000-499999)</li>
+<li><em>Spouse:</em> Leone Solution Group (100000-199999)</li>
+<li>Rental income (60000-99999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Leone Solution Group</li><li>Outside income 200000-499999 from Microsoft</li><li>Outside income 60000-99999 from Rental income</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>23</b></span>
+          <span class="f1-ref">F1: 133116</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-39">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 39</span>
+          <span class="dist-area">Snohomish, Lake Stevens, Arlington</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">KW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Keith L. Wagoner</span>
+              <span class="party-pill party-r">R</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from Washington State Legislature</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Washington State Legislature (60000-99999)</li>
+<li>Defense Finance and Accounting (60000-99999)</li>
+<li><em>Spouse:</em> Rental income from Oak Harbor property (30000-59999)</li>
+<li><em>Spouse:</em> Rental income from Mount Vernon property (30000-59999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from Washington State Legislature</li><li>Outside income 60000-99999 from Defense Finance and Accounting</li><li>Outside income 30000-59999 from Rental income from Oak Harbor property</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>12</b></span>
+          <span class="f1-ref">F1: 133115</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-40">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 40</span>
+          <span class="dist-area">Bellingham, San Juan Islands</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">AR</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Alexander W Ramel</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from Washington State</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>Washington State (60000-99999)</li>
+<li>100% Possible LLC (0-29999)</li>
+<li>Rental (0-29999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from Washington State</li><li>Income &#x27;Washington State&#x27; matches lobbyist employer &#x27;WASHINGTON STATE ALLIANCE OF YMCAS&#x27; (1 lobbyist</li><li>Income &#x27;Washington State&#x27; matches lobbyist employer &#x27;WASHINGTON STATE VETERINARY MEDICAL ASSOCIATION</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>123</b></span>
+          <span class="f1-ref">F1: 132883</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-41">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 41</span>
+          <span class="dist-area">Bellevue (east), Mercer Island</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">MT</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. My-Linh Thai</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 200000-499999 from Valley Medical Center</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> Valley Medical Center (200000-499999)</li>
+<li><em>Spouse:</em> Rental (0-29999)</li>
+<li><em>Spouse:</em> Rental (0-29999)</li>
+<li><em>Spouse:</em> Rental (30000-59999)</li></ul><ul class="flag-list"><li>Spouse income 200000-499999 from Valley Medical Center</li><li>Outside income 30000-59999 from Rental</li><li>Income &#x27;Valley Medical Center&#x27; matches lobbyist employer &#x27;VALLEY MEDICAL CENTER&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>36</b></span>
+          <span class="f1-ref">F1: 133217</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-43">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 43</span>
+          <span class="dist-area">Capitol Hill, Fremont, Wallingford</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">JP</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Jamie Pedersen</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Spouse income 100000-199999 from Seattle Public Schools</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>McKinstry Co., LLC (500000-749999)</li>
+<li><em>Spouse:</em> Seattle Public Schools (100000-199999)</li>
+<li>McKinstry Co., LLC (30000-59999)</li>
+<li>McKinstry Essention, LLC (60000-99999)</li></ul><ul class="flag-list"><li>Spouse income 100000-199999 from Seattle Public Schools</li><li>Outside income 500000-749999 from McKinstry Co., LLC</li><li>Outside income 30000-59999 from McKinstry Co., LLC</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>41</b></span>
+          <span class="f1-ref">F1: 132680</span>
+          <a href="profiles/pedersen.html" class="deep-link">Full Analysis &rarr;</a>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-44">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 44</span>
+          <span class="dist-area">Marysville, Tulalip, Lake Stevens</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="D" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">JL</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Johnny R. Lovick</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 60000-99999 from WA State Patrol</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> NA (0-29999)</li>
+<li>WA State Patrol (60000-99999)</li>
+<li>Social Security Administration (0-29999)</li>
+<li>Dept of Veterans Affairs (0-29999)</li></ul><ul class="flag-list"><li>Outside income 60000-99999 from WA State Patrol</li><li>Income &#x27;NA&#x27; matches lobbyist employer &#x27;WASTE MANAGEMENT OF WASHINGTON, INC.&#x27; (2 lobbyists)</li><li>Income &#x27;NA&#x27; matches lobbyist employer &#x27;NATL ELECTRICAL CONTRACTORS ASSN&#x27; (1 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>624</b></span>
+          <span class="f1-ref">F1: 132280</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-45">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 45</span>
+          <span class="dist-area">Redmond, Kirkland, Woodinville</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="D" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">LS</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Larry Springer</span>
+              <span class="party-pill party-d">D</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from State of Washington</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>State of Washington (30000-59999)</li>
+<li><em>Spouse:</em> City of KIrkland (30000-59999)</li>
+<li><em>Spouse:</em> SSA (60000-99999)</li>
+<li>Mark Evich (0-29999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from State of Washington</li><li>Outside income 60000-99999 from SSA</li><li>Outside income 30000-59999 from Social Security Admin</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>74</b></span>
+          <span class="f1-ref">F1: 132666</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-46">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 46</span>
+          <span class="dist-area">Lake City, Northgate, U-District</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-conflict">JV</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. Javier Valdez</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 100000-199999 from City of Seattle</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li>City of Seattle (100000-199999)</li>
+<li>State of Washington (60000-99999)</li></ul><ul class="flag-list"><li>Outside income 100000-199999 from City of Seattle</li><li>Outside income 60000-99999 from State of Washington</li><li>Income &#x27;City of Seattle&#x27; matches lobbyist employer &#x27;CITY OF SEATTLE&#x27; (3 lobbyists)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>46</b></span>
+          <span class="f1-ref">F1: 130824</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block" id="ld-47">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 47</span>
+          <span class="dist-area">Auburn, Covington, Kent</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate">
+        <div class="card-top">
+          <div class="avatar av-clean">KG</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Sen. KAUFFMAN CLAUDIA G</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-clean">Clean Pass</span>
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> United States Social Security (0-29999)</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>0</b></span>
+          <span class="f1-ref">F1: 132661</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block hot" id="ld-49">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 49</span>
+          <span class="dist-area">Vancouver (south), Hazel Dell</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house">
+        <div class="card-top">
+          <div class="avatar av-conflict">SW</div>
+          <div class="card-info">
+            <div class="name-row">
+              <span class="card-name">Rep. Sharon Wylie</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="badge-pill bp-conflict">Conflict</span>
+            </div>
+            <div class="card-summary">Outside income 30000-59999 from Social Security</div>
+          </div>
+        </div>
+        <ul class="inc-list"><li><em>Spouse:</em> self employed (0-29999)</li>
+<li>Social Security (30000-59999)</li>
+<li><em>Spouse:</em> Social Security (0-29999)</li>
+<li><em>Spouse:</em> Washington State Department of Retirement Systems (60000-99999)</li></ul><ul class="flag-list"><li>Outside income 30000-59999 from Social Security</li><li>Income &#x27;Washington State Department of Retirement Systems&#x27; matches lobbyist employer &#x27;AAUW OF WASHIN</li><li>Career fundraising: $573,786</li></ul>
+        <div class="card-foot">
+          <span class="score-lbl">Score: <b>8</b></span>
+          <span class="f1-ref">F1: 131699</span>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+<div class="meth">
+  <h2>Methodology</h2>
+  <p>Every card is generated from three public databases: F1 disclosures
+  (<code>ehbc-shxw</code>), campaign contributions (<code>kv7h-kjye</code>),
+  and lobbyist registrations (<code>xhn7-64im</code>), all on
+  <a href="https://data.wa.gov" style="color:var(--ac)">data.wa.gov</a>.</p>
+  <p>Scores reflect structural overlap between financial interests and legislative
+  authority. A high score is not an accusation. Legislators with a "Full Analysis"
+  link have been investigated beyond the automated screen.</p>
+</div>
+
+<div class="foot">
+  <a href="/">Sunshine Docket</a> &middot;
+  <a href="mailto:sunshinedocket@proton.me">Tips</a> &middot;
+  Data from <a href="https://data.wa.gov">data.wa.gov</a>
+</div>
+
+</div>
+<script>
+(function() {
+  const blocks = document.querySelectorAll('.dist-block');
+  const search = document.getElementById('srch');
+  const countEl = document.getElementById('cnt');
+
+  const filters = { badge: 'all', party: 'all', chamber: 'all' };
+
+  function getBadge(card) {
+    if (card.className.includes('bg-conflict')) return 'conflict';
+    if (card.className.includes('bg-review')) return 'review';
+    if (card.className.includes('bg-monitoring')) return 'monitoring';
+    return 'clean';
+  }
+
+  function run() {
+    const q = search.value.toLowerCase();
+    let shown = 0;
+    blocks.forEach(block => {
+      const cards = block.querySelectorAll('.leg-card');
+      let anyVisible = false;
+      cards.forEach(card => {
+        const name = card.querySelector('.card-name').textContent.toLowerCase();
+        const distId = block.id.replace('ld-', '');
+        const badge = getBadge(card);
+        const party = card.dataset.party || '';
+        const chamber = card.dataset.chamber || '';
+
+        const mBadge = filters.badge === 'all' || badge === filters.badge;
+        const mParty = filters.party === 'all' || party === filters.party;
+        const mChamber = filters.chamber === 'all' || chamber === filters.chamber;
+        const mSearch = !q || name.includes(q) || distId.includes(q);
+
+        if (mBadge && mParty && mChamber && mSearch) {
+          card.style.display = '';
+          anyVisible = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      block.style.display = anyVisible ? '' : 'none';
+      if (anyVisible) shown++;
+    });
+    countEl.textContent = shown + ' district' + (shown !== 1 ? 's' : '');
+  }
+
+  document.querySelectorAll('.fbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.g;
+      document.querySelectorAll('.fbtn[data-g="' + group + '"]').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      filters[group] = btn.dataset.f;
+      run();
+    });
+  });
+
+  search.addEventListener('input', run);
+
+  document.querySelectorAll('.dist-head').forEach(h => {
+    h.addEventListener('click', () => {
+      const members = h.nextElementSibling;
+      members.style.display = members.style.display === 'none' ? '' : 'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>
