@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We Score | Sunshine Docket</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --surface: #151515; --surface-2: #1c1c1c; --border: #262626;
+  --text: #e0e0e0; --text-muted: #999; --text-dim: #5a5a5a;
+  --accent: #5b9bd5; --conflict: #d94040; --review: #d98c40;
+  --monitoring: #c4b830; --clean: #40b868;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --surface: #fff; --surface-2: #fafaf8; --border: #e4e2dc;
+    --text: #1a1a1a; --text-muted: #666; --text-dim: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--text); line-height: 1.75; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
+a { color: var(--accent); }
+
+header { margin-bottom: 40px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+header h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 6px; }
+header .sub { font-size: 15px; color: var(--text-muted); font-style: italic; }
+.back { font-family: var(--mono); font-size: 13px; margin-bottom: 24px; display: block; }
+
+h2 { font-size: 21px; font-weight: 700; margin-top: 36px; margin-bottom: 14px; }
+h3 { font-size: 17px; font-weight: 600; margin-top: 24px; margin-bottom: 10px; color: var(--text-muted); }
+p { margin-bottom: 14px; }
+
+.factor {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.factor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.factor-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+.factor-pts {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--conflict);
+  background: rgba(217,64,64,0.1);
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+.factor p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.factor .example {
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--text-dim);
+  border-left: 2px solid var(--border);
+  padding-left: 12px;
+  margin-top: 8px;
+}
+
+.badge-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.badge-card {
+  flex: 1;
+  min-width: 140px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.badge-card .score-range {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+.badge-card .badge-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.badge-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+.b-conflict { background: var(--conflict); }
+.b-review { background: var(--review); }
+.b-monitoring { background: var(--monitoring); }
+.b-clean { background: var(--clean); }
+
+.not-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin: 24px 0;
+}
+.not-box p { margin-bottom: 8px; }
+.not-box p:last-child { margin-bottom: 0; }
+
+.sources {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin: 24px 0;
+}
+.sources h3 { margin-top: 0; }
+.source-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: baseline;
+}
+.source-label {
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 140px;
+}
+.source-url {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .badge-row { flex-direction: column; }
+  .source-item { flex-direction: column; gap: 2px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a href="/" class="back">&larr; Back to Sunshine Docket</a>
+
+<header>
+  <h1>How We Score</h1>
+  <div class="sub">The methodology behind every card on this site</div>
+</header>
+
+<h2>What we do</h2>
+<p>Every legislator in Washington State files a financial disclosure called an F1. It lists their income, their spouse's income, any businesses they own, and whether anyone in their household is a registered lobbyist. Separately, the state publishes all campaign donations and all lobbyist registrations.</p>
+<p>These three databases are public. All on data.wa.gov. None of them are cross-referenced by the state.</p>
+<p>We built a tool that connects them and flags structural overlaps between a legislator's financial interests and their legislative authority.</p>
+
+<h2>The six factors</h2>
+<p>The screener checks each legislator against six criteria. Points accumulate. Higher scores mean more structural overlap.</p>
+
+<div class="factor">
+  <div class="factor-header">
+    <span class="factor-title">Lobbyist in the household</span>
+    <span class="factor-pts">10 pts</span>
+  </div>
+  <p>If a PDC-registered lobbyist lives in the same home as a legislator, the lobbyist's clients have a direct financial relationship with the legislator's household. This is the most direct conflict the screener can detect.</p>
+  <div class="example">Example: Rep. Fitzgibbon's spouse is a registered SEIU lobbyist earning $100K-$200K. They share an address.</div>
+</div>
+
+<div class="factor">
+  <div class="factor-header">
+    <span class="factor-title">Business receives state agency payments</span>
+    <span class="factor-pts">8 pts</span>
+  </div>
+  <p>If a legislator owns a company that gets paid by state agencies whose budgets the legislature controls, there is a structural incentive to protect that funding.</p>
+  <div class="example">Example: Sen. Pedersen's employer McKinstry received $31.6M from state agencies. Pedersen chairs the committee that sets those agencies' budgets.</div>
+</div>
+
+<div class="factor">
+  <div class="factor-header">
+    <span class="factor-title">Spouse income over $100K from a non-government source</span>
+    <span class="factor-pts">5 pts</span>
+  </div>
+  <p>Large household income from a company or industry creates a financial interest in how that entity is regulated. Scored once regardless of how many sources.</p>
+  <div class="example">Example: Sen. Frame's spouse earns $500K-$750K from Google while Frame sponsors bills regulating online platforms. Google maintains 5 lobbyist firms in Olympia.</div>
+</div>
+
+<div class="factor">
+  <div class="factor-header">
+    <span class="factor-title">Income source matches a lobbyist employer</span>
+    <span class="factor-pts">4 pts each, max 3</span>
+  </div>
+  <p>If a legislator or their spouse earns money from an organization that also employs registered lobbyists in Olympia, the legislator has a financial relationship with an entity actively trying to influence the legislature.</p>
+  <div class="example">Example: Rep. Scott's former employer SPAN maintains 5 registered lobbyists. Scott now serves as Vice Chair of the committee SPAN lobbies.</div>
+</div>
+
+<div class="factor">
+  <div class="factor-header">
+    <span class="factor-title">Outside income over $30K</span>
+    <span class="factor-pts">3 pts each, max 4</span>
+  </div>
+  <p>Outside employment is not inherently a conflict. But each non-government income source increases the surface area for potential overlap with legislative duties. Government income (state agencies, school districts, military, retirement) is excluded.</p>
+</div>
+
+<div class="factor">
+  <div class="factor-header">
+    <span class="factor-title">Five or more business associations</span>
+    <span class="factor-pts">2 pts</span>
+  </div>
+  <p>A complex financial picture makes it harder for voters to assess where conflicts might exist. This flags legislators with unusually dense financial structures.</p>
+  <div class="example">Example: Sen. MacEwen manages a venture fund whose holdings are not disclosed on his F1. Without knowing what the fund invests in, voters cannot assess whether his votes affect his portfolio.</div>
+</div>
+
+<h2>What the badges mean</h2>
+
+<div class="badge-row">
+  <div class="badge-card">
+    <span class="score-range">10+</span>
+    <span class="badge-label b-conflict">Conflict</span>
+    <p>Structural overlap exists between finances and legislative authority</p>
+  </div>
+  <div class="badge-card">
+    <span class="score-range">5-9</span>
+    <span class="badge-label b-review">Review</span>
+    <p>Potential conflicts worth investigating further</p>
+  </div>
+  <div class="badge-card">
+    <span class="score-range">2-4</span>
+    <span class="badge-label b-monitoring">Monitoring</span>
+    <p>Minor flags, worth watching in future filings</p>
+  </div>
+  <div class="badge-card">
+    <span class="score-range">0-1</span>
+    <span class="badge-label b-clean">Clean Pass</span>
+    <p>No significant conflicts identified in current filing</p>
+  </div>
+</div>
+
+<h2>Two-phase scoring</h2>
+<p>The automated screener is a first pass. It can only see what the three databases contain. It cannot see city-level contracts, federal filings, or filing discrepancies between state and federal documents.</p>
+<p>Legislators with a <strong>"Full Analysis"</strong> link have been investigated beyond the automated screen. Their scores reflect hand-verified findings from public records, federal LM-2 filings, city contract databases, and other sources the screener cannot access. These curated scores replace the automated score.</p>
+
+<div class="not-box">
+  <h3>What this is not</h3>
+  <p><strong>A high score is not an accusation of corruption.</strong> It is a measure of structural overlap. A legislator can have a high score and be acting with complete integrity. The point is that voters deserve to see the overlap and decide for themselves whether it matters.</p>
+  <p><strong>A clean pass is not an endorsement.</strong> It means the automated screen did not find conflicts in the current filing. It does not mean none exist.</p>
+  <p><strong>This is nonpartisan.</strong> We apply the same methodology to every legislator regardless of party. Democrats, Republicans, incumbents, and candidates are all scored identically. We publish clean passes alongside conflict findings because the methodology matters more than the results.</p>
+</div>
+
+<h2>Classification</h2>
+<p><strong>Incumbent</strong> means the legislator appears in the official legislative roster and reported legislative income on their F1.</p>
+<p><strong>Candidate</strong> means the person filed an F1 for a legislative office but did not report legislative income during the filing period. They are running for a seat, not currently serving.</p>
+<p>Washington requires all candidates for state office to file financial disclosures, not just incumbents. Both are included because voters deserve the same transparency from the people seeking power as from the people holding it.</p>
+
+<div class="sources">
+  <h3>Data sources</h3>
+  <p>Every claim on this site is independently verifiable. All data comes from the Washington State Public Disclosure Commission via public APIs.</p>
+  <div class="source-item">
+    <span class="source-label">F1 Disclosures</span>
+    <span class="source-url">data.wa.gov/resource/ehbc-shxw.json</span>
+  </div>
+  <div class="source-item">
+    <span class="source-label">Contributions</span>
+    <span class="source-url">data.wa.gov/resource/kv7h-kjye.json</span>
+  </div>
+  <div class="source-item">
+    <span class="source-label">Lobbyists</span>
+    <span class="source-url">data.wa.gov/resource/xhn7-64im.json</span>
+  </div>
+  <div class="source-item">
+    <span class="source-label">Roster</span>
+    <span class="source-url">wslwebservices.leg.wa.gov/SponsorService.asmx/GetSponsors</span>
+  </div>
+</div>
+
+<p>The screener source code is available upon request. If you find an error, <a href="mailto:sunshinedocket@proton.me">tell us</a>. We correct publicly.</p>
+
+<footer>
+  <a href="/">Sunshine Docket</a> &middot;
+  <a href="/legislature.html">Full Legislature</a> &middot;
+  <a href="mailto:sunshinedocket@proton.me">Tips</a> &middot;
+  Data from <a href="https://data.wa.gov">data.wa.gov</a>
+</footer>
+
+</div>
+</body>
+</html>
