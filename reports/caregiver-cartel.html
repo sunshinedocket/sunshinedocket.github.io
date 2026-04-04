@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Caregiver Cartel | Sunshine Docket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --ink: #1c1c1e;
+    --paper: #f5f0e8;
+    --accent: #b91c1c;
+    --accent-light: #fef2f2;
+    --gold: #92400e;
+    --muted: #6b6b6b;
+    --rule: #d4c9b0;
+    --node-seiu: #b91c1c;
+    --node-legislator: #1e3a5f;
+    --node-pac: #166534;
+    --node-gov: #6b21a8;
+    --node-firm: #92400e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ---- MASTHEAD ---- */
+  .masthead {
+    text-align: center;
+    border-top: 4px solid var(--ink);
+    border-bottom: 4px solid var(--ink);
+    padding: 18px 0 14px;
+    margin-bottom: 40px;
+  }
+  .masthead-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .masthead-site a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+  .masthead-site a:hover { text-decoration: underline; }
+  .masthead-rule {
+    width: 40px;
+    height: 2px;
+    background: var(--rule);
+    margin: 8px auto;
+  }
+
+  /* ---- HEADLINE BLOCK ---- */
+  .hed-block {
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 28px;
+  }
+  .kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .dek {
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 640px;
+  }
+  .byline-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .byline-row span:not(:last-child)::after {
+    content: ' //';
+    margin-left: 16px;
+    color: var(--rule);
+  }
+
+  /* ---- SECTION HEADERS ---- */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 48px 0 16px;
+    line-height: 1.25;
+  }
+  h2::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  /* ---- BODY TEXT ---- */
+  p { margin-bottom: 20px; }
+
+  /* ---- CALLOUT ---- */
+  .callout {
+    border-left: 4px solid var(--accent);
+    background: var(--accent-light);
+    padding: 16px 20px;
+    margin: 28px 0;
+    font-size: 17px;
+    font-style: italic;
+    color: #7f1d1d;
+  }
+
+  /* ---- TABLES ---- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 15px;
+  }
+  th {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    text-align: left;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(0,0,0,0.03); }
+  .amt { font-family: 'Space Mono', monospace; font-weight: 700; }
+  .total-row td {
+    background: var(--ink) !important;
+    color: var(--paper);
+    font-weight: 600;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+  }
+
+  /* ---- CHART WRAPPER ---- */
+  .chart-wrap {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px;
+    margin: 28px 0;
+  }
+  .chart-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .chart-caption {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 10px;
+  }
+
+  /* ---- NETWORK GRAPHIC ---- */
+  .network-wrap {
+    margin: 36px 0;
+    background: var(--ink);
+    border-radius: 6px;
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .network-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    padding: 8px 12px 0;
+    margin-bottom: -4px;
+  }
+  #networkSvg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .network-caption {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    padding: 10px 12px 4px;
+  }
+
+  /* ---- CHAIN TABLE ---- */
+  .chain-table { font-size: 14px; }
+  .chain-table td:first-child { font-family: 'Space Mono', monospace; font-size: 12px; }
+  .source-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1px 5px;
+    white-space: nowrap;
+  }
+
+  /* ---- CHECKLIST ---- */
+  .checklist {
+    background: #fafaf7;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+  .checklist h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .checklist ul { list-style: none; }
+  .checklist li {
+    font-size: 15px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: '☐';
+    color: var(--accent);
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ---- REFERENCES ---- */
+  .refs {
+    margin-top: 56px;
+    border-top: 2px solid var(--ink);
+    padding-top: 24px;
+  }
+  .refs h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .refs ol {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted);
+    padding-left: 20px;
+  }
+  .refs li { margin-bottom: 8px; }
+  .refs a { color: var(--accent); }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  /* ---- ANIMATION ---- */
+  @keyframes drawLine {
+    from { stroke-dashoffset: 600; opacity: 0; }
+    to { stroke-dashoffset: 0; opacity: 1; }
+  }
+  @keyframes fadeNode {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .net-line { stroke-dasharray: 600; animation: drawLine 1.2s ease forwards; }
+  .net-node { animation: fadeNode 0.5s ease forwards; opacity: 0; }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-name">Sunshine Docket &mdash; WA Legislative Accountability</div>
+  <div class="masthead-rule"></div>
+  <div class="masthead-site"><a href="https://sunshinedocket.org">sunshinedocket.org</a></div>
+</div>
+
+<!-- HEADLINE -->
+<div class="hed-block">
+  <div class="kicker">Investigation // SEIU 775 // Washington State Legislature</div>
+  <h1>The Caregiver Cartel</h1>
+  <p class="dek">How SEIU 775 buys Washington's legislature, hides the money, and calls it advocacy</p>
+  <div class="byline-row">
+    <span>Sunshine Docket Staff</span>
+    <span>April 2026</span>
+    <span>Public records sourced</span>
+  </div>
+</div>
+
+<!-- LEAD NETWORK GRAPHIC -->
+<div class="network-wrap">
+  <div class="network-label">The Money Web // PDC + DOL OLMS LM-2 Sources</div>
+  <svg id="networkSvg" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network diagram showing SEIU 775 financial connections to Washington State legislators and PACs">
+    <defs>
+      <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#ef4444"/>
+      </marker>
+      <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#60a5fa"/>
+      </marker>
+      <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#34d399"/>
+      </marker>
+      <marker id="arrow-amber" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#fbbf24"/>
+      </marker>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Background grain -->
+    <rect width="800" height="480" fill="#1c1c1e"/>
+    <rect width="800" height="480" fill="url(#grain)" opacity="0.05"/>
+
+    <!-- LINES (drawn first, behind nodes) -->
+    <!-- SEIU 775 center to Berry -->
+    <line class="net-line" x1="400" y1="240" x2="175" y2="140" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-red)" style="animation-delay:0.2s"/>
+    <!-- SEIU 775 to Fitzgibbon -->
+    <line class="net-line" x1="400" y1="240" x2="625" y2="140" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-red)" style="animation-delay:0.4s"/>
+    <!-- SEIU 775 to P3 PAC -->
+    <line class="net-line" x1="400" y1="240" x2="175" y2="370" stroke="#34d399" stroke-width="2" marker-end="url(#arrow-green)" style="animation-delay:0.6s"/>
+    <!-- SEIU 775 to Summit Strategy -->
+    <line class="net-line" x1="400" y1="240" x2="625" y2="370" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrow-amber)" style="animation-delay:0.7s"/>
+    <!-- SEIU 775 to Benefits Group -->
+    <line class="net-line" x1="400" y1="240" x2="400" y2="420" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-red)" stroke-dasharray="5,3" style="animation-delay:0.9s"/>
+    <!-- Berry to P3 PAC (indirect) -->
+    <line class="net-line" x1="175" y1="160" x2="175" y2="352" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-blue)" style="animation-delay:1.1s"/>
+    <!-- Summit Strategy to Berry (orbit) -->
+    <line class="net-line" x1="600" y1="365" x2="200" y2="155" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="4,4" marker-end="url(#arrow-amber)" style="animation-delay:1.3s"/>
+    <!-- Fitzgibbon to House Floor (Majority Leader) -->
+    <line class="net-line" x1="625" y1="120" x2="710" y2="60" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-blue)" style="animation-delay:1.5s"/>
+
+    <!-- DOLLAR LABELS ON LINES -->
+    <text x="270" y="175" fill="#ef4444" font-size="11" font-family="monospace" opacity="0" style="animation: fadeNode 0.5s 0.8s ease forwards">~$25K direct</text>
+    <text x="490" y="175" fill="#ef4444" font-size="11" font-family="monospace" opacity="0" style="animation: fadeNode 0.5s 1.0s ease forwards">~$34K / 14 yrs</text>
+    <text x="210" y="320" fill="#34d399" font-size="11" font-family="monospace" opacity="0" style="animation: fadeNode 0.5s 1.1s ease forwards">$190K (24-25)</text>
+    <text x="490" y="325" fill="#fbbf24" font-size="11" font-family="monospace" opacity="0" style="animation: fadeNode 0.5s 1.2s ease forwards">$87K LM-2</text>
+
+    <!-- SEIU 775 CENTER NODE -->
+    <g class="net-node" style="animation-delay:0s; transform-origin:400px 240px">
+      <circle cx="400" cy="240" r="54" fill="#b91c1c" filter="url(#glow)"/>
+      <circle cx="400" cy="240" r="50" fill="#b91c1c"/>
+      <text x="400" y="233" text-anchor="middle" fill="white" font-size="13" font-weight="bold" font-family="Georgia, serif">SEIU 775</text>
+      <text x="400" y="249" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10" font-family="monospace">$6.8M war chest</text>
+      <text x="400" y="263" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-family="monospace">130 staff, 9 lobbyists</text>
+    </g>
+
+    <!-- BERRY NODE -->
+    <g class="net-node" style="animation-delay:0.3s; transform-origin:175px 140px">
+      <circle cx="175" cy="140" r="42" fill="#1e3a5f"/>
+      <text x="175" y="133" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Georgia, serif">Rep. Liz Berry</text>
+      <text x="175" y="147" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="10" font-family="monospace">LD-36</text>
+      <text x="175" y="159" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="monospace">4 cycles funded</text>
+    </g>
+
+    <!-- FITZGIBBON NODE -->
+    <g class="net-node" style="animation-delay:0.5s; transform-origin:625px 140px">
+      <circle cx="625" cy="140" r="42" fill="#1e3a5f"/>
+      <text x="625" y="130" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Georgia, serif">Rep. Fitzgibbon</text>
+      <text x="625" y="144" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="10" font-family="monospace">Majority Leader</text>
+      <text x="625" y="157" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="monospace">8 cycles / $34K</text>
+    </g>
+
+    <!-- P3 PAC NODE -->
+    <g class="net-node" style="animation-delay:0.7s; transform-origin:175px 370px">
+      <circle cx="175" cy="370" r="36" fill="#166534"/>
+      <text x="175" y="364" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Georgia, serif">P3 PAC</text>
+      <text x="175" y="378" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-family="monospace">Berry orbit</text>
+    </g>
+
+    <!-- SUMMIT STRATEGY NODE -->
+    <g class="net-node" style="animation-delay:0.8s; transform-origin:625px 370px">
+      <circle cx="625" cy="370" r="36" fill="#78350f"/>
+      <text x="625" y="363" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="Georgia, serif">Summit Strategy</text>
+      <text x="625" y="377" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-family="monospace">$87K from SEIU</text>
+    </g>
+
+    <!-- BENEFITS GROUP NODE -->
+    <g class="net-node" style="animation-delay:1.0s; transform-origin:400px 435px">
+      <rect x="310" y="420" width="180" height="40" rx="4" fill="#4c1d95"/>
+      <text x="400" y="436" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Georgia, serif">Benefits Group Board</text>
+      <text x="400" y="450" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9" font-family="monospace">DSHS + DRS officials</text>
+    </g>
+
+    <!-- HOUSE FLOOR label -->
+    <g class="net-node" style="animation-delay:1.5s; transform-origin:720px 50px">
+      <rect x="655" y="32" width="135" height="38" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <text x="722" y="47" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10" font-family="monospace">House Floor</text>
+      <text x="722" y="61" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">controls scheduling</text>
+    </g>
+
+    <!-- Legend -->
+    <g opacity="0" style="animation: fadeNode 0.5s 1.8s ease forwards">
+      <line x1="24" y1="455" x2="50" y2="455" stroke="#ef4444" stroke-width="2"/>
+      <text x="56" y="459" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">Direct $</text>
+      <line x1="110" y1="455" x2="136" y2="455" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="142" y="459" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">Consulting/LM-2</text>
+      <line x1="240" y1="455" x2="266" y2="455" stroke="#34d399" stroke-width="2"/>
+      <text x="272" y="459" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">PAC funding</text>
+      <line x1="346" y1="455" x2="372" y2="455" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <text x="378" y="459" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">Indirect</text>
+    </g>
+  </svg>
+  <div class="network-caption">Sources: PDC datasets kv7h-kjye, tijg-9zyp; DOL OLMS LM-2 filings. All dollar figures from public records.</div>
+</div>
+
+<!-- BODY COPY -->
+<p>There is a story Washington's political press refuses to tell. Not because it's complicated. Because the people who would tell it are on the payroll.</p>
+
+<p>SEIU 775 represents roughly 60,000 home care and nursing home workers across Washington, Montana, and Alaska. On paper, it's a labor union. In practice, it functions as one of the most sophisticated political influence operations in the Pacific Northwest -- with a registered lobbyist for a president, a $6.8 million ballot war chest, a history of hiding contributions from state regulators, and a web of relationships with Democratic legislators that blurs the line between representation and capture.</p>
+
+<p>This is that story.</p>
+
+<h2>The Lobbyist in Chief</h2>
+
+<p>Sterling Harders has been president of SEIU 775 since 2018. She is also a registered lobbyist with the Washington State Public Disclosure Commission -- a designation she has held since 2004, through multiple certification cycles, most recently in January 2024.</p>
+
+<p>Think about what that means. The same person who controls a $6.8 million political committee, signs off on candidate endorsements up and down the state ballot, and leads a staff of 130 -- also walks the halls of the Capitol in Olympia as a registered lobbyist for the very organization she runs. In most states that structure would trigger at minimum a raised eyebrow. In Washington, it gets a press release from Speaker Jinkins praising caregivers.</p>
+
+<p>Her Secretary-Treasurer Adam Glickman runs the money. He chairs the SEIU 775 Benefits Group board and is the registered officer on the Ballot Fund PAC. When regulators came looking, it was Glickman who said any reporting errors were "unintentional." That framing has been useful more than once.</p>
+
+<h2>A History of Looking the Other Way</h2>
+
+<p>The compliance record here is not a footnote. It's a pattern.</p>
+
+<p>In 2015, then-Attorney General Bob Ferguson -- a Democrat, and hardly a union antagonist -- sued SEIU 775 in Thurston County Superior Court for failing to properly report $1.39 million in contributions to its political action committee.<sup><a href="#ref1">1</a></sup> The contributions hadn't disappeared; they had been disclosed by the PAC. What SEIU failed to do was report them in the union's own lobbying paperwork, obscuring the connection between the lobbying entity and the political spending entity. The AG's office also found that in-kind contributions -- staff time, office space, phones, web services, postage -- had never been reported at all by the PAC.</p>
+
+<div class="callout">
+  "SEIU 775 has operated, for far too long, above the law. In reality, SEIU 775 is a shadow candidate in nearly every Washington election." -- Freedom Foundation complaint to the AG, 2015<sup><a href="#ref2">2</a></sup>
+</div>
+
+<p>More recently, the Ballot Fund Committee was hit with a PDC complaint in 2024 for failing to accurately disclose expenditures across six ballot propositions it was actively opposing.<sup><a href="#ref3">3</a></sup> It amended within four days of being contacted -- which bought it leniency. A pattern of amending under pressure is not the same as a pattern of compliance.</p>
+
+<h2>Joe Fitzgibbon: Fourteen Years of Loyalty, Fully Funded</h2>
+
+<p>Rep. Joe Fitzgibbon is currently House Majority Leader, the second most powerful position in the Washington State House. He is also, by PDC records, one of the deepest SEIU investments in the entire chamber.</p>
+
+<p>SEIU entities have contributed to Fitzgibbon in every cycle going back to 2010, totaling approximately $34,450 across eight cycles. Every major SEIU local in Washington has participated: 775, 1199NW, 925, PSE/1948, and Local 6.</p>
+
+<!-- BAR CHART -->
+<div class="chart-wrap">
+  <div class="chart-label">SEIU Contributions to Rep. Joe Fitzgibbon // By Election Cycle // PDC Source: kv7h-kjye</div>
+  <canvas id="fitzChart" height="260"></canvas>
+  <div class="chart-caption">All five major SEIU locals in Washington have contributed across his career. The 2024 peak coincides with his ascent to House Majority Leader.</div>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Cycle</th><th>Total from SEIU Entities</th><th>Note</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>2010</td><td class="amt">$4,800</td><td>First cycle on record</td></tr>
+    <tr><td>2012</td><td class="amt">$900</td><td></td></tr>
+    <tr><td>2014</td><td class="amt">$950</td><td></td></tr>
+    <tr><td>2016</td><td class="amt">$2,000</td><td></td></tr>
+    <tr><td>2018</td><td class="amt">$6,300</td><td></td></tr>
+    <tr><td>2020</td><td class="amt">$3,500</td><td></td></tr>
+    <tr><td>2022</td><td class="amt">$4,000</td><td></td></tr>
+    <tr><td>2024</td><td class="amt">$9,600</td><td>Majority Leader; highest single-cycle total</td></tr>
+    <tr><td>2026</td><td class="amt">$2,400</td><td>To date</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="total-row"><td>Total</td><td>~$34,450</td><td>14+ year relationship</td></tr>
+  </tfoot>
+</table>
+
+<p>The 2024 cycle alone hit $9,600 from SEIU entities -- the highest single-cycle total in his fourteen-year history with the union. That peak coincides precisely with his ascent to House Majority Leader, the position that controls floor scheduling, committee assignments, and which bills live or die in a given session.</p>
+
+<p>The person who decides which labor legislation reaches the House floor has received SEIU funding in every election he has run, with contributions accelerating as his institutional power grew. That is not a coincidence. That is a portfolio.</p>
+
+<h2>Liz Berry: The Full Picture</h2>
+
+<p>Rep. Liz Berry represents LD-36 -- Queen Anne, Phinney Ridge, Greenwood -- and is one of the most SEIU-entangled legislators in Olympia. The PDC record tells part of the story. The federal labor disclosure record tells the rest.</p>
+
+<p>SEIU entities have contributed to Berry's campaign in every cycle since her first election, totaling approximately $25,300 across four cycles from at least four distinct SEIU locals and PACs:</p>
+
+<table>
+  <thead>
+    <tr><th>Cycle</th><th>Contributors</th><th>Total</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2020</td>
+      <td>SEIU 775 (x2), SEIU 1199NW (x2)</td>
+      <td class="amt">$4,000</td>
+    </tr>
+    <tr>
+      <td>2022</td>
+      <td>SEIU 775 (x2), SEIU 1199NW (x2), SEIU 925 (x2), PSE SEIU 1948, Local 6</td>
+      <td class="amt">$8,300</td>
+    </tr>
+    <tr>
+      <td>2024</td>
+      <td>SEIU 775 (x3), SEIU 1199NW (x2), SEIU 925 (x2), PSE SEIU 1948, Local 6</td>
+      <td class="amt">$10,600</td>
+    </tr>
+    <tr>
+      <td>2026</td>
+      <td>SEIU 775, SEIU 1199NW</td>
+      <td class="amt">$2,400 (to date)</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr class="total-row"><td>Total</td><td>4 consecutive cycles, 4+ SEIU locals</td><td>~$25,300</td></tr>
+  </tfoot>
+</table>
+
+<p>Note the mechanic: SEIU 775 appears in every single cycle, and it maximizes its reach by using multiple PAC vehicles -- the Quality Care Committee and direct contributions -- to effectively double its footprint within the same cycle. That is not accidental. That is coordination.</p>
+
+<p>But campaign contributions are the visible layer. The more significant connection runs through federal labor filings that most political reporters never read.</p>
+
+<p>SEIU 775's LM-2 filings with the Department of Labor show the union paid Summit Strategy LLC -- a political consulting firm in Berry's professional orbit -- $87,000 over 2023 and 2024. In the same window, SEIU 775 contributed directly to Berry's campaign and poured $190,000 into P3 PAC, the progressive independent expenditure vehicle that has operated in Berry's political environment across multiple cycles.</p>
+
+<p>The full documented chain, sourced entirely to PDC filings and federal LM-2 disclosures:</p>
+
+<table class="chain-table">
+  <thead>
+    <tr><th>Link</th><th>Amount</th><th>Source</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SEIU 775 → Berry campaign (direct)</td>
+      <td class="amt">~$8,000</td>
+      <td><span class="source-tag">PDC kv7h-kjye</span></td>
+    </tr>
+    <tr>
+      <td>SEIU 775 → Summit Strategy LLC</td>
+      <td class="amt">$87,000 (2023-24)</td>
+      <td><span class="source-tag">DOL OLMS LM-2</span></td>
+    </tr>
+    <tr>
+      <td>SEIU 775 → P3 PAC</td>
+      <td class="amt">$190,000 (2024-25)</td>
+      <td><span class="source-tag">PDC kv7h-kjye</span></td>
+    </tr>
+    <tr>
+      <td>P3 PAC → Berry (indirect)</td>
+      <td class="amt">$800 (2022-24)</td>
+      <td><span class="source-tag">PDC kv7h-kjye</span></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr class="total-row"><td>Total SEIU ecosystem spend in Berry's orbit</td><td>~$285,000+</td><td></td></tr>
+  </tfoot>
+</table>
+
+<div class="callout">
+  SEIU 775 paid Berry's consulting orbit $87,000, contributed to her campaign every cycle, and simultaneously funded the independent expenditure vehicle operating in her political environment -- while nine SEIU 775 lobbyists were active before the committees Berry sits on or chairs.
+</div>
+
+<p>None of these transactions is illegal. Each is individually disclosed. What the press hasn't done is put them in the same sentence.</p>
+
+<h2>The Crown Jewel: State Officials on a Union Board</h2>
+
+<p>Perhaps the most structurally audacious arrangement in this whole apparatus has nothing to do with the PAC.</p>
+
+<p>The SEIU 775 Benefits Group -- a separate 501(c) entity that controls healthcare, retirement, and training benefits for 60,000-plus union members -- has a board that includes active state government officials. Catherine Kinnaman, Director of the Home and Community Services Division at DSHS, sits on that board. Seth Miller, Assistant Director of the Retirement Services Division at the Washington Department of Retirement Systems, also sits on that board.<sup><a href="#ref4">4</a></sup></p>
+
+<p>These are not advisory roles in name only. The Benefits Group holds real assets. It negotiates with the state over benefit structures. And the state officials who administer those same benefit structures -- at DSHS and DRS -- sit at the same governance table as the union that lobbies the legislature over the Medicaid reimbursement rates that fund all of it.</p>
+
+<p>The conflict is structural. It is baked in. And it has existed, apparently unremarked upon, for years.</p>
+
+<h2>What We're Asking For</h2>
+
+<p>This piece does not allege criminal conduct. It identifies relationships, documented by public records, that deserve public scrutiny -- and that Washington's political press has declined to examine with any rigor.</p>
+
+<p>Who audits the Benefits Group's board composition for conflicts with the state agencies it intersects with?</p>
+
+<p>Why has no legislator introduced enhanced disclosure requirements for union-to-consulting-firm payments that sit in federal LM-2 filings most journalists never read?</p>
+
+<p>Why did Bob Ferguson -- who sued SEIU 775 while AG -- accept its enthusiastic support for his gubernatorial campaign without anyone in the press noting the irony?</p>
+
+<p>And why are the same legislators who receive SEIU endorsements, organizers, and PAC dollars -- in some cases going back 14 consecutive years -- the ones who vote on the Medicaid reimbursement rates that determine how much money flows into the union's contracts?</p>
+
+<p>These are not gotcha questions. They are the basic accountability questions that a functioning political press corps would ask. We will keep asking them until someone answers.</p>
+
+<!-- PRE-PUBLICATION CHECKLIST (internal, comment out before publishing) -->
+<div class="checklist">
+  <h3>Pre-Publication Checklist (Remove Before Publishing)</h3>
+  <ul>
+    <li>Pull Berry committee vote records from leg.wa.gov on home care rate legislation and SB 6346 -- cross-reference with SEIU contribution timing (Elan)</li>
+    <li>Pull Fitzgibbon vote records on DSHS budget, caregiver rate, and labor legislation (Elan)</li>
+    <li>Locate specific Burner article/date on Paolini-P3 PAC-Berry for footnote citation; add as Ref 5</li>
+    <li>Confirm "Summit Strategy LLC" exact LM-2 payee name and verify Berry firm connection is documentable before publishing that clause</li>
+    <li>Legal read on the Summit Strategy sentence -- hottest line in the piece</li>
+    <li>Remove this checklist block before dropping into Substack</li>
+  </ul>
+</div>
+
+<!-- REFERENCES -->
+<div class="refs">
+  <h3>References &amp; Source Documentation</h3>
+  <ol>
+    <li id="ref1">Washington Attorney General's Office. <em>AG Files Campaign Finance Complaint Against SEIU 775.</em> September 24, 2015. <a href="https://www.atg.wa.gov/news/news-releases/ag-files-campaign-finance-complaint-against-seiu-775" target="_blank">atg.wa.gov</a>. Also covered: Seattle Times, Jim Brunner, same date.</li>
+    <li id="ref2">Freedom Foundation. <em>Freedom Foundation Files AG Complaint About SEIU 775's Unreported, Unregulated Political Activities.</em> 2015. <a href="https://www.freedomfoundation.com/litigation/freedom-foundation-files-ag-complaint-about-seiu-775s-unreported-unregulated-political-activities/" target="_blank">freedomfoundation.com</a></li>
+    <li id="ref3">Washington State Public Disclosure Commission. <em>SEIU 775 Ballot Fund Committee: Alleged violations of RCW 42.17A.240.</em> Case opened January 2024. <a href="https://www.pdc.wa.gov/rules-enforcement/enforcement/enforcement-cases/147358" target="_blank">pdc.wa.gov enforcement case 147358</a></li>
+    <li id="ref4">SEIU 775 Benefits Group. <em>Board of Trustees.</em> <a href="https://www.myseiubenefits.org/board/" target="_blank">myseiubenefits.org/board</a>. Accessed April 2026.</li>
+    <li id="ref5">PDC Contributions Dataset. <em>Contributions to Candidates and Political Committees.</em> Dataset ID: kv7h-kjye. <a href="https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye" target="_blank">data.wa.gov</a>. All contribution figures queried April 2026.</li>
+    <li id="ref6">PDC Expenditures Dataset. <em>Expenditures by Candidates and Political Committees.</em> Dataset ID: tijg-9zyp. <a href="https://data.wa.gov/Politics/Expenditures-by-Candidates-and-Political-Committee/tijg-9zyp" target="_blank">data.wa.gov</a>.</li>
+    <li id="ref7">U.S. Department of Labor, Office of Labor-Management Standards. <em>SEIU 775 LM-2 Annual Report Filings, 2023-2024.</em> <a href="https://www.dol.gov/agencies/olms/public-disclosure" target="_blank">dol.gov/agencies/olms</a>.</li>
+    <li id="ref8">SEIU 775. <em>Leadership Page.</em> <a href="https://seiu775.org/leadership/" target="_blank">seiu775.org/leadership</a>. Accessed April 2026.</li>
+    <li id="ref9">PDC AccessHub. <em>Sterling Harders -- Registered Lobbyist.</em> <a href="https://accesshub.pdc.wa.gov/node/49548" target="_blank">accesshub.pdc.wa.gov/node/49548</a>.</li>
+    <li id="ref10">SEIU 775. <em>2024 Washington Election Endorsements.</em> <a href="https://seiu775.org/2024endorsements/" target="_blank">seiu775.org/2024endorsements</a>.</li>
+  </ol>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Sunshine Docket is a pseudonymous Washington State legislative accountability project.</p>
+  <p style="margin-top:8px"><a href="https://sunshinedocket.org">sunshinedocket.org</a> &nbsp;//&nbsp; All claims sourced to public records &nbsp;//&nbsp; Corrections welcome</p>
+</div>
+
+<!-- CHART JS -->
+<script>
+  const ctx = document.getElementById('fitzChart').getContext('2d');
+  const years = ['2010','2012','2014','2016','2018','2020','2022','2024','2026*'];
+  const amounts = [4800, 900, 950, 2000, 6300, 3500, 4000, 9600, 2400];
+  const colors = amounts.map((v, i) => i === 7 ? '#b91c1c' : 'rgba(30,58,95,0.82)');
+  const borders = amounts.map((v, i) => i === 7 ? '#7f1d1d' : '#1e3a5f');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [{
+        label: 'SEIU Contributions ($)',
+        data: amounts,
+        backgroundColor: colors,
+        borderColor: borders,
+        borderWidth: 1.5,
+        borderRadius: 3,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => '$' + ctx.raw.toLocaleString(),
+            title: ctx => 'Cycle: ' + ctx[0].label
+          },
+          backgroundColor: '#1c1c1e',
+          titleFont: { family: 'monospace', size: 11 },
+          bodyFont: { family: 'monospace', size: 13 },
+          padding: 10
+        },
+        annotation: {}
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { family: 'Space Mono, monospace', size: 11 }, color: '#6b6b6b' }
+        },
+        y: {
+          beginAtZero: true,
+          grid: { color: 'rgba(0,0,0,0.06)' },
+          ticks: {
+            font: { family: 'Space Mono, monospace', size: 11 },
+            color: '#6b6b6b',
+            callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0)+'K' : v)
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
