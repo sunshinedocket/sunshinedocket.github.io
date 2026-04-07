@@ -45,6 +45,17 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
 .fbtn.on { background: var(--ac); border-color: var(--ac); color: #fff; }
 .flabel { font-size: 11px; color: var(--td); text-transform: uppercase; letter-spacing: 0.5px; font-family: var(--mono); }
 .rcount { font-family: var(--mono); font-size: 12px; color: var(--td); margin-left: auto; }
+.addr-lookup { background: var(--sf); border: 1px solid var(--bd); border-radius: 6px; padding: 14px 16px; margin-bottom: 16px; }
+.addr-row { display: flex; gap: 8px; }
+.addr-input { flex: 1; background: var(--bg); border: 1px solid var(--bd); color: var(--tx); padding: 10px 14px; font-size: 14px; font-family: var(--serif); border-radius: 4px; }
+.addr-input::placeholder { color: var(--td); } .addr-input:focus { outline: none; border-color: var(--ac); }
+.addr-btn { background: var(--ac); color: #fff; border: none; padding: 10px 18px; font-size: 13px; font-family: var(--mono); font-weight: 600; border-radius: 4px; cursor: pointer; white-space: nowrap; transition: opacity 0.15s; }
+.addr-btn:hover { opacity: 0.85; }
+.addr-btn:disabled { opacity: 0.5; cursor: wait; }
+.addr-result { margin-top: 10px; font-family: var(--mono); font-size: 13px; color: var(--tm); display: none; }
+.addr-result.show { display: block; }
+.addr-result .addr-dist { font-weight: 700; color: var(--ac); font-size: 16px; }
+.addr-result .addr-link { color: var(--ac); text-decoration: underline; cursor: pointer; }
 .dist-block { margin-bottom: 20px; border: 1px solid var(--bd); border-radius: 5px; overflow: hidden; background: var(--sf); }
 .dist-block.hot { border-left: 3px solid var(--cc); }
 .dist-block.warm { border-left: 3px solid var(--rv); }
@@ -135,6 +146,14 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
   <div class="stat"><span class="stat-n" style="color:var(--ac)" id="st-incumb">119</span><span class="stat-l">Incumbent</span></div>
   <div class="stat"><span class="stat-n" style="color:var(--td)" id="st-former">71</span><span class="stat-l">Former</span></div>
   <div class="stat"><span class="stat-n" style="color:var(--mn)" id="st-cand">11</span><span class="stat-l">Candidates</span></div>
+</div>
+
+<div class="addr-lookup">
+  <div class="addr-row">
+    <input type="text" class="addr-input" id="addr" placeholder="Enter your WA address to find your representatives...">
+    <button class="addr-btn" id="addr-btn">Find My District</button>
+  </div>
+  <div class="addr-result" id="addr-result"></div>
 </div>
 
 <div class="controls">
@@ -6369,6 +6388,98 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       const members = h.nextElementSibling;
       members.style.display = members.style.display === 'none' ? '' : 'none';
     });
+  });
+  // Address lookup using Census Geocoder (free, no API key)
+  const addrInput = document.getElementById('addr');
+  const addrBtn = document.getElementById('addr-btn');
+  const addrResult = document.getElementById('addr-result');
+
+  function lookupAddress() {
+    const addr = addrInput.value.trim();
+    if (!addr) return;
+
+    addrBtn.disabled = true;
+    addrBtn.textContent = 'Looking up...';
+    addrResult.className = 'addr-result show';
+    addrResult.innerHTML = 'Searching...';
+
+    const url = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress'
+      + '?address=' + encodeURIComponent(addr)
+      + '&benchmark=Public_AR_Current&vintage=Current_Current&format=jsonp&callback=__censusCallback';
+
+    // JSONP callback (Census API doesn't support CORS for geographies endpoint)
+    window.__censusCallback = function(data) {
+      addrBtn.disabled = false;
+      addrBtn.textContent = 'Find My District';
+
+      try {
+        const matches = data.result.addressMatches;
+        if (!matches || matches.length === 0) {
+          addrResult.innerHTML = 'Address not found. Try a full WA address like "123 Main St, Seattle, WA 98101"';
+          return;
+        }
+
+        const match = matches[0];
+        const geos = match.geographies || {};
+        const state = (geos['States'] || [{}])[0];
+
+        if (state.STUSAB && state.STUSAB !== 'WA') {
+          addrResult.innerHTML = 'That address is in ' + state.NAME + ', not Washington State.';
+          return;
+        }
+
+        // Get legislative districts
+        const upper = (geos['State Legislative Districts - Upper'] || [{}])[0];
+        const lower = (geos['State Legislative Districts - Lower'] || [{}])[0];
+        const distNum = upper.BASENAME || lower.BASENAME || '';
+
+        if (!distNum) {
+          addrResult.innerHTML = 'Could not determine legislative district for this address. <a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">Try the official tool &rarr;</a>';
+          return;
+        }
+
+        // Pad single digits to match our IDs (district "3" -> search "3")
+        const distClean = distNum.replace(/^0+/, '') || distNum;
+
+        addrResult.innerHTML = 'You are in <span class="addr-dist">Legislative District ' + distClean + '</span>. '
+          + '<span class="addr-link" onclick="document.getElementById('srch').value='' + distClean + '';document.getElementById('srch').dispatchEvent(new Event('input'));">Show my representatives &darr;</span>';
+
+        // Auto-filter
+        search.value = distClean;
+        search.dispatchEvent(new Event('input'));
+
+        // Scroll to districts
+        const distBlock = document.getElementById('ld-' + distClean.padStart(2, '0'));
+        if (distBlock) {
+          distBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } catch(e) {
+        addrResult.innerHTML = 'Lookup failed. <a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">Try the official district finder &rarr;</a>';
+      }
+
+      // Cleanup
+      const sc = document.getElementById('__census_script');
+      if (sc) sc.remove();
+      delete window.__censusCallback;
+    };
+
+    // Inject JSONP script
+    const existing = document.getElementById('__census_script');
+    if (existing) existing.remove();
+    const script = document.createElement('script');
+    script.id = '__census_script';
+    script.src = url;
+    script.onerror = function() {
+      addrBtn.disabled = false;
+      addrBtn.textContent = 'Find My District';
+      addrResult.innerHTML = 'Lookup failed. <a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">Try the official district finder &rarr;</a>';
+    };
+    document.head.appendChild(script);
+  }
+
+  addrBtn.addEventListener('click', lookupAddress);
+  addrInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') lookupAddress();
   });
 })();
 </script>
