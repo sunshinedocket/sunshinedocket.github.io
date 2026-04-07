@@ -6394,7 +6394,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
   const addrBtn = document.getElementById('addr-btn');
   const addrResult = document.getElementById('addr-result');
 
-  function lookupAddress() {
+  async function lookupAddress() {
     const addr = addrInput.value.trim();
     if (!addr) return;
 
@@ -6403,78 +6403,61 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
     addrResult.className = 'addr-result show';
     addrResult.innerHTML = 'Searching...';
 
-    const url = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress'
-      + '?address=' + encodeURIComponent(addr)
-      + '&benchmark=Public_AR_Current&vintage=Current_Current&format=jsonp&callback=__censusCallback';
+    try {
+      const url = 'https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress'
+        + '?address=' + encodeURIComponent(addr)
+        + '&benchmark=Public_AR_Current&vintage=Current_Current&format=json';
 
-    // JSONP callback (Census API doesn't support CORS for geographies endpoint)
-    window.__censusCallback = function(data) {
-      addrBtn.disabled = false;
-      addrBtn.textContent = 'Find My District';
+      const resp = await fetch(url);
+      const data = await resp.json();
+      const matches = data.result.addressMatches;
 
-      try {
-        const matches = data.result.addressMatches;
-        if (!matches || matches.length === 0) {
-          addrResult.innerHTML = 'Address not found. Try a full WA address like "123 Main St, Seattle, WA 98101"';
-          return;
-        }
-
-        const match = matches[0];
-        const geos = match.geographies || {};
-        const state = (geos['States'] || [{}])[0];
-
-        if (state.STUSAB && state.STUSAB !== 'WA') {
-          addrResult.innerHTML = 'That address is in ' + state.NAME + ', not Washington State.';
-          return;
-        }
-
-        // Get legislative districts
-        const upper = (geos['State Legislative Districts - Upper'] || [{}])[0];
-        const lower = (geos['State Legislative Districts - Lower'] || [{}])[0];
-        const distNum = upper.BASENAME || lower.BASENAME || '';
-
-        if (!distNum) {
-          addrResult.innerHTML = 'Could not determine legislative district for this address. <a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">Try the official tool &rarr;</a>';
-          return;
-        }
-
-        // Pad single digits to match our IDs (district "3" -> search "3")
-        const distClean = distNum.replace(/^0+/, '') || distNum;
-
-        addrResult.innerHTML = 'You are in <span class="addr-dist">Legislative District ' + distClean + '</span>. '
-          + '<span class="addr-link" onclick="document.getElementById('srch').value='' + distClean + '';document.getElementById('srch').dispatchEvent(new Event('input'));">Show my representatives &darr;</span>';
-
-        // Auto-filter
-        search.value = distClean;
-        search.dispatchEvent(new Event('input'));
-
-        // Scroll to districts
-        const distBlock = document.getElementById('ld-' + distClean.padStart(2, '0'));
-        if (distBlock) {
-          distBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      } catch(e) {
-        addrResult.innerHTML = 'Lookup failed. <a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">Try the official district finder &rarr;</a>';
+      if (!matches || matches.length === 0) {
+        addrResult.innerHTML = 'Address not found. Try a full WA address like "123 Main St, Seattle, WA 98101". '
+          + 'Or use the <a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">official district finder</a>.';
+        return;
       }
 
-      // Cleanup
-      const sc = document.getElementById('__census_script');
-      if (sc) sc.remove();
-      delete window.__censusCallback;
-    };
+      const match = matches[0];
+      const geos = match.geographies || {};
+      const states = geos['States'] || [];
+      const state = states.length > 0 ? states[0] : {};
 
-    // Inject JSONP script
-    const existing = document.getElementById('__census_script');
-    if (existing) existing.remove();
-    const script = document.createElement('script');
-    script.id = '__census_script';
-    script.src = url;
-    script.onerror = function() {
+      if (state.STUSAB && state.STUSAB !== 'WA') {
+        addrResult.innerHTML = 'That address is in ' + (state.NAME || 'another state') + ', not Washington State.';
+        return;
+      }
+
+      const upper = (geos['State Legislative Districts - Upper'] || []);
+      const lower = (geos['State Legislative Districts - Lower'] || []);
+      const distNum = (upper.length > 0 ? upper[0].BASENAME : '') || (lower.length > 0 ? lower[0].BASENAME : '');
+
+      if (!distNum) {
+        addrResult.innerHTML = 'Could not determine legislative district. '
+          + '<a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">Try the official tool &rarr;</a>';
+        return;
+      }
+
+      const distClean = distNum.replace(/^0+/, '') || distNum;
+
+      addrResult.innerHTML = 'You are in <span class="addr-dist">Legislative District ' + distClean + '</span>. Showing your representatives below.';
+
+      // Auto-filter to this district
+      search.value = distClean;
+      search.dispatchEvent(new Event('input'));
+
+      // Scroll to the district block
+      const padded = distClean.padStart(2, '0');
+      const distBlock = document.getElementById('ld-' + padded);
+      if (distBlock) {
+        setTimeout(function() { distBlock.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200);
+      }
+    } catch(e) {
+      addrResult.innerHTML = 'Lookup failed. <a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">Try the official district finder &rarr;</a>';
+    } finally {
       addrBtn.disabled = false;
       addrBtn.textContent = 'Find My District';
-      addrResult.innerHTML = 'Lookup failed. <a href="https://app.leg.wa.gov/districtfinder" target="_blank" class="addr-link">Try the official district finder &rarr;</a>';
-    };
-    document.head.appendChild(script);
+    }
   }
 
   addrBtn.addEventListener('click', lookupAddress);
