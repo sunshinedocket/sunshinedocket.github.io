@@ -4,119 +4,147 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sen. Noel Frame | Sunshine Docket</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0a0c; --surface: #111114; --surface2: #1a1a1f; --border: #2a2a30;
-  --text: #e8e6e1; --text-dim: #8a8880; --accent: #c9a84c; --accent-dim: #8a7433;
-  --red: #c45c4a; --red-dim: rgba(196,92,74,0.12); --green: #5a9e6f; --green-dim: rgba(90,158,111,0.12);
-  --blue: #5a82b4; --blue-dim: rgba(90,130,180,0.12); --yellow: #c9a84c; --yellow-dim: rgba(201,168,76,0.12);
-  --font-display: 'Source Serif 4', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
-body::before { content:''; position:fixed; top:0;left:0;width:100%;height:100%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
-a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
-.container { max-width:900px; margin:0 auto; padding:0 24px; }
-header { border-bottom:1px solid var(--border); padding:24px 0; }
-.site-name { font-family:var(--font-mono); font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); }
-.back { font-family:var(--font-mono); font-size:12px; letter-spacing:1px; color:var(--text-dim); margin-top:8px; }
-.profile-header { padding:48px 0 32px; border-bottom:1px solid var(--border); }
-.profile-header h1 { font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:700; margin-bottom:8px; }
-.profile-header .subtitle { font-size:16px; color:var(--text-dim); margin-bottom:16px; }
-.badge { font-family:var(--font-mono); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; padding:6px 14px; border:1px solid; display:inline-block; }
-.badge-conflict { color:var(--red); border-color:var(--red); background:var(--red-dim); }
-.badge-clean { color:var(--green); border-color:var(--green); background:var(--green-dim); }
-.badge-monitoring { color:var(--yellow); border-color:var(--yellow); background:var(--yellow-dim); }
-.badge-revolving { color:var(--blue); border-color:var(--blue); background:var(--blue-dim); }
-.party-d { color:#6688cc; } .party-r { color:#cc6666; }
-section { padding:40px 0; border-bottom:1px solid var(--border); }
-section:last-of-type { border-bottom:none; }
-h2 { font-family:var(--font-display); font-size:24px; font-weight:600; margin-bottom:16px; color:var(--text); }
-h3 { font-family:var(--font-mono); font-size:13px; letter-spacing:1px; color:var(--accent); margin-bottom:8px; text-transform:uppercase; }
-p { margin-bottom:14px; color:var(--text-dim); } p strong { color:var(--text); }
-table { width:100%; border-collapse:collapse; margin:16px 0; }
-th { font-family:var(--font-mono); font-size:11px; letter-spacing:1px; text-transform:uppercase; background:var(--surface2); color:var(--accent); text-align:left; padding:10px 14px; border:1px solid var(--border); }
-td { font-size:14px; padding:10px 14px; border:1px solid var(--border); color:var(--text-dim); }
-td strong { color:var(--text); }
-tr:nth-child(even) td { background:var(--surface); }
-.highlight { background:var(--red-dim); border-left:3px solid var(--red); padding:16px 20px; margin:20px 0; }
-.highlight-green { background:var(--green-dim); border-left:3px solid var(--green); padding:16px 20px; margin:20px 0; }
-.api-block { background:var(--surface); border:1px solid var(--border); padding:14px 18px; margin:12px 0; overflow-x:auto; }
-.api-block code { font-family:var(--font-mono); font-size:12px; color:var(--accent); word-break:break-all; }
-footer { border-top:1px solid var(--border); padding:32px 0; text-align:center; }
-footer p { font-size:13px; color:var(--text-dim); }
-.footer-accent { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
-@media (max-width:640px) { table { font-size:13px; } td,th { padding:8px 10px; } }
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+.hero-img { width: 100%; border-radius: 6px; margin-bottom: 24px; border: 1px solid var(--bd); }
+h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+.subtitle { font-size: 14px; color: var(--tm); font-family: var(--mono); margin-bottom: 6px; }
+.badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 3px 10px; border-radius: 3px; font-family: var(--mono); color: #fff; background: var(--cc); margin-bottom: 24px; }
+.highlight { background: rgba(217,64,64,0.08); border-left: 3px solid var(--cc); padding: 16px 20px; border-radius: 4px; margin: 24px 0; font-size: 15px; }
+.highlight strong { color: var(--cc); }
+section { margin-bottom: 36px; }
+h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--bd); }
+h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--tm); }
+p { margin-bottom: 12px; font-size: 15px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+th { background: var(--sf2); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; padding: 8px 10px; border: 1px solid var(--bd); color: var(--tm); }
+td { padding: 8px 10px; border: 1px solid var(--bd); }
+tr:nth-child(even) { background: var(--sf2); }
+.timeline { margin: 16px 0; }
+.tl-row { display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--bd); font-size: 14px; }
+.tl-year { font-family: var(--mono); font-weight: 700; min-width: 80px; color: var(--ac); flex-shrink: 0; }
+.tl-event { flex: 1; }
+.tl-row.flagged { background: rgba(217,64,64,0.06); padding: 10px; border-radius: 4px; margin: 2px -10px; }
+.api-block { font-family: var(--mono); font-size: 12px; background: var(--sf2); border: 1px solid var(--bd); padding: 8px 12px; border-radius: 4px; margin: 8px 0; word-break: break-all; color: var(--tm); }
+.foot { border-top: 1px solid var(--bd); padding: 24px 0; text-align: center; font-size: 12px; color: var(--td); font-family: var(--mono); margin-top: 48px; }
+.foot a { color: var(--ac); text-decoration: none; }
 </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="site-name">Sunshine Docket</div>
-    <div class="back"><a href="../index.html">&larr; Back to all findings</a></div>
-  </div>
-</header>
-<div class="profile-header">
-  <div class="container">
-    <h1>Sen. Noel Frame</h1>
-    <div class="subtitle">D-36 | Vice Chair of Finance, Ways &amp; Means | Managing Partner, Uncommon Bridges</div>
-    <div class="badge badge-conflict">Conflict</div>
-  </div>
+<div class="wrap">
+
+<div class="nav">
+  <a href="/">Sunshine Docket</a> &rarr; <a href="/">Investigations</a>
 </div>
-<div class="container">
+
+<img src="../tiles/frame.jpg" alt="Noel Frame: Legislator & Consultant" class="hero-img">
+
+<h1>Sen. Noel Frame</h1>
+<div class="subtitle">D-36 | Vice Chair of Finance, Ways & Means | Managing Partner, Uncommon Bridges</div>
+<span class="badge">Possible Conflict</span>
+
+<div class="highlight">
+  <strong>The core finding:</strong> Frame has two structurally independent conflicts. Her consulting firm, Uncommon Bridges, received $1.59 million from the City of Seattle across 22 contracts while she controls Commerce's budget through Ways & Means. Separately, her spouse earns $500K-$750K from Google while she sponsors legislation regulating Google's platforms. Zero recusals filed on either conflict.
+</div>
 
 <section>
-  <h2>Summary</h2>
-  <p>Frame has two structurally independent conflicts. First, she is the Managing Partner of Uncommon Bridges, a consulting firm that contracts with the Department of Commerce and the Office of Equity, while she controls Commerce's budget through Ways &amp; Means. Second, her spouse earns <strong>$500K-$750K from Google</strong> while she sponsors SB 5708, which directly regulates Google's platforms. Zero recusals filed on either conflict.</p>
-  <div class="highlight"><p><strong>The pipeline:</strong> Work at consulting firm &rarr; get elected &rarr; firm builds portfolio of government clients while you serve &rarr; move into the committee that controls those clients' budgets &rarr; firm income depends on agencies you fund.</p></div>
+  <h2>Conflict 1: The Uncommon Bridges Pipeline</h2>
+  <p>Frame is the Managing Partner of Uncommon Bridges, a consulting firm that contracts with government agencies. Through a public records review, we identified $1.59 million in City of Seattle contracts across 22 engagements involving 6 different city departments.</p>
+  <p>The timeline shows how the firm's government portfolio grew alongside Frame's political career:</p>
+  <div class="timeline">
+    <div class="tl-row">
+      <span class="tl-year">2016</span>
+      <span class="tl-event">Frame joins BDS Planning (now Uncommon Bridges) as a consultant.</span>
+    </div>
+    <div class="tl-row">
+      <span class="tl-year">2022</span>
+      <span class="tl-event">HB 1724 passes 96-1, creating a Permanent Supportive Housing Advisory Committee at Commerce. Frame votes yes.</span>
+    </div>
+    <div class="tl-row flagged">
+      <span class="tl-year">2022-23</span>
+      <span class="tl-event">Commerce hires Uncommon Bridges to manage the advisory committee that HB 1724 created. Frame's firm gets the contract for a committee her vote helped establish.</span>
+    </div>
+    <div class="tl-row flagged">
+      <span class="tl-year">2025</span>
+      <span class="tl-event">Frame is named Vice Chair of Finance on Ways & Means, giving her direct control over Commerce's operating budget.</span>
+    </div>
+    <div class="tl-row flagged">
+      <span class="tl-year">Aug 2025</span>
+      <span class="tl-event">Frame formally named Managing Partner. Firm has grown to 16 employees.</span>
+    </div>
+  </div>
+  <p>The pipeline: work at consulting firm, get elected, firm builds portfolio of government clients while you serve, move into the committee that controls those clients' budgets, get promoted to Managing Partner. Each step is individually defensible. Together they describe a career in which public service and private income reinforce each other.</p>
+  <p>Additional confirmed contracts with Commerce include: DEIR assessment, housing policy working group, and condo conversion review. A public records request to Commerce for complete contract values and procurement methods is pending.</p>
 </section>
+
 <section>
-  <h2>Income</h2>
+  <h2>Conflict 2: Google and SB 5708</h2>
+  <p>Frame's spouse earns $500K-$750K per year from Google LLC as a software developer. This is the household's largest income source by far, exceeding Frame's legislative salary and Uncommon Bridges income combined.</p>
+  <p>Frame sponsors SB 5708 ("Protecting Washington Children Online"), which directly regulates platforms like Google's YouTube. The bill passed the Senate 36-12. Google maintains 5 registered lobbyists in Olympia (2025-2026) to influence legislation affecting its products.</p>
+  <p>Frame did not recuse herself from the vote despite her household's $500K-$750K annual dependency on the company her bill regulates. Under RCW 42.52.120, recusal is required when a legislator has a direct financial interest in the outcome. Frame's position is presumably that her spouse's employment at Google does not constitute a direct interest in how Google's platforms are regulated.</p>
+</section>
+
+<section>
+  <h2>Income Summary</h2>
   <table>
     <tr><th>Who</th><th>Source</th><th>Role</th><th>Income</th></tr>
-    <tr><td>Spouse</td><td><strong>Google LLC</strong></td><td>Software Developer</td><td><strong>$500K-$750K</strong></td></tr>
-    <tr><td>Filer</td><td><strong>Uncommon Bridges</strong></td><td>Managing Partner</td><td>$60K-$100K</td></tr>
+    <tr><td>Spouse</td><td>Google LLC</td><td>Software Developer</td><td><strong>$500K-$750K</strong></td></tr>
+    <tr><td>Filer</td><td>Uncommon Bridges</td><td>Managing Partner</td><td>$60K-$100K</td></tr>
     <tr><td>Filer</td><td>WA State Senate</td><td>State Senator</td><td>$30K-$60K</td></tr>
     <tr><td>Filer</td><td>Rental income</td><td>Landlord</td><td>$0-$30K</td></tr>
     <tr><td>Spouse</td><td>Charles Schwab</td><td>Dividends</td><td>$0-$30K</td></tr>
   </table>
-</section>
-<section>
-  <h2>The Uncommon Bridges Pipeline</h2>
-  <table>
-    <tr><th>Year</th><th>Event</th></tr>
-    <tr><td>2016</td><td>Frame joins BDS Planning (now Uncommon Bridges)</td></tr>
-    <tr><td>2022</td><td>HB 1724 passes 96-1, creating PSH Advisory Committee at Commerce. Frame votes yes.</td></tr>
-    <tr><td>2022-23</td><td><strong>Commerce hires Uncommon Bridges to manage the committee HB 1724 created.</strong></td></tr>
-    <tr><td>2025</td><td>Frame given Vice Chair of Finance on Ways &amp; Means, controlling Commerce's budget.</td></tr>
-    <tr><td>Aug 2025</td><td>Frame formally named Managing Partner. Firm has 16 employees.</td></tr>
-  </table>
-  <p>Additional confirmed Commerce contracts: DEIR assessment, housing policy working group, condo conversion review. A public records request to Commerce for contract values and procurement methods is pending.</p>
-</section>
-<section>
-  <h2>Google: SB 5708</h2>
-  <p>Frame sponsors SB 5708 ("Protecting Washington Children Online"), which regulates platforms like Google's YouTube. Google maintains <strong>5 registered lobbyists in Olympia</strong> (2025-2026). The bill passed the Senate 36-12. Frame did not recuse despite her household's $500K-$750K dependency on Google.</p>
-</section>
-<section>
-  <h2>Verification</h2>
-  <h3>F1 Disclosure</h3>
-  <div class="api-block"><code>data.wa.gov/resource/ehbc-shxw.json?id=127634</code></div>
-  <h3>Google Lobbyists</h3>
-  <div class="api-block"><code>data.wa.gov/resource/xhn7-64im.json?$where=employer_name like '%Google LLC%'</code></div>
-  <h3>HB 1724</h3>
-  <div class="api-block"><code>app.leg.wa.gov/billsummary?BillNumber=1724&Year=2022</code></div>
+  <p>Frame's household income is dominated by Google. Her legislative salary of $30K-$60K is a fraction of her household's total. The financial incentive to protect Google's interests is structural, not contingent on any specific decision.</p>
 </section>
 
+<section>
+  <h2>Emergency Clause Usage</h2>
+  <p>Frame has sponsored 1 bill with an emergency clause during the current session: SB 5814, related to excise taxes. Emergency clauses prevent citizens from challenging legislation through referendum. As a member with both consulting firm contracts and a Google-dependent household, Frame's support for referendum-proof legislation raises questions about whether voters would have the opportunity to challenge bills that affect her financial interests.</p>
+</section>
+
+<section>
+  <h2>How to Verify Every Claim</h2>
+  <h3>F1 Disclosure</h3>
+  <div class="api-block">data.wa.gov/resource/ehbc-shxw.json?id=127634</div>
+  <h3>Google Lobbyist Registrations</h3>
+  <div class="api-block">data.wa.gov/resource/xhn7-64im.json?$where=employer_name like '%Google LLC%'</div>
+  <h3>HB 1724 (PSH Advisory Committee)</h3>
+  <div class="api-block">app.leg.wa.gov/billsummary?BillNumber=1724&Year=2022</div>
+  <h3>SB 5708 (Children Online)</h3>
+  <div class="api-block">app.leg.wa.gov/billsummary?BillNumber=5708&Year=2025</div>
+  <h3>Campaign Contributions</h3>
+  <div class="api-block">data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%Frame%Noel%'</div>
+</section>
+
+<div class="foot">
+  <a href="/">Sunshine Docket</a> &middot;
+  <a href="/legislature.html">Full Legislature</a> &middot;
+  <a href="/methodology.html">Methodology</a> &middot;
+  <a href="mailto:sunshinedocket@proton.me">Tips</a>
+  <br><br>
+  A citizen accountability project. Not affiliated with any political party, campaign, or organization.
+  All data sourced from official public disclosure filings and government databases.
 </div>
-<footer>
-  <div class="container">
-    <div class="footer-accent">Sunshine Docket</div>
-    <p>A citizen accountability project. Not affiliated with any political party, campaign, or organization.<br>
-    All data sourced from official public disclosure filings and government databases.</p>
-  </div>
-</footer>
+
+</div>
 </body>
 </html>

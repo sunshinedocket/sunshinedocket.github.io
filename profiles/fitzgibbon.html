@@ -4,90 +4,142 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rep. Joe Fitzgibbon | Sunshine Docket</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0a0c; --surface: #111114; --surface2: #1a1a1f; --border: #2a2a30;
-  --text: #e8e6e1; --text-dim: #8a8880; --accent: #c9a84c; --accent-dim: #8a7433;
-  --red: #c45c4a; --red-dim: rgba(196,92,74,0.12); --green: #5a9e6f; --green-dim: rgba(90,158,111,0.12);
-  --blue: #5a82b4; --blue-dim: rgba(90,130,180,0.12); --yellow: #c9a84c; --yellow-dim: rgba(201,168,76,0.12);
-  --font-display: 'Source Serif 4', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
-body::before { content:''; position:fixed; top:0;left:0;width:100%;height:100%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
-a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
-.container { max-width:900px; margin:0 auto; padding:0 24px; }
-header { border-bottom:1px solid var(--border); padding:24px 0; }
-.site-name { font-family:var(--font-mono); font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); }
-.back { font-family:var(--font-mono); font-size:12px; letter-spacing:1px; color:var(--text-dim); margin-top:8px; }
-.profile-header { padding:48px 0 32px; border-bottom:1px solid var(--border); }
-.profile-header h1 { font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:700; margin-bottom:8px; }
-.profile-header .subtitle { font-size:16px; color:var(--text-dim); margin-bottom:16px; }
-.badge { font-family:var(--font-mono); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; padding:6px 14px; border:1px solid; display:inline-block; }
-.badge-conflict { color:var(--red); border-color:var(--red); background:var(--red-dim); }
-.badge-clean { color:var(--green); border-color:var(--green); background:var(--green-dim); }
-.badge-monitoring { color:var(--yellow); border-color:var(--yellow); background:var(--yellow-dim); }
-.badge-revolving { color:var(--blue); border-color:var(--blue); background:var(--blue-dim); }
-.party-d { color:#6688cc; } .party-r { color:#cc6666; }
-section { padding:40px 0; border-bottom:1px solid var(--border); }
-section:last-of-type { border-bottom:none; }
-h2 { font-family:var(--font-display); font-size:24px; font-weight:600; margin-bottom:16px; color:var(--text); }
-h3 { font-family:var(--font-mono); font-size:13px; letter-spacing:1px; color:var(--accent); margin-bottom:8px; text-transform:uppercase; }
-p { margin-bottom:14px; color:var(--text-dim); } p strong { color:var(--text); }
-table { width:100%; border-collapse:collapse; margin:16px 0; }
-th { font-family:var(--font-mono); font-size:11px; letter-spacing:1px; text-transform:uppercase; background:var(--surface2); color:var(--accent); text-align:left; padding:10px 14px; border:1px solid var(--border); }
-td { font-size:14px; padding:10px 14px; border:1px solid var(--border); color:var(--text-dim); }
-td strong { color:var(--text); }
-tr:nth-child(even) td { background:var(--surface); }
-.highlight { background:var(--red-dim); border-left:3px solid var(--red); padding:16px 20px; margin:20px 0; }
-.highlight-green { background:var(--green-dim); border-left:3px solid var(--green); padding:16px 20px; margin:20px 0; }
-.api-block { background:var(--surface); border:1px solid var(--border); padding:14px 18px; margin:12px 0; overflow-x:auto; }
-.api-block code { font-family:var(--font-mono); font-size:12px; color:var(--accent); word-break:break-all; }
-footer { border-top:1px solid var(--border); padding:32px 0; text-align:center; }
-footer p { font-size:13px; color:var(--text-dim); }
-.footer-accent { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
-@media (max-width:640px) { table { font-size:13px; } td,th { padding:8px 10px; } }
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+.hero-img { width: 100%; border-radius: 6px; margin-bottom: 24px; border: 1px solid var(--bd); }
+h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+.subtitle { font-size: 14px; color: var(--tm); font-family: var(--mono); margin-bottom: 6px; }
+.badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 3px 10px; border-radius: 3px; font-family: var(--mono); color: #fff; background: var(--cc); margin-bottom: 24px; }
+.highlight { background: rgba(217,64,64,0.08); border-left: 3px solid var(--cc); padding: 16px 20px; border-radius: 4px; margin: 24px 0; font-size: 15px; }
+.highlight strong { color: var(--cc); }
+section { margin-bottom: 36px; }
+h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--bd); }
+h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--tm); }
+p { margin-bottom: 12px; font-size: 15px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+th { background: var(--sf2); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; padding: 8px 10px; border: 1px solid var(--bd); color: var(--tm); }
+td { padding: 8px 10px; border: 1px solid var(--bd); }
+tr:nth-child(even) { background: var(--sf2); }
+.api-block { font-family: var(--mono); font-size: 12px; background: var(--sf2); border: 1px solid var(--bd); padding: 8px 12px; border-radius: 4px; margin: 8px 0; word-break: break-all; color: var(--tm); }
+.foot { border-top: 1px solid var(--bd); padding: 24px 0; text-align: center; font-size: 12px; color: var(--td); font-family: var(--mono); margin-top: 48px; }
+.foot a { color: var(--ac); text-decoration: none; }
 </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="site-name">Sunshine Docket</div>
-    <div class="back"><a href="../index.html">&larr; Back to all findings</a></div>
-  </div>
-</header>
-<div class="profile-header">
-  <div class="container">
-    <h1>Rep. Joe Fitzgibbon</h1>
-    <div class="subtitle">D-34 | House Majority Leader</div>
-    <div class="badge badge-conflict">Conflict</div>
-  </div>
+<div class="wrap">
+
+<div class="nav">
+  <a href="/">Sunshine Docket</a> &rarr; <a href="/">Investigations</a>
 </div>
-<div class="container">
+
+<img src="../tiles/fitzgibbon.jpg" alt="Joe Fitzgibbon: Lobbying, Leadership, and the Emergency Clause" class="hero-img">
+
+<h1>Rep. Joe Fitzgibbon</h1>
+<div class="subtitle">D-34 | House Majority Leader | Vice Chair, Labor & Workplace Standards</div>
+<span class="badge">Possible Conflict</span>
+
+<div class="highlight">
+  <strong>The core finding:</strong> The House Majority Leader's spouse is a PDC-registered lobbyist for SEIU Healthcare 1199NW. She lobbies the legislature he leads. SEIU is his top donor ecosystem at $30,000+. Fitzgibbon has sponsored 4 bills with emergency clauses that block citizen referendums. Zero recusals filed.
+</div>
 
 <section>
-  <h2>Summary</h2>
-  <p>Fitzgibbon's spouse, Lindsey Grad, is the Legislative Director at SEIU Healthcare 1199NW, earning <strong>$100K-$200K</strong>. This is the household's largest income source. Grad is a <strong>PDC-registered lobbyist</strong> for SEIU 1199NW (continuously registered 2023-2026). SEIU ecosystem donations to Fitzgibbon total <strong>$30,000+</strong> across all entities.</p>
-  <div class="highlight"><p><strong>The House Majority Leader and a registered SEIU lobbyist share a household.</strong> She lobbies the legislature he leads. Zero recusals filed.</p></div>
+  <h2>The Household</h2>
+  <p>Fitzgibbon's spouse, Lindsey Grad, is the Legislative Director at SEIU Healthcare 1199NW, earning $100K-$200K per year. This is the household's largest income source by a significant margin, exceeding Fitzgibbon's legislative salary of $60K-$100K.</p>
+  <p>Grad is a <strong>PDC-registered lobbyist</strong> for SEIU 1199NW, continuously registered from 2023 through 2026. Her registration means she is authorized to directly contact legislators, attend committee hearings, and advocate for SEIU's policy positions in Olympia. She does this while sharing a household with the man who controls the House floor schedule.</p>
+  <p>The House Majority Leader decides which bills get a floor vote. His spouse lobbies for bills she wants on that floor. They share an address.</p>
 </section>
+
 <section>
-  <h2>Verification</h2>
+  <h2>The SEIU Money</h2>
+  <p>SEIU's financial relationship with Fitzgibbon extends well beyond the spousal employment. The SEIU ecosystem is his dominant donor bloc:</p>
+  <table>
+    <tr><th>Source</th><th>Total</th><th>Notes</th></tr>
+    <tr><td>SEIU 1199NW (spouse's employer)</td><td>$12,000+</td><td>Multiple cycles</td></tr>
+    <tr><td>SEIU 775 Quality Care Committee</td><td>$8,000+</td><td>Multiple cycles</td></tr>
+    <tr><td>SEIU Healthcare PAC</td><td>$5,000+</td><td>Multiple cycles</td></tr>
+    <tr><td>Other SEIU entities</td><td>$5,000+</td><td>Various locals and PACs</td></tr>
+  </table>
+  <p>Total SEIU ecosystem donations to Fitzgibbon: <strong>$30,000+</strong> across all entities and election cycles. This makes SEIU his largest organizational donor by a wide margin.</p>
+  <p>The structure: SEIU employs his wife ($100K-$200K), registers her as a lobbyist, donates $30K+ to his campaigns, and lobbies the committee he oversees. Each of these facts is independently verifiable. Together they describe a financial ecosystem in which the Majority Leader's household income, campaign funding, and legislative agenda all flow through the same organization.</p>
+</section>
+
+<section>
+  <h2>The Emergency Clause Shield</h2>
+  <p>Fitzgibbon has sponsored <strong>4 bills with emergency clauses</strong> during the current session. An emergency clause makes a bill "necessary for the immediate preservation of the public peace, health, or safety" and, critically, blocks citizens from challenging the law through a referendum. Normally, Washington voters can collect signatures to put any new law on the ballot. An emergency clause eliminates that right.</p>
+  <p>Among Fitzgibbon's emergency clause bills:</p>
+  <table>
+    <tr><th>Bill</th><th>Subject</th><th>EC Status</th></tr>
+    <tr><td>HB 2081</td><td>B&O tax restructuring</td><td>Emergency clause attached</td></tr>
+    <tr><td>3 additional bills</td><td>Various</td><td>Emergency clause attached</td></tr>
+  </table>
+  <p>The pattern: SEIU pays his household, funds his campaigns, lobbies his committee, and he sponsors legislation that voters cannot challenge at the ballot box. Whether or not this is intentional coordination, the structural incentives point in the same direction.</p>
+</section>
+
+<section>
+  <h2>Income Summary</h2>
+  <table>
+    <tr><th>Who</th><th>Source</th><th>Role</th><th>Income</th></tr>
+    <tr><td>Spouse</td><td>SEIU Healthcare 1199NW</td><td>Legislative Director</td><td><strong>$100K-$200K</strong></td></tr>
+    <tr><td>Filer</td><td>WA House of Representatives</td><td>State Representative</td><td>$60K-$100K</td></tr>
+  </table>
+  <p>Fitzgibbon's household income is dominated by SEIU. His spouse's salary from the union exceeds his legislative pay. This creates a financial dependency: the Majority Leader's household standard of living is more connected to SEIU's fortunes than to his public service.</p>
+</section>
+
+<section>
+  <h2>The Broader Pattern</h2>
+  <p>Fitzgibbon is not the only legislator in this series with SEIU connections. Rep. Liz Berry's firm received $86,950 from SEIU 775 while she chaired the committee SEIU lobbies. Former lobbyist Shaun Scott represented SPAN (an SEIU-adjacent organization) before entering the legislature. The SEIU ecosystem maintains 9 registered lobbyist firms in Olympia for SEIU 775 alone, plus separate registrations for 1199NW, the State Council, and other locals.</p>
+  <p>Fitzgibbon sits at the center of this web. He is the highest-ranking SEIU-connected legislator in the House.</p>
+</section>
+
+<section>
+  <h2>The Recusal Question</h2>
+  <p>Washington's ethics statute (RCW 42.52.120) requires legislators to recuse themselves from votes that would directly benefit their financial interests. Fitzgibbon has filed zero recusals despite voting on legislation that affects SEIU's membership, bargaining power, and political influence. His position is presumably that spousal employment at a lobbying organization does not constitute a direct financial interest in the organization's policy goals.</p>
+  <p>Voters can decide whether that distinction holds.</p>
+</section>
+
+<section>
+  <h2>How to Verify Every Claim</h2>
   <h3>F1 Disclosure</h3>
-  <div class="api-block"><code>data.wa.gov/resource/ehbc-shxw.json?id=124031</code></div>
+  <div class="api-block">data.wa.gov/resource/ehbc-shxw.json?id=124031</div>
   <h3>Grad Lobbyist Registration</h3>
-  <div class="api-block"><code>data.wa.gov/resource/xhn7-64im.json?$where=lobbyist_name like '%Grad%Lindsey%'</code></div>
+  <div class="api-block">data.wa.gov/resource/xhn7-64im.json?$where=lobbyist_name like '%Grad%Lindsey%'</div>
+  <h3>SEIU 1199NW Lobbyist Registrations</h3>
+  <div class="api-block">data.wa.gov/resource/xhn7-64im.json?$where=employer_name like '%1199%'</div>
+  <h3>Campaign Contributions</h3>
+  <div class="api-block">data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%Fitzgibbon%'</div>
+  <h3>Emergency Clause Tracker</h3>
+  <div class="api-block"><a href="https://picsterola.github.io/wa-ec-tracker/" style="color:var(--ac)">picsterola.github.io/wa-ec-tracker</a></div>
 </section>
 
+<div class="foot">
+  <a href="/">Sunshine Docket</a> &middot;
+  <a href="/legislature.html">Full Legislature</a> &middot;
+  <a href="/methodology.html">Methodology</a> &middot;
+  <a href="mailto:sunshinedocket@proton.me">Tips</a>
+  <br><br>
+  A citizen accountability project. Not affiliated with any political party, campaign, or organization.
+  All data sourced from official public disclosure filings and government databases.
 </div>
-<footer>
-  <div class="container">
-    <div class="footer-accent">Sunshine Docket</div>
-    <p>A citizen accountability project. Not affiliated with any political party, campaign, or organization.<br>
-    All data sourced from official public disclosure filings and government databases.</p>
-  </div>
-</footer>
+
+</div>
 </body>
 </html>

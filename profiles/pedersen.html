@@ -4,124 +4,138 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sen. Jamie Pedersen | Sunshine Docket</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0a0c; --surface: #111114; --surface2: #1a1a1f; --border: #2a2a30;
-  --text: #e8e6e1; --text-dim: #8a8880; --accent: #c9a84c; --accent-dim: #8a7433;
-  --red: #c45c4a; --red-dim: rgba(196,92,74,0.12); --green: #5a9e6f; --green-dim: rgba(90,158,111,0.12);
-  --blue: #5a82b4; --blue-dim: rgba(90,130,180,0.12); --yellow: #c9a84c; --yellow-dim: rgba(201,168,76,0.12);
-  --font-display: 'Source Serif 4', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
-body::before { content:''; position:fixed; top:0;left:0;width:100%;height:100%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
-a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
-.container { max-width:900px; margin:0 auto; padding:0 24px; }
-header { border-bottom:1px solid var(--border); padding:24px 0; }
-.site-name { font-family:var(--font-mono); font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); }
-.back { font-family:var(--font-mono); font-size:12px; letter-spacing:1px; color:var(--text-dim); margin-top:8px; }
-.profile-header { padding:48px 0 32px; border-bottom:1px solid var(--border); }
-.profile-header h1 { font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:700; margin-bottom:8px; }
-.profile-header .subtitle { font-size:16px; color:var(--text-dim); margin-bottom:16px; }
-.badge { font-family:var(--font-mono); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; padding:6px 14px; border:1px solid; display:inline-block; }
-.badge-conflict { color:var(--red); border-color:var(--red); background:var(--red-dim); }
-.badge-clean { color:var(--green); border-color:var(--green); background:var(--green-dim); }
-.badge-monitoring { color:var(--yellow); border-color:var(--yellow); background:var(--yellow-dim); }
-.badge-revolving { color:var(--blue); border-color:var(--blue); background:var(--blue-dim); }
-.party-d { color:#6688cc; } .party-r { color:#cc6666; }
-section { padding:40px 0; border-bottom:1px solid var(--border); }
-section:last-of-type { border-bottom:none; }
-h2 { font-family:var(--font-display); font-size:24px; font-weight:600; margin-bottom:16px; color:var(--text); }
-h3 { font-family:var(--font-mono); font-size:13px; letter-spacing:1px; color:var(--accent); margin-bottom:8px; text-transform:uppercase; }
-p { margin-bottom:14px; color:var(--text-dim); } p strong { color:var(--text); }
-table { width:100%; border-collapse:collapse; margin:16px 0; }
-th { font-family:var(--font-mono); font-size:11px; letter-spacing:1px; text-transform:uppercase; background:var(--surface2); color:var(--accent); text-align:left; padding:10px 14px; border:1px solid var(--border); }
-td { font-size:14px; padding:10px 14px; border:1px solid var(--border); color:var(--text-dim); }
-td strong { color:var(--text); }
-tr:nth-child(even) td { background:var(--surface); }
-.highlight { background:var(--red-dim); border-left:3px solid var(--red); padding:16px 20px; margin:20px 0; }
-.highlight-green { background:var(--green-dim); border-left:3px solid var(--green); padding:16px 20px; margin:20px 0; }
-.api-block { background:var(--surface); border:1px solid var(--border); padding:14px 18px; margin:12px 0; overflow-x:auto; }
-.api-block code { font-family:var(--font-mono); font-size:12px; color:var(--accent); word-break:break-all; }
-footer { border-top:1px solid var(--border); padding:32px 0; text-align:center; }
-footer p { font-size:13px; color:var(--text-dim); }
-.footer-accent { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
-@media (max-width:640px) { table { font-size:13px; } td,th { padding:8px 10px; } }
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+.hero-img { width: 100%; border-radius: 6px; margin-bottom: 24px; border: 1px solid var(--bd); }
+h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+.subtitle { font-size: 14px; color: var(--tm); font-family: var(--mono); margin-bottom: 6px; }
+.badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 3px 10px; border-radius: 3px; font-family: var(--mono); color: #fff; background: var(--cc); margin-bottom: 24px; }
+.highlight { background: rgba(217,64,64,0.08); border-left: 3px solid var(--cc); padding: 16px 20px; border-radius: 4px; margin: 24px 0; font-size: 15px; }
+.highlight strong { color: var(--cc); }
+section { margin-bottom: 36px; }
+h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--bd); }
+h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--tm); }
+p { margin-bottom: 12px; font-size: 15px; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+th { background: var(--sf2); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; padding: 8px 10px; border: 1px solid var(--bd); color: var(--tm); }
+td { padding: 8px 10px; border: 1px solid var(--bd); }
+tr:nth-child(even) { background: var(--sf2); }
+td.amount { font-family: var(--mono); font-weight: 600; }
+.api-block { font-family: var(--mono); font-size: 12px; background: var(--sf2); border: 1px solid var(--bd); padding: 8px 12px; border-radius: 4px; margin: 8px 0; word-break: break-all; color: var(--tm); }
+.foot { border-top: 1px solid var(--bd); padding: 24px 0; text-align: center; font-size: 12px; color: var(--td); font-family: var(--mono); margin-top: 48px; }
+.foot a { color: var(--ac); text-decoration: none; }
 </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="site-name">Sunshine Docket</div>
-    <div class="back"><a href="../index.html">&larr; Back to all findings</a></div>
-  </div>
-</header>
-<div class="profile-header">
-  <div class="container">
-    <h1>Sen. Jamie Pedersen</h1>
-    <div class="subtitle">D-43 | Senate Majority Leader | EVP &amp; General Counsel, McKinstry Co.</div>
-    <div class="badge badge-conflict">Conflict</div>
-  </div>
+<div class="wrap">
+
+<div class="nav">
+  <a href="/">Sunshine Docket</a> &rarr; <a href="/">Investigations</a>
 </div>
-<div class="container">
+
+<img src="../tiles/pedersen.jpg" alt="Jamie Pedersen: McKinstry, State Payments, and Ways & Means" class="hero-img">
+
+<h1>Sen. Jamie Pedersen</h1>
+<div class="subtitle">D-43 | Senate Majority Leader | EVP & General Counsel, McKinstry Co.</div>
+<span class="badge">Possible Conflict</span>
+
+<div class="highlight">
+  <strong>The core finding:</strong> Pedersen is the Executive Vice President and General Counsel of McKinstry Co., a construction and energy services company whose entities received $29.1 million in state agency payments in a single year. He chairs the Senate Ways & Means Committee, which controls the operating budgets of the agencies paying his employer. He also sits on the Legislative Ethics Board that would investigate any conflict complaint against him.
+</div>
 
 <section>
-  <h2>Summary</h2>
-  <p>Pedersen is the Executive Vice President and General Counsel of McKinstry Co., a construction and energy services company that received <strong>$29.1 million in state agency payments in calendar year 2025</strong>. He chairs the Senate Ways &amp; Means Committee, which controls the operating budgets of the agencies paying his employer. He also sits on the Legislative Ethics Board that would investigate any conflict complaint against him.</p>
-  <div class="highlight"><p><strong>His McKinstry salary jumped from $200K-$500K (CY2024) to $500K-$750K (CY2025).</strong> His employer promoted him to Executive Vice President while he continued to chair the committee funding their $29 million in state contracts.</p></div>
+  <h2>The Numbers</h2>
+  <p>From Pedersen's own signed F1 disclosure (submission 132680, filed March 24, 2026), McKinstry entities disclosed $29,119,211 in payments from Washington state agencies during calendar year 2025. This is not revenue from private clients or the open market. This is public money flowing from agencies whose budgets Pedersen directly controls through Ways & Means.</p>
+  <p>While receiving this volume of state payments, Pedersen's employer promoted him from General Counsel to Executive Vice President. His reported income jumped from $200K-$500K (CY2024) to $500K-$750K (CY2025). He was given more money and a bigger title at the same time his committee was funding the agencies that write checks to McKinstry.</p>
 </section>
+
 <section>
   <h2>Income</h2>
   <table>
     <tr><th>Who</th><th>Source</th><th>Role</th><th>Income</th></tr>
-    <tr><td>Filer</td><td><strong>McKinstry Co., LLC</strong></td><td>EVP &amp; General Counsel</td><td><strong>$500K-$750K</strong></td></tr>
+    <tr><td>Filer</td><td>McKinstry Co., LLC</td><td>EVP & General Counsel</td><td class="amount">$500K-$750K</td></tr>
+    <tr><td>Filer</td><td>McKinstry Essention, LLC</td><td>Distributions</td><td class="amount">$60K-$100K</td></tr>
     <tr><td>Filer</td><td>WA State Senate</td><td>State Senator</td><td>$60K-$100K</td></tr>
     <tr><td>Filer</td><td>McKinstry Co., LLC</td><td>Distributions</td><td>$30K-$60K</td></tr>
-    <tr><td>Filer</td><td>McKinstry Essention, LLC</td><td>Distributions</td><td>$60K-$100K</td></tr>
     <tr><td>Filer</td><td>South Landing Investors, LLC</td><td>Distributions</td><td>$0-$30K</td></tr>
     <tr><td>Filer</td><td>Oxbow Partners Spokane, LLC</td><td>Distributions</td><td>$0-$30K</td></tr>
     <tr><td>Filer</td><td>Emerald Spokane Industrial I, LLC</td><td>Distributions</td><td>$0-$30K</td></tr>
     <tr><td>Spouse</td><td>Seattle Public Schools</td><td>Teacher</td><td>$100K-$200K</td></tr>
   </table>
-</section>
-<section>
-  <h2>State Agency Payments: $29,119,211 (CY2025)</h2>
-  <p>From Pedersen's own signed F1 disclosure (submission 132680, filed March 24, 2026):</p>
-  <table>
-    <tr><th>Amount</th><th>Entity</th><th>Payer</th><th>Purpose</th></tr>
-    <tr><td><strong>$10,215,522</strong></td><td>McKinstry Essention</td><td>DES</td><td>Energy services</td></tr>
-    <tr><td><strong>$6,268,629</strong></td><td>McKinstry Co.</td><td>University of Washington</td><td>Construction</td></tr>
-    <tr><td><strong>$4,947,789</strong></td><td>South Landing Building A LLC</td><td>Eastern Washington University</td><td>Rent</td></tr>
-    <tr><td><strong>$2,052,010</strong></td><td>Spokane Portland &amp; Seattle LLC</td><td>University of Washington</td><td>Rent</td></tr>
-    <tr><td><strong>$1,334,066</strong></td><td>Great Northern Spokane LLC</td><td>Eastern Washington University</td><td>Rent</td></tr>
-    <tr><td><strong>$1,127,591</strong></td><td>McKinstry Co.</td><td>Harborview Medical Center</td><td>Construction</td></tr>
-    <tr><td>$878,791</td><td>McKinstry Essention</td><td>University of Washington</td><td>Services</td></tr>
-    <tr><td>$378,674</td><td>McKinstry Essention</td><td>WSDOT</td><td>Services</td></tr>
-    <tr><td>$322,082</td><td>McKinstry Essention</td><td>WSU</td><td>Services</td></tr>
-    <tr><td>$229,092</td><td>South Landing Building A LLC</td><td>Dept. of Commerce</td><td>Rent</td></tr>
-    <tr><td colspan="4"><em>Plus 19 additional payments to agencies including DOH, DSHS, DOC, DOE, CWU, and Criminal Justice Training Center.</em></td></tr>
-  </table>
-</section>
-<section>
-  <h2>Verification</h2>
-  <h3>F1 Disclosure</h3>
-  <div class="api-block"><code>data.wa.gov/resource/ehbc-shxw.json?id=132680</code></div>
-  <h3>Contributions</h3>
-  <div class="api-block"><code>data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%Pedersen%Jamie%'</code></div>
-  <h3>DES Master Contract</h3>
-  <div class="api-block"><code>Contract #04224 - HVAC Services (McKinstry Co., effective 9/10/2025)</code></div>
+  <p>Pedersen's combined McKinstry income (salary plus distributions from McKinstry Co. and McKinstry Essention) is between $590,000 and $910,000 per year. His legislative salary is $60K-$100K. His financial life is McKinstry.</p>
 </section>
 
+<section>
+  <h2>State Agency Payments: $29,119,211</h2>
+  <p>Every line below comes from Pedersen's own F1. These are payments his employer and its affiliated entities received from state agencies:</p>
+  <table>
+    <tr><th>Amount</th><th>Entity</th><th>Payer</th><th>Purpose</th></tr>
+    <tr><td class="amount">$10,215,522</td><td>McKinstry Essention</td><td>DES</td><td>Energy services</td></tr>
+    <tr><td class="amount">$6,268,629</td><td>McKinstry Co.</td><td>University of Washington</td><td>Construction</td></tr>
+    <tr><td class="amount">$4,947,789</td><td>South Landing Bldg A LLC</td><td>Eastern WA University</td><td>Rent</td></tr>
+    <tr><td class="amount">$2,052,010</td><td>Spokane Portland & Seattle LLC</td><td>University of Washington</td><td>Rent</td></tr>
+    <tr><td class="amount">$1,334,066</td><td>Great Northern Spokane LLC</td><td>Eastern WA University</td><td>Rent</td></tr>
+    <tr><td class="amount">$1,127,591</td><td>McKinstry Co.</td><td>Harborview Medical Center</td><td>Construction</td></tr>
+    <tr><td class="amount">$878,791</td><td>McKinstry Essention</td><td>University of Washington</td><td>Services</td></tr>
+    <tr><td class="amount">$378,674</td><td>McKinstry Essention</td><td>WSDOT</td><td>Services</td></tr>
+    <tr><td class="amount">$322,082</td><td>McKinstry Essention</td><td>WSU</td><td>Services</td></tr>
+    <tr><td class="amount">$229,092</td><td>South Landing Bldg A LLC</td><td>Dept. of Commerce</td><td>Rent</td></tr>
+  </table>
+  <p><em>Plus 19 additional payments to agencies including DOH, DSHS, DOC, DOE, CWU, and the Criminal Justice Training Center.</em></p>
+</section>
+
+<section>
+  <h2>The Structural Problem</h2>
+  <p>The Ways & Means Committee sets the operating budget for every state agency. When Ways & Means allocates more money to the University of Washington, DES, or WSDOT, those agencies have more money to spend on construction, energy services, and building leases. McKinstry provides construction, energy services, and building leases to those agencies.</p>
+  <p>Pedersen does not need to steer a specific contract to McKinstry. He does not need to call an agency head. He does not need to do anything improper at all. The structural incentive is built into the org chart: the man who sets agency budgets earns $500K-$750K from a company that depends on those budgets for $29 million in annual revenue.</p>
+  <p>Meanwhile, DES awarded McKinstry Master Contract #04224 for HVAC Services, effective September 10, 2025. Master contracts are state-negotiated agreements that allow agencies to purchase services without individual procurement. Once McKinstry holds a master contract, every agency in the state can buy from them with minimal oversight.</p>
+</section>
+
+<section>
+  <h2>The Ethics Board</h2>
+  <p>Pedersen sits on the Legislative Ethics Board. If a citizen filed a conflict-of-interest complaint about a legislator, the Ethics Board would evaluate it. If someone filed that complaint about Pedersen, he would be a member of the body reviewing it.</p>
+  <p>Washington does not require Ethics Board members to recuse themselves from complaints involving their own conduct. The board operates on a self-policing model.</p>
+</section>
+
+<section>
+  <h2>How to Verify Every Claim</h2>
+  <h3>F1 Disclosure</h3>
+  <div class="api-block">data.wa.gov/resource/ehbc-shxw.json?id=132680</div>
+  <h3>Campaign Contributions</h3>
+  <div class="api-block">data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%Pedersen%Jamie%'</div>
+  <h3>DES Master Contract</h3>
+  <div class="api-block">Contract #04224 - HVAC Services (McKinstry Co., effective 9/10/2025)</div>
+</section>
+
+<div class="foot">
+  <a href="/">Sunshine Docket</a> &middot;
+  <a href="/legislature.html">Full Legislature</a> &middot;
+  <a href="/methodology.html">Methodology</a> &middot;
+  <a href="mailto:sunshinedocket@proton.me">Tips</a>
+  <br><br>
+  A citizen accountability project. Not affiliated with any political party, campaign, or organization.
+  All data sourced from official public disclosure filings and government databases.
 </div>
-<footer>
-  <div class="container">
-    <div class="footer-accent">Sunshine Docket</div>
-    <p>A citizen accountability project. Not affiliated with any political party, campaign, or organization.<br>
-    All data sourced from official public disclosure filings and government databases.</p>
-  </div>
-</footer>
+
+</div>
 </body>
 </html>

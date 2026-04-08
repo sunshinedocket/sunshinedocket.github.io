@@ -4,90 +4,184 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rep. Liz Berry | Sunshine Docket</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0a0c; --surface: #111114; --surface2: #1a1a1f; --border: #2a2a30;
-  --text: #e8e6e1; --text-dim: #8a8880; --accent: #c9a84c; --accent-dim: #8a7433;
-  --red: #c45c4a; --red-dim: rgba(196,92,74,0.12); --green: #5a9e6f; --green-dim: rgba(90,158,111,0.12);
-  --blue: #5a82b4; --blue-dim: rgba(90,130,180,0.12); --yellow: #c9a84c; --yellow-dim: rgba(201,168,76,0.12);
-  --font-display: 'Source Serif 4', Georgia, serif; --font-body: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
-body::before { content:''; position:fixed; top:0;left:0;width:100%;height:100%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
-a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
-.container { max-width:900px; margin:0 auto; padding:0 24px; }
-header { border-bottom:1px solid var(--border); padding:24px 0; }
-.site-name { font-family:var(--font-mono); font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); }
-.back { font-family:var(--font-mono); font-size:12px; letter-spacing:1px; color:var(--text-dim); margin-top:8px; }
-.profile-header { padding:48px 0 32px; border-bottom:1px solid var(--border); }
-.profile-header h1 { font-family:var(--font-display); font-size:clamp(28px,4vw,40px); font-weight:700; margin-bottom:8px; }
-.profile-header .subtitle { font-size:16px; color:var(--text-dim); margin-bottom:16px; }
-.badge { font-family:var(--font-mono); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; padding:6px 14px; border:1px solid; display:inline-block; }
-.badge-conflict { color:var(--red); border-color:var(--red); background:var(--red-dim); }
-.badge-clean { color:var(--green); border-color:var(--green); background:var(--green-dim); }
-.badge-monitoring { color:var(--yellow); border-color:var(--yellow); background:var(--yellow-dim); }
-.badge-revolving { color:var(--blue); border-color:var(--blue); background:var(--blue-dim); }
-.party-d { color:#6688cc; } .party-r { color:#cc6666; }
-section { padding:40px 0; border-bottom:1px solid var(--border); }
-section:last-of-type { border-bottom:none; }
-h2 { font-family:var(--font-display); font-size:24px; font-weight:600; margin-bottom:16px; color:var(--text); }
-h3 { font-family:var(--font-mono); font-size:13px; letter-spacing:1px; color:var(--accent); margin-bottom:8px; text-transform:uppercase; }
-p { margin-bottom:14px; color:var(--text-dim); } p strong { color:var(--text); }
-table { width:100%; border-collapse:collapse; margin:16px 0; }
-th { font-family:var(--font-mono); font-size:11px; letter-spacing:1px; text-transform:uppercase; background:var(--surface2); color:var(--accent); text-align:left; padding:10px 14px; border:1px solid var(--border); }
-td { font-size:14px; padding:10px 14px; border:1px solid var(--border); color:var(--text-dim); }
-td strong { color:var(--text); }
-tr:nth-child(even) td { background:var(--surface); }
-.highlight { background:var(--red-dim); border-left:3px solid var(--red); padding:16px 20px; margin:20px 0; }
-.highlight-green { background:var(--green-dim); border-left:3px solid var(--green); padding:16px 20px; margin:20px 0; }
-.api-block { background:var(--surface); border:1px solid var(--border); padding:14px 18px; margin:12px 0; overflow-x:auto; }
-.api-block code { font-family:var(--font-mono); font-size:12px; color:var(--accent); word-break:break-all; }
-footer { border-top:1px solid var(--border); padding:32px 0; text-align:center; }
-footer p { font-size:13px; color:var(--text-dim); }
-.footer-accent { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
-@media (max-width:640px) { table { font-size:13px; } td,th { padding:8px 10px; } }
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+
+.hero-img { width: 100%; border-radius: 6px; margin-bottom: 24px; border: 1px solid var(--bd); }
+h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+.subtitle { font-size: 14px; color: var(--tm); font-family: var(--mono); margin-bottom: 6px; }
+.badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 3px 10px; border-radius: 3px; font-family: var(--mono); color: #fff; background: var(--cc); margin-bottom: 24px; }
+
+.highlight { background: rgba(217,64,64,0.08); border-left: 3px solid var(--cc); padding: 16px 20px; border-radius: 4px; margin: 24px 0; font-size: 15px; }
+.highlight strong { color: var(--cc); }
+
+section { margin-bottom: 36px; }
+h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--bd); }
+h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--tm); }
+p { margin-bottom: 12px; font-size: 15px; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+th { background: var(--sf2); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; padding: 8px 10px; border: 1px solid var(--bd); color: var(--tm); }
+td { padding: 8px 10px; border: 1px solid var(--bd); }
+tr:nth-child(even) { background: var(--sf2); }
+
+.api-block { font-family: var(--mono); font-size: 12px; background: var(--sf2); border: 1px solid var(--bd); padding: 8px 12px; border-radius: 4px; margin: 8px 0; word-break: break-all; color: var(--tm); }
+
+.timeline { margin: 16px 0; }
+.tl-row { display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--bd); font-size: 14px; }
+.tl-year { font-family: var(--mono); font-weight: 700; min-width: 80px; color: var(--ac); flex-shrink: 0; }
+.tl-event { flex: 1; }
+.tl-row.flagged { background: rgba(217,64,64,0.06); padding: 10px; border-radius: 4px; margin: 2px -10px; }
+
+.foot { border-top: 1px solid var(--bd); padding: 24px 0; text-align: center; font-size: 12px; color: var(--td); font-family: var(--mono); margin-top: 48px; }
+.foot a { color: var(--ac); text-decoration: none; }
 </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="site-name">Sunshine Docket</div>
-    <div class="back"><a href="../index.html">&larr; Back to all findings</a></div>
-  </div>
-</header>
-<div class="profile-header">
-  <div class="container">
-    <h1>Rep. Liz Berry</h1>
-    <div class="subtitle">D-36 | Summit Strategy Group</div>
-    <div class="badge badge-conflict">Conflict</div>
-  </div>
+<div class="wrap">
+
+<div class="nav">
+  <a href="/">Sunshine Docket</a> &rarr; <a href="/">Investigations</a>
 </div>
-<div class="container">
+
+<img src="../tiles/berry.jpg" alt="Liz Berry: Same Money, Different Descriptions" class="hero-img">
+
+<h1>Rep. Liz Berry</h1>
+<div class="subtitle">D-36 | Chair, Labor & Workplace Standards | Co-owner, Summit Strategy LLC</div>
+<span class="badge">Possible Conflict</span>
+
+<div class="highlight">
+  <strong>The core finding:</strong> SEIU 775 paid Berry's consulting firm $86,950 over two years. Berry's state disclosure calls the work "Software Development." The federal filing from SEIU 775 calls the same payments "Representational Activities." Berry chairs the committee SEIU 775 lobbies with 9 registered lobbyists. She co-sponsored and voted on every SEIU 775 priority bill. Zero recusals filed.
+</div>
 
 <section>
-  <h2>Summary</h2>
-  <p>SEIU 775 paid Berry's consulting firm, Summit Strategy Group, <strong>$87,000 over two years</strong> ($22K in 2023, $65K in 2024). Berry's F1 describes the work as "Software Development." The federal LM-2 filed by SEIU 775 with the Department of Labor describes the same payments as "Representational Activities." Two signed filings. Two different descriptions. Same money.</p>
-  <div class="highlight"><p><strong>The question:</strong> Why does the work Berry's firm does for WA's most politically active union look different depending on which form you read?</p></div>
-</section>
+  <h2>The SEIU 775 Triangle</h2>
+  <p>Three independent public data sources document the same relationship from three different angles:</p>
+  <p><strong>1. SEIU 775 pays Berry's firm.</strong> Summit Strategy LLC, 100% owned by Berry and her husband Michael Hill, received $22,175 from SEIU 775 in 2023 and $64,775 in 2024. These figures come from SEIU 775's own federal LM-2 filing with the Department of Labor (file 542-433). The payments are categorized under Schedule 15 as "Representational Activities," the category for lobbying and political work.</p>
+  <p><strong>2. Berry's state disclosure tells a different story.</strong> On her F1 financial disclosure filed with the Washington PDC, Berry describes SEIU 775's payments to Summit Strategy as "Software Development." Two signed filings from two different organizations describe the same money with two different labels.</p>
+  <p><strong>3. SEIU 775 lobbies Berry's committee.</strong> SEIU 775 maintains 9 registered lobbyist firms in Olympia (2025-2026), directed at legislation that flows through Berry's Labor & Workplace Standards Committee. SEIU 775's total lobbying expenditure in Washington: approximately $646,000 per year.</p>
+</div>
+
 <section>
-  <h2>Verification</h2>
-  <h3>F1 Disclosure</h3>
-  <div class="api-block"><code>data.wa.gov/resource/ehbc-shxw.json?$where=name like '%Elizabeth%Berry%'</code></div>
-  <h3>SEIU 775 LM-2</h3>
-  <div class="api-block"><code>olms.dol-esa.gov (search: SEIU 775)</code></div>
+  <h2>The Money and the Votes</h2>
+  <p>The relationship is not limited to Summit Strategy payments. SEIU 775 also donates directly to Berry's campaigns:</p>
+  <table>
+    <tr><th>Year</th><th>Source</th><th>Amount</th></tr>
+    <tr><td>2020</td><td>SEIU 775 Quality Care Committee</td><td>$1,000</td></tr>
+    <tr><td>2022</td><td>SEIU 775 Quality Care Committee</td><td>$2,000</td></tr>
+    <tr><td>2024</td><td>SEIU 775 Quality Care Committee</td><td>$2,400</td></tr>
+    <tr><td>2026</td><td>SEIU 775 Quality Care Committee</td><td>$1,200</td></tr>
+    <tr><td>Multiple</td><td>SEIU 1199NW</td><td>$2,400</td></tr>
+  </table>
+  <p>Total SEIU ecosystem donations to Berry: <strong>$9,000+</strong> across multiple cycles.</p>
+  <p>During this period, Berry chaired the committee, co-sponsored, and voted on SEIU 775's highest-priority bills including HB 1893 (unemployment insurance for striking workers, passed 53-44), HB 1435, HB 1095, and anti-captive audience legislation. She filed no recusal on any of them.</p>
 </section>
 
-</div>
-<footer>
-  <div class="container">
-    <div class="footer-accent">Sunshine Docket</div>
-    <p>A citizen accountability project. Not affiliated with any political party, campaign, or organization.<br>
-    All data sourced from official public disclosure filings and government databases.</p>
+<section>
+  <h2>The Timeline: Before and After</h2>
+  <p>Berry's own F1 filings reveal that the SEIU 775 relationship is new. For three consecutive years before the payments began, Summit Strategy disclosed no business relationship with SEIU 775:</p>
+  <div class="timeline">
+    <div class="tl-row">
+      <span class="tl-year">2020</span>
+      <span class="tl-event">Summit Strategy income: <strong>$60K-$100K</strong>. SEIU 775 listed as client: <strong>No</strong>.</span>
+    </div>
+    <div class="tl-row">
+      <span class="tl-year">2021</span>
+      <span class="tl-event">Summit Strategy income: <strong>$60K-$100K</strong>. SEIU 775 listed as client: <strong>No</strong>.</span>
+    </div>
+    <div class="tl-row">
+      <span class="tl-year">2022</span>
+      <span class="tl-event">Summit Strategy income: <strong>$60K-$100K</strong>. SEIU 775 listed as client: <strong>No</strong>. Berry becomes committee chair.</span>
+    </div>
+    <div class="tl-row flagged">
+      <span class="tl-year">2023</span>
+      <span class="tl-event">Summit Strategy income drops to <strong>$30K-$60K</strong>. SEIU 775 appears for the first time. LM-2 shows <strong>$22,175</strong> paid.</span>
+    </div>
+    <div class="tl-row flagged">
+      <span class="tl-year">2024</span>
+      <span class="tl-event">Summit Strategy income: <strong>$30K-$60K</strong>. SEIU 775 payments triple to <strong>$64,775</strong>.</span>
+    </div>
   </div>
-</footer>
+  <p>Two anomalies stand out. First, the SEIU 775 relationship began the year Berry became committee chair. Second, Summit Strategy's reported income <em>fell</em> from $60K-$100K to $30K-$60K at the exact moment SEIU 775 started paying. If SEIU was adding $22K-$65K in new revenue, total income should have gone up, not down.</p>
+</section>
+
+<section>
+  <h2>The Hill Family Real Estate</h2>
+  <p>Berry's husband, Michael Hill, holds approximately 15% ownership stakes in over a dozen commercial real estate LLCs tied to the Hill Investment Company, a Puget Sound firm managing 3.8 million square feet across 50+ properties. The F1 lists 12 such entities:</p>
+  <p style="font-size: 13px; color: var(--tm); line-height: 1.8; padding-left: 16px;">
+    Hill Investment Company, Hill Family I, Hill Family II, Hill Family III, Hill Family IV, Hill Family V, Hill Raaum, H-P Properties, Alderwood Investors, 1201 Building LLC, Issaquah Investors, and additional entities.
+  </p>
+  <p>Summit Strategy's office address is 1201 1st Ave S, Suite 325, Seattle. The 1201 Building LLC (15% owned by Hill) is located at the same address. The firm rents from its own family's building.</p>
+  <p>A legislator with ownership in commercial real estate LLCs across multiple WA jurisdictions has material financial interest in zoning, land use, property tax, tenant law, development incentives, and transit infrastructure decisions. Berry voted on housing policy and rent stabilization legislation during the 2024-2025 session without disclosure of these interests.</p>
+</section>
+
+<section>
+  <h2>Before the Legislature</h2>
+  <p>Berry's 2020 F1 (filed as a candidate) shows her pre-legislative career: Executive Director of the Washington State Association for Justice (WSAJ), earning <strong>$200K-$500K</strong>. WSAJ is the trial lawyers' association, one of the most powerful advocacy organizations in the state.</p>
+  <p>After entering the legislature, WSAJ's PAC ("Justice For All PAC") donated $3,800 to Berry across 5 contributions. WSAJ maintains 4 registered lobbyists. This is a classic revolving door: she ran the organization, entered the legislature, and continues to receive campaign money from the PAC of her former employer while that organization lobbies bills in the legislature.</p>
+</section>
+
+<section>
+  <h2>Income Summary</h2>
+  <table>
+    <tr><th>Who</th><th>Source</th><th>Role</th><th>Income</th></tr>
+    <tr><td>Filer</td><td>WA House of Representatives</td><td>State Representative</td><td>$60K-$100K</td></tr>
+    <tr><td>Spouse</td><td>Summit Strategy LLC</td><td>Digital Consulting</td><td>$30K-$60K</td></tr>
+    <tr><td>Spouse</td><td>Hill Investment Company (15%)</td><td>Real estate</td><td>Undisclosed</td></tr>
+    <tr><td>Spouse</td><td>Hill Family I-V, H-P Properties, etc.</td><td>Real estate LLCs</td><td>Undisclosed</td></tr>
+    <tr><td>Filer</td><td>ArtsFund</td><td>Board member</td><td>$0</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>The Question</h2>
+  <p>This is not an accusation of wrongdoing. Washington's disclosure system is built on the premise that transparency prevents corruption. But when the same money is described differently on two different government forms, when a business relationship begins the year a legislator becomes committee chair, and when that legislator votes on every bill her paying client lobbies for, transparency alone is not doing its job.</p>
+  <p>Voters in the 36th District deserve to know why Summit Strategy's work for SEIU 775 looks like "Software Development" on one form and "Representational Activities" on another.</p>
+</section>
+
+<section>
+  <h2>How to Verify Every Claim</h2>
+  <h3>F1 Disclosure (CY2024)</h3>
+  <div class="api-block">data.wa.gov/resource/ehbc-shxw.json?id=126170</div>
+  <h3>F1 Disclosure (CY2023)</h3>
+  <div class="api-block">data.wa.gov/resource/ehbc-shxw.json?id=120169</div>
+  <h3>SEIU 775 LM-2 (Federal)</h3>
+  <div class="api-block">olms.dol-esa.gov &rarr; search LM reports &rarr; SEIU 775 &rarr; Schedule 15</div>
+  <h3>Campaign Contributions</h3>
+  <div class="api-block">data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%Elizabeth%Berry%'</div>
+  <h3>SEIU 775 Lobbyist Registrations</h3>
+  <div class="api-block">data.wa.gov/resource/xhn7-64im.json?$where=employer_name like '%SEIU 775%'</div>
+</section>
+
+<div class="foot">
+  <a href="/">Sunshine Docket</a> &middot;
+  <a href="/legislature.html">Full Legislature</a> &middot;
+  <a href="/methodology.html">Methodology</a> &middot;
+  <a href="mailto:sunshinedocket@proton.me">Tips</a>
+  <br><br>
+  A citizen accountability project. Not affiliated with any political party, campaign, or organization.
+  All data sourced from official public disclosure filings and government databases.
+</div>
+
+</div>
 </body>
 </html>
