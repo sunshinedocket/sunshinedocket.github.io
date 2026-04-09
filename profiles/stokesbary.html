@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rep. Drew Stokesbary | Sunshine Docket</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a1a;
+      --muted: #555;
+      --rule: #ddd;
+      --accent: #2c5f8a;
+      --accent-bg: #f0f5fa;
+      --warn-bg: #fdf6f0;
+      --warn-border: #d94040;
+      --tag-bg: #f4f4f4;
+      --max: 720px;
+      --mono: 'Courier New', Courier, monospace;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: #fff;
+      padding: 48px 24px 96px;
+    }
+
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    .back {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 40px;
+    }
+    .back:hover { color: var(--ink); }
+
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      height: auto;
+      object-fit: cover;
+      object-position: top center;
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .meta {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--warn-border);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      font-family: var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+      margin: 40px 0 16px;
+    }
+
+    p { margin-bottom: 14px; }
+    strong { font-weight: bold; }
+    em { font-style: italic; }
+
+    .lede {
+      background: var(--accent-bg);
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      margin: 20px 0 28px;
+      font-size: 15px;
+      color: #2c2c2c;
+    }
+
+    .finding-box {
+      background: #fdf2f2;
+      border-left: 3px solid var(--warn-border);
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 15px;
+    }
+
+    .note-box {
+      background: #fafaf8;
+      border: 1px solid var(--rule);
+      padding: 16px 18px;
+      margin: 24px 0;
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    th {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 2px solid var(--ink);
+    }
+    td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    td strong { color: var(--warn-border); }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+    li { margin-bottom: 6px; }
+
+    .api {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--tag-bg);
+      padding: 10px 14px;
+      margin: 6px 0 12px;
+      word-break: break-all;
+      border-left: 2px solid var(--rule);
+    }
+
+    .layer {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      background: #fafaf8;
+    }
+    .layer-title {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <a class="back" href="https://sunshinedocket.org/legislature">← Back to all findings</a>
+
+  <img src="https://sunshinedocket.org/tiles/stokesbary.jpg"
+       alt="Rep. Drew Stokesbary: Law Firm, Investments, and Appropriations"
+       class="hero-img" />
+
+  <h1>Rep. Drew Stokesbary</h1>
+  <div class="meta">R-31 | House Minority Leader | Stokesbary PLLC | Carbon River Ventures LLC</div>
+  <div class="badge">Possible Conflict</div>
+
+  <div class="lede">
+    <strong>The core finding:</strong> Stokesbary is the House Minority Leader and ranking Republican on Appropriations. He earns $200K&ndash;$500K from a law firm advising startups and private investment funds whose client list is not publicly disclosed. He owns 100% of Carbon River Ventures LLC, a personal investment vehicle holding venture capital fund LP interests and direct portfolio company equity stakes &mdash; also undisclosed. He votes on the tax policy, spending priorities, and securities law that directly affect both his clients and his portfolio. Neither list is public.
+  </div>
+
+  <h2>The Three-Layer Structure</h2>
+
+  <p>Stokesbary's financial picture is the most structurally complex in the screener. Three distinct income and investment streams all intersect with his committee work, and the F1 discloses the vehicles without disclosing the underlying holdings.</p>
+
+  <div class="layer">
+    <div class="layer-title">Layer 1 &mdash; Stokesbary PLLC (income $200K&ndash;$500K, 2024)</div>
+    <p style="margin:0; font-size:15px;">A boutique corporate law firm at 701 Fifth Ave, Suite 4200, Seattle. Per public filings and bar records, the firm advises startups, emerging companies, and private investment funds on corporate governance, securities, M&amp;A, and commercial law. The F1 also shows Chalmers, Adams, Backer &amp; Kaufman LLC pays partnership distributions to Stokesbary PLLC &mdash; he maintains an of-counsel role there in political and election law. The client list of Stokesbary PLLC is not disclosed anywhere in the F1. His clients operate in IT, retail, finance, construction, and real estate &mdash; all sectors with active legislation before Appropriations and Finance.</p>
+  </div>
+
+  <div class="layer">
+    <div class="layer-title">Layer 2 &mdash; Carbon River Ventures LLC (100% owner, "Family Investment Company")</div>
+    <p style="margin:0; font-size:15px;">This is the critical finding. Carbon River Ventures, registered at his law firm's address, holds two categories of assets per the 2024 F1:</p>
+    <ul style="margin-top:10px; font-size:15px;">
+      <li><strong>Venture Capital Fund LP Interests: $100K&ndash;$200K</strong> &mdash; he is a limited partner in one or more VC funds. Which funds are not disclosed.</li>
+      <li><strong>Portfolio Company Securities: $60K&ndash;$100K</strong> &mdash; direct equity stakes in individual companies. Which companies are not disclosed.</li>
+    </ul>
+    <p style="margin:0; font-size:15px;">In 2022, he disclosed $30K&ndash;$60K in investment distributions from Carbon River as income. In 2023 and 2024, the income line is blank &mdash; distributions paused or fell below the reporting threshold. The vehicle and its valuations remain on the F1; the contents do not.</p>
+  </div>
+
+  <div class="layer">
+    <div class="layer-title">Layer 3 &mdash; Chalmers, Adams, Backer &amp; Kaufman LLC</div>
+    <p style="margin:0; font-size:15px;">A political and election law firm where Stokesbary is a named member. The firm represents Republican candidates, political committees, and redistricting litigants. Per the Chalmers website, he is currently lead counsel in two redistricting cases pending in federal court. The F1 shows Chalmers paying partnership distributions through Stokesbary PLLC. This layer is less a financial conflict than a context item: it explains his deep institutional role in Republican Party infrastructure and his personal financial stake in electoral outcomes.</p>
+  </div>
+
+  <h2>Why Carbon River Ventures Is the Core Problem</h2>
+
+  <p>The F1 disclosure system was designed for legislators who own farms, law firms, and rental properties. It was not designed for legislators who manage personal investment vehicles holding LP interests in undisclosed venture funds and direct equity in undisclosed startups.</p>
+
+  <div class="finding-box">
+    Stokesbary votes on Washington's capital gains treatment, B&amp;O tax structure, startup securities exemptions, R&amp;D tax credits, and technology procurement &mdash; as ranking member of the committees that set all of these policies. His Carbon River Ventures portfolio holds equity in companies whose valuations, exit timelines, and regulatory costs are directly affected by those votes. The F1 tells us the vehicle exists and what it's worth. It does not tell us what it holds.
+  </div>
+
+  <p>This is a more acute version of the MacEwen finding (Nova Satus Venture Fund). The differences that make Stokesbary's situation more concerning: Carbon River is entirely self-managed at his own law firm's address, not a third-party fund; his law firm clients are drawn from the same startup and fund universe his portfolio holds equity in; and as Minority Leader, his influence over Finance and Appropriations outcomes is qualitatively different from a committee member's &mdash; he negotiates amendments, sets caucus strategy, and decides which bills Republicans will support or block.</p>
+
+  <h2>Committee Assignments</h2>
+
+  <table>
+    <thead>
+      <tr><th>Committee</th><th>Jurisdiction</th><th>Overlap</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Appropriations (Ranking Member)</strong></td>
+        <td>All state spending, operating budget</td>
+        <td>Startup grants, innovation funds, tech procurement, state contracts</td>
+      </tr>
+      <tr>
+        <td><strong>Finance</strong></td>
+        <td>All state tax policy</td>
+        <td>Capital gains, B&amp;O, R&amp;D credits, securities exemptions</td>
+      </tr>
+      <tr>
+        <td>Joint Legislative Audit &amp; Review</td>
+        <td>Tax preference effectiveness</td>
+        <td>Reviews the very exemptions his clients and portfolio may use</td>
+      </tr>
+      <tr>
+        <td>Select Committee on Pension Policy</td>
+        <td>Pension investment policy</td>
+        <td>Public pension funds invest in VC &mdash; potential indirect overlap</td>
+      </tr>
+      <tr>
+        <td>Expenditure Limit Committee</td>
+        <td>State spending ceiling</td>
+        <td>Macro budget constraints affecting all agency spending</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>The Gifts &mdash; Industry Cultivation</h2>
+
+  <p>The 2023 F1 discloses travel and hospitality received from organizations with direct legislative interests before Stokesbary's committees:</p>
+
+  <table>
+    <thead>
+      <tr><th>Donor</th><th>Amount</th><th>Description</th><th>Relevance</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Technology Network (TechNet)</td>
+        <td>$1,800</td>
+        <td>2023 State Policy Conference, San Francisco (airfare, hotel, meals)</td>
+        <td>Tech industry lobby group; members include Amazon, Apple, Google, Meta. Stokesbary was ranking member on Appropriations overseeing tech procurement.</td>
+      </tr>
+      <tr>
+        <td>Rodel Institute</td>
+        <td>$750 (2023); $4,000 (2022)</td>
+        <td>Rodel Fellowship seminars (food, lodging, transportation)</td>
+        <td>Bipartisan leadership program bringing state legislators to Aspen. $4,000 is a significant hospitality value.</td>
+      </tr>
+      <tr>
+        <td>State Government Leadership Foundation</td>
+        <td>$750</td>
+        <td>National conference, Washington D.C.</td>
+        <td>Center-right policy organization.</td>
+      </tr>
+      <tr>
+        <td>Center for American Ideas</td>
+        <td>$750</td>
+        <td>Legislative Leaders Symposium, Arlington VA</td>
+        <td>Conservative think tank network.</td>
+      </tr>
+      <tr>
+        <td>WestRock</td>
+        <td>$116 (2022); $100 (2023)</td>
+        <td>Golf and dinner</td>
+        <td>Packaging/paper company with WA timber supply chain interests.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The TechNet travel is the sharpest item. TechNet is a paid membership organization whose members lobby state legislatures on tech regulation, data privacy, AI policy, and tax treatment. Stokesbary received travel from TechNet while holding undisclosed equity in tech-adjacent companies and ranking on the committee that funds tech procurement.</p>
+
+  <h2>Income and Asset Summary (2024 F1)</h2>
+
+  <table>
+    <thead>
+      <tr><th>Who</th><th>Source</th><th>Role</th><th>Disclosed Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Filer</td>
+        <td><strong>Stokesbary PLLC</strong></td>
+        <td>Owner / Attorney</td>
+        <td><strong>$200K&ndash;$500K</strong></td>
+      </tr>
+      <tr>
+        <td>Filer</td>
+        <td>State of Washington</td>
+        <td>Legislator</td>
+        <td>$60K&ndash;$100K</td>
+      </tr>
+      <tr>
+        <td>Filer</td>
+        <td><strong>Carbon River Ventures LLC</strong></td>
+        <td>100% owner</td>
+        <td>VC fund LP interests: $100K&ndash;$200K<br>Portfolio securities: $60K&ndash;$100K<br>2024 income: not disclosed</td>
+      </tr>
+      <tr>
+        <td>Filer</td>
+        <td>Chalmers, Adams, Backer &amp; Kaufman LLC</td>
+        <td>Member (via PLLC)</td>
+        <td>Partnership distributions (amount not itemized)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>The MacEwen Parallel</h2>
+
+  <div class="note-box">
+    The MacEwen profile (Nova Satus Venture Fund) identified the same structural problem: a legislator managing an investment vehicle whose portfolio holdings are invisible to the public. Stokesbary's situation is more acute on three dimensions. Carbon River is self-managed at his own law firm's address, not a third-party fund with external oversight. His law firm clients are drawn from the same startup and fund universe his portfolio holds equity in &mdash; he may be advising companies he also holds equity in, and voting on legislation affecting both. And as Minority Leader, his influence over committee outcomes is qualitatively different from a backbencher's.
+  </div>
+
+  <h2>What Would Strengthen This Finding</h2>
+
+  <ul>
+    <li>Washington Secretary of State business registry lookup on Carbon River Ventures LLC &mdash; formation date, registered agent, any affiliated entities</li>
+    <li>PDC lobbyist registration cross-reference: do any Stokesbary PLLC clients have registered lobbyists in Olympia? Attorney-client privilege shields the client list, but lobbyist employer registrations are public</li>
+    <li>Cross-reference TechNet member companies against Stokesbary's Finance and Appropriations votes on tech-related bills</li>
+    <li>Review Stokesbary's votes on HB 2515 (data center regulation) given TechNet travel in the same disclosure period</li>
+    <li>Review any Washington capital gains legislation votes against Carbon River Ventures distribution timing</li>
+  </ul>
+
+  <h2>Verification</h2>
+
+  <p><strong>F1 Disclosure (2024, most recent)</strong></p>
+  <div class="api">apollo.pdc.wa.gov/financial-affairs/public/-#/public/statement/126623</div>
+
+  <p><strong>F1 Disclosure (2023)</strong></p>
+  <div class="api">apollo.pdc.wa.gov/financial-affairs/public/-#/public/statement/120616</div>
+
+  <p><strong>Contributions (PDC)</strong></p>
+  <div class="api">data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%Stokesbary%'</div>
+
+  <p><strong>Stokesbary PLLC (public bar directory)</strong></p>
+  <div class="api">stokesbarypllc.com | lawyers.justia.com/lawyer/andrew-ryan-stokesbary-1659638</div>
+
+  <p><strong>Chalmers, Adams, Backer &amp; Kaufman LLC</strong></p>
+  <div class="api">chalmersadams.com/attorneys/drew-stokesbary/</div>
+
+  <footer>
+    <a href="https://sunshinedocket.org/">Sunshine Docket</a> &nbsp;&middot;&nbsp;
+    <a href="https://sunshinedocket.org/legislature">Full Legislature</a> &nbsp;&middot;&nbsp;
+    <a href="https://sunshinedocket.org/methodology.html">Methodology</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:sunshinedocket@proton.me">Tips</a> &nbsp;&middot;&nbsp;
+    Data from <a href="https://data.wa.gov">data.wa.gov</a><br><br>
+    A citizen accountability project. Not affiliated with any political party, campaign, or organization.<br>
+    All data sourced from official public disclosure filings and government databases.
+  </footer>
+
+</div>
+</body>
+</html>
