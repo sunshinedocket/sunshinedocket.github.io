@@ -249,36 +249,50 @@ footer a:hover { text-decoration: underline; }
 <div class="badge-row">
   <div class="badge-card">
     <span class="score-range">10+</span>
-    <span class="badge-label b-conflict">Conflict</span>
-    <p>Structural overlap exists between finances and legislative authority</p>
+    <span class="badge-label b-conflict">High Overlap</span>
+    <p>Significant structural overlap between finances and legislative authority</p>
   </div>
   <div class="badge-card">
     <span class="score-range">5-9</span>
-    <span class="badge-label b-review">Review</span>
-    <p>Potential conflicts worth investigating further</p>
+    <span class="badge-label b-review">Moderate Overlap</span>
+    <p>Potential structural overlaps worth further review</p>
   </div>
   <div class="badge-card">
     <span class="score-range">2-4</span>
-    <span class="badge-label b-monitoring">Monitoring</span>
+    <span class="badge-label b-monitoring">Low Overlap</span>
     <p>Minor flags, worth watching in future filings</p>
   </div>
   <div class="badge-card">
     <span class="score-range">0-1</span>
-    <span class="badge-label b-clean">Clean Pass</span>
-    <p>No significant conflicts identified in current filing</p>
+    <span class="badge-label b-clean">Minimal Overlap</span>
+    <p>No significant structural overlaps identified in current filing</p>
   </div>
 </div>
 
 <h2>Two-phase scoring</h2>
-<p>The automated screener is a first pass. It can only see what the three databases contain. It cannot see city-level contracts, federal filings, or filing discrepancies between state and federal documents.</p>
-<p>Legislators with a <strong>"Full Analysis"</strong> link have been investigated beyond the automated screen. Their scores reflect hand-verified findings from public records, federal LM-2 filings, city contract databases, and other sources the screener cannot access. These curated scores replace the automated score.</p>
+<p><strong>Phase 1: Automated screening.</strong> The screener is a Python script that pulls every F1 filing from data.wa.gov, identifies legislators, cross-references their income sources against the lobbyist registration database, pulls campaign contribution summaries, and assigns a numerical score. It is a first-pass filter. It can only see what the three databases contain. It cannot see city-level contracts, federal filings, or filing discrepancies between state and federal documents. Every card on the legislature page without a "Full Analysis" link is a Phase 1 automated result.</p>
+<p><strong>Phase 2: Editorial investigation.</strong> Legislators with a "Full Analysis" link have been investigated beyond the automated screen. These deep-dive profiles are hand-researched editorial analyses built from public records, federal LM-2 filings, city contract databases, legislative history, and other sources the screener cannot access. Their curated scores replace the automated score. Phase 2 profiles include jurisdiction tags on each section identifying which enforcement body (LEB or PDC) has authority over the concern raised. Phase 2 profiles are editorial work, not legal findings. They do not constitute determinations that any law has been violated.</p>
 
 <div class="not-box">
   <h3>What this is not</h3>
-  <p><strong>A high score is not an accusation of corruption.</strong> It is a measure of structural overlap. A legislator can have a high score and be acting with complete integrity. The point is that voters deserve to see the overlap and decide for themselves whether it matters.</p>
-  <p><strong>A clean pass is not an endorsement.</strong> It means the automated screen did not find conflicts in the current filing. It does not mean none exist.</p>
-  <p><strong>This is nonpartisan.</strong> We apply the same methodology to every legislator regardless of party. Democrats, Republicans, incumbents, and candidates are all scored identically. We publish clean passes alongside conflict findings because the methodology matters more than the results.</p>
+  <p><strong>A high score is not an accusation of corruption or a legal finding.</strong> "Structural overlap" is a term we coined. It has no recognized meaning in Washington ethics law (RCW 42.52). A score measures the complexity of financial relationships between a legislator's private interests and their public authority. A legislator can have a high score and be acting with complete integrity. The point is that voters deserve to see the overlap and decide for themselves.</p>
+  <p><strong>A clean pass is not an endorsement.</strong> It means the automated screen did not find structural overlaps in the current filing. It does not mean none exist.</p>
+  <p><strong>This is nonpartisan.</strong> We apply the same methodology to every legislator regardless of party. Democrats, Republicans, incumbents, and candidates are all scored identically. We publish clean passes alongside findings because the methodology matters more than the results.</p>
 </div>
+
+<h2>Important limitations</h2>
+
+<h3>Washington is a citizen legislature</h3>
+<p>The state constitution envisions part-time legislators who maintain outside careers. Outside income is expected, not inherently problematic. The "outside income over $30K" factor (3 pts) flags structural complexity, not wrongdoing. A teacher, a farmer, and a fund manager all score the same on this factor regardless of whether their work overlaps with their committee jurisdiction. We acknowledge this is a blunt instrument and that the citizen-legislator design (codified in the RCW 42.52.330 safe harbor) intentionally protects legislators with outside careers.</p>
+
+<h3>Income ranges, not exact figures</h3>
+<p>PDC F1 disclosures report income in bands ($0-$30K, $30K-$60K, $60K-$100K, $100K-$200K, $200K-$500K, $500K-$750K, $750K+). A legislator at the bottom of a band and one at the top receive the same score. All dollar references on this site should be understood as approximate ranges, not verified figures. Some filers have PDC-approved modifications or exemptions that affect what appears on their disclosure.</p>
+
+<h3>Jurisdiction matters</h3>
+<p>Washington distributes ethics oversight across multiple agencies. The Legislative Ethics Board (LEB, RCW 42.52.310-.320) oversees legislators. The Public Disclosure Commission (PDC, RCW 42.17A) oversees financial disclosures, campaign contributions, and lobbyist registrations. These are separate bodies with separate enforcement authority. Our profiles now tag each section with the relevant jurisdiction so readers can distinguish between LEB ethics concerns, PDC disclosure concerns, and structural transparency questions that may not fall under any enforcement body.</p>
+
+<h3>No per se recusal for spousal lobbying</h3>
+<p>Under RCW 42.52, there is no blanket recusal requirement for legislators whose spouses are registered lobbyists. A recusal obligation arises only when a legislator participates in a specific transaction that would directly benefit their spouse financially. When our profiles note that no recusal was filed, we are describing normal legislative practice under current law, not implying that a recusal was required and omitted.</p>
 
 <h2>Classification</h2>
 <p><strong>Incumbent</strong> means the legislator appears in the official legislative roster and reported legislative income on their F1.</p>
@@ -306,15 +320,9 @@ footer a:hover { text-decoration: underline; }
   </div>
 </div>
 
-<p>The screener source code is available upon request. If you find an error, <a href="mailto:sunshinedocket@proton.me">tell us</a>. We correct publicly.</p>
+<p>The screener source code is available upon request. If you find an error, <a href="/cdn-cgi/l/email-protection#5a292f34293233343f3e3539313f2e1a2a28352e353474373f">tell us</a>. We correct publicly.</p>
 
 <footer>
   <a href="/">Sunshine Docket</a> &middot;
   <a href="/legislature.html">Full Legislature</a> &middot;
-  <a href="mailto:sunshinedocket@proton.me">Tips</a> &middot;
-  Data from <a href="https://data.wa.gov">data.wa.gov</a>
-</footer>
-
-</div>
-</body>
-</html>
+  <a href="/cdn-cgi/l/email-protection#384b4d564b5051565d5c575b535d4c78484a574c575616555d">Tips</a> &middot
