@@ -120,35 +120,36 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
 .meth code { font-family: var(--mono); background: var(--sf2); border: 1px solid var(--bd); padding: 1px 4px; border-radius: 3px; font-size: 12px; }
 .foot { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--bd); text-align: center; font-size: 12px; color: var(--td); font-family: var(--mono); }
 .foot a { color: var(--ac); text-decoration: none; } .foot a:hover { text-decoration: underline; }
+.back-nav { font-family: var(--mono); font-size: 12px; color: var(--ac); text-decoration: none; display: block; padding: 16px 0; }
+.back-nav:hover { text-decoration: underline; }
 @media (max-width: 640px) {
   .card-layout { flex-direction: row; } .photo-wrap { width: 80px; height: 96px; } .leg-photo { width: 80px; height: 96px; } .avatar { width: 80px; height: 96px; font-size: 20px; }
   .controls { flex-direction: column; } .stats { gap: 6px; }
   .stat { padding: 5px 8px; min-width: 55px; }
 }
-
-.no-disclosure { border-left: 3px solid #666 !important; opacity: 0.85; }
-.bp-none { background: #666; color: #fff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 2px 7px; border-radius: 3px; font-family: var(--mono); }
 </style>
 </head>
 <body>
-<div class="wrap"><a href="/" style="font-family:DM Mono,monospace;font-size:12px;color:#5b9bd5;text-decoration:none;display:block;padding:16px 0;">← Sunshine Docket</a>
+<div class="wrap">
+
+<a href="/" class="back-nav">&larr; Sunshine Docket</a>
 
 <header>
   <h1>Washington State Legislature</h1>
   <div class="subtitle">Financial Disclosure Screener &middot; CY2025</div>
-  <div class="meta">201 legislators &middot; 49 districts &middot; Updated 2026-04-06</div>
+  <div class="meta">204 legislators &middot; 49 districts &middot; Updated 2026-04-11</div>
 </header>
 
 <div class="stats" id="stats-bar">
-  <div class="stat"><span class="stat-n" id="st-total">201</span><span class="stat-l">Screened</span></div>
-  <div class="stat"><span class="stat-n xc" id="st-conflict">41</span><span class="stat-l">Structural Overlap</span></div>
-  <div class="stat"><span class="stat-n xr" id="st-review">44</span><span class="stat-l">Review</span></div>
+  <div class="stat"><span class="stat-n" id="st-total">204</span><span class="stat-l">Screened</span></div>
+  <div class="stat"><span class="stat-n xc" id="st-conflict">40</span><span class="stat-l">Structural Overlap</span></div>
+  <div class="stat"><span class="stat-n xr" id="st-review">46</span><span class="stat-l">Moderate</span></div>
   <div class="stat"><span class="stat-n xm" id="st-monitor">37</span><span class="stat-l">Monitor</span></div>
-  <div class="stat"><span class="stat-n xl" id="st-clean">79</span><span class="stat-l">Clean</span></div>
+  <div class="stat"><span class="stat-n xl" id="st-clean">81</span><span class="stat-l">Clean</span></div>
   <div class="stat"><span class="stat-n xa" id="st-deep">11</span><span class="stat-l">Deep Dives</span></div>
-  <div class="stat"><span class="stat-n" style="color:var(--ac)" id="st-incumb">119</span><span class="stat-l">Incumbent</span></div>
-  <div class="stat"><span class="stat-n" style="color:var(--td)" id="st-former">71</span><span class="stat-l">Former</span></div>
-  <div class="stat"><span class="stat-n" style="color:var(--mn)" id="st-cand">11</span><span class="stat-l">Candidates</span></div>
+  <div class="stat"><span class="stat-n" style="color:var(--ac)" id="st-incumb">140</span><span class="stat-l">Incumbent</span></div>
+  <div class="stat"><span class="stat-n" style="color:var(--td)" id="st-former">62</span><span class="stat-l">Former</span></div>
+  <div class="stat"><span class="stat-n" style="color:var(--mn)" id="st-cand">2</span><span class="stat-l">Candidates</span></div>
 </div>
 
 <div class="addr-lookup">
@@ -164,7 +165,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
   <span class="flabel">Status:</span>
   <button class="fbtn on" data-g="badge" data-f="all">All</button>
   <button class="fbtn" data-g="badge" data-f="conflict">Structural Overlap</button>
-  <button class="fbtn" data-g="badge" data-f="review">Review</button>
+  <button class="fbtn" data-g="badge" data-f="review">Moderate</button>
   <button class="fbtn" data-g="badge" data-f="clean">Clean</button>
   <span class="flabel">Party:</span>
   <button class="fbtn on" data-g="party" data-f="all">All</button>
@@ -179,7 +180,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
   <button class="fbtn" data-g="cls" data-f="incumbent">Incumbent</button>
   <button class="fbtn" data-g="cls" data-f="former">Former</button>
   <button class="fbtn" data-g="cls" data-f="candidate">Candidate</button>
-  <span class="rcount" id="cnt">53 districts</span>
+  <span class="rcount" id="cnt">54 districts</span>
 </div>
 
 <div id="dists">
@@ -206,7 +207,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $100K-$200K from Boeing</div>
@@ -249,7 +250,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
+      <div class="leg-card bg-monitoring" data-party="D" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/duerr-w.jpg" alt="DUERR DAVINA W" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>DW</div>'">
@@ -257,16 +258,16 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. DUERR DAVINA W</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-monitoring">Low Overlap</span>
-              
+              <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">Outside income $30K-$60K from HAVEN WORKS, LLC</div>
             <ul class="inc-list"><li>Washington State ($60K-$100K)</li>
 <li>HAVEN WORKS, LLC ($30K-$60K)</li></ul><ul class="flag-list"><li>Outside income $30K-$60K from HAVEN WORKS, LLC</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Davina.Duerr@leg.wa.gov" class="contact-link">Davina.Duerr@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7928</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>3</b></span>
               <span class="f1-ref">F1: 133486</span>
@@ -327,7 +328,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate" data-class="candidate" data-election="false">
+      <div class="leg-card bg-clean" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/mccune-g.jpg" alt="MCCUNE JAMES G" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>MG</div>'">
@@ -335,8 +336,8 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Sen. MCCUNE JAMES G</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-candidate">Candidate</span>
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
               <span class="badge-pill bp-clean">Minimal Overlap</span>
               
@@ -344,7 +345,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="card-summary">No significant conflicts identified in current filing.</div>
             <ul class="inc-list"><li>State Of Washington ($200K-$500K)</li>
 <li>Federal Government (me) ($30K-$60K)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Jim.McCune@leg.wa.gov" class="contact-link">Jim.McCune@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7602</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 132099</span>
@@ -365,7 +366,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-u">Unknown</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $100K-$200K from Wilcox Farms, Inc.</div>
@@ -480,9 +481,6 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       </div>
     </div>
-
-
-
     <div class="dist-block hot" id="ld-03">
       <div class="dist-head">
         <div class="dist-label">
@@ -504,7 +502,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-u">Unknown</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">As Majority Leader, sponsored $2/gallon SAF tax incentive (SB 5447). SkyNRG built an $800M plant because of his bill. Left office, was hired as SkyNRG Senior Adviser ($30K-$60K). The incentive is worth up to $100M in forgone revenue. Classic revolving door.</div>
@@ -533,7 +531,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $60K-$100K from NE WA-N ID BLDG &amp; Construction</div>
@@ -565,12 +563,11 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             </div>
             <div class="card-summary">Outside income $60K-$100K from Community Health Association of Spokane</div>
             <ul class="inc-list"><li>Community Health Association of Spokane ($60K-$100K)</li>
-<li><em>Spouse:</em> Spokane Public Schools ($30K-$60K)</li>
-<li>ArbiterSports, LLC ($0-$30K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from Community Health Association of Spokane</li><li>Income &#x27;Spokane Public Schools&#x27; linked to lobbyist employer &#x27;SPOKANE PUBLIC SCHOOLS&#x27; (1 lobbyists)</li></ul>
+<li><em>Spouse:</em> Spokane Public Schools ($30K-$60K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from Community Health Association of Spokane</li><li>Income &#x27;Spokane Public Schools&#x27; linked to lobbyist employer &#x27;SPOKANE PUBLIC SCHOOLS&#x27; (1 lobbyists)</li></ul>
             <div class="contact-row"><a href="mailto:Marcus.Riccelli@leg.wa.gov" class="contact-link">Marcus.Riccelli@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7604</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>7</b></span>
-              <span class="f1-ref">F1: 126524</span>
+              <span class="f1-ref">F1: 134062</span>
               
             </div>
           </div>
@@ -626,7 +623,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $100K-$200K from King County</div>
@@ -655,7 +652,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-u">Unknown</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $30K-$60K from Penny Sweet</div>
@@ -819,7 +816,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $100K-$200K from King County</div>
@@ -881,11 +878,11 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">No significant conflicts identified in current filing.</div>
-            
+            <ul class="inc-list"><li><em>Spouse:</em> Social Security Administration ($0-$30K)</li></ul>
             <div class="contact-row"><a href="mailto:Lisa.Callan@leg.wa.gov" class="contact-link">Lisa.Callan@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7876</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 125631</span>
+              <span class="f1-ref">F1: 134067</span>
               
             </div>
           </div>
@@ -943,7 +940,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-u">Unknown</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $100K-$200K from Spokane County</div>
@@ -960,7 +957,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house" data-class="candidate" data-election="false">
+      <div class="leg-card bg-review" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/virginia-graham.jpg" alt="VIRGINIA (Jenny) C. GRAHAM" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>VG</div>'">
@@ -968,9 +965,9 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. VIRGINIA (Jenny) C. GRAHAM</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-candidate">Candidate</span>
-              
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-review">Moderate Overlap</span>
               
             </div>
@@ -979,10 +976,50 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
 <li><em>Spouse:</em> Les Schwab Tire ($200K-$500K)</li>
 <li><em>Spouse:</em> Columbia Advisory Partners ($0-$30K)</li>
 <li><em>Spouse:</em> Columbia advisory group ($60K-$100K)</li></ul><ul class="flag-list"><li>Spouse income $200K-$500K from Les Schwab Tire</li><li>Income &#x27;Les Schwab Tire&#x27; linked to lobbyist employer &#x27;LES SCHWAB TIRE CENTERS&#x27; (1 lobbyists)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Jenny.Graham@leg.wa.gov" class="contact-link">Jenny.Graham@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7962</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>9</b></span>
               <span class="f1-ref">F1: 133720</span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="dist-block warm" id="ld-6">
+      <div class="dist-head">
+        <div class="dist-label">
+          <span class="dist-num">LD 6</span>
+          <span class="dist-area">Spokane (south), Medical Lake</span>
+        </div>
+        <span class="dist-count">1 member</span>
+      </div>
+      <div class="dist-members">
+
+      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+        <div class="card-layout">
+          <div class="photo-wrap">
+            <img class="leg-photo" src="legislator_photos/kevin-nichols.jpg" alt="Kevin Nichols" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>KN</div>'">
+          </div>
+          <div class="card-body">
+            <div class="name-row">
+              <span class="card-name">Sen. Kevin Nichols</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="class-pill cl-former">Former</span>
+              
+              <span class="badge-pill bp-review">Moderate Overlap</span>
+              
+            </div>
+            <div class="card-summary">Spouse income $200K-$500K from Crosswalk Labs</div>
+            <ul class="inc-list"><li>Aptitude Medical Systems, Inc ($200K-$500K)</li>
+<li><em>Spouse:</em> Crosswalk Labs ($200K-$500K)</li>
+<li><em>Spouse:</em> City of Issaquah ($0-$30K)</li>
+<li>City of Issaquah ($0-$30K)</li></ul><ul class="flag-list"><li>Spouse income $200K-$500K from Crosswalk Labs</li><li>Outside income $200K-$500K from Aptitude Medical Systems, Inc</li></ul>
+            
+            <div class="card-foot">
+              <span class="score-lbl">Score: <b>8</b></span>
+              <span class="f1-ref">F1: 134177</span>
               
             </div>
           </div>
@@ -1040,7 +1077,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-u">Unknown</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $100K-$200K from Washington Education Association</div>
@@ -1084,19 +1121,20 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               
             </div>
             <div class="card-summary">Career fundraising: $664K</div>
-            <ul class="inc-list"><li><em>Spouse:</em> Self Employed ($30K-$60K)</li>
-<li><em>Spouse:</em> Steve Oswin CPA ($30K-$60K)</li></ul>
+            <ul class="inc-list"><li><em>Spouse:</em> Self Employed ($0-$30K)</li>
+<li><em>Spouse:</em> Steve Oswin CPA ($30K-$60K)</li>
+<li><em>Spouse:</em> Colville Auto Licensing ($0-$30K)</li></ul>
             <div class="contact-row"><a href="mailto:Shelly.Short@leg.wa.gov" class="contact-link">Shelly.Short@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7612</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>1</b></span>
-              <span class="f1-ref">F1: 126362</span>
+              <span class="f1-ref">F1: 134214</span>
               
             </div>
           </div>
         </div>
       </div>
 
-      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house" data-class="candidate" data-election="false">
+      <div class="leg-card bg-review" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/david-jr.jpg" alt="David Andrew Engell Jr" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>DJ</div>'">
@@ -1104,9 +1142,9 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. David Andrew Engell Jr</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-candidate">Candidate</span>
-              
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-review">Moderate Overlap</span>
               
             </div>
@@ -1115,7 +1153,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
 <li>Engell Brothers Development LLC ($60K-$100K)</li>
 <li>Addy Rental ($0-$30K)</li>
 <li><em>Spouse:</em> Boyds Rental ($0-$30K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from Engell Brothers Development LLC</li><li>7 business associations (complex)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Andrew.Engell@leg.wa.gov" class="contact-link">Andrew.Engell@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7908</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>5</b></span>
               <span class="f1-ref">F1: 124331</span>
@@ -1218,7 +1256,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-monitoring" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/matthew-boehnke.jpg" alt="Matthew Boehnke" onerror="this.parentElement.innerHTML='<div class=\'avatar av-conflict\'>MB</div>'">
@@ -1229,7 +1267,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $30K-$60K from Columbia Basin College</div>
@@ -1257,7 +1295,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $100K-$200K from Skone &amp; Connors Produce, Inc.</div>
@@ -1295,7 +1333,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="contact-row"><a href="mailto:Stephanie.Barnard@leg.wa.gov" class="contact-link">Stephanie.Barnard@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7986</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 127085</span>
+              <span class="f1-ref">F1: 133943</span>
               
             </div>
           </div>
@@ -1406,7 +1444,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+      <div class="leg-card bg-review" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/muzzall-e.jpg" alt="MUZZALL RONALD E" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>ME</div>'">
@@ -1414,18 +1452,18 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Sen. MUZZALL RONALD E</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
               <span class="badge-pill bp-review">Moderate Overlap</span>
-              
+              <span class="ec-flag">EC sponsor (2 bills)</span>
             </div>
             <div class="card-summary">Outside income $30K-$60K from 3 Sisters Cattle Co</div>
             <ul class="inc-list"><li>3 Sisters Cattle Co ($30K-$60K)</li>
 <li><em>Spouse:</em> 3 Sisters Family Farms ($30K-$60K)</li>
 <li>3 Sisters Cattle Co ($30K-$60K)</li>
 <li><em>Spouse:</em> 3 Sisters Family Farms ($30K-$60K)</li></ul><ul class="flag-list"><li>Outside income $30K-$60K from 3 Sisters Cattle Co</li><li>Outside income $30K-$60K from 3 Sisters Cattle Co</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Ron.Muzzall@leg.wa.gov" class="contact-link">Ron.Muzzall@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7618</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>6</b></span>
               <span class="f1-ref">F1: 126277</span>
@@ -1544,7 +1582,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $200K-$500K from Kootenai Health</div>
@@ -1668,7 +1706,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+      <div class="leg-card bg-clean" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/judith-warnick.jpg" alt="JUDITH M WARNICK" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>JW</div>'">
@@ -1676,18 +1714,18 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Sen. JUDITH M WARNICK</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
               <span class="badge-pill bp-clean">Minimal Overlap</span>
-              
+              <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">No significant conflicts identified in current filing.</div>
             <ul class="inc-list"><li><em>Spouse:</em> Credit Services of Central WA ($60K-$100K)</li>
 <li>Credit Services of Central WA ($0-$30K)</li>
 <li><em>Spouse:</em> Lease Income ($0-$30K)</li>
 <li><em>Spouse:</em> Social Security ($30K-$60K)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Judy.Warnick@leg.wa.gov" class="contact-link">Judy.Warnick@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7624</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 126373</span>
@@ -1719,33 +1757,33 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="contact-row"><a href="mailto:Tom.Dent@leg.wa.gov" class="contact-link">Tom.Dent@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7932</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>3</b></span>
-              <span class="f1-ref">F1: 126208</span>
+              <span class="f1-ref">F1: 134043</span>
               
             </div>
           </div>
         </div>
       </div>
 
-      <div class="leg-card bg-clean" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/alex-ybarra.jpg" alt="Alex Ybarra" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>AY</div>'">
+            <img class="leg-photo" src="legislator_photos/alejandro-ybarra.jpg" alt="Alejandro Ybarra" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>AY</div>'">
           </div>
           <div class="card-body">
             <div class="name-row">
-              <span class="card-name">Rep. Alex Ybarra</span>
-              <span class="party-pill party-r">R</span>
-              <span class="class-pill cl-incumbent">Incumbent</span>
-              <span class="elec-pill">Up for Election</span>
+              <span class="card-name">Rep. Alejandro Ybarra</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="class-pill cl-former">Former</span>
+              
               <span class="badge-pill bp-clean">Minimal Overlap</span>
               
             </div>
             <div class="card-summary">No significant conflicts identified in current filing.</div>
             
-            <div class="contact-row"><a href="mailto:Alex.Ybarra@leg.wa.gov" class="contact-link">Alex.Ybarra@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7808</span></div>
+            
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 127117</span>
+              <span class="f1-ref">F1: 134100</span>
               
             </div>
           </div>
@@ -1791,7 +1829,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house" data-class="candidate" data-election="false">
+      <div class="leg-card bg-review" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/debra-manjarrez.jpg" alt="Debra Manjarrez" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>DM</div>'">
@@ -1799,9 +1837,9 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. Debra Manjarrez</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-candidate">Candidate</span>
-              
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-review">Moderate Overlap</span>
               
             </div>
@@ -1810,7 +1848,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
 <li><em>Spouse:</em> SOCIAL SECURITY ADMINISTRATION ($0-$30K)</li>
 <li>AMERICAN FUNDS ($0-$30K)</li>
 <li>FARMERS FINANCIAL SOLUTIONS LLC ($0-$30K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from MANJARREZ &amp; DELEON PS</li><li>Outside income $30K-$60K from MANJARREZ &amp; DELEON PS</li><li>Outside income $60K-$100K from MANJARREZ &amp; DELEON PS</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Deb.Manjarrez@leg.wa.gov" class="contact-link">Deb.Manjarrez@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7856</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>9</b></span>
               <span class="f1-ref">F1: 127346</span>
@@ -1847,7 +1885,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
+      <div class="leg-card bg-monitoring" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/mendoza-g.jpg" alt="MENDOZA MARIA G" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>MG</div>'">
@@ -1855,15 +1893,15 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. MENDOZA MARIA G</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-monitoring">Low Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $30K-$60K from GMC FAMILY SERVICES</div>
             <ul class="inc-list"><li>GMC FAMILY SERVICES ($30K-$60K)</li></ul><ul class="flag-list"><li>Outside income $30K-$60K from GMC FAMILY SERVICES</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Gloria.Mendoza@leg.wa.gov" class="contact-link">Gloria.Mendoza@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7960</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>3</b></span>
               <span class="f1-ref">F1: 126144</span>
@@ -1874,9 +1912,6 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       </div>
     </div>
-
-
-
     <div class="dist-block hot" id="ld-15">
       <div class="dist-head">
         <div class="dist-label">
@@ -1890,11 +1925,11 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       <div class="leg-card bg-review" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/nikki-torres.jpg" alt="NIKKI TORRES" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>NT</div>'">
+            <img class="leg-photo" src="legislator_photos/nikki-torres.jpg" alt="Nikki E. Torres" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>NT</div>'">
           </div>
           <div class="card-body">
             <div class="name-row">
-              <span class="card-name">Sen. NIKKI TORRES</span>
+              <span class="card-name">Sen. Nikki E. Torres</span>
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
@@ -1906,7 +1941,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="contact-row"><a href="mailto:Nikki.Torres@leg.wa.gov" class="contact-link">Nikki.Torres@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7684</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>7</b></span>
-              <span class="f1-ref">F1: 126983</span>
+              <span class="f1-ref">F1: 134116</span>
               
             </div>
           </div>
@@ -1924,7 +1959,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $500K-$750K from JDANCO, LLC</div>
@@ -1953,7 +1988,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $100K-$200K from ICW</div>
@@ -2008,7 +2043,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate" data-class="candidate" data-election="false">
+      <div class="leg-card bg-review" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/dozier-l.jpg" alt="DOZIER PERRY L" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>DL</div>'">
@@ -2016,8 +2051,8 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Sen. DOZIER PERRY L</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-candidate">Candidate</span>
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
               <span class="badge-pill bp-review">Moderate Overlap</span>
               
@@ -2025,7 +2060,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="card-summary">Outside income $500K-$750K from Double D Ranches</div>
             <ul class="inc-list"><li>Double D Ranches ($500K-$750K)</li>
 <li>Farm Service Agency/Commodity Credit ($100K-$200K)</li></ul><ul class="flag-list"><li>Outside income $500K-$750K from Double D Ranches</li><li>Outside income $100K-$200K from Farm Service Agency/Commodity Credit</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Perry.Dozier@leg.wa.gov" class="contact-link">Perry.Dozier@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7630</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>6</b></span>
               <span class="f1-ref">F1: 132941</span>
@@ -2100,7 +2135,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="house" data-class="candidate" data-election="false">
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/waters-r.jpg" alt="WATERS KEVIN R" onerror="this.parentElement.innerHTML='<div class=\'avatar av-conflict\'>WR</div>'">
@@ -2108,17 +2143,17 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. WATERS KEVIN R</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-candidate">Candidate</span>
-              
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $100K-$200K from Maple Leaf Events</div>
             <ul class="inc-list"><li>Skamania EDC ($60K-$100K)</li>
 <li><em>Spouse:</em> Maple Leaf Events ($100K-$200K)</li>
 <li><em>Spouse:</em> Maple Way Cabins ($100K-$200K)</li></ul><ul class="flag-list"><li>Spouse income $100K-$200K from Maple Leaf Events</li><li>Outside income $60K-$100K from Skamania EDC</li><li>Outside income $100K-$200K from Maple Leaf Events</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Kevin.Waters@leg.wa.gov" class="contact-link">Kevin.Waters@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7994</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>14</b></span>
               <span class="f1-ref">F1: 127421</span>
@@ -2157,10 +2192,10 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-clean" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
+      <div class="leg-card bg-monitoring" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/paul-harris.jpg" alt="Paul Harris" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>PH</div>'">
+            <img class="leg-photo" src="legislator_photos/paul-harris.jpg" alt="Paul Harris" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>PH</div>'">
           </div>
           <div class="card-body">
             <div class="name-row">
@@ -2168,16 +2203,17 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-clean">Minimal Overlap</span>
+              <span class="badge-pill bp-monitoring">Low Overlap</span>
               
             </div>
-            <div class="card-summary">Career fundraising: $1.1M</div>
+            <div class="card-summary">Outside income $30K-$60K from US Government</div>
             <ul class="inc-list"><li>Washington State ($30K-$60K)</li>
-<li>QCI ($0-$30K)</li></ul>
+<li>QCI ($0-$30K)</li>
+<li>US Government ($30K-$60K)</li></ul><ul class="flag-list"><li>Outside income $30K-$60K from US Government</li><li>Career fundraising: $1.1M</li></ul>
             <div class="contact-row"><a href="mailto:Paul.Harris@leg.wa.gov" class="contact-link">Paul.Harris@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7632</span></div>
             <div class="card-foot">
-              <span class="score-lbl">Score: <b>1</b></span>
-              <span class="f1-ref">F1: 125098</span>
+              <span class="score-lbl">Score: <b>4</b></span>
+              <span class="f1-ref">F1: 134192</span>
               
             </div>
           </div>
@@ -2278,7 +2314,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
+      <div class="leg-card bg-monitoring" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/mcclintock-a.jpg" alt="MCCLINTOCK STEPHANIE A" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>MA</div>'">
@@ -2286,16 +2322,16 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. MCCLINTOCK STEPHANIE A</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-monitoring">Low Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $100K-$200K from United Grain Corporation</div>
             <ul class="inc-list"><li>United Grain Corporation ($100K-$200K)</li>
 <li>Washington State ($60K-$100K)</li></ul><ul class="flag-list"><li>Outside income $100K-$200K from United Grain Corporation</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Stephanie.McClintock@leg.wa.gov" class="contact-link">Stephanie.McClintock@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7850</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>3</b></span>
               <span class="f1-ref">F1: 133062</span>
@@ -2461,7 +2497,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <span class="dist-num">LD 20</span>
           <span class="dist-area">Lacey, Tumwater</span>
         </div>
-        <span class="dist-count">35 members</span>
+        <span class="dist-count">38 members</span>
       </div>
       <div class="dist-members">
 
@@ -2476,7 +2512,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-u">Unknown</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Income &#x27;Business: Tacoma-Pierce County Habitat for Humanity&#x27; linked to lobbyist employer &#x27;PIERCE COUNTY&#x27; (1 lobbyists)</div>
@@ -2491,10 +2527,10 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-monitoring" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/john-braun.jpg" alt="John E Braun" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>JB</div>'">
+            <img class="leg-photo" src="legislator_photos/john-braun.jpg" alt="John E Braun" onerror="this.parentElement.innerHTML='<div class=\'avatar av-conflict\'>JB</div>'">
           </div>
           <div class="card-body">
             <div class="name-row">
@@ -2502,7 +2538,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $200K-$500K from Braun Northwest. Inc</div>
@@ -2514,7 +2550,6 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="card-foot">
               <span class="score-lbl">Score: <b>10</b></span>
               <span class="f1-ref">F1: 126944</span>
-              <a href="profiles/braun.html" class="deep-link">Full Analysis &rarr;</a>
               
             </div>
           </div>
@@ -2602,6 +2637,34 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
+      <div class="leg-card bg-monitoring" data-party="D" data-chamber="senate" data-class="incumbent" data-election="false">
+        <div class="card-layout">
+          <div class="photo-wrap">
+            <img class="leg-photo" src="legislator_photos/joseph-thanh-nguyen.jpg" alt="Joseph-Thanh Tan Nguyen" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>JN</div>'">
+          </div>
+          <div class="card-body">
+            <div class="name-row">
+              <span class="card-name">Sen. Joseph-Thanh Tan Nguyen</span>
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              
+              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              
+            </div>
+            <div class="card-summary">Income &#x27;Seattle Public Schools&#x27; linked to lobbyist employer &#x27;SEATTLE PUBLIC SCHOOLS&#x27; (1 lobbyists)</div>
+            <ul class="inc-list"><li>AAPI Victory Fund ($0-$30K)</li>
+<li><em>Spouse:</em> Seattle Public Schools ($60K-$100K)</li>
+<li>Washington State Department of Commerce ($200K-$500K)</li></ul><ul class="flag-list"><li>Income &#x27;Seattle Public Schools&#x27; linked to lobbyist employer &#x27;SEATTLE PUBLIC SCHOOLS&#x27; (1 lobbyists)</li></ul>
+            
+            <div class="card-foot">
+              <span class="score-lbl">Score: <b>4</b></span>
+              <span class="f1-ref">F1: 133877</span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
@@ -2623,32 +2686,6 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="card-foot">
               <span class="score-lbl">Score: <b>4</b></span>
               <span class="f1-ref">F1: 127490</span>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
-        <div class="card-layout">
-          <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/eric-lafontaine.jpg" alt="Eric W. LaFontaine" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>EL</div>'">
-          </div>
-          <div class="card-body">
-            <div class="name-row">
-              <span class="card-name">Sen. Eric W. LaFontaine</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
-              
-            </div>
-            <div class="card-summary">Outside income $60K-$100K from Eastside Media Corp</div>
-            <ul class="inc-list"><li>Eastside Media Corp ($60K-$100K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from Eastside Media Corp</li></ul>
-            
-            <div class="card-foot">
-              <span class="score-lbl">Score: <b>3</b></span>
-              <span class="f1-ref">F1: 125138</span>
               
             </div>
           </div>
@@ -2726,7 +2763,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 125654</span>
+              <span class="f1-ref">F1: 133870</span>
               
             </div>
           </div>
@@ -2753,6 +2790,58 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 123407</span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+        <div class="card-layout">
+          <div class="photo-wrap">
+            <img class="leg-photo" src="legislator_photos/eric-lafontaine.jpg" alt="Eric W. LaFontaine" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>EL</div>'">
+          </div>
+          <div class="card-body">
+            <div class="name-row">
+              <span class="card-name">Sen. Eric W. LaFontaine</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="class-pill cl-former">Former</span>
+              
+              <span class="badge-pill bp-clean">Minimal Overlap</span>
+              
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+            <ul class="inc-list"><li><em>Spouse:</em> Washington State Board of Industrial Appeals ($100K-$200K)</li></ul>
+            
+            <div class="card-foot">
+              <span class="score-lbl">Score: <b>0</b></span>
+              <span class="f1-ref">F1: 133962</span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+        <div class="card-layout">
+          <div class="photo-wrap">
+            <img class="leg-photo" src="legislator_photos/hannah-waterman.jpg" alt="Hannah Grace Waterman" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>HW</div>'">
+          </div>
+          <div class="card-body">
+            <div class="name-row">
+              <span class="card-name">Sen. Hannah Grace Waterman</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="class-pill cl-former">Former</span>
+              
+              <span class="badge-pill bp-clean">Minimal Overlap</span>
+              
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+            
+            
+            <div class="card-foot">
+              <span class="score-lbl">Score: <b>0</b></span>
+              <span class="f1-ref">F1: 133882</span>
               
             </div>
           </div>
@@ -2833,6 +2922,32 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 126462</span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+        <div class="card-layout">
+          <div class="photo-wrap">
+            <img class="leg-photo" src="legislator_photos/miles-sari.jpg" alt="Miles Sari" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>MS</div>'">
+          </div>
+          <div class="card-body">
+            <div class="name-row">
+              <span class="card-name">Sen. Miles Sari</span>
+              <span class="party-pill party-u">Unknown</span>
+              <span class="class-pill cl-former">Former</span>
+              
+              <span class="badge-pill bp-clean">Minimal Overlap</span>
+              
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+            
+            
+            <div class="card-foot">
+              <span class="score-lbl">Score: <b>0</b></span>
+              <span class="f1-ref">F1: 124423</span>
               
             </div>
           </div>
@@ -2984,7 +3099,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-u">Unknown</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $60K-$100K from J&amp;H Childcare LLC</div>
@@ -3021,7 +3136,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             
             <div class="card-foot">
               <span class="score-lbl">Score: <b>8</b></span>
-              <span class="f1-ref">F1: 125856</span>
+              <span class="f1-ref">F1: 134224</span>
               
             </div>
           </div>
@@ -3394,7 +3509,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 125009</span>
+              <span class="f1-ref">F1: 133800</span>
               
             </div>
           </div>
@@ -3412,7 +3527,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+      <div class="leg-card bg-conflict" data-party="D" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/liias-s.jpg" alt="LIIAS MARKO S" onerror="this.parentElement.innerHTML='<div class=\'avatar av-conflict\'>LS</div>'">
@@ -3420,16 +3535,16 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Sen. LIIAS MARKO S</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
-              
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
+              <span class="ec-flag">EC sponsor (7 bills)</span>
             </div>
             <div class="card-summary">Outside income $100K-$200K from Snohomish County</div>
             <ul class="inc-list"><li>Snohomish County ($100K-$200K)</li>
 <li>University of Washington ($0-$30K)</li></ul><ul class="flag-list"><li>Outside income $100K-$200K from Snohomish County</li><li>Income &#x27;Snohomish County&#x27; linked to lobbyist employer &#x27;SNOHOMISH CO&#x27; (3 lobbyists)</li><li>Income &#x27;Snohomish County&#x27; linked to lobbyist employer &#x27;ECONOMIC ALLIANCE SNOHOMISH COUNTY&#x27; (1 lobbyi</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Marko.Liias@leg.wa.gov" class="contact-link">Marko.Liias@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7640</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>15</b></span>
               <span class="f1-ref">F1: 126156</span>
@@ -3450,7 +3565,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">Spouse income $200K-$500K from MAM Consulting</div>
@@ -3505,6 +3620,34 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
+      <div class="leg-card bg-review" data-party="D" data-chamber="senate" data-class="incumbent" data-election="false">
+        <div class="card-layout">
+          <div class="photo-wrap">
+            <img class="leg-photo" src="legislator_photos/jessica-bateman.jpg" alt="Jessica D. Bateman" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>JB</div>'">
+          </div>
+          <div class="card-body">
+            <div class="name-row">
+              <span class="card-name">Sen. Jessica D. Bateman</span>
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              
+              <span class="badge-pill bp-review">Moderate Overlap</span>
+              <span class="ec-flag">EC sponsor (1 bills)</span>
+            </div>
+            <div class="card-summary">Outside income $60K-$100K from WA Association for Community Health</div>
+            <ul class="inc-list"><li>WA Association for Community Health ($60K-$100K)</li>
+<li>WA Assn. of Comm. Health ($60K-$100K)</li>
+<li>Rental property ($0-$30K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from WA Association for Community Health</li><li>Outside income $60K-$100K from WA Assn. of Comm. Health</li></ul>
+            <div class="contact-row"><a href="mailto:jessica.bateman@leg.wa.gov" class="contact-link">jessica.bateman@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7642</span></div>
+            <div class="card-foot">
+              <span class="score-lbl">Score: <b>6</b></span>
+              <span class="f1-ref">F1: 134013</span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="leg-card bg-conflict" data-party="D" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
@@ -3516,7 +3659,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $100K-$200K from Pioneer Family Practice PLLC</div>
@@ -3533,7 +3676,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
+      <div class="leg-card bg-review" data-party="D" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/parshley-lisa.jpg" alt="PARSHLEY DOROTHY E &quot;Lisa&quot;" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>P"</div>'">
@@ -3541,9 +3684,9 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. PARSHLEY DOROTHY E &quot;Lisa&quot;</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-review">Moderate Overlap</span>
               
             </div>
@@ -3551,36 +3694,10 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <ul class="inc-list"><li>BluePearl Vet, LLC ($60K-$100K)</li>
 <li>City of Olympia ($0-$30K)</li>
 <li><em>Spouse:</em> BluePearl Vet, LLC ($100K-$200K)</li></ul><ul class="flag-list"><li>Spouse income $100K-$200K from BluePearl Vet, LLC</li><li>Outside income $60K-$100K from BluePearl Vet, LLC</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Lisa.Parshley@leg.wa.gov" class="contact-link">Lisa.Parshley@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7992</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>8</b></span>
               <span class="f1-ref">F1: 132357</span>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
-        <div class="card-layout">
-          <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/bateman-d.jpg" alt="BATEMAN JESSICA D" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>BD</div>'">
-          </div>
-          <div class="card-body">
-            <div class="name-row">
-              <span class="card-name">Rep. BATEMAN JESSICA D</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
-              
-            </div>
-            <div class="card-summary">Outside income $60K-$100K from WA Association for Community Health</div>
-            <ul class="inc-list"><li>WA Association for Community Health ($60K-$100K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from WA Association for Community Health</li></ul>
-            
-            <div class="card-foot">
-              <span class="score-lbl">Score: <b>3</b></span>
-              <span class="f1-ref">F1: 126945</span>
               
             </div>
           </div>
@@ -3635,7 +3752,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $60K-$100K from Civil Survival Project</div>
@@ -3891,7 +4008,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house" data-class="candidate" data-election="false">
+      <div class="leg-card bg-clean" data-party="R" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/jacobsen-p.jpg" alt="JACOBSEN CYNTHIA P" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>JP</div>'">
@@ -3899,9 +4016,9 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. JACOBSEN CYNTHIA P</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-candidate">Candidate</span>
-              
+              <span class="party-pill party-r">R</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-clean">Minimal Overlap</span>
               
             </div>
@@ -3909,7 +4026,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <ul class="inc-list"><li>WA state legislature beginning 1/4 2021 ($60K-$100K)</li>
 <li><em>Spouse:</em> US Government ($0-$30K)</li>
 <li>Rental Net Income ($0-$30K)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Cyndy.Jacobsen@leg.wa.gov" class="contact-link">Cyndy.Jacobsen@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7968</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 132818</span>
@@ -3920,9 +4037,6 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       </div>
     </div>
-
-
-
     <div class="dist-block warm" id="ld-26">
       <div class="dist-head">
         <div class="dist-label">
@@ -3933,7 +4047,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-review" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+      <div class="leg-card bg-review" data-party="D" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/krishnadasan-m.jpg" alt="KRISHNADASAN DEBORAH M" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>KM</div>'">
@@ -3941,16 +4055,16 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Sen. KRISHNADASAN DEBORAH M</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
               <span class="badge-pill bp-review">Moderate Overlap</span>
-              
+              <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">Spouse income $750K-$1M from Pulse Heart Institute / MultiCare Health Systems</div>
             <ul class="inc-list"><li><em>Spouse:</em> Pulse Heart Institute / MultiCare Health Systems ($750K-$1M)</li>
 <li><em>Spouse:</em> Intuitive Surgical ($60K-$100K)</li></ul><ul class="flag-list"><li>Spouse income $750K-$1M from Pulse Heart Institute / MultiCare Health Systems</li><li>Income &#x27;Pulse Heart Institute / MultiCare Health Systems&#x27; linked to lobbyist employer &#x27;MULTICARE HEA</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Deborah.Krishnadasan@leg.wa.gov" class="contact-link">Deborah.Krishnadasan@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7650</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>9</b></span>
               <span class="f1-ref">F1: 132945</span>
@@ -4071,7 +4185,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="contact-row"><a href="mailto:Yasmin.Trudeau@leg.wa.gov" class="contact-link">Yasmin.Trudeau@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7652</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>5</b></span>
-              <span class="f1-ref">F1: 127630</span>
+              <span class="f1-ref">F1: 133942</span>
               
             </div>
           </div>
@@ -4089,18 +4203,18 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (2 bills)</span>
             </div>
             <div class="card-summary">Spouse income $100K-$200K from Desimone Consulting</div>
             <ul class="inc-list"><li>State of Washington ($60K-$100K)</li>
-<li>Tacoma Employees&#x27; Retirement System ($60K-$100K)</li>
-<li>Department of Retirement Systems ($0-$30K)</li>
-<li>Washington State University ($0-$30K)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Spouse income $100K-$200K from Desimone Consulting</li><li>Income &#x27;Technology Network&#x27; linked to lobbyist employer &#x27;TECHNOLOGY NETWORK&#x27; (3 lobbyists)</li><li>Career fundraising: $942K</li></ul>
+<li><em>Spouse:</em> Desimone Consulting ($100K-$200K)</li>
+<li><em>Spouse:</em> Technology Network ($60K-$100K)</li>
+<li>Tacoma Employees&#x27; Retirement System ($60K-$100K)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Spouse income $100K-$200K from Desimone Consulting</li><li>Income &#x27;Technology Network&#x27; linked to lobbyist employer &#x27;TECHNOLOGY NETWORK&#x27; (3 lobbyists)</li><li>Career fundraising: $942K</li></ul>
             <div class="contact-row"><a href="mailto:Jake.Fey@leg.wa.gov" class="contact-link">Jake.Fey@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7974</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>20</b></span>
-              <span class="f1-ref">F1: 125602</span>
+              <span class="f1-ref">F1: 133983</span>
               
             </div>
           </div>
@@ -4118,7 +4232,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $100K-$200K from Office of the Attorney General</div>
@@ -4308,7 +4422,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="contact-row"><a href="mailto:Sharlett.Mena@leg.wa.gov" class="contact-link">Sharlett.Mena@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7996</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 127241</span>
+              <span class="f1-ref">F1: 134025</span>
               
             </div>
           </div>
@@ -4363,7 +4477,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Outside income $100K-$200K from STRUO Strategies, LLC</div>
@@ -4417,7 +4531,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-monitoring" data-party="R" data-chamber="senate" data-class="candidate" data-election="false">
+      <div class="leg-card bg-monitoring" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/philip-fortunato.jpg" alt="Philip D Fortunato" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>PF</div>'">
@@ -4426,7 +4540,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="name-row">
               <span class="card-name">Sen. Philip D Fortunato</span>
               <span class="party-pill party-r">R</span>
-              <span class="class-pill cl-candidate">Candidate</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
               <span class="badge-pill bp-monitoring">Low Overlap</span>
               
@@ -4434,7 +4548,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="card-summary">Outside income $60K-$100K from ECO 3 Associates, LLC</div>
             <ul class="inc-list"><li>ECO 3 Associates, LLC ($60K-$100K)</li>
 <li>Social Security ($0-$30K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from ECO 3 Associates, LLC</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Phil.Fortunato@leg.wa.gov" class="contact-link">Phil.Fortunato@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7660</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>3</b></span>
               <span class="f1-ref">F1: 123392</span>
@@ -4661,6 +4775,32 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
+      <div class="leg-card bg-clean" data-party="D" data-chamber="senate" data-class="incumbent" data-election="false">
+        <div class="card-layout">
+          <div class="photo-wrap">
+            <img class="leg-photo" src="legislator_photos/tina-orwall.jpg" alt="Tina L. Orwall" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>TO</div>'">
+          </div>
+          <div class="card-body">
+            <div class="name-row">
+              <span class="card-name">Sen. Tina L. Orwall</span>
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              
+              <span class="badge-pill bp-clean">Minimal Overlap</span>
+              
+            </div>
+            <div class="card-summary">No significant conflicts identified in current filing.</div>
+            <ul class="inc-list"><li>Washington State ($60K-$100K)</li></ul>
+            <div class="contact-row"><a href="mailto:Tina.Orwall@leg.wa.gov" class="contact-link">Tina.Orwall@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7664</span></div>
+            <div class="card-foot">
+              <span class="score-lbl">Score: <b>0</b></span>
+              <span class="f1-ref">F1: 133965</span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="leg-card bg-review" data-party="D" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
@@ -4714,32 +4854,6 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           </div>
         </div>
       </div>
-
-      <div class="leg-card bg-clean" data-party="D" data-chamber="house" data-class="incumbent" data-election="true">
-        <div class="card-layout">
-          <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/tina-orwall.jpg" alt="Tina L. Orwall" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>TO</div>'">
-          </div>
-          <div class="card-body">
-            <div class="name-row">
-              <span class="card-name">Rep. Tina L. Orwall</span>
-              <span class="party-pill party-d">D</span>
-              <span class="class-pill cl-incumbent">Incumbent</span>
-              <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-clean">Minimal Overlap</span>
-              
-            </div>
-            <div class="card-summary">No significant conflicts identified in current filing.</div>
-            <ul class="inc-list"><li>Washington State ($60K-$100K)</li></ul>
-            <div class="contact-row"><a href="mailto:Tina.Orwall@leg.wa.gov" class="contact-link">Tina.Orwall@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7664</span></div>
-            <div class="card-foot">
-              <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 126064</span>
-              
-            </div>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
     <div class="dist-block hot" id="ld-34">
@@ -4748,37 +4862,9 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <span class="dist-num">LD 34</span>
           <span class="dist-area">West Seattle, Burien, Vashon</span>
         </div>
-        <span class="dist-count">4 members</span>
+        <span class="dist-count">3 members</span>
       </div>
       <div class="dist-members">
-
-      <div class="leg-card bg-conflict" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
-        <div class="card-layout">
-          <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/joseph-thanh-nguyen.jpg" alt="Joseph-Thanh Tan Nguyen" onerror="this.parentElement.innerHTML='<div class=\'avatar av-conflict\'>JN</div>'">
-          </div>
-          <div class="card-body">
-            <div class="name-row">
-              <span class="card-name">Sen. Joseph-Thanh Tan Nguyen</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
-              
-            </div>
-            <div class="card-summary">Outside income $30K-$60K from Wellspring Family Services</div>
-            <ul class="inc-list"><li>Wellspring Family Services ($30K-$60K)</li>
-<li>AAPI Victory Fund ($100K-$200K)</li>
-<li><em>Spouse:</em> Seattle Public Schools ($0-$30K)</li></ul><ul class="flag-list"><li>Outside income $30K-$60K from Wellspring Family Services</li><li>Outside income $100K-$200K from AAPI Victory Fund</li><li>Income &#x27;Wellspring Family Services&#x27; linked to lobbyist employer &#x27;WELLSPRING FAMILY SERVICES&#x27; (1 lobb</li></ul>
-            
-            <div class="card-foot">
-              <span class="score-lbl">Score: <b>14</b></span>
-              <span class="f1-ref">F1: 122493</span>
-              
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="leg-card bg-conflict" data-party="D" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
@@ -4791,18 +4877,15 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (4 bills)</span>
             </div>
             <div class="card-summary">House Majority Leader. Spouse Lindsey Grad is a PDC-registered lobbyist for SEIU Healthcare 1199NW ($100K-$200K). SEIU ecosystem donations to Fitzgibbon: $30,000+. The lobbyist and the Majority Leader share an address. Zero recusals.</div>
-            <ul class="inc-list"><li>Evergreen Collaborative ($0-$30K)</li>
-<li><em>Spouse:</em> SEIU Healthcare 1199NW ($100K-$200K)</li>
-<li>No on 2117 ($30K-$60K)</li>
-<li>Employment Security Department ($0-$30K)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Spouse income $100K-$200K from SEIU Healthcare 1199NW</li><li>Outside income $30K-$60K from No on 2117</li><li>Income &#x27;SEIU Healthcare 1199NW&#x27; linked to lobbyist employer &#x27;SEIU HEALTHCARE 1199NW MULTI-EMPLOYER T</li></ul>
+            <ul class="inc-list"><li><em>Spouse:</em> SEIU Healthcare 1199NW ($100K-$200K)</li></ul><div class="household-flag">Lobbyist in household: </div><ul class="flag-list"><li>Spouse income $100K-$200K from SEIU Healthcare 1199NW</li><li>Income &#x27;SEIU Healthcare 1199NW&#x27; linked to lobbyist employer &#x27;SEIU HEALTHCARE 1199NW MULTI-EMPLOYER T</li><li>Career fundraising: $664K</li></ul>
             <div class="contact-row"><a href="mailto:Joe.Fitzgibbon@leg.wa.gov" class="contact-link">Joe.Fitzgibbon@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7952</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>32</b></span>
-              <span class="f1-ref">F1: 124031</span>
+              <span class="f1-ref">F1: 133934</span>
               <a href="profiles/fitzgibbon.html" class="deep-link">Full Analysis &rarr;</a>
             </div>
           </div>
@@ -4836,7 +4919,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="house" data-class="candidate" data-election="false">
+      <div class="leg-card bg-monitoring" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/brianna-kthomas.jpg" alt="Brianna K.Thomas" onerror="this.parentElement.innerHTML='<div class=\'avatar av-monitoring\'>BK</div>'">
@@ -4845,17 +4928,18 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="name-row">
               <span class="card-name">Rep. Brianna K.Thomas</span>
               <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-candidate">Candidate</span>
+              <span class="class-pill cl-former">Former</span>
               
               <span class="badge-pill bp-monitoring">Low Overlap</span>
               
             </div>
             <div class="card-summary">Income &#x27;Business: Downtown Emergency Service Center&#x27; linked to lobbyist employer &#x27;DOWNTOWN EMERGENCY SERVICE CENTER&#x27; (1 lobbyists)</div>
-            <ul class="inc-list"><li>City of Seattle ($100K-$200K)</li></ul><ul class="flag-list"><li>Income &#x27;Business: Downtown Emergency Service Center&#x27; linked to lobbyist employer &#x27;DOWNTOWN EMERGENCY</li></ul>
+            <ul class="inc-list"><li>City of Seattle ($100K-$200K)</li>
+<li>State of Washington ($60K-$100K)</li></ul><ul class="flag-list"><li>Income &#x27;Business: Downtown Emergency Service Center&#x27; linked to lobbyist employer &#x27;DOWNTOWN EMERGENCY</li></ul>
             
             <div class="card-foot">
               <span class="score-lbl">Score: <b>4</b></span>
-              <span class="f1-ref">F1: 127564</span>
+              <span class="f1-ref">F1: 134172</span>
               
             </div>
           </div>
@@ -4873,7 +4957,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-monitoring" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
+      <div class="leg-card bg-conflict" data-party="R" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/drew-macewen.jpg" alt="Drew C. MacEwen" onerror="this.parentElement.innerHTML='<div class=\'avatar av-conflict\'>DM</div>'">
@@ -4884,7 +4968,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Manages Nova Satus Venture Fund through Mountain Lakes Capital (99% owner). Fund holdings are not disclosed on F1. Sits on E&amp;T Committee where lobbyist-heavy donors have direct business. The disclosure system wasn&#x27;t built for venture fund managers.</div>
@@ -4921,7 +5005,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="contact-row"><a href="mailto:Travis.Couture@leg.wa.gov" class="contact-link">Travis.Couture@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7902</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 128010</span>
+              <span class="f1-ref">F1: 134055</span>
               <a href="profiles/couture.html" class="deep-link">Full Analysis &rarr;</a>
             </div>
           </div>
@@ -4976,7 +5060,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">Managing Partner of Uncommon Bridges, which received $1.59M from City of Seattle (22 contracts, 6 depts). Contract volume doubled after election. Spouse earns $500K-$750K from Google while Frame sponsors SB 5708 regulating online platforms. Zero recusals.</div>
@@ -5005,7 +5089,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">SEIU 775 paid Berry&#x27;s firm $86,950. Her F1 calls it &#x27;Software Development&#x27;; the federal LM-2 calls it &#x27;Representational Activities.&#x27; Berry chairs the committee SEIU 775 lobbies with 9 registered lobbyists. Husband&#x27;s family holds 12+ commercial real estate LLCs.</div>
@@ -5076,7 +5160,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <ul class="inc-list"><li><em>Spouse:</em> Columbia City Acupuncture and Herbs ($60K-$100K)</li>
 <li>Rebecca Saldana Consulting Services ($0-$30K)</li>
 <li><em>Spouse:</em> True Love Performances ($0-$30K)</li></ul>
-            <div class="contact-row"><a href="mailto:Rebecca.Saldana@leg.wa.gov" class="contact-link">Rebecca.Saldana@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7688</span></div>
+            
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 126684</span>
@@ -5097,7 +5181,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $100K-$200K from Leone Solution Group</div>
@@ -5162,7 +5246,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (4 bills)</span>
             </div>
             <div class="card-summary">Outside income $30K-$60K from Snohomish County</div>
@@ -5286,7 +5370,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-r">R</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $200K-$500K from lake stevens sewer district</div>
@@ -5318,14 +5402,14 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               
             </div>
             <div class="card-summary">No significant conflicts identified in current filing.</div>
-            <ul class="inc-list"><li>Social Security Administration ($0-$30K)</li>
+            <ul class="inc-list"><li>State of Washington ($60K-$100K)</li>
+<li>Social Security Administration ($0-$30K)</li>
 <li><em>Spouse:</em> Social Security Administration ($0-$30K)</li>
-<li><em>Spouse:</em> State of Washington ($30K-$60K)</li>
-<li>State of Washington ($30K-$60K)</li></ul>
+<li><em>Spouse:</em> State of Washington ($30K-$60K)</li></ul>
             <div class="contact-row"><a href="mailto:Carolyn.Eslick@leg.wa.gov" class="contact-link">Carolyn.Eslick@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7816</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 124189</span>
+              <span class="f1-ref">F1: 133861</span>
               
             </div>
           </div>
@@ -5346,11 +5430,11 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       <div class="leg-card bg-clean" data-party="D" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
-            <img class="leg-photo" src="legislator_photos/liz-lovelett.jpg" alt="Liz Lovelett" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>LL</div>'">
+            <img class="leg-photo" src="legislator_photos/lovelett-p.jpg" alt="Lovelett, Elizabeth P" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>EL</div>'">
           </div>
           <div class="card-body">
             <div class="name-row">
-              <span class="card-name">Sen. Liz Lovelett</span>
+              <span class="card-name">Sen. Lovelett, Elizabeth P</span>
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
@@ -5363,7 +5447,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
-              <span class="f1-ref">F1: 126602</span>
+              <span class="f1-ref">F1: 134059</span>
               
             </div>
           </div>
@@ -5381,7 +5465,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-u">Unknown</span>
               <span class="class-pill cl-former">Former</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $200K-$500K from Rental income</div>
@@ -5419,14 +5503,14 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <div class="contact-row"><a href="mailto:Debra.Lekanoff@leg.wa.gov" class="contact-link">Debra.Lekanoff@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7800</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>3</b></span>
-              <span class="f1-ref">F1: 127110</span>
+              <span class="f1-ref">F1: 134256</span>
               
             </div>
           </div>
         </div>
       </div>
 
-      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
+      <div class="leg-card bg-clean" data-party="D" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/alexander-ramel.jpg" alt="Alexander W Ramel" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>AR</div>'">
@@ -5434,9 +5518,9 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. Alexander W Ramel</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-clean">Minimal Overlap</span>
               
             </div>
@@ -5444,7 +5528,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
             <ul class="inc-list"><li>Washington State ($60K-$100K)</li>
 <li>100% Possible LLC ($0-$30K)</li>
 <li>Rental ($0-$30K)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Alex.Ramel@leg.wa.gov" class="contact-link">Alex.Ramel@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7970</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 132883</span>
@@ -5597,17 +5681,17 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">Income &#x27;Whatcom County&#x27; linked to lobbyist employer &#x27;AG WATER BOARD OF WHATCOM COUNTY&#x27; (1 lobbyists)</div>
-            <ul class="inc-list"><li>Washington State Legislature ($30K-$60K)</li>
+            <ul class="inc-list"><li>Washington State Legislature ($60K-$100K)</li>
 <li>City of Bellingham ($0-$30K)</li>
 <li><em>Spouse:</em> Whatcom County ($60K-$100K)</li></ul><ul class="flag-list"><li>Income &#x27;Whatcom County&#x27; linked to lobbyist employer &#x27;AG WATER BOARD OF WHATCOM COUNTY&#x27; (1 lobbyists)</li><li>Income &#x27;Whatcom County&#x27; linked to lobbyist employer &#x27;WHATCOM CO&#x27; (2 lobbyists)</li><li>Income &#x27;Whatcom County&#x27; linked to lobbyist employer &#x27;WHATCOM COUNTY PUD #1&#x27; (2 lobbyists)</li></ul>
             <div class="contact-row"><a href="mailto:Joe.Timmons@leg.wa.gov" class="contact-link">Joe.Timmons@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7854</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>13</b></span>
-              <span class="f1-ref">F1: 125925</span>
+              <span class="f1-ref">F1: 134079</span>
               
             </div>
           </div>
@@ -5663,7 +5747,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (2 bills)</span>
             </div>
             <div class="card-summary">McKinstry entities received $31.6M from state agencies whose budgets Pedersen controls as Ways &amp; Means chair. Earns $330K-$760K from McKinstry. Sits on the Ethics Board that would investigate him. Zero recusals.</div>
@@ -5692,7 +5776,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">PDC-registered lobbyist for SPAN (2022-2024). F1 states day job &#x27;entailed compensated work as a lobbyist.&#x27; Now Vice Chair of Labor &amp; Workplace Standards. SPAN maintains 5 lobbyists in 2026. SEIU 775 is top org donor ($4,800). Total SEIU: $11,000. Total labor: $21,200+.</div>
@@ -5773,7 +5857,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+      <div class="leg-card bg-clean" data-party="D" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/johnny-lovick.jpg" alt="Johnny R. Lovick" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>JL</div>'">
@@ -5781,18 +5865,18 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Sen. Johnny R. Lovick</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
               <span class="badge-pill bp-clean">Minimal Overlap</span>
-              
+              <span class="ec-flag">EC sponsor (2 bills)</span>
             </div>
             <div class="card-summary">No significant conflicts identified in current filing.</div>
             <ul class="inc-list"><li><em>Spouse:</em> NA ($0-$30K)</li>
 <li>WA State Patrol ($60K-$100K)</li>
 <li>Social Security Administration ($0-$30K)</li>
 <li>Dept of Veterans Affairs ($0-$30K)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:John.Lovick@leg.wa.gov" class="contact-link">John.Lovick@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7686</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 132280</span>
@@ -5878,7 +5962,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">Spouse income $750K-$1M from Amazon</div>
@@ -5998,7 +6082,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Income &#x27;King County&#x27; linked to lobbyist employer &#x27;THE ARC OF KING COUNTY&#x27; (2 lobbyists)</div>
@@ -6014,7 +6098,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
         </div>
       </div>
 
-      <div class="leg-card bg-review" data-party="Unknown" data-chamber="house" data-class="former" data-election="false">
+      <div class="leg-card bg-review" data-party="D" data-chamber="house" data-class="incumbent" data-election="true">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/pollet-m.jpg" alt="POLLET GERALD M" onerror="this.parentElement.innerHTML='<div class=\'avatar av-review\'>PM</div>'">
@@ -6022,9 +6106,9 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Rep. POLLET GERALD M</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
-              
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
+              <span class="elec-pill">Up for Election</span>
               <span class="badge-pill bp-review">Moderate Overlap</span>
               
             </div>
@@ -6033,7 +6117,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
 <li>Heart of America Northwest ($60K-$100K)</li>
 <li><em>Spouse:</em> Miller Compliance Services ($0-$30K)</li>
 <li>Western Washington University ($0-$30K)</li></ul><ul class="flag-list"><li>Outside income $60K-$100K from Heart of America Northwest</li><li>Income &#x27;Business: Washington Coalition for Open Government&#x27; linked to lobbyist employer &#x27;WASHINGTON </li><li>5 business associations (complex)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Gerry.Pollet@leg.wa.gov" class="contact-link">Gerry.Pollet@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7886</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>9</b></span>
               <span class="f1-ref">F1: 125620</span>
@@ -6044,9 +6128,6 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       </div>
     </div>
-
-
-
     <div class="dist-block" id="ld-47">
       <div class="dist-head">
         <div class="dist-label">
@@ -6057,7 +6138,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
       </div>
       <div class="dist-members">
 
-      <div class="leg-card bg-clean" data-party="Unknown" data-chamber="senate" data-class="former" data-election="false">
+      <div class="leg-card bg-clean" data-party="D" data-chamber="senate" data-class="incumbent" data-election="false">
         <div class="card-layout">
           <div class="photo-wrap">
             <img class="leg-photo" src="legislator_photos/kauffman-g.jpg" alt="KAUFFMAN CLAUDIA G" onerror="this.parentElement.innerHTML='<div class=\'avatar av-clean\'>KG</div>'">
@@ -6065,15 +6146,15 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
           <div class="card-body">
             <div class="name-row">
               <span class="card-name">Sen. KAUFFMAN CLAUDIA G</span>
-              <span class="party-pill party-u">Unknown</span>
-              <span class="class-pill cl-former">Former</span>
+              <span class="party-pill party-d">D</span>
+              <span class="class-pill cl-incumbent">Incumbent</span>
               
               <span class="badge-pill bp-clean">Minimal Overlap</span>
               
             </div>
             <div class="card-summary">No significant conflicts identified in current filing.</div>
             <ul class="inc-list"><li><em>Spouse:</em> United States Social Security ($0-$30K)</li></ul>
-            
+            <div class="contact-row"><a href="mailto:Claudia.Kauffman@leg.wa.gov" class="contact-link">Claudia.Kauffman@leg.wa.gov</a> &middot; <span class="contact-phone">(360) 786-7692</span></div>
             <div class="card-foot">
               <span class="score-lbl">Score: <b>0</b></span>
               <span class="f1-ref">F1: 132661</span>
@@ -6157,7 +6238,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               
             </div>
             <div class="card-summary">Spouse income $200K-$500K from Kartos Therapeutics</div>
@@ -6252,7 +6333,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="party-pill party-d">D</span>
               <span class="class-pill cl-incumbent">Incumbent</span>
               <span class="elec-pill">Up for Election</span>
-              <span class="badge-pill bp-monitoring">Low Overlap</span>
+              <span class="badge-pill bp-conflict">Structural Overlap</span>
               <span class="ec-flag">EC sponsor (1 bills)</span>
             </div>
             <div class="card-summary">Spouse income $100K-$200K from Clark County</div>
@@ -6284,7 +6365,7 @@ header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bo
               <span class="badge-pill bp-clean">Minimal Overlap</span>
               
             </div>
-            <div class="card-summary">Career fundraising: $574K</div>
+            <div class="card-summary">Career fundraising: $575K</div>
             <ul class="inc-list"><li><em>Spouse:</em> self employed ($0-$30K)</li>
 <li>Social Security ($30K-$60K)</li>
 <li><em>Spouse:</em> Social Security ($0-$30K)</li>
