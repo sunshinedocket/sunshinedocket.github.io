@@ -182,11 +182,11 @@ header .meta { font-size: 12px; color: var(--td); font-family: var(--mono); marg
 </header>
 
 <div class="stats">
-  <div class="stat"><span class="stat-n">223</span><span class="stat-l">Donors Tracked</span></div>
-  <div class="stat"><span class="stat-n">$109.0M</span><span class="stat-l">Total $</span></div>
-  <div class="stat"><span class="stat-n">101</span><span class="stat-l">Lean D</span></div>
-  <div class="stat"><span class="stat-n">33</span><span class="stat-l">Split</span></div>
-  <div class="stat"><span class="stat-n">89</span><span class="stat-l">Lean R</span></div>
+  <div class="stat"><span class="stat-n" id="st-donors">223</span><span class="stat-l">Donors Tracked</span></div>
+  <div class="stat"><span class="stat-n" id="st-total">$109.0M</span><span class="stat-l">Total $</span></div>
+  <div class="stat"><span class="stat-n" id="st-lean-d">101</span><span class="stat-l">Lean D</span></div>
+  <div class="stat"><span class="stat-n" id="st-split">33</span><span class="stat-l">Split</span></div>
+  <div class="stat"><span class="stat-n" id="st-lean-r">89</span><span class="stat-l">Lean R</span></div>
 </div>
 
 <div class="addr-lookup">
@@ -5704,6 +5704,37 @@ function applyFilters() {
   if (activeDists) statusText = `Showing ${shown} donors funding District ${activeDists.join(', ')}`;
   if (legSearch) statusText = `Showing ${shown} donors who funded legislators matching "${legSearch}"`;
   document.getElementById('count-display').textContent = statusText;
+
+  // Recalculate stats bar for visible cards
+  let filteredTotal = 0;
+  let leanD = 0, split = 0, leanR = 0;
+  cards.forEach(c => {
+    if (c.classList.contains('hidden')) return;
+    // Get the displayed amount (could be filtered or original)
+    const amtText = c.querySelector('.dc-amt').textContent;
+    const amt = parseFloat(amtText.replace(/[$KM,]/g, '')) * (amtText.includes('M') ? 1000000 : amtText.includes('K') ? 1000 : 1);
+    filteredTotal += amt;
+    // Recalculate lean based on visible recipients
+    const allRecips = JSON.parse(c.dataset.recips || '[]');
+    let useRecips = allRecips;
+    if (legSearch) {
+      useRecips = allRecips.filter(r => r.n.toLowerCase().includes(legSearch));
+    } else if (activeDists) {
+      useRecips = allRecips.filter(r => activeDists.includes(String(r.d)));
+    }
+    const dAmt = useRecips.filter(r => r.p === 'D').reduce((s,r) => s + r.t, 0);
+    const rAmt = useRecips.filter(r => r.p === 'R').reduce((s,r) => s + r.t, 0);
+    const total = dAmt + rAmt || 1;
+    const dPct = dAmt / total * 100;
+    if (dPct > 55) leanD++;
+    else if (dPct < 45) leanR++;
+    else split++;
+  });
+  document.getElementById('st-donors').textContent = shown;
+  document.getElementById('st-total').textContent = fmtMoney(filteredTotal);
+  document.getElementById('st-lean-d').textContent = leanD;
+  document.getElementById('st-split').textContent = split;
+  document.getElementById('st-lean-r').textContent = leanR;
 
   // Re-sort when filtered by district or legislator
   const grid = document.getElementById('dc-grid');
