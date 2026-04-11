@@ -58,6 +58,34 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
 /* TILE GRID */
 .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px 60px; }
 
+/* Editorial intro */
+.intro {
+  max-width: 680px;
+  margin: 0 auto 40px;
+  padding: 0 0 32px;
+  border-bottom: 1px solid var(--bd);
+}
+.intro h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+.intro p {
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+  color: var(--tm);
+}
+.intro p.findings {
+  color: var(--tx);
+  font-size: 15px;
+  border-left: 3px solid var(--cc);
+  padding-left: 18px;
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
 .tile-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -264,6 +292,16 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
 </div>
 
 <div class="wrap">
+
+  <div class="intro">
+    <h2>What we found</h2>
+    <p>Every member of the Washington State Legislature files a financial disclosure. It lists who pays them, who pays their spouse, and whether anyone in their household is a registered lobbyist. The state also publishes every campaign donation and every lobbyist registration. All public. All on data.wa.gov.</p>
+    <p>Nobody connects them.</p>
+    <p>We built a tool that does. It cross-references all three databases for every sitting legislator and flags cases where the people writing the laws have financial ties to the people and industries affected by those laws.</p>
+    <p class="findings">A Senate leader earns $500K-$750K from a company that received $29 million from state agencies whose budgets he controls. A committee chair's consulting firm was paid $87,000 by the union that lobbies her committee, and the two government filings describe the same payments with two different labels. A House leader's spouse is a registered lobbyist for his largest campaign donor. A minority leader manages a personal investment fund whose holdings are invisible to voters while he sets tax policy for the industries his fund invests in.</p>
+    <p>These are not accusations. They are public records, exposed by cross-referencing databases the state keeps separate. Every number links to its source. Every claim is independently verifiable. If we got something wrong, the citation trail makes it findable.</p>
+    <p>We publish both parties. We publish clean passes alongside findings. The methodology is the same for everyone.</p>
+  </div>
 
   <!-- FEATURED: Pedersen (top, full width) -->
   <div class="tile-grid">

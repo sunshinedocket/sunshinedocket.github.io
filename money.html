@@ -33,6 +33,26 @@ header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bo
 header .subtitle { font-size: 14px; color: var(--tm); font-family: var(--mono); }
 header .meta { font-size: 12px; color: var(--td); font-family: var(--mono); margin-top: 4px; }
 
+/* Editorial intro */
+.money-intro {
+  max-width: 680px;
+  margin: 0 auto 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--bd);
+}
+.money-intro p {
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 12px;
+  color: var(--tm);
+}
+.money-intro .mi-lead {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--tx);
+  margin-bottom: 14px;
+}
+
 /* Stats bar */
 .stats {
   display: flex; gap: 8px; flex-wrap: wrap;
@@ -180,6 +200,13 @@ header .meta { font-size: 12px; color: var(--td); font-family: var(--mono); marg
   <div class="subtitle">Who funds the Washington State Legislature?</div>
   <div class="meta">229 top donors &middot; 2020&ndash;present &middot; Top 80% by dollar amount &middot; Source: WA PDC</div>
 </header>
+
+<div class="money-intro">
+  <p class="mi-lead">Your legislators work for you. But their campaigns are funded by someone else.</p>
+  <p>This page tracks the 229 largest donors to Washington State legislative races since 2020, accounting for 80% of all campaign dollars. Some of these donors pick a side: they fund Democrats or Republicans because they believe in a platform. Others fund everyone: they give to both parties, in nearly every district, because they need access to whoever wins. When a bill affecting insurance rates, utility costs, or timber regulation hits the floor, these access donors have already funded the campaign of almost every legislator voting on it.</p>
+  <p>That is not corruption. It is how the system works. But most voters have never seen it.</p>
+  <p>Enter your address below to see who funds your legislators. Search by name to see who funds a specific representative. Or browse the full list and notice which donors give to 40+ districts regardless of party. The D/R split bar on each card shows whether a donor picks sides or buys the table.</p>
+</div>
 
 <div class="stats">
   <div class="stat"><span class="stat-n" id="st-donors">229</span><span class="stat-l">Donors Tracked</span></div>
