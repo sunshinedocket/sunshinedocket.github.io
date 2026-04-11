@@ -33,17 +33,11 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
 .hero .masthead {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto -40px;
-  opacity: 0; animation: fadeUp 0.6s ease forwards;
-}
-.hero h1 {
-  font-size: 42px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin-bottom: 8px;
-  opacity: 0; animation: fadeUp 0.6s ease forwards;
+  margin: 0 auto -100px;
 }
 .hero .tagline {
+  position: relative;
+  z-index: 1;
   font-size: 18px;
   color: var(--tm);
   font-style: italic;
@@ -51,6 +45,8 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
   opacity: 0; animation: fadeUp 0.6s ease 0.15s forwards;
 }
 .hero .desc {
+  position: relative;
+  z-index: 1;
   font-size: 15px;
   color: var(--td);
   line-height: 1.7;
