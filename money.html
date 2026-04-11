@@ -5456,12 +5456,12 @@ document.getElementById('addr-btn').addEventListener('click', async () => {
     const lon = geoData[0].lon;
 
     // Lookup WA legislative district via TIGERweb
-    const tigerUrl = `https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Legislative/MapServer/1/query?geometry=${lon},${lat}&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=STATE,SLDLST&f=json`;
+    const tigerUrl = `https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Legislative/MapServer/2/query?geometry=${lon},${lat}&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=STATE,SLDL&f=json`;
     const tigerRes = await fetch(tigerUrl);
     const tigerData = await tigerRes.json();
 
     if (tigerData.features && tigerData.features.length > 0) {
-      const distRaw = tigerData.features[0].attributes.SLDLST;
+      const distRaw = tigerData.features[0].attributes.SLDL;
       const district = parseInt(distRaw, 10);
 
       resultEl.innerHTML = `District <strong>${district}</strong> &mdash; Showing donors who fund candidates in your district.`;
