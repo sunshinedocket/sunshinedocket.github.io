@@ -1,148 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sen. Jamie Pedersen | Sunshine Docket</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
-  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
-  --cc: #d94040; --rv: #d98c40;
-  --serif: 'Source Serif 4', Georgia, serif;
-  --mono: 'DM Mono', 'Courier New', monospace;
-}
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
-    --tx: #1a1a1a; --tm: #666; --td: #aaa;
-  }
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
-.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
-.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
-.nav a { color: var(--ac); text-decoration: none; }
-.nav a:hover { text-decoration: underline; }
-.hero-img { width: 100%; border-radius: 6px; margin-bottom: 24px; border: 1px solid var(--bd); }
-h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
-.subtitle { font-size: 14px; color: var(--tm); font-family: var(--mono); margin-bottom: 6px; }
-.badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; padding: 3px 10px; border-radius: 3px; font-family: var(--mono); color: #fff; background: var(--cc); margin-bottom: 24px; }
-.highlight { background: rgba(217,64,64,0.08); border-left: 3px solid var(--cc); padding: 16px 20px; border-radius: 4px; margin: 24px 0; font-size: 15px; }
-.highlight strong { color: var(--cc); }
-section { margin-bottom: 36px; }
-h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--bd); }
-h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--tm); }
-p { margin-bottom: 12px; font-size: 15px; }
-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
-th { background: var(--sf2); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; padding: 8px 10px; border: 1px solid var(--bd); color: var(--tm); }
-td { padding: 8px 10px; border: 1px solid var(--bd); }
-tr:nth-child(even) { background: var(--sf2); }
-td.amount { font-family: var(--mono); font-weight: 600; }
-.jurisdiction { font-family: var(--mono); font-size: 11px; color: var(--td); margin-bottom: 12px; padding: 4px 8px; background: var(--sf2); border-radius: 3px; display: inline-block; }
-.api-block { font-family: var(--mono); font-size: 12px; background: var(--sf2); border: 1px solid var(--bd); padding: 8px 12px; border-radius: 4px; margin: 8px 0; word-break: break-all; color: var(--tm); }
-.foot { border-top: 1px solid var(--bd); padding: 24px 0; text-align: center; font-size: 12px; color: var(--td); font-family: var(--mono); margin-top: 48px; }
-.foot a { color: var(--ac); text-decoration: none; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sen. Jamie Pedersen | Sunshine Docket</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a1a; --muted: #555; --rule: #ddd; --accent: #2c5f8a;
+      --accent-bg: #f0f5fa; --warn: #d94040; --warn-bg: #fdf2f2;
+      --green-bg: #f0faf4; --green: #2d7a4f;
+      --tag-bg: #f4f4f4; --max: 720px; --mono: 'Courier New', Courier, monospace;
+    }
+    body { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.7; color: var(--ink); background: #fff; padding: 48px 24px 96px; }
+    .container { max-width: var(--max); margin: 0 auto; }
+    .back { display: inline-block; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); text-decoration: none; margin-bottom: 40px; }
+    .back:hover { color: var(--ink); }
+    .hero-img { width: 100%; aspect-ratio: 2 / 1; height: auto; object-fit: cover; object-position: top center; margin-bottom: 32px; display: block; }
+    h1 { font-size: 2rem; font-weight: normal; letter-spacing: -.02em; line-height: 1.2; margin-bottom: 6px; }
+    .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 28px; }
+    .badge { display: inline-block; background: var(--warn); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; margin-bottom: 32px; }
+    h2 { font-size: 1rem; font-weight: normal; font-family: var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 8px; margin: 40px 0 16px; }
+    p { margin-bottom: 14px; }
+    strong { font-weight: bold; }
+    .lede { background: var(--accent-bg); border-left: 3px solid var(--accent); padding: 14px 18px; margin: 20px 0 28px; font-size: 15px; color: #2c2c2c; }
+    .finding { background: var(--warn-bg); border-left: 3px solid var(--warn); padding: 14px 18px; margin: 20px 0; font-size: 15px; }
+    .mitigant { background: var(--green-bg); border-left: 3px solid var(--green); padding: 14px 18px; margin: 20px 0; font-size: 15px; }
+    .note { background: #fafaf8; border: 1px solid var(--rule); padding: 16px 18px; margin: 24px 0; font-size: 15px; font-style: italic; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 8px; }
+    th { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--ink); }
+    td { padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td strong { color: var(--warn); }
+    ul { padding-left: 1.5rem; margin-bottom: 14px; font-size: 15px; }
+    li { margin-bottom: 6px; }
+    .network-node { border: 1px solid var(--rule); border-radius: 4px; padding: 12px 16px; margin: 12px 0; background: #fafaf8; font-size: 15px; }
+    .network-node .node-name { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); margin-bottom: 4px; }
+    .arrow { text-align: center; color: var(--warn); font-size: 18px; margin: 4px 0; }
+    .api { font-family: var(--mono); font-size: 12px; color: var(--muted); background: var(--tag-bg); padding: 10px 14px; margin: 6px 0 12px; word-break: break-all; border-left: 2px solid var(--rule); }
+    footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+    footer a { color: var(--muted); }
+  </style>
 </head>
 <body>
-<div class="wrap">
+<div class="container">
 
-<div class="nav">
-  <a href="/">Sunshine Docket</a> &rarr; <a href="/">Investigations</a>
-</div>
+  <a class="back" href="https://sunshinedocket.org/legislature">← Back to all findings</a>
 
-<img src="../tiles/pedersen.jpg" alt="Jamie Pedersen: McKinstry, State Payments, and Ways & Means" class="hero-img">
+  <img src="https://sunshinedocket.org/tiles/pedersen.jpg"
+       alt="Sen. Jamie Pedersen: McKinstry, State Payments, and Ways &amp; Means"
+       class="hero-img" />
 
-<h1>Sen. Jamie Pedersen</h1>
-<div class="subtitle">D-43 | Senate Majority Leader | EVP & General Counsel, McKinstry Co.</div>
-<span class="badge">Structural Overlap</span>
+  <h1>Sen. Jamie Pedersen</h1>
+  <div class="meta">D-43 | Senate Majority Leader | EVP &amp; General Counsel, McKinstry Co. | Legislative Ethics Board member</div>
+  <div class="badge">Possible Conflict</div>
 
-<div class="highlight">
-  <strong>The core finding:</strong> Pedersen is the Executive Vice President and General Counsel of McKinstry Co., a construction and energy services company whose entities received $29.1 million in state agency payments in a single year. He chairs the Senate Ways & Means Committee, which controls the operating budgets of the agencies paying his employer. He also sits on the Legislative Ethics Board that would investigate any conflict complaint against him.
-</div>
+  <div class="lede">
+    <strong>The core finding:</strong> Pedersen has spent more than a decade championing climate and energy legislation &mdash; the Climate Commitment Act, the Clean Buildings Act, and SB 6346 &mdash; that directly benefits his primary employer, McKinstry, a Seattle construction and energy services company holding over $29 million in annual state agency contracts. He earns $500,000&ndash;$749,999 as McKinstry's Executive Vice President and General Counsel, plus growing equity distributions. His employer's lobbyist &mdash; a former Inslee cabinet secretary &mdash; has been paid $177,000 to lobby Pedersen's own legislature on McKinstry's behalf. Pedersen also sits on the Legislative Ethics Board that would investigate any conflict complaint filed against him. None of this has been reported.
+  </div>
 
-<section>
-  <h2>The Numbers</h2>
-  <span class="jurisdiction">PDC Disclosure &middot; LEB (RCW 42.52.030)</span>
-  <p>From Pedersen's own signed F1 disclosure (submission 132680, filed March 24, 2026), McKinstry entities disclosed $29,119,211 in payments from Washington state agencies during calendar year 2025. This is not revenue from private clients or the open market. This is public money flowing from agencies whose budgets Pedersen directly controls through Ways & Means.</p>
-  <p>While receiving this volume of state payments, Pedersen's employer promoted him from General Counsel to Executive Vice President. His reported income jumped from $200K-$500K (CY2024) to $500K-$750K (CY2025). He was given more money and a bigger title at the same time his committee was funding the agencies that write checks to McKinstry.</p>
-</section>
+  <h2>Income &mdash; 2025 F1 (Most Recent)</h2>
 
-<section>
-  <h2>Income</h2>
+  <p>Source: F1 submission #132680, filed March 24, 2026. Pedersen's salary increased substantially between 2024 and 2025 &mdash; from the $200K&ndash;$499K range to $500K&ndash;$749K &mdash; after McKinstry promoted him to Executive Vice President while he continued chairing the committee that funds their state contracts.</p>
+
   <table>
-    <tr><th>Who</th><th>Source</th><th>Role</th><th>Income</th></tr>
-    <tr><td>Filer</td><td>McKinstry Co., LLC</td><td>EVP & General Counsel</td><td class="amount">$500K-$750K</td></tr>
-    <tr><td>Filer</td><td>McKinstry Essention, LLC</td><td>Distributions</td><td class="amount">$60K-$100K</td></tr>
-    <tr><td>Filer</td><td>WA State Senate</td><td>State Senator</td><td>$60K-$100K</td></tr>
-    <tr><td>Filer</td><td>McKinstry Co., LLC</td><td>Distributions</td><td>$30K-$60K</td></tr>
-    <tr><td>Filer</td><td>South Landing Investors, LLC</td><td>Distributions</td><td>$0-$30K</td></tr>
-    <tr><td>Filer</td><td>Oxbow Partners Spokane, LLC</td><td>Distributions</td><td>$0-$30K</td></tr>
-    <tr><td>Filer</td><td>Emerald Spokane Industrial I, LLC</td><td>Distributions</td><td>$0-$30K</td></tr>
-    <tr><td>Spouse</td><td>Seattle Public Schools</td><td>Teacher</td><td>$100K-$200K</td></tr>
+    <thead>
+      <tr><th>Who</th><th>Source</th><th>Role</th><th>Disclosed Income</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Filer</td><td><strong>McKinstry Co., LLC</strong></td><td>EVP &amp; General Counsel</td><td><strong>$500K&ndash;$750K</strong></td></tr>
+      <tr><td>Filer</td><td>WA State Senate</td><td>State Senator</td><td>$60K&ndash;$100K</td></tr>
+      <tr><td>Filer</td><td>McKinstry Co., LLC</td><td>Equity distributions</td><td>$30K&ndash;$60K</td></tr>
+      <tr><td>Filer</td><td>McKinstry Essention, LLC</td><td>Equity distributions</td><td>$60K&ndash;$100K</td></tr>
+      <tr><td>Filer</td><td>South Landing Investors, LLC</td><td>Distributions</td><td>$0&ndash;$30K</td></tr>
+      <tr><td>Filer</td><td>Oxbow Partners Spokane, LLC</td><td>Distributions</td><td>$0&ndash;$30K</td></tr>
+      <tr><td>Filer</td><td>Emerald Spokane Industrial I, LLC</td><td>Distributions</td><td>$0&ndash;$30K</td></tr>
+      <tr><td>Spouse</td><td>Seattle Public Schools</td><td>Teacher</td><td>$100K&ndash;$200K</td></tr>
+    </tbody>
   </table>
-  <p>Pedersen's combined McKinstry income (salary plus distributions from McKinstry Co. and McKinstry Essention) is between $590,000 and $910,000 per year. His legislative salary is $60K-$100K. His financial life is McKinstry.</p>
-</section>
 
-<section>
-  <h2>State Agency Payments: $29,119,211</h2>
-  <p>Every line below comes from Pedersen's own F1. These are payments his employer and its affiliated entities received from state agencies:</p>
+  <h2>The Equity Distribution Growth</h2>
+
+  <p>Pedersen's equity distributions from McKinstry have grown substantially across three disclosure years, tracking directly with the passage and implementation of legislation he co-sponsored:</p>
+
   <table>
-    <tr><th>Amount</th><th>Entity</th><th>Payer</th><th>Purpose</th></tr>
-    <tr><td class="amount">$10,215,522</td><td>McKinstry Essention</td><td>DES</td><td>Energy services</td></tr>
-    <tr><td class="amount">$6,268,629</td><td>McKinstry Co.</td><td>University of Washington</td><td>Construction</td></tr>
-    <tr><td class="amount">$4,947,789</td><td>South Landing Bldg A LLC</td><td>Eastern WA University</td><td>Rent</td></tr>
-    <tr><td class="amount">$2,052,010</td><td>Spokane Portland & Seattle LLC</td><td>University of Washington</td><td>Rent</td></tr>
-    <tr><td class="amount">$1,334,066</td><td>Great Northern Spokane LLC</td><td>Eastern WA University</td><td>Rent</td></tr>
-    <tr><td class="amount">$1,127,591</td><td>McKinstry Co.</td><td>Harborview Medical Center</td><td>Construction</td></tr>
-    <tr><td class="amount">$878,791</td><td>McKinstry Essention</td><td>University of Washington</td><td>Services</td></tr>
-    <tr><td class="amount">$378,674</td><td>McKinstry Essention</td><td>WSDOT</td><td>Services</td></tr>
-    <tr><td class="amount">$322,082</td><td>McKinstry Essention</td><td>WSU</td><td>Services</td></tr>
-    <tr><td class="amount">$229,092</td><td>South Landing Bldg A LLC</td><td>Dept. of Commerce</td><td>Rent</td></tr>
+    <thead>
+      <tr><th>Year</th><th>McKinstry Co. distributions</th><th>McKinstry Essention distributions</th><th>Combined floor / ceiling</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2022</td><td>$0&ndash;$29,999</td><td>$0&ndash;$29,999</td><td>$0 / $59,998</td></tr>
+      <tr><td>2023</td><td>$30,000&ndash;$59,999</td><td>$30,000&ndash;$59,999</td><td>$60,000 / $119,998</td></tr>
+      <tr><td>2024</td><td>$100,000&ndash;$199,999</td><td>$30,000&ndash;$59,999</td><td>$130,000 / $258,999</td></tr>
+      <tr><td>2025</td><td>$30,000&ndash;$60,000</td><td>$60,000&ndash;$100,000</td><td>$90,000 / $160,000</td></tr>
+    </tbody>
   </table>
-  <p><em>Plus 19 additional payments to agencies including DOH, DSHS, DOC, DOE, CWU, and the Criminal Justice Training Center.</em></p>
-</section>
 
-<section>
-  <h2>The Structural Problem</h2>
-  <span class="jurisdiction">Structural Transparency &middot; LEB Appearance</span>
-  <p>The Ways & Means Committee sets the operating budget for every state agency. When Ways & Means allocates more money to the University of Washington, DES, or WSDOT, those agencies have more money to spend on construction, energy services, and building leases. McKinstry provides construction, energy services, and building leases to those agencies.</p>
-  <p>Pedersen does not need to steer a specific contract to McKinstry. He does not need to call an agency head. He does not need to do anything improper at all. The structural incentive is built into the org chart: the man who sets agency budgets earns $500K-$750K from a company that depends on those budgets for $29 million in annual revenue.</p>
-  <p>Meanwhile, DES awarded McKinstry Master Contract #04224 for HVAC Services, effective September 10, 2025. Master contracts are state-negotiated agreements that allow agencies to purchase services without individual procurement. Once McKinstry holds a master contract, every agency in the state can buy from them with minimal oversight.</p>
-</section>
+  <p>The minimum floor of combined distributions grew by at least $130,000 between 2022 and 2024. The 2025 distributions represent a partial reset in the disclosed range but the salary increase from $200K&ndash;$499K to $500K&ndash;$750K in 2025 more than compensates.</p>
 
-<section>
-  <h2>The Ethics Board</h2>
-  <span class="jurisdiction">LEB Procedural (RCW 42.52.310)</span>
-  <p>Pedersen sits on the Legislative Ethics Board. If a citizen filed a conflict-of-interest complaint about a legislator, the Ethics Board would evaluate it. If someone filed that complaint about Pedersen, he would be a member of the body reviewing it.</p>
-  <p>Washington does not require Ethics Board members to recuse themselves from complaints involving their own conduct. The board operates on a self-policing model.</p>
-</section>
+  <h2>Additional McKinstry-Affiliated Investment Interests</h2>
 
-<section>
-  <h2>About This Analysis</h2>
-  <span class="jurisdiction">Methodology</span>
-  <p><strong>Income ranges, not exact figures.</strong> All income figures on this page are PDC-reported bands (e.g. "$100K-$200K"), not verified dollar amounts. A legislator at the bottom of a range and one at the top receive the same treatment. Conclusions drawn from these ranges are approximate.</p>
-  <p><strong>Washington is a citizen legislature.</strong> The state constitution envisions part-time legislators who maintain outside careers. Outside income is expected, not inherently problematic. The presence of outside income on this page is not itself a finding. What matters is the structural relationship between that income and the legislator's official authority.</p>
-  <p><strong>This is an editorial investigation, not a legal finding.</strong> The automated screening score on the legislature page is a first-pass filter that measures structural complexity. This deep-dive profile is a hand-investigated editorial analysis based on public records. Neither constitutes a determination that any law has been violated. The Legislative Ethics Board (LEB) and Public Disclosure Commission (PDC) are the bodies with enforcement authority.</p>
-</section>
+  <p>Beyond salary and distributions, Pedersen holds membership interests in McKinstry-affiliated real estate entities, all located at 5005 Third Ave. S. &mdash; McKinstry's corporate address &mdash; that receive state agency rent payments:</p>
 
-<section>
-  <h2>How to Verify Every Claim</h2>
-  <h3>F1 Disclosure</h3>
-  <div class="api-block">data.wa.gov/resource/ehbc-shxw.json?id=132680</div>
-  <h3>Campaign Contributions</h3>
-  <div class="api-block">data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%Pedersen%Jamie%'</div>
-  <h3>DES Master Contract</h3>
-  <div class="api-block">Contract #04224 - HVAC Services (McKinstry Co., effective 9/10/2025)</div>
-</section>
+  <table>
+    <thead>
+      <tr><th>Entity</th><th>State agency tenant</th><th>Annual rent</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>South Landing Building A LLC (Catalyst Building)</td><td>Eastern Washington University</td><td>$4,495,323</td></tr>
+      <tr><td>Spokane Portland &amp; Seattle LLC (840 Building)</td><td>University of Washington</td><td>$1,001,384</td></tr>
+      <tr><td>Great Northern Spokane LLC (SIERR Building)</td><td>University of Washington</td><td>$91,963</td></tr>
+    </tbody>
+  </table>
 
-<div class="foot">
-  <a href="/">Sunshine Docket</a> &middot;
-  <a href="/legislature.html">Full Legislature</a> &middot;
-  <a href="/methodology.html">Methodology</a> &middot;
-  <a href="/cdn-cgi/l/email-protection#fa898f94899293949f9e9599919f8eba8a88958e9594d4979f">Tips</a>
-  <br><br>
-  A citizen accountability project. Not affiliated with any political party, campaign, or organization.
-  All data sourced from official public disclosure filings and govern
+  <h2>State Agency Payments &mdash; $29,119,211 (CY2025)</h2>
+
+  <p>From Pedersen's own signed F1 disclosure (submission #132680, filed March 24, 2026). All figures represent direct payments from state agencies to McKinstry entities during calendar year 2025:</p>
+
+  <table>
+    <thead>
+      <tr><th>Amount</th><th>Entity</th><th>Payer</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>$10,215,522</strong></td><td>McKinstry Essention</td><td>Dept. of Enterprise Services</td><td>Energy services (ESPC)</td></tr>
+      <tr><td><strong>$6,268,629</strong></td><td>McKinstry Co.</td><td>University of Washington</td><td>Construction</td></tr>
+      <tr><td><strong>$4,947,789</strong></td><td>South Landing Building A LLC</td><td>Eastern Washington University</td><td>Rent</td></tr>
+      <tr><td><strong>$2,052,010</strong></td><td>Spokane Portland &amp; Seattle LLC</td><td>University of Washington</td><td>Rent</td></tr>
+      <tr><td>$1,334,066</td><td>Great Northern Spokane LLC</td><td>Eastern Washington University</td><td>Rent</td></tr>
+      <tr><td>$1,127,591</td><td>McKinstry Co.</td><td>Harborview Medical Center</td><td>Construction</td></tr>
+      <tr><td>$878,791</td><td>McKinstry Essention</td><td>University of Washington</td><td>Services</td></tr>
+      <tr><td>$378,674</td><td>McKinstry Essention</td><td>WSDOT</td><td>Services</td></tr>
+      <tr><td>$322,082</td><td>McKinstry Essention</td><td>WSU</td><td>Services</td></tr>
+      <tr><td>$229,092</td><td>South Landing Building A LLC</td><td>Dept. of Commerce</td><td>Rent</td></tr>
+      <tr><td colspan="4"><em>Plus 19 additional payments to DOH, DSHS, DOC, DOE, CWU, Criminal Justice Training Center, and others.</em></td></tr>
+    </tbody>
+  </table>
+
+  <div class="finding">
+    <strong>Sole-source designations:</strong> Multiple McKinstry Essention contracts at the Department of Ecology in the FY2023 Agency Contracts dataset (data.wa.gov, ID mz6y-pfem) are classified "Sole Source" &mdash; no competitive bidding, with the state certifying McKinstry as the only qualified vendor. The ESPC program governing the bulk of these energy services contracts also excludes standard competitive purchasing requirements per WA statute.
+  </div>
+
+  <h2>Legislation Pedersen Authored That Benefits McKinstry</h2>
+
+  <p>McKinstry Essention's core business is energy performance contracting &mdash; retrofitting buildings to meet efficiency standards under ESPC agreements. McKinstry Co. is one of Washington's largest public construction contractors. The following legislation created and expanded the market these businesses operate in:</p>
+
+  <ul>
+    <li><strong>Clean Buildings Performance Standard (HB 1257, 2019 / expanded 2022):</strong> Washington became the first state to mandate energy performance standards for commercial buildings, creating statutory demand for energy efficiency retrofits &mdash; McKinstry Essention's core ESPC business. Pedersen voted for both the original bill and the 2022 expansion extending requirements to buildings over 20,000 sq ft. McKinstry published a compliance guide to the law on its own website.</li>
+    <li><strong>Climate Commitment Act (SB 5126, 2021):</strong> Pedersen was a named Senate co-sponsor. The CCA generates $500 million&ndash;$1 billion annually through carbon allowance auctions, with funds appropriated substantially to decarbonizing state universities and public buildings &mdash; work performed by McKinstry Essention under ESPC contracts with DES. The CCA created and funds the specific revenue stream that flows into the type of energy services contracts reflected in Pedersen's F1 disclosures. McKinstry Essention donated $50,000 to No on 2117, the ballot campaign to defend the CCA from repeal, on September 30, 2024.</li>
+    <li><strong>Senate Bill 6346 (2025&ndash;26 session):</strong> Pedersen is the prime Senate sponsor of a graduated income tax projected to generate approximately $3 billion annually, directed substantially at education and infrastructure &mdash; the sectors generating McKinstry's disclosed state agency payments. As Senate Majority Leader, he controls the bill's path to a floor vote. McKinstry's lobbyist filed $30,000 in lobbying fees during the current session while this bill is being debated.</li>
+  </ul>
+
+  <h2>The Lobbyist Loop &mdash; Bonlender and Lodestar Strategic</h2>
+
+  <p>Brian Bonlender served as Director of the Washington State Department of Commerce under Governor Inslee from February 2013 through January 2019. Commerce oversees energy efficiency programs, green building policy, ESPC program administration, and economic development &mdash; the precise policy areas that shape McKinstry's operating environment. He left Commerce in January 2019 and registered as a lobbyist within weeks. Washington has no mandatory cooling-off period for departing officials before they may lobby their former policy area.</p>
+
+  <p>His firm, Lodestar Strategic LLC, has represented McKinstry as its registered lobbyist since 2023.</p>
+
+  <div class="finding">
+    <strong>Total lobbying fees paid by McKinstry to Lodestar Strategic: $177,000</strong> (PDC dataset 9nnw-c693). Fees paid in the current 2026 session alone: <strong>$30,000</strong>, with the most recent filing dated March 12, 2026 &mdash; while SB 6346 is actively being debated and Pedersen is its prime sponsor.
+  </div>
+
+  <h2>The McKinstry Network &mdash; This Is a System, Not an Incident</h2>
+
+  <p>Pedersen's financial relationship with McKinstry does not stand alone. The same legislation flows through a documented network of current and former legislators, each with financial interests in its continuation:</p>
+
+  <div class="network-node">
+    <div class="node-name">Rep. Joe Fitzgibbon (D-34) &mdash; House Majority Leader</div>
+    House prime sponsor of the Climate Commitment Act and HB 2724 (income tax companion). Simultaneously paid $30,000&ndash;$59,999 as Political Director of No on 2117 &mdash; the campaign defending the CCA from repeal. McKinstry contributed $50,000 to that same campaign. <strong>The loop: McKinstry funded the campaign defending the law that generates McKinstry's contracts. That same campaign paid the legislator who wrote the law.</strong>
+  </div>
+
+  <div class="arrow">&#8595;</div>
+
+  <div class="network-node">
+    <div class="node-name">Reuven Carlyle &mdash; Former Senate Environment Chair (2017&ndash;2023)</div>
+    Co-authored the Climate Commitment Act, Clean Fuel Standard, and the entire regulatory architecture of Washington's carbon economy. Retired January 2023. Launched <strong>Earth Finance</strong> the following month, raising $14 million in seed funding. Earth Finance's business model is explicitly built on the regulatory infrastructure Carlyle designed. Washington has no cooling-off period. Earth Finance also secured <strong>$10 million in state appropriations</strong> through the Department of Commerce to operate the Cascadia Sustainable Aviation Accelerator (CSAA). The CSAA launched January 8, 2026 alongside Governor Ferguson, Senator Liias, Commerce Director Nguyen, Amazon, Boeing, and Alaska Airlines.
+  </div>
+
+  <div class="arrow">&#8595;</div>
+
+  <div class="network-node">
+    <div class="node-name">Sen. Marko Liias (D-21) &mdash; Senate Transportation Chair</div>
+    Chairs Transportation Committee, through which all CCA and SAF spending flows. Also sits on Environment, Energy &amp; Technology. Sponsors SB 5601, creating a SAF grant program that Earth Finance's CSAA benefits from. Appeared at the CSAA launch event alongside Earth Finance. His 2024 F1 discloses a $12,287 gift from PNWER through the Legislative Energy Horizons Institute &mdash; a program Clean &amp; Prosperous Washington promotes. The University of Washington, McKinstry's largest disclosed state client, also employs Liias as a lecturer ($0&ndash;$30K).
+  </div>
+
+  <div class="arrow">&#8595;</div>
+
+  <div class="network-node">
+    <div class="node-name">Andy Billig &mdash; Former Senate Majority Leader</div>
+    Played an instrumental role in the 2023 passage of state tax incentives for sustainable aviation fuel producers. Now a senior adviser for SkyNRG, one of the SAF producers directly benefiting from those incentives. Appeared at the CSAA launch event alongside Carlyle's Earth Finance team, Senator Liias, and Governor Ferguson. Washington has produced at least three former legislative leaders who designed clean energy policy and then immediately moved into businesses monetizing it: Carlyle (Earth Finance), Billig (SkyNRG), and Bonlender (McKinstry's lobbyist after directing Commerce).
+  </div>
+
+  <div class="arrow">&#8595;</div>
+
+  <div class="network-node">
+    <div class="node-name">Clean &amp; Prosperous Washington &mdash; The $722K Hub</div>
+    Clean &amp; Prosperous Washington (operating as WaBA dba Clean and Prosperous WA) is the organizational connective tissue linking the legislators, advocacy organizations, and corporate donors in this network. It publicly credits Pedersen, Fitzgibbon, Carlyle, and Liias with building Washington's climate legislative agenda. It has paid <strong>$722,375 in total lobbying fees</strong> to Water Street Public Affairs &mdash; its single largest expense and Water Street's largest client &mdash; to lobby the legislature those same people lead.
+  </div>
+
+  <h2>The No on 2117 Engineering Contractor Cluster</h2>
+
+  <p>Beyond McKinstry's $50,000, the No on 2117 donor list reveals a cluster of engineering and construction firms with active state contracts collectively donating to protect the legislation that funds those contracts:</p>
+
+  <table>
+    <thead>
+      <tr><th>Contributor</th><th>Amount to No on 2117</th><th>WA state footprint</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ACEC Washington</td><td>$100,000</td><td>Trade association for WA engineering firms holding state contracts</td></tr>
+      <tr><td>HNTB Corporation</td><td>$75,000</td><td>$448,860 in registered WA lobbying fees</td></tr>
+      <tr><td>WSP USA Inc.</td><td>$75,000</td><td>Active state contracts</td></tr>
+      <tr><td><strong>McKinstry Essention</strong></td><td><strong>$50,000</strong></td><td><strong>$70M+ in state contracts (Pedersen F1)</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2>The LEB Ethics Board Conflict</h2>
+
+  <div class="finding">
+    Pedersen sits on the Legislative Ethics Board &mdash; the body that would investigate and adjudicate any ethics complaint filed against him regarding his McKinstry financial interest. He also co-sponsored the 2025 bill that raised the beneficial interest disclosure threshold from 5% to 10%, above his own 1&ndash;2% McKinstry equity stake, without adding any recusal requirement. His 1&ndash;2% ownership percentages were disclosed in his own written request to the LEB in 2014, quoted in the June 26, 2014 LEB Commission Meeting Minutes.
+  </div>
+
+  <h2>The 2014 Disclosure Exemption</h2>
+
+  <p>In June 2014, the LEB granted Pedersen a formal reporting modification exempting him from disclosing McKinstry's private-sector clients on his annual F1, citing competitive harm. The state agency contracts documented here represent only the visible, government-facing portion of McKinstry's business. The full scope of McKinstry's revenue &mdash; and therefore the full scope of Pedersen's financial interest in the company's performance &mdash; is not publicly visible.</p>
+
+  <p>Source: LEB Commission Meeting Minutes, June 26, 2014 &mdash; pdc.wa.gov/about-pdc/commissioners/commission-meetings/regular-commission-meeting-june-26-2014</p>
+
+  <h2>The Applicable Ethics Standard</h2>
+
+  <p>RCW 42.52.020 prohibits state officers from having a financial interest in conflict with the proper discharge of their official duties. RCW 42.52.330 (the citizen-legislator exception) exempts outside employment unless the legislator's employer is a named, contracted state vendor and legislation specifically benefits those contracts.</p>
+
+  <p><strong>LEB Advisory Opinion 1995-No. 6</strong> held that once a legislator's employer holds active state contracts, the citizen-legislator exception does not apply: "the Senator and his employer are no longer similarly situated as others in their business, profession, or occupation. Legislation which affects this select group... would confer a benefit or detriment to the Senator and his employer greater than other members of the business, profession, or occupation."</p>
+
+  <div class="mitigant">
+    <strong>An important mitigating fact:</strong> McKinstry's state contracting relationship with DES predates Pedersen's arrival by at least four years. Contracts appear in public data as early as April 2008; Pedersen joined McKinstry in May 2012. He did not create this relationship from scratch. What is documented is that he authored legislation that substantially expanded the market McKinstry operates in, during the precise period when his personal equity distributions grew substantially.
+  </div>
+
+  <h2>What Has Not Been Reported</h2>
+
+  <p>A review of InvestigateWest, Washington State Standard, Seattle Times, KUOW, The Stranger, and Crosscut finds no prior reporting connecting:</p>
+
+  <ul>
+    <li>Pedersen's McKinstry income and growing equity distributions to his sponsorship of the CCA or SB 6346</li>
+    <li>The CCA funding stream to McKinstry's specific ESPC contract growth</li>
+    <li>Bonlender's current role as McKinstry's active lobbyist during the SB 6346 session</li>
+    <li>The No on 2117 engineering contractor cluster (ACEC, HNTB, WSP) donating $250,000 collectively</li>
+    <li>Pedersen's membership on the LEB alongside his McKinstry financial interest</li>
+    <li>The 2025 salary increase to $500K&ndash;$750K following his promotion to EVP</li>
+  </ul>
+
+  <p>The Seattle Times covered Bonlender as a revolving door example in 2020. The Washington Policy Center documented Pedersen's email strategy on income tax legislation in 2018. Neither connected to the McKinstry financial nexus or the broader network described here.</p>
+
+  <h2>Key Questions for Pedersen</h2>
+
+  <ul>
+    <li>Has he sought a formal LEB advisory opinion on his McKinstry financial interest and his sponsorship of the CCA, Clean Buildings Act, or SB 6346?</li>
+    <li>Has he recused himself from any votes, committee actions, or appropriations decisions related to ESPC program funding or agency budgets that fund McKinstry's contracts?</li>
+    <li>Does he believe LEB Advisory Opinion 1995-No. 6 applies to his situation?</li>
+    <li>Did he play any role in McKinstry's decision to contribute $50,000 to No on 2117?</li>
+    <li>Is Lodestar Strategic currently lobbying him directly on McKinstry's behalf?</li>
+    <li>Does he believe it is appropriate to sit on the LEB while holding a financial interest in a company with $29 million in annual state contracts?</li>
+  </ul>
+
+  <h2>Verification</h2>
+
+  <p><strong>F1 Disclosure (2025, most recent)</strong></p>
+  <div class="api">data.wa.gov/resource/ehbc-shxw.json?id=132680</div>
+
+  <p><strong>F1 Disclosure (2024)</strong></p>
+  <div class="api">apollo.pdc.wa.gov/financial-affairs/public/-#/public/statement/126636</div>
+
+  <p><strong>McKinstry lobbying fees (Lodestar Strategic)</strong></p>
+  <div class="api">data.wa.gov/resource/9nnw-c693.json?$where=employer_name like '%McKinstry%'</div>
+
+  <p><strong>Lodestar lobbyist registration</strong></p>
+  <div class="api">data.wa.gov/resource/xhn7-64im.json?$where=employer_name like '%McKinstry%'</div>
+
+  <p><strong>No on 2117 contributions</strong></p>
+  <div class="api">data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%2117%'</div>
+
+  <p><strong>Agency contracts &mdash; sole source designations (FY2023)</strong></p>
+  <div class="api">data.wa.gov/resource/mz6y-pfem.json?$where=vendor_name like '%McKinstry%'</div>
+
+  <p><strong>LEB Advisory Opinion 1995-No. 6</strong></p>
+  <div class="api">lawfilestestext.leg.wa.gov/lawtest/ethics/opinions/ETHICS1995.06.htm</div>
+
+  <p><strong>LEB 2014 reporting modification (Pedersen)</strong></p>
+  <div class="api">pdc.wa.gov/about-pdc/commissioners/commission-meetings/regular-commission-meeting-june-26-2014</div>
+
+  <p><strong>Campaign contributions</strong></p>
+  <div class="api">data.wa.gov/resource/kv7h-kjye.json?$where=filer_name like '%Pedersen%Jamie%'</div>
+
+  <footer>
+    <a href="https://sunshinedocket.org/">Sunshine Docket</a> &nbsp;&middot;&nbsp;
+    <a href="https://sunshinedocket.org/legislature">Full Legislature</a> &nbsp;&middot;&nbsp;
+    <a href="https://sunshinedocket.org/methodology.html">Methodology</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:sunshinedocket@proton.me">Tips</a> &nbsp;&middot;&nbsp;
+    Data from <a href="https://data.wa.gov">data.wa.gov</a><br><br>
+    A citizen accountability project. Not affiliated with any political party, campaign, or organization.<br>
+    All data sourced from official public disclosure filings and government databases.
+  </footer>
+
+</div>
+</body>
+</html>
