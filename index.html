@@ -277,7 +277,58 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
   .hero h1 { font-size: 32px; }
   .hero .tagline { font-size: 16px; }
 }
-</style>
+
+    .reports-banner {
+      display: block;
+      text-decoration: none;
+      color: var(--ink, #1a1a1a);
+      border: 1px solid var(--rule, #ddd);
+      border-left: 4px solid var(--accent, #E3120B);
+      border-radius: 6px;
+      padding: 28px 32px;
+      margin: 24px 0;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .reports-banner:hover {
+      border-color: var(--accent, #E3120B);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .reports-banner .rb-tag {
+      font-family: var(--mono, 'Space Mono', monospace);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent, #E3120B);
+      margin-bottom: 8px;
+    }
+    .reports-banner h3 {
+      font-family: var(--body, 'Libre Baskerville', serif);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .reports-banner .rb-sub {
+      font-family: var(--body, 'Libre Baskerville', serif);
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .reports-banner .rb-meta {
+      font-family: var(--mono, 'Space Mono', monospace);
+      font-size: 11px;
+      color: var(--tm, #999);
+    }
+    .reports-banner .rb-arrow {
+      font-family: var(--mono, 'Space Mono', monospace);
+      font-size: 12px;
+      color: var(--accent, #E3120B);
+      float: right;
+      margin-top: -36px;
+    }
+
+  </style>
 </head>
 <body>
 
@@ -365,6 +416,15 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
   </div>
 
   <!-- BOTTOM ROW: Legislature screener, Money Tracking, Methodology -->
+  
+  <a href="/reports/caregiver-cartel.html" class="reports-banner fade-in">
+    <div class="rb-tag">Reports &amp; Commentary</div>
+    <h3>The Caregiver Cartel</h3>
+    <div class="rb-sub">Washington's #1 political contributor for the last decade isn't Microsoft, Amazon, or Boeing. It's a home care workers' union, and it's not even close.</div>
+    <div class="rb-meta">Investigation // SEIU 775 // April 2026 // Public records sourced</div>
+    <div class="rb-arrow">Read &rarr;</div>
+  </a>
+
   <div class="bottom-row">
     <a href="/legislature.html" class="util-tile">
       <svg class="util-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
@@ -391,17 +451,6 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
       <div class="util-desc">Campaign contributions and lobbyist spending, mapped</div>
     </a>
 
-    <a href="/reports/" class="util-tile">
-      <svg class="util-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="6" y="4" width="28" height="40" rx="2"></rect>
-        <rect x="14" y="4" width="28" height="40" rx="2"></rect>
-        <line x1="20" y1="16" x2="36" y2="16"></line>
-        <line x1="20" y1="22" x2="36" y2="22"></line>
-        <line x1="20" y1="28" x2="32" y2="28"></line>
-      </svg>
-      Reports
-      <span class="util-sub">Investigations, analysis, and commentary</span>
-    </a>
     <a href="/methodology.html" class="util-tile">
       <svg class="util-svg" viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="8" y="4" width="32" height="40" rx="2"/>
