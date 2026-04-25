@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Missing Money Is Not the Story | Sunshine Docket</title>
+<meta name="description" content="A forensic audit found $533.9 million in public funds passed through the King County Regional Homelessness Authority. The deeper finding is that the agency could not reliably trace any of it.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+h1 { font-family: var(--serif); font-weight: 900; font-size: 40px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
+h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
+.dek { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 640px; }
+.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding-bottom: 18px; border-bottom: 1px solid var(--bd); margin-bottom: 32px; }
+.byline strong { color: var(--tx); }
+
+h2 { font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1.2; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.01em; }
+h3 { font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.3; margin-top: 32px; margin-bottom: 10px; }
+
+p { font-size: 17px; line-height: 1.65; margin-bottom: 18px; }
+p.lead { font-size: 19px; line-height: 1.55; }
+p.lead::first-letter { font-family: var(--serif); font-weight: 900; font-size: 56px; float: left; line-height: 0.95; padding-right: 8px; padding-top: 4px; color: var(--rd); }
+
+a.fn { font-family: var(--mono); font-size: 11px; color: var(--rd); text-decoration: none; vertical-align: super; line-height: 0; padding: 0 1px; }
+a.fn:hover { text-decoration: underline; }
+
+blockquote { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; border-left: 3px solid var(--rd); padding: 4px 0 4px 20px; margin: 26px 0 26px 8px; color: var(--tx); }
+blockquote cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--tm); }
+
+.pullquote { background: var(--sf2); border: 1px solid var(--bd); padding: 22px 24px; margin: 28px 0; border-left: 3px solid var(--rd); }
+.pullquote p { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.5; margin-bottom: 0; color: var(--tx); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 28px 0; }
+.stat { background: var(--sf2); border: 1px solid var(--bd); padding: 18px 18px; }
+.stat .num { font-family: var(--serif); font-weight: 900; font-size: 30px; line-height: 1.1; color: var(--rd); margin-bottom: 4px; letter-spacing: -0.02em; }
+.stat .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--tm); line-height: 1.35; }
+
+.callout { border: 1px solid var(--bd); background: var(--sf2); padding: 20px 22px; margin: 28px 0; }
+.callout .head { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-bottom: 8px; }
+.callout p { font-size: 16px; line-height: 1.55; margin-bottom: 10px; }
+.callout p:last-child { margin-bottom: 0; }
+
+ol.findings, ul.findings { margin: 18px 0 24px 0; padding-left: 22px; }
+ol.findings li, ul.findings li { font-size: 16px; line-height: 1.55; margin-bottom: 10px; padding-left: 6px; }
+
+hr.section { border: none; border-top: 1px solid var(--bd); margin: 44px auto; width: 80px; }
+
+footer.article-foot { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--bd); font-family: var(--mono); font-size: 12px; color: var(--tm); line-height: 1.7; }
+footer.article-foot a { color: var(--ac); text-decoration: none; }
+footer.article-foot a:hover { text-decoration: underline; }
+
+section.notes { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--bd); }
+section.notes h2 { font-size: 18px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; margin-top: 0; }
+section.notes ol { padding-left: 22px; }
+section.notes li { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--tm); margin-bottom: 10px; }
+section.notes li a { color: var(--ac); text-decoration: none; word-break: break-all; }
+section.notes li a:hover { text-decoration: underline; }
+section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px; margin-left: -6px; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 32px; }
+  .dek { font-size: 17px; }
+  p { font-size: 16px; }
+  blockquote { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav">
+  <a href="/">Sunshine Docket</a> &nbsp;/&nbsp; <a href="/reports/">Reports</a> &nbsp;/&nbsp; <span style="color: var(--tm)">The Missing Money Is Not the Story</span>
+</nav>
+
+<div class="kicker">Public Trust &middot; KCRHA Audit</div>
+
+<h1>The missing money is not the story.<br><em>The missing accounting is.</em></h1>
+
+<p class="dek">A forensic audit found $533.9 million in public funds passed through the King County Regional Homelessness Authority. The deeper finding is that the agency could not reliably trace any of it. The implications run through every claim the city and county make about every dollar they say they need next.</p>
+
+<div class="byline">
+  <strong>Sunshine Docket</strong> &middot; April 25, 2026 &middot; <span>~9 minute read</span>
+</div>
+
+<p class="lead">A forensic audit of the King County Regional Homelessness Authority landed last week, and most of the coverage led with the same number: $13 million in unaccounted public funds.<a class="fn" href="#fn1">1</a> That figure is real, and it matters. But it is not the most important finding in the auditor's report. The most important finding is that the records sufficient to verify what happened to most of the money do not exist.</p>
+
+<p>The audit was performed by Clark Nuber, a Bellevue accounting firm engaged jointly by the City of Seattle and King County. It covers KCRHA from inception in 2021 through July 31, 2025. Total public funding handled by the agency over that period: <strong>$533.9 million</strong>.<a class="fn" href="#fn2">2</a> What the audit describes is not a missing-dollars investigation. It is a description of an organization that, for most of its operating history, lacked the basic accounting infrastructure required to know where its money went.</p>
+
+<div class="stats">
+  <div class="stat"><div class="num">$533.9M</div><div class="lbl">Public funding 2021&ndash;2025</div></div>
+  <div class="stat"><div class="num">&minus;$44.7M</div><div class="lbl">Cash position, July 2025</div></div>
+  <div class="stat"><div class="num">86%</div><div class="lbl">Sampled invoices that didn't reconcile</div></div>
+  <div class="stat"><div class="num">100%</div><div class="lbl">Sampled invoices missing required CPAF</div></div>
+</div>
+
+<hr class="section">
+
+<h2>What the audit actually found</h2>
+
+<p>The phrase that does the most work in the report appears on page two, under the heading "Disclosures and Limitations." Clark Nuber writes that accounting records, "especially related to receivables, invoicing, and advance funds," were "not functionally traceable or reconcilable prior to late 2024."<a class="fn" href="#fn3">3</a></p>
+
+<p>Read that sentence carefully. It is not a finding about a single transaction or a single program. It is a description of three full years of operations during which the agency's books cannot be relied upon to answer the questions that an audit of public funds is supposed to answer. Receivables, invoicing, and advance funds are the categories that account for nearly all of the $533.9 million.</p>
+
+<blockquote>
+  Accounting records, especially related to receivables, invoicing, and advance funds, were not functionally traceable or reconcilable prior to late 2024.
+  <cite>Clark Nuber forensic evaluation, p. 2</cite>
+</blockquote>
+
+<p>The specifics, drawn from the auditor's sample testing, are striking. Of the 29 invoices sampled across the audit period, <strong>86 percent did not reconcile</strong> to the supporting expenditure detail. <strong>100 percent</strong> were missing a Contract Payment Authorization Form, a document the Master Service Agreement between KCRHA and its funders requires.<a class="fn" href="#fn4">4</a> Of 24 disbursements sampled, <strong>79 percent</strong> were approved by someone outside the documented approval authority. <strong>Twenty-five percent</strong> had no documented authorization at all. More than half could not be traced to a designated contract or program.<a class="fn" href="#fn5">5</a></p>
+
+<p>Sample testing in a forensic evaluation is not a survey. The samples are selected to be representative of the population. When a sample produces these numbers, the population is broken.</p>
+
+<h2>The federal requirement KCRHA was not meeting</h2>
+
+<p>Federal regulations governing the use of federal funds require organizations spending public money to operate under a documented internal control framework. The relevant rule is 2 CFR Part 200, often called the Uniform Guidance, which specifies that recipients of federal awards must establish and maintain effective internal control over the awards. The Uniform Guidance specifically references frameworks such as COSO, the Committee of Sponsoring Organizations of the Treadway Commission, as the gold-standard model.<a class="fn" href="#fn6">6</a></p>
+
+<p>Clark Nuber's report states plainly that they "were not provided with evidence" that KCRHA had adopted such a framework. There was no documented internal control structure to evaluate. What existed instead, the auditor describes in technical detail across multiple sections of the report. Reconciliation of accounts was performed in Excel rather than through the accounting system. Corrections and disputes between staff were resolved in chat messages rather than through retained workpapers. The same staff members had simultaneous permission to enter, approve, and edit transactions, a violation of the segregation-of-duties principle that defines competent accounting practice. Thousands of transactions were edited more than 90 days after their original posting date.<a class="fn" href="#fn7">7</a></p>
+
+<p>The cash management story tells the same structural failure in a different form. KCRHA's monthly cash position, charted in Exhibit 1 of the audit, shows a saw-tooth pattern through 2021, 2022, and 2023, characteristic of an organization receiving advance funding from funders and drawing it down as expenditures occurred. In December 2023, the pattern breaks. Cash goes negative and never returns to positive. By July 2025, the negative cash position has compounded to <strong>$44.7 million</strong>. The auditor describes these shortfalls as "structural rather than event-driven."<a class="fn" href="#fn8">8</a></p>
+
+<div class="callout">
+  <div class="head">What "Structural" Means Here</div>
+  <p>An event-driven cash shortfall is what happens when a single funder is late with a payment, or when an unexpected expense lands. It can be reconciled and explained. A structural cash shortfall is what happens when the underlying flow of money in and out of the organization no longer works. The 19-month compounding deterioration documented in the audit is the second kind.</p>
+</div>
+
+<h2>How to read the $13 million figure</h2>
+
+<p>The headline number across most coverage of the audit, $13 million in unaccounted funds, is the floor of what the auditor could not reconcile, not a count of dollars confirmed missing. The figure breaks down roughly into $8 million in unreconciled receivables, $4.26 million in administrative overspending, and $1.26 million in interest accrued on King County investment pool funds.<a class="fn" href="#fn9">9</a></p>
+
+<p>KCRHA's chief executive, Kelly Kinnison, has argued that most of the unreconciled amount represents services that were delivered but for which the accounting system has not caught up. That position appears in the agency's public response and in her remarks to the governing board.<a class="fn" href="#fn10">10</a> Whether she is correct cannot be determined from the records the audit examined. That is the point. With internal controls in the state Clark Nuber describes, the auditor notes that the risk of fraud, waste, and abuse "remains" for an organization in this situation.<a class="fn" href="#fn11">11</a> The proper reading of the $13 million is therefore: this is the amount the available records cannot account for. The actual amount missing, if any, could be lower or higher.</p>
+
+<p>King County Councilmember Rod Dembowski put the practical implication in plain language during the board's deliberations:</p>
+
+<blockquote>
+  The state of the record keeping is apparently so bad that while they didn't find fraud, they couldn't assure us that there wasn't any fraud.
+  <cite>King County Councilmember Rod Dembowski, April 2026</cite>
+</blockquote>
+
+<h2>The federal exposure</h2>
+
+<p>One element of the audit that has received less attention than the cash position deserves more scrutiny. KCRHA's funding includes federal money passed through the City of Seattle and King County, including funds originating from the U.S. Department of Housing and Urban Development and the U.S. Department of Commerce. The audit identifies $36.6 million in administrative reallocations that lacked agreement-linked calculation schedules, the documentation that would tie reallocated funds back to specific federal awards.<a class="fn" href="#fn12">12</a></p>
+
+<p>This matters because organizations receiving federal awards above a threshold are subject to the Single Audit requirements of 2 CFR Part 200 Subpart F. Single audits are designed to catch exactly the kind of finding that the Clark Nuber report documents: undocumented allocations of federal funds, weak internal controls, inability to tie expenditures to specific awards. Adverse findings under a Single Audit can trigger corrective action plans, withholding of future awards, and in some cases recovery of past awards. The federal funding pipeline is not the same as the city and county funding pipeline. Its rules are stricter and its consequences more durable.</p>
+
+<p>None of this constitutes a finding that federal money has been misused. It constitutes a finding that the records sufficient to demonstrate proper use, in the form federal regulators expect, do not exist for the period the audit covered.</p>
+
+<hr class="section">
+
+<h2>What the audit implies for what we know</h2>
+
+<p>From 2019 through 2024, regional spending on homelessness in King County rose substantially. KCRHA itself was launched in 2021 as the consolidating agency for that work. Over the same period, the regional Point In Time count, the federally-required annual census of people experiencing homelessness, rose from 11,199 to 16,868. That is a 51 percent increase across a window in which funding accelerated.<a class="fn" href="#fn13">13</a></p>
+
+<p>It would be wrong to draw a simple causal claim from those two numbers. Homelessness has many drivers, and counting methodology has shifted. What can be said honestly is that the trends moved in the same direction rather than against each other.</p>
+
+<p>What the audit changes about that picture is not the trend lines, but our ability to interpret them. Without functional accounting at the agency distributing the money, the public has no basis for answering the simplest question about the spending: what did it produce? Outcome reporting depends on financial reporting. If the financial reporting is unreliable for most of the period under review, the outcome reporting derived from it is unreliable in the same way.</p>
+
+<div class="pullquote">
+  <p>The deeper finding of the audit is not that some of the money may be missing. It is that the records sufficient to demonstrate the spending was used as intended do not exist for most of the period under review.</p>
+</div>
+
+<h2>The political response, and its limits</h2>
+
+<p>The reaction across the political spectrum has been unusually direct. Mayor Katie Wilson called the findings "serious concerns" and said all options were on the table. Councilmember Bob Kettle described an "epic and consistent failure of leadership." Councilmembers Maritza Rivera and Rod Dembowski have called for the agency to be dismantled and have introduced companion resolutions to that effect. Council President Joy Hollingsworth, in a separate radio appearance, articulated the broader question: "We never talk about what the outcomes are. It's the 'we need more money,' and that's a problem that I have."<a class="fn" href="#fn14">14</a></p>
+
+<p>At the KCRHA Governing Board's April 24 meeting, the board took several immediate corrective actions. It established a finance committee to receive biweekly reports beginning monthly. It froze hiring with a documented exception process. It froze discretionary spending. It declined, however, to act on the resolutions to dissolve the agency.<a class="fn" href="#fn15">15</a> Two further deadlines are imposed by the joint letter from Mayor Wilson and County Executive Girmay Zahilay: a written response from KCRHA to its funders by May 8, and a comprehensive corrective action plan by May 23.<a class="fn" href="#fn16">16</a></p>
+
+<p>These steps address the controls. They do not address the question of what happened to the money during the period the controls were absent.</p>
+
+<h2>What this implies for the next ask</h2>
+
+<p>This is not, in the end, an article about one agency. It is an article about a question voters are entitled to ask before they are asked to approve the next levy, the next tax, or the next program.</p>
+
+<p>The question is whether the institutions asking for the next dollar can demonstrate, with records that exist, that the last dollar was tracked, deployed as promised, and produced the outcome the public was told to expect. When the records do not exist, the ask is not a policy question. It is a question of faith.</p>
+
+<p>Seattle voters will decide a $479.7 million library levy on the August ballot, an increase of 124 percent over the levy it would replace.<a class="fn" href="#fn17">17</a> The KCRHA audit is not about libraries. The Clark Nuber report does not name the library. But the question the audit forces, and which the elected officials governing both institutions sit on, is the same question. It is a fair question, and asking it is not the same as opposing the work.</p>
+
+<p>The need is real. People sleep on Seattle streets. The audit does not change that. What it changes is the structure of the conversation that follows. Functional accounting first. Verified outcomes second. New money third. That sequencing is the only credible answer to a finding of this kind.</p>
+
+<hr class="section">
+
+<footer class="article-foot">
+  <p><strong>Sunshine Docket</strong> publishes public records-based accountability journalism about Washington State government. All financial figures and direct quotations in this piece are sourced to the Clark Nuber forensic evaluation of KCRHA (April 17, 2026), the joint cover letter from the City of Seattle and King County (April 22, 2026), and contemporaneous news reporting from PubliCola, KIRO 7, KOMO News, KING 5, KUOW, and MyNorthwest. We welcome corrections at <a href="mailto:sunshinedocket@proton.me">sunshinedocket@proton.me</a>.</p>
+</footer>
+
+<section class="notes" id="notes">
+  <h2>Notes &amp; Sources</h2>
+  <ol>
+    <li id="fn1">$13 million figure: PubliCola, "Forensic Audit Finds Homelessness Agency Lacked Basic Accounting Standards, Lost at Least $13 Million," April 22, 2026.</li>
+    <li id="fn2">$533.9 million total funding: Clark Nuber Forensic Evaluation of King County Regional Homelessness Authority, p. 1, "Engagement Background." Audit dated April 17, 2026.</li>
+    <li id="fn3">"Not functionally traceable or reconcilable" quotation: same audit, p. 2, "Disclosures and Limitations."</li>
+    <li id="fn4">Invoice sample testing (29 invoices, 86 percent reconciliation failure, 100 percent missing CPAF): same audit, Section 1, p. 5.</li>
+    <li id="fn5">Disbursement sample testing (24 disbursements, 79 percent unauthorized approval, 25 percent no authorization): same audit, Section 2, p. 10.</li>
+    <li id="fn6">2 CFR Part 200 internal control requirement and COSO reference: same audit, p. 2, "Internal Control Framework." See also Office of Management and Budget, Uniform Administrative Requirements, Cost Principles, and Audit Requirements for Federal Awards, &sect;200.303.</li>
+    <li id="fn7">Excel reconciliation, chat-based corrections, segregation-of-duties failure, late transaction edits: same audit, Section 2, pp. 9&ndash;11; Section 5, pp. 19&ndash;21, including Exhibit 2.</li>
+    <li id="fn8">Cash position trajectory and "structural rather than event-driven" framing: same audit, Executive Summary p. I; Section 1, p. 6.</li>
+    <li id="fn9">$13 million breakdown ($8M receivables, $4.26M administrative overspending, $1.26M investment pool interest): KING 5 News and PubliCola, April 22&ndash;23, 2026.</li>
+    <li id="fn10">Kinnison response: KCRHA, "Forensic Audit and Next Steps for KCRHA," published at kcrha.org, April 22, 2026.</li>
+    <li id="fn11">"Risk of fraud, waste, and abuse remains" quotation: Clark Nuber audit, Executive Summary, p. II, "Considerations Related to Fraud, Waste, and Abuse Risk."</li>
+    <li id="fn12">$36.6 million in administrative reallocations lacking agreement-linked calculation schedules: Clark Nuber audit, Section 4, p. 16. Federal pass-through context: 2 CFR Part 200 Subpart F, Single Audit Requirements.</li>
+    <li id="fn13">King County Point In Time counts 2019&ndash;2024: KCRHA published PIT data, 2019 (11,199), 2024 (16,868).</li>
+    <li id="fn14">Political reactions: KIRO Newsradio (Hollingsworth), KOMO News and KING 5 (Wilson, Kettle, Rivera, Dembowski), April 22&ndash;24, 2026.</li>
+    <li id="fn15">April 24 governing board actions: KOMO News and KUOW coverage, April 24, 2026.</li>
+    <li id="fn16">May 8 and May 23 deadlines: Joint letter from Mayor Katie Wilson and King County Executive Girmay Zahilay to KCRHA Chief Financial Officer, April 22, 2026. Cover letter document available via DocumentCloud, document ID 28069317.</li>
+    <li id="fn17">Seattle library levy on August 2026 ballot: Seattle City Council Resolution and ballot text. Levy size and percentage increase: Sunshine Docket analysis, "The Levy Stack," forthcoming.</li>
+  </ol>
+</section>
+
+</div>
+</body>
+</html>

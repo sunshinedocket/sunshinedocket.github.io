@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Levy Stack | Sunshine Docket</title>
+<meta name="description" content="Seattle voters have approved property tax levies that will collect $570 million in 2026, more than four times what they collected in 2014. The library levy on the August ballot pushes the city toward a state-mandated cap. The city's plan for what comes next is a workaround.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+h1 { font-family: var(--serif); font-weight: 900; font-size: 40px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
+h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
+.dek { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 640px; }
+.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding-bottom: 18px; border-bottom: 1px solid var(--bd); margin-bottom: 32px; }
+.byline strong { color: var(--tx); }
+
+h2 { font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1.2; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.01em; }
+h3 { font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.3; margin-top: 32px; margin-bottom: 10px; }
+
+p { font-size: 17px; line-height: 1.65; margin-bottom: 18px; }
+p.lead { font-size: 19px; line-height: 1.55; }
+p.lead::first-letter { font-family: var(--serif); font-weight: 900; font-size: 56px; float: left; line-height: 0.95; padding-right: 8px; padding-top: 4px; color: var(--rd); }
+
+a.fn { font-family: var(--mono); font-size: 11px; color: var(--rd); text-decoration: none; vertical-align: super; line-height: 0; padding: 0 1px; }
+a.fn:hover { text-decoration: underline; }
+
+blockquote { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; border-left: 3px solid var(--rd); padding: 4px 0 4px 20px; margin: 26px 0 26px 8px; color: var(--tx); }
+blockquote cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--tm); }
+
+.pullquote { background: var(--sf2); border: 1px solid var(--bd); padding: 22px 24px; margin: 28px 0; border-left: 3px solid var(--rd); }
+.pullquote p { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.5; margin-bottom: 0; color: var(--tx); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 28px 0; }
+.stat { background: var(--sf2); border: 1px solid var(--bd); padding: 18px 18px; }
+.stat .num { font-family: var(--serif); font-weight: 900; font-size: 30px; line-height: 1.1; color: var(--rd); margin-bottom: 4px; letter-spacing: -0.02em; }
+.stat .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--tm); line-height: 1.35; }
+
+.callout { border: 1px solid var(--bd); background: var(--sf2); padding: 20px 22px; margin: 28px 0; }
+.callout .head { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-bottom: 8px; }
+.callout p { font-size: 16px; line-height: 1.55; margin-bottom: 10px; }
+.callout p:last-child { margin-bottom: 0; }
+
+table.stack { width: 100%; border-collapse: collapse; margin: 28px 0; font-family: var(--serif); }
+table.stack th, table.stack td { padding: 12px 10px; border-bottom: 1px solid var(--bd); text-align: left; vertical-align: top; }
+table.stack th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tm); font-weight: 600; border-bottom: 2px solid var(--bd); }
+table.stack td.num { font-family: var(--mono); font-size: 14px; text-align: right; white-space: nowrap; }
+table.stack th.num { text-align: right; }
+table.stack tr.total td { border-top: 2px solid var(--bd); border-bottom: none; padding-top: 16px; font-weight: 700; }
+table.stack tr.total td.num { color: var(--rd); }
+table.stack tr.proposed td { background: rgba(227, 18, 11, 0.06); }
+table.stack td .desc { font-size: 14px; color: var(--tm); margin-top: 2px; line-height: 1.45; }
+
+ol.findings, ul.findings { margin: 18px 0 24px 0; padding-left: 22px; }
+ol.findings li, ul.findings li { font-size: 16px; line-height: 1.55; margin-bottom: 10px; padding-left: 6px; }
+
+hr.section { border: none; border-top: 1px solid var(--bd); margin: 44px auto; width: 80px; }
+
+footer.article-foot { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--bd); font-family: var(--mono); font-size: 12px; color: var(--tm); line-height: 1.7; }
+footer.article-foot a { color: var(--ac); text-decoration: none; }
+footer.article-foot a:hover { text-decoration: underline; }
+
+section.notes { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--bd); }
+section.notes h2 { font-size: 18px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; margin-top: 0; }
+section.notes ol { padding-left: 22px; }
+section.notes li { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--tm); margin-bottom: 10px; }
+section.notes li a { color: var(--ac); text-decoration: none; word-break: break-all; }
+section.notes li a:hover { text-decoration: underline; }
+section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px; margin-left: -6px; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 32px; }
+  .dek { font-size: 17px; }
+  p { font-size: 16px; }
+  blockquote { font-size: 17px; }
+  table.stack th, table.stack td { padding: 10px 6px; font-size: 14px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav">
+  <a href="/">Sunshine Docket</a> &nbsp;/&nbsp; <a href="/reports/">Reports</a> &nbsp;/&nbsp; <span style="color: var(--tm)">The Levy Stack</span>
+</nav>
+
+<div class="kicker">Public Trust &middot; Seattle Property Tax</div>
+
+<h1>The levy stack,<br>and the <em>cliff</em>.</h1>
+
+<p class="dek">Seattle's voter-approved property tax collections have grown more than fourfold in twelve years. The library levy on the August ballot pushes the city within reach of its state-mandated cap. The plan for what comes next is a workaround.</p>
+
+<div class="byline">
+  <strong>Sunshine Docket</strong> &middot; April 25, 2026 &middot; <span>~10 minute read</span>
+</div>
+
+<p class="lead">Your property tax bill has a lot of line items. Most people don't read them closely. You probably should, because the Seattle City Council just voted to send another one to the August ballot, and the math underneath the bill is starting to get interesting.</p>
+
+<p>The new line item is a $479.7 million library levy. It is 124 percent larger than the levy it would replace.<a class="fn" href="#fn1">1</a> Councilwoman Maritza Rivera, who chaired the levy committee and ultimately voted to send the package to voters, summarized the increase plainly during deliberations: "It is 70 percent more even after counting for inflation."<a class="fn" href="#fn2">2</a></p>
+
+<p>The library levy is not the most important fact about the August ballot. The most important fact is the levy stack underneath it, and what the city is preparing to do when the stack runs out of room.</p>
+
+<div class="stats">
+  <div class="stat"><div class="num">$133M &rarr; $570M</div><div class="lbl">Voter-approved collections, 2014 to 2026</div></div>
+  <div class="stat"><div class="num">$3.60</div><div class="lbl">State cap on city levies, per $1,000 AV</div></div>
+  <div class="stat"><div class="num">$2.96</div><div class="lbl">Seattle's current rate</div></div>
+  <div class="stat"><div class="num">~$210M</div><div class="lbl">Remaining capacity if library levy passes</div></div>
+</div>
+
+<hr class="section">
+
+<h2>Where the cap comes from</h2>
+
+<p>Washington state law caps the total voter-approved property tax levy rate that a city like Seattle can impose at $3.60 per $1,000 of assessed value.<a class="fn" href="#fn3">3</a> The cap exists because the underlying state constitution limits aggregate property tax to one percent of true and fair value, with voter-approved levies as the mechanism cities and counties can use to raise money above the regular levy. The $3.60 figure is the city-specific share of that aggregate cap.</p>
+
+<p>Seattle's current rate, before the library levy on the August ballot, sits at approximately $2.96 per $1,000.<a class="fn" href="#fn4">4</a> If the library levy passes, the rate moves higher. The capacity remaining after the library levy is roughly $210 million in additional levy authority before the city hits its statutory ceiling.</p>
+
+<p>Two hundred and ten million dollars sounds like a lot until you look at what is already on the runway.</p>
+
+<h2>The stack today</h2>
+
+<p>Here is what Seattle property owners are currently paying into through voter-approved levies, plus what the August ballot would add. These are city levies only. King County, Sound Transit, Seattle Public Schools, and the Port of Seattle each impose separate levies that stack on top of these.</p>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th>Levy</th>
+      <th>Term</th>
+      <th class="num">Total Authorized</th>
+      <th class="num">Rate ($/$1,000)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Transportation Levy<div class="desc">Streets, bridges, transit, sidewalks</div></td>
+      <td>2025&ndash;2032</td>
+      <td class="num">$1.55B</td>
+      <td class="num">$0.65</td>
+    </tr>
+    <tr>
+      <td>FEPP Levy<div class="desc">Families, education, preschool, promise</div></td>
+      <td>2026&ndash;2031</td>
+      <td class="num">$1.30B</td>
+      <td class="num">$0.72</td>
+    </tr>
+    <tr>
+      <td>Housing Levy<div class="desc">Affordable housing production and preservation</div></td>
+      <td>2024&ndash;2030</td>
+      <td class="num">$0.97B</td>
+      <td class="num">$0.45</td>
+    </tr>
+    <tr>
+      <td>Library Levy (current)<div class="desc">Operating support, expiring 2026</div></td>
+      <td>2020&ndash;2026</td>
+      <td class="num">$0.22B</td>
+      <td class="num">$0.10</td>
+    </tr>
+    <tr>
+      <td>Democracy Vouchers (I-122)<div class="desc">Public campaign financing</div></td>
+      <td>2025&ndash;2034</td>
+      <td class="num">$0.045B</td>
+      <td class="num">$0.014</td>
+    </tr>
+    <tr class="proposed">
+      <td><strong>Library Levy (proposed)</strong><div class="desc">August 2026 ballot, replaces current library levy</div></td>
+      <td><strong>2027&ndash;2033</strong></td>
+      <td class="num"><strong>$0.48B</strong></td>
+      <td class="num"><strong>~$0.22</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The Seattle Park District, which funds parks and recreation, operates as a separate junior taxing district with the same boundaries as the city, and its levies do not count against the city's $3.60 cap.<a class="fn" href="#fn5">5</a> That structural choice matters for what comes next.</p>
+
+<h2>The growth</h2>
+
+<p>Seattle's voter-approved property tax collections were $133 million in 2014. In 2026, with the current levy stack in place and before the library levy passes, those collections are projected at $570 million.<a class="fn" href="#fn6">6</a> That is a 4.3-fold increase across twelve years.</p>
+
+<p>Inflation explains some of the growth. Seattle-area CPI increased roughly 50 percent over the same period. Population growth explains some of the growth. Seattle's population rose roughly 20 percent over the same period. Together, those two factors account for perhaps 80 percent of cumulative growth from baseline. The remainder, the bulk of the 4.3-fold increase, is the result of additional levies being approved and existing levies being renewed at higher dollar amounts.</p>
+
+<p>The pattern across the period is consistent. A levy expires. The renewal is larger. New levies are added. The stack grows. None of the individual votes is unreasonable. Each levy comes with a defensible purpose. What the cumulative chart shows is what happens when each individual ask is evaluated on its own merits, separate from the stack underneath it.</p>
+
+<div class="pullquote">
+  <p>Each levy is voted on individually. The stack accumulates as a result of fourteen separate decisions, none of which were votes about the stack as a whole.</p>
+</div>
+
+<h2>What's coming</h2>
+
+<p>If the library levy passes in August, the next phase of the planning gets harder. Two large levies are in active preparation. Seattle Center spent 2025 preparing a renewal expected to exceed $1 billion.<a class="fn" href="#fn7">7</a> Pike Place Market is preparing a separate infrastructure levy targeted at 2027 or 2028. Mayor Katie Wilson has spoken about funding universal child care, which would also likely take the form of a levy.<a class="fn" href="#fn8">8</a></p>
+
+<p>The arithmetic is simple. The remaining capacity of roughly $210 million is not enough for any one of these.</p>
+
+<p>This is where Councilman Dan Strauss's response to the capacity concern matters. During the library levy deliberations, asked what happens if the city later finds it has exceeded its levy authority, Strauss said the council could reduce library services at that point.<a class="fn" href="#fn9">9</a> The phrasing matters. The implicit policy is to commit to the spending now and reduce services later if the constraints bind.</p>
+
+<h2>The workaround</h2>
+
+<p>The honest read of the city's position is that the $3.60 cap is no longer treated as a binding constraint on what the city plans to do. It is treated as an accounting problem to be solved.</p>
+
+<p>The Seattle Park District is the template. When the council and the mayor wanted parks funding outside the city levy structure, they created a coterminous junior taxing district. Property taxes paid to the parks district fund the same parks the city ran before, in the same city the city continues to govern, but those taxes do not count against the city's cap. They count against a separate cap for the new district.<a class="fn" href="#fn10">10</a></p>
+
+<p>The same approach is reportedly under consideration for Seattle Center, for child care, and for other priorities the council expects to fund as the city levy stack approaches its limit. The mechanism is legal. Whether it is honest is a different question. The voter approving a Seattle Center taxing district is not approving an increase in their property tax bill in the strict legal sense, because the district is a separate jurisdiction. The voter is, however, approving an increase in their property tax bill in every sense that matters in practice.</p>
+
+<p>The other mechanism the council can use is general obligation bonds, which do not require voter approval below a certain threshold. Bonds spread the cost across years and do not appear in the levy rate calculation, but they are paid back through future property taxes and they constrain future budget flexibility.</p>
+
+<h2>What the JumpStart story shows</h2>
+
+<p>One reason the levy stack matters more than any single levy is what happens to the revenue inside the city budget. The clearest recent case is JumpStart, the payroll tax on large employers passed in 2020.</p>
+
+<p>JumpStart was sold to voters as a dedicated revenue stream for affordable housing, Green New Deal projects, and small business support. In its first year it raised $248 million, exceeding the projected $214 million by 16 percent. By 2023 it was raising $310 million annually. Cumulative collections through 2023 exceed $1 billion.<a class="fn" href="#fn11">11</a></p>
+
+<p>What happened next is documented in the city's adopted budget. As other revenues fell short, the council began allocating JumpStart receipts to the general fund to backfill operating expenses unrelated to the original purposes. The 2025 and 2026 budgets formalize this practice. Seattle now faces a $247 million general fund shortfall over the next two years, and JumpStart is one of the funding sources being used to close it.<a class="fn" href="#fn12">12</a></p>
+
+<p>The same pattern is visible in the library levy. Roughly $218 million of the $479.7 million proposed levy is allocated to maintaining existing branch operating hours and core services, not to expansion.<a class="fn" href="#fn13">13</a> A voter-approved levy, in other words, is partly being used to backfill operating expenses the general fund cannot cover. The levy is presented to voters as an investment. In meaningful part, it is a substitution.</p>
+
+<h2>What the question becomes</h2>
+
+<p>This is the connective question. The Sunshine Docket investigation of the King County Regional Homelessness Authority audit, published this week, established that $533.9 million in public funding passed through an agency that could not reliably trace where most of it went.<a class="fn" href="#fn14">14</a> The deeper finding of that audit was that the records sufficient to demonstrate the spending produced its intended outcomes do not exist for most of the period under review.</p>
+
+<p>That finding is specific to KCRHA. The question it raises is general. Before the next levy, the next tax, the next program, voters are entitled to ask whether the institution requesting the money can demonstrate, with records that exist, that the last tranche was tracked, deployed as promised, and produced the outcome the public was told to expect.</p>
+
+<p>Seattle's levy stack has grown 4.3 times in 12 years. Voters have generally said yes to each ask. The pattern is now strong enough, and the structural workarounds clear enough, that the next ask should come with a higher burden of proof, not a lower one.</p>
+
+<div class="callout">
+  <div class="head">What This Article Does Not Say</div>
+  <p>This article does not argue against funding libraries. Libraries are valuable. It does not argue against funding parks, transportation, education, or housing. Those are valuable too.</p>
+  <p>It argues that the levy stack is now large enough, growing fast enough, and structurally constrained enough that voters and the council should evaluate the next ask in the context of the stack, not in isolation.</p>
+</div>
+
+<h2>What to watch on the August ballot</h2>
+
+<p>Three things are worth tracking specifically.</p>
+
+<p><strong>First, the library levy itself.</strong> A 124 percent increase, 70 percent inflation-adjusted, with roughly half the proceeds going to maintaining existing services rather than expansion. The merits of the underlying programs are not disputed here. What is fair to evaluate is whether the size of the increase reflects a service expansion, a backfill, or both.</p>
+
+<p><strong>Second, the structure of any subsequent ballot measure.</strong> If a Seattle Center levy or a child care levy reaches the ballot through a junior taxing district rather than as a city levy, that is a signal that the cap has become operationally binding and the city is using the workaround to continue growing the stack outside its statutory limits.</p>
+
+<p><strong>Third, the JumpStart trajectory.</strong> The city's 2027 and 2028 budgets will reveal whether JumpStart continues to backfill the general fund or whether the stated dedicated purposes are restored. The latter would suggest the practice was a temporary response to a specific shortfall. The former would suggest the dedicated revenue stream has been functionally redefined.</p>
+
+<p>None of these is a partisan question. They are accounting questions. They become political questions only when the institutions involved are unwilling to answer them.</p>
+
+<hr class="section">
+
+<footer class="article-foot">
+  <p><strong>Sunshine Docket</strong> publishes public records-based accountability journalism about Washington State government. Levy stack figures in this piece are sourced to the Seattle City Council Resolution sending the library levy to ballot, the City of Seattle adopted budgets for fiscal years 2024 through 2026, and contemporaneous reporting from The Center Square, The Urbanist, Seattle's Child, and the Yakima Herald. We welcome corrections at <a href="mailto:sunshinedocket@proton.me">sunshinedocket@proton.me</a>.</p>
+</footer>
+
+<section class="notes" id="notes">
+  <h2>Notes &amp; Sources</h2>
+  <ol>
+    <li id="fn1">Library levy authorized at $479.7 million, sent to August 2026 ballot: Seattle City Council vote, April 8, 2026. The Center Square, "Seattle Council sends $479.7M library levy to August ballot," April 14, 2026.</li>
+    <li id="fn2">Rivera quotation: Seattle City Council deliberations, April 8, 2026. Reported in Council Blog and The Center Square.</li>
+    <li id="fn3">$3.60 per $1,000 cap on aggregate city levies: RCW 84.52.043 and related statutes; Washington Constitution Article VII, Section 2 (1% aggregate limit).</li>
+    <li id="fn4">Seattle's 2026 city levy rate prior to library levy: King County Department of Assessments, 2026 levy rate calculation; Seattle's Child, "Seattle's library levy and the levy capacity question," April 2026.</li>
+    <li id="fn5">Seattle Park District structure and levy authority: Seattle Park District Charter (2014); RCW 35.61. Park District levies do not count against the city's $3.60 cap.</li>
+    <li id="fn6">$133 million (2014) to $570 million (2026) voter-approved property tax collections: Yakima Herald, "Seattle's appetite for new property taxes approaching its legal limit," 2026, citing City of Seattle Department of Finance and Administrative Services figures.</li>
+    <li id="fn7">Seattle Center levy preparation: City of Seattle Office of Intergovernmental Relations; coverage in The Urbanist and Seattle's Child, 2025 and 2026.</li>
+    <li id="fn8">Mayor Wilson universal child care discussion: campaign platform documents, Seattle Times reporting on Wilson administration first-year priorities, March&ndash;April 2026.</li>
+    <li id="fn9">Strauss quotation on reducing library services if cap is exceeded: Seattle City Council deliberations, April 8, 2026. Reported in The Center Square, April 14, 2026.</li>
+    <li id="fn10">Seattle Park District as workaround precedent: Seattle Park District Charter (2014); academic and policy commentary on coterminous junior taxing districts as a mechanism for expanding municipal taxing authority outside statutory caps.</li>
+    <li id="fn11">JumpStart payroll tax trajectory ($248M year one, $231M, $293M, $310M through 2023): City of Seattle Office of Economic and Revenue Forecasts; coverage in The Urbanist and the Seattle Times.</li>
+    <li id="fn12">JumpStart general fund backfill and $247M shortfall: City of Seattle 2025 and 2026 adopted budgets; Mayor's Office budget documents.</li>
+    <li id="fn13">$218M of $479.7M library levy allocated to existing operations: Seattle Public Library levy expenditure plan, attached to the council resolution sending the levy to ballot.</li>
+    <li id="fn14">KCRHA audit: see "The Missing Money Is Not the Story," Sunshine Docket, April 25, 2026, and the underlying Clark Nuber forensic evaluation.</li>
+  </ol>
+</section>
+
+</div>
+</body>
+</html>
