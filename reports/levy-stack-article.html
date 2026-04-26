@@ -94,6 +94,30 @@ section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px;
   blockquote { font-size: 17px; }
   table.stack th, table.stack td { padding: 10px 6px; font-size: 14px; }
 }
+
+figure.chart { margin: 32px 0; padding: 0; }
+figure.chart .top-rule { height: 3px; background: var(--rd); width: 100%; }
+figure.chart .body { background: var(--sf); border: 1px solid var(--bd); border-top: none; padding: 22px 24px 18px 24px; }
+figure.chart .ck { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tm); margin-bottom: 4px; }
+figure.chart h4 { font-family: var(--serif); font-weight: 700; font-size: 22px; line-height: 1.15; margin: 0 0 4px 0; color: var(--tx); letter-spacing: -0.01em; }
+figure.chart .sub { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--tm); margin-bottom: 16px; }
+figure.chart svg { width: 100%; height: auto; display: block; }
+figure.chart figcaption { font-family: var(--mono); font-size: 11px; color: var(--tm); line-height: 1.5; padding-top: 10px; border-top: 1px solid var(--bd); margin-top: 14px; }
+
+/* SVG color tokens follow CSS vars so charts auto-theme */
+figure.chart .axis { stroke: var(--bd); stroke-width: 1; }
+figure.chart .axis-zero { stroke: var(--tm); stroke-width: 1.2; }
+figure.chart .grid { stroke: var(--bd); stroke-width: 1; stroke-opacity: 0.6; }
+figure.chart .tick-label { font-family: 'DM Mono', monospace; font-size: 10px; fill: var(--tm); }
+figure.chart .x-label { font-family: 'DM Mono', monospace; font-size: 11px; fill: var(--tm); }
+figure.chart .data-label { font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 12px; fill: var(--tx); }
+figure.chart .data-label-red { font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 13px; fill: var(--rd); }
+figure.chart .annotation { font-family: 'DM Mono', monospace; font-size: 10px; fill: var(--tm); }
+figure.chart .bar-fill { fill: var(--tx); fill-opacity: 0.78; }
+figure.chart .bar-fill-proposed { fill: var(--rd); fill-opacity: 0.85; }
+figure.chart .line { fill: none; stroke: var(--rd); stroke-width: 2.4; }
+figure.chart .area { fill: var(--rd); fill-opacity: 0.08; }
+figure.chart .dot { fill: var(--rd); }
 </style>
 </head>
 <body>
@@ -189,11 +213,128 @@ section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px;
   </tbody>
 </table>
 
+<figure class="chart">
+  <div class="top-rule"></div>
+  <div class="body">
+    <div class="ck">Exhibit 2 &middot; The Stack</div>
+    <h4>What an average Seattle homeowner pays each year</h4>
+    <div class="sub">Annual cost on a median-assessed Seattle home ($872,000), city voter-approved levies only</div>
+    <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horizontal bar chart of annual Seattle voter-approved levy costs on a median home, with FEPP at 628 dollars largest and election vouchers at 13 dollars smallest, the proposed library levy of 191 dollars highlighted in red">
+      <!-- Bar chart: max value 700, x range 220 to 660 (440px wide) -->
+      <!-- Each bar 26px tall, 14px gap. 6 bars. Top y = 30 -->
+      <!-- Levy / annual $: -->
+      <!-- FEPP 628, Transportation 567, Parks 288, Library proposed 191, Housing 122, Vouchers 13 -->
+      <!-- Scale: x = 220 + (val/700)*440 -->
+      <g>
+        <!-- FEPP -->
+        <text class="x-label" x="210" y="48" text-anchor="end">FEPP (education)</text>
+        <rect class="bar-fill" x="220" y="32" width="394.7" height="22"/>
+        <text class="data-label" x="624" y="48">$628</text>
+        <!-- Transportation -->
+        <text class="x-label" x="210" y="84" text-anchor="end">Transportation</text>
+        <rect class="bar-fill" x="220" y="68" width="356.4" height="22"/>
+        <text class="data-label" x="586" y="84">$567</text>
+        <!-- Parks district -->
+        <text class="x-label" x="210" y="120" text-anchor="end">Parks district</text>
+        <rect class="bar-fill" x="220" y="104" width="181.0" height="22"/>
+        <text class="data-label" x="411" y="120">$288</text>
+        <text class="annotation" x="448" y="120">off-cap</text>
+        <!-- Library (proposed) -->
+        <text class="x-label" x="210" y="156" text-anchor="end" style="font-weight:600;fill:var(--rd)">Library (proposed)</text>
+        <rect class="bar-fill-proposed" x="220" y="140" width="120.1" height="22"/>
+        <text class="data-label-red" x="350" y="156">$191</text>
+        <text class="annotation" x="395" y="156" style="fill:var(--rd)">August 2026 ballot</text>
+        <!-- Housing -->
+        <text class="x-label" x="210" y="192" text-anchor="end">Housing</text>
+        <rect class="bar-fill" x="220" y="176" width="76.7" height="22"/>
+        <text class="data-label" x="306" y="192">$122</text>
+        <!-- Vouchers -->
+        <text class="x-label" x="210" y="228" text-anchor="end">Election vouchers</text>
+        <rect class="bar-fill" x="220" y="212" width="8.2" height="22"/>
+        <text class="data-label" x="240" y="228">$13</text>
+        <!-- Total -->
+        <line class="axis" x1="220" x2="660" y1="252" y2="252"/>
+        <text class="x-label" x="210" y="280" text-anchor="end" style="font-weight:600;fill:var(--tx)">Total annual</text>
+        <text class="data-label-red" x="220" y="280" style="font-size:18px">$1,809</text>
+        <text class="annotation" x="305" y="280">city only, before King County, schools, Sound Transit, Port</text>
+      </g>
+      <!-- Bottom annotation -->
+      <g transform="translate(60,310)">
+        <line class="axis" x1="0" x2="600" y1="0" y2="0"/>
+        <text class="annotation" x="0" y="18" style="font-size:11px">Parks district levy is structurally outside the $3.60 cap on city levies. Proposed library levy replaces a current $85/year levy.</text>
+      </g>
+    </svg>
+    <figcaption>Source: King County Assessor, City of Seattle adopted budgets, Seattle City Council resolutions. Annual costs are approximate, based on median-assessed home value of $872,000.</figcaption>
+  </div>
+</figure>
+
 <p>The Seattle Park District, which funds parks and recreation, operates as a separate junior taxing district with the same boundaries as the city, and its levies do not count against the city's $3.60 cap.<a class="fn" href="#fn5">5</a> That structural choice matters for what comes next.</p>
 
 <h2>The growth</h2>
 
 <p>Seattle's voter-approved property tax collections were $133 million in 2014. In 2026, with the current levy stack in place and before the library levy passes, those collections are projected at $570 million.<a class="fn" href="#fn6">6</a> That is a 4.3-fold increase across twelve years.</p>
+
+<figure class="chart">
+  <div class="top-rule"></div>
+  <div class="body">
+    <div class="ck">Exhibit 1 &middot; The Growth</div>
+    <h4>Voter-approved levy collections, more than fourfold</h4>
+    <div class="sub">City of Seattle voter-approved property tax collections, $ millions, 2014 to 2026</div>
+    <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart showing Seattle voter-approved property tax collections rising from 133 million in 2014 to 570 million in 2026">
+      <!-- Grid + y-axis -->
+      <g>
+        <line class="grid" x1="60" x2="700" y1="40" y2="40"/>
+        <line class="grid" x1="60" x2="700" y1="100" y2="100"/>
+        <line class="grid" x1="60" x2="700" y1="160" y2="160"/>
+        <line class="grid" x1="60" x2="700" y1="220" y2="220"/>
+        <line class="axis" x1="60" x2="700" y1="280" y2="280"/>
+        <text class="tick-label" x="52" y="44" text-anchor="end">600</text>
+        <text class="tick-label" x="52" y="104" text-anchor="end">450</text>
+        <text class="tick-label" x="52" y="164" text-anchor="end">300</text>
+        <text class="tick-label" x="52" y="224" text-anchor="end">150</text>
+        <text class="tick-label" x="52" y="284" text-anchor="end">0</text>
+      </g>
+      <!-- Filled area: scale 0->600 maps to y 280->40, 240px range -->
+      <!-- 2014: 133 -> y = 280 - (133/600)*240 = 280 - 53.2 = 226.8 -->
+      <!-- 2016: 165 -> 280 - 66 = 214 -->
+      <!-- 2018: 190 -> 280 - 76 = 204 -->
+      <!-- 2019: 219 -> 280 - 87.6 = 192.4 -->
+      <!-- 2023: 290 -> 280 - 116 = 164 -->
+      <!-- 2025: 410 -> 280 - 164 = 116 -->
+      <!-- 2026 baseline: 570 -> 280 - 228 = 52 -->
+      <!-- 2026 with levy: 650 -> 280 - 260 = 20 (proposed) -->
+      <!-- x: 2014=80, 2016=160, 2018=240, 2019=280, 2023=440, 2025=540, 2026=600, 2026P=660 -->
+      <path class="area" d="M 80 226.8 L 160 214 L 240 204 L 280 192.4 L 440 164 L 540 116 L 600 52 L 600 280 L 80 280 Z"/>
+      <!-- Solid line through actuals -->
+      <path class="line" d="M 80 226.8 L 160 214 L 240 204 L 280 192.4 L 440 164 L 540 116 L 600 52"/>
+      <!-- Dashed projection from 2026 baseline up to 2026 with library levy add-on -->
+      <line x1="600" y1="52" x2="660" y2="20" stroke="var(--rd)" stroke-width="2.4" stroke-dasharray="5,4" fill="none"/>
+      <!-- Data points -->
+      <circle class="dot" cx="80" cy="226.8" r="3.5"/>
+      <circle class="dot" cx="280" cy="192.4" r="3.5"/>
+      <circle class="dot" cx="540" cy="116" r="3.5"/>
+      <circle class="dot" cx="600" cy="52" r="3.5"/>
+      <circle class="dot" cx="660" cy="20" r="4.5"/>
+      <!-- Labels -->
+      <text class="data-label" x="80" y="218" text-anchor="middle">$133M</text>
+      <text class="data-label" x="600" y="44" text-anchor="end">$570M</text>
+      <text class="data-label-red" x="660" y="14" text-anchor="end">+$80M</text>
+      <text class="annotation" x="660" y="32" text-anchor="end">if library levy passes</text>
+      <!-- X-axis labels -->
+      <text class="x-label" x="80" y="300" text-anchor="middle">2014</text>
+      <text class="x-label" x="280" y="300" text-anchor="middle">2019</text>
+      <text class="x-label" x="540" y="300" text-anchor="middle">2025</text>
+      <text class="x-label" x="630" y="300" text-anchor="middle">2026</text>
+      <!-- Growth callout -->
+      <g transform="translate(120,70)">
+        <text class="data-label-red" x="0" y="0" style="font-size:24px">4.3&times;</text>
+        <text class="annotation" x="0" y="16">growth, 2014 to 2026</text>
+        <text class="annotation" x="0" y="30">vs. ~50% inflation, ~20% population</text>
+      </g>
+    </svg>
+    <figcaption>Source: City of Seattle Department of Finance and Administrative Services; Yakima Herald analysis. The dashed segment shows the additional collections if the August library levy passes.</figcaption>
+  </div>
+</figure>
 
 <p>Inflation explains some of the growth. Seattle-area CPI increased roughly 50 percent over the same period. Population growth explains some of the growth. Seattle's population rose roughly 20 percent over the same period. Together, those two factors account for perhaps 80 percent of cumulative growth from baseline. The remainder, the bulk of the 4.3-fold increase, is the result of additional levies being approved and existing levies being renewed at higher dollar amounts.</p>
 
@@ -208,6 +349,79 @@ section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px;
 <p>If the library levy passes in August, the next phase of the planning gets harder. Two large levies are in active preparation. Seattle Center spent 2025 preparing a renewal expected to exceed $1 billion.<a class="fn" href="#fn7">7</a> Pike Place Market is preparing a separate infrastructure levy targeted at 2027 or 2028. Mayor Katie Wilson has spoken about funding universal child care, which would also likely take the form of a levy.<a class="fn" href="#fn8">8</a></p>
 
 <p>The arithmetic is simple. The remaining capacity of roughly $210 million is not enough for any one of these.</p>
+
+<figure class="chart">
+  <div class="top-rule"></div>
+  <div class="body">
+    <div class="ck">Exhibit 3 &middot; The Cliff</div>
+    <h4>The math doesn't work</h4>
+    <div class="sub">City levy rate, $ per $1,000 assessed value, against the $3.60 statutory cap</div>
+    <svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stacked bar showing Seattle's city levy rate at 2.96 dollars climbing to 3.18 dollars after the proposed library levy, with a red dashed line at the 3.60 dollar statutory cap and four pipeline levies that exceed remaining capacity">
+      <!-- Horizontal stacked bar. -->
+      <!-- Scale: 0 to 4.20, x = 80 to 660, range 580px. Each $0.01 = 1.38px -->
+      <!-- Bar y position 70-110 -->
+      <!-- Current 2.96 -> width = 408.6 -->
+      <!-- Library add 0.22 -> width = 30.4 -->
+      <!-- Cap at 3.60 -> x = 80 + 3.60*138.1 = 80 + 497.1 = 577 -->
+      <g>
+        <!-- Axis tick marks 0,1,2,3,4 -->
+        <line class="axis" x1="80" x2="660" y1="120" y2="120"/>
+        <g>
+          <line class="axis" x1="80" x2="80" y1="118" y2="124"/>
+          <text class="tick-label" x="80" y="138" text-anchor="middle">$0</text>
+          <line class="axis" x1="218" x2="218" y1="118" y2="124"/>
+          <text class="tick-label" x="218" y="138" text-anchor="middle">$1.00</text>
+          <line class="axis" x1="356" x2="356" y1="118" y2="124"/>
+          <text class="tick-label" x="356" y="138" text-anchor="middle">$2.00</text>
+          <line class="axis" x1="494" x2="494" y1="118" y2="124"/>
+          <text class="tick-label" x="494" y="138" text-anchor="middle">$3.00</text>
+          <line class="axis" x1="632" x2="632" y1="118" y2="124"/>
+          <text class="tick-label" x="632" y="138" text-anchor="middle">$4.00</text>
+        </g>
+        <!-- Current levy stack 2.96 -->
+        <rect class="bar-fill" x="80" y="74" width="408.6" height="42"/>
+        <text class="annotation" x="84" y="64">Current city stack</text>
+        <text class="data-label" x="484" y="100" style="font-size:14px;fill:#fff">$2.96</text>
+        <!-- Library add 0.22 -->
+        <rect class="bar-fill-proposed" x="488.6" y="74" width="30.4" height="42"/>
+        <text class="data-label-red" x="540" y="68">+$0.22</text>
+        <text class="annotation" x="540" y="80">library levy</text>
+        <!-- Cap line at 3.60 -->
+        <line x1="577.2" y1="50" x2="577.2" y2="130" stroke="var(--rd)" stroke-width="2" stroke-dasharray="6,4"/>
+        <text class="data-label-red" x="577.2" y="44" text-anchor="middle">$3.60 statutory cap</text>
+        <!-- Remaining capacity bracket -->
+        <line class="axis" x1="519" x2="577" y1="158" y2="158"/>
+        <line class="axis" x1="519" x2="519" y1="154" y2="162"/>
+        <line class="axis" x1="577" x2="577" y1="154" y2="162"/>
+        <text class="annotation" x="548" y="174" text-anchor="middle">~$210M remaining</text>
+      </g>
+      <!-- Pipeline section -->
+      <g transform="translate(0,200)">
+        <text class="ck" x="80" y="0" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.14em;fill:var(--rd);font-weight:600">In the pipeline</text>
+        <!-- Three rows of pending asks, each as a small bar -->
+        <!-- Each row: name on left, bar showing approximate rate impact -->
+        <!-- Seattle Center $1B+ -->
+        <text class="x-label" x="80" y="26" style="fill:var(--tx)">Seattle Center renewal</text>
+        <text class="data-label-red" x="280" y="26">$1B+</text>
+        <text class="annotation" x="340" y="26">would exceed remaining capacity alone</text>
+        <!-- Pike Place Market -->
+        <text class="x-label" x="80" y="50" style="fill:var(--tx)">Pike Place Market infrastructure</text>
+        <text class="data-label-red" x="280" y="50">TBD</text>
+        <text class="annotation" x="340" y="50">2027 or 2028 ballot</text>
+        <!-- Universal child care -->
+        <text class="x-label" x="80" y="74" style="fill:var(--tx)">Universal child care</text>
+        <text class="data-label-red" x="280" y="74">TBD</text>
+        <text class="annotation" x="340" y="74">Wilson administration priority</text>
+        <!-- Workaround warning -->
+        <line class="axis" x1="80" x2="660" y1="96" y2="96"/>
+        <text class="annotation" x="80" y="116" style="font-size:11px;fill:var(--tx);font-weight:600">The workaround:</text>
+        <text class="annotation" x="170" y="116" style="font-size:11px">junior taxing districts (Park District precedent) move costs off-cap.</text>
+        <text class="annotation" x="80" y="132" style="font-size:11px">Same homeowner. Same property tax bill. Different jurisdiction.</text>
+      </g>
+    </svg>
+    <figcaption>Source: WA Constitution Art. VII; RCW 84.52.043; King County Assessor; City of Seattle adopted budgets. Pipeline figures from City of Seattle Office of Intergovernmental Relations and Wilson administration policy statements.</figcaption>
+  </div>
+</figure>
 
 <p>This is where Councilman Dan Strauss's response to the capacity concern matters. During the library levy deliberations, asked what happens if the city later finds it has exceeded its levy authority, Strauss said the council could reduce library services at that point.<a class="fn" href="#fn9">9</a> The phrasing matters. The implicit policy is to commit to the spending now and reduce services later if the constraints bind.</p>
 
