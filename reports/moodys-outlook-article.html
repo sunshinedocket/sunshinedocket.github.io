@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Check Engine Light | Sunshine Docket</title>
+<meta name="description" content="Moody's revised Washington's outlook from stable to negative. The diagnosis is structural: spending outpacing revenue, reserves nearly depleted, and a tax the legislature is budgeting around while it sits in court.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+h1 { font-family: var(--serif); font-weight: 900; font-size: 40px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
+h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
+.dek { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 640px; }
+.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding-bottom: 18px; border-bottom: 1px solid var(--bd); margin-bottom: 32px; }
+.byline strong { color: var(--tx); }
+
+h2 { font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1.2; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.01em; }
+h3 { font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.3; margin-top: 32px; margin-bottom: 10px; }
+
+p { font-size: 17px; line-height: 1.65; margin-bottom: 18px; }
+p.lead { font-size: 19px; line-height: 1.55; }
+p.lead::first-letter { font-family: var(--serif); font-weight: 900; font-size: 56px; float: left; line-height: 0.95; padding-right: 8px; padding-top: 4px; color: var(--rd); }
+
+a.fn { font-family: var(--mono); font-size: 11px; color: var(--rd); text-decoration: none; vertical-align: super; line-height: 0; padding: 0 1px; }
+a.fn:hover { text-decoration: underline; }
+
+blockquote { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; border-left: 3px solid var(--rd); padding: 4px 0 4px 20px; margin: 26px 0 26px 8px; color: var(--tx); }
+blockquote cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--tm); }
+
+.pullquote { background: var(--sf2); border: 1px solid var(--bd); padding: 22px 24px; margin: 28px 0; border-left: 3px solid var(--rd); }
+.pullquote p { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.5; margin-bottom: 0; color: var(--tx); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 28px 0; }
+.stat { background: var(--sf2); border: 1px solid var(--bd); padding: 18px 18px; }
+.stat .num { font-family: var(--serif); font-weight: 900; font-size: 30px; line-height: 1.1; color: var(--rd); margin-bottom: 4px; letter-spacing: -0.02em; }
+.stat .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--tm); line-height: 1.35; }
+
+.callout { border: 1px solid var(--bd); background: var(--sf2); padding: 20px 22px; margin: 28px 0; }
+.callout .head { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-bottom: 8px; }
+.callout p { font-size: 16px; line-height: 1.55; margin-bottom: 10px; }
+.callout p:last-child { margin-bottom: 0; }
+
+ol.findings, ul.findings { margin: 18px 0 24px 0; padding-left: 22px; }
+ol.findings li, ul.findings li { font-size: 16px; line-height: 1.55; margin-bottom: 10px; padding-left: 6px; }
+
+hr.section { border: none; border-top: 1px solid var(--bd); margin: 44px auto; width: 80px; }
+
+footer.article-foot { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--bd); font-family: var(--mono); font-size: 12px; color: var(--tm); line-height: 1.7; }
+footer.article-foot a { color: var(--ac); text-decoration: none; }
+footer.article-foot a:hover { text-decoration: underline; }
+
+section.notes { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--bd); }
+section.notes h2 { font-size: 18px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; margin-top: 0; }
+section.notes ol { padding-left: 22px; }
+section.notes li { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--tm); margin-bottom: 10px; }
+section.notes li a { color: var(--ac); text-decoration: none; word-break: break-all; }
+section.notes li a:hover { text-decoration: underline; }
+section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px; margin-left: -6px; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 32px; }
+  .dek { font-size: 17px; }
+  p { font-size: 16px; }
+  blockquote { font-size: 17px; }
+}
+
+/* Chart figures */
+figure.chart { margin: 32px 0; padding: 0; }
+figure.chart .top-rule { height: 3px; background: var(--rd); width: 100%; }
+figure.chart .body { background: var(--sf); border: 1px solid var(--bd); border-top: none; padding: 22px 24px 18px 24px; }
+figure.chart .ck { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tm); margin-bottom: 4px; }
+figure.chart h4 { font-family: var(--serif); font-weight: 700; font-size: 22px; line-height: 1.15; margin: 0 0 4px 0; color: var(--tx); letter-spacing: -0.01em; }
+figure.chart .sub { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--tm); margin-bottom: 16px; }
+figure.chart svg { width: 100%; height: auto; display: block; }
+figure.chart figcaption { font-family: var(--mono); font-size: 11px; color: var(--tm); line-height: 1.5; padding-top: 10px; border-top: 1px solid var(--bd); margin-top: 14px; }
+
+figure.chart .axis { stroke: var(--bd); stroke-width: 1; }
+figure.chart .axis-zero { stroke: var(--tm); stroke-width: 1.2; }
+figure.chart .grid { stroke: var(--bd); stroke-width: 1; stroke-opacity: 0.6; }
+figure.chart .tick-label { font-family: 'DM Mono', monospace; font-size: 10px; fill: var(--tm); }
+figure.chart .x-label { font-family: 'DM Mono', monospace; font-size: 11px; fill: var(--tm); }
+figure.chart .data-label { font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 12px; fill: var(--tx); }
+figure.chart .data-label-red { font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 13px; fill: var(--rd); }
+figure.chart .annotation { font-family: 'DM Mono', monospace; font-size: 10px; fill: var(--tm); }
+figure.chart .bar-fill { fill: var(--tx); fill-opacity: 0.78; }
+figure.chart .bar-fill-proposed { fill: var(--rd); fill-opacity: 0.85; }
+figure.chart .line { fill: none; stroke: var(--rd); stroke-width: 2.4; }
+figure.chart .area { fill: var(--rd); fill-opacity: 0.08; }
+figure.chart .dot { fill: var(--rd); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav">
+  <a href="/">Sunshine Docket</a> &nbsp;/&nbsp; <a href="/reports/">Reports</a> &nbsp;/&nbsp; <span style="color: var(--tm)">The Check Engine Light</span>
+</nav>
+
+<div class="kicker">Public Trust &middot; Washington State Budget</div>
+
+<h1>The check engine light<br><em>is on.</em></h1>
+
+<p class="dek">Moody's revised Washington's outlook from stable to negative on April 23. The diagnosis was structural: spending outpacing revenue, reserves nearly depleted, and a new revenue source the legislature is budgeting around while it sits in court. The state's Treasurer, a Democrat, says he agrees.</p>
+
+<div class="byline">
+  <strong>Sunshine Docket</strong> &middot; April 27, 2026 &middot; <span>~10 minute read</span>
+</div>
+
+<p class="lead">Credit rating agencies do not write opinion columns. They publish ratings and outlook statements, and they show their work. When one of them changes its view of a state from stable to negative, the language is dry, the citations are specific, and the agency is staking professional reputation on the diagnosis. On April 23, Moody's revised Washington State's outlook from stable to negative.<a class="fn" href="#fn1">1</a> The state's Aaa rating on its general obligation bonds was affirmed. The outlook change is the warning shot before a downgrade.</p>
+
+<p>The state Treasurer, Mike Pellicciotti, a Democrat who has been making essentially the same warning in his own words for two legislative sessions, summarized the action with a metaphor that travels well. "A check engine light just flashed on our state finances," he wrote.<a class="fn" href="#fn2">2</a> "Credit rating agencies have warned for years that reliance on reserves to balance an otherwise structurally imbalanced budget could result in a negative credit action."</p>
+
+<p>The reason the warning matters is not the warning itself. It is the specificity of the diagnosis. Moody's identified three drivers, all structural, all converging.</p>
+
+<div class="stats">
+  <div class="stat"><div class="num">$2.0B &rarr; $558M</div><div class="lbl">Total reserves, July 2025 to projected July 2027</div></div>
+  <div class="stat"><div class="num">~72%</div><div class="lbl">Reserves drawdown, 24 months</div></div>
+  <div class="stat"><div class="num">$60M / yr</div><div class="lbl">Per-notch debt cost if downgraded</div></div>
+  <div class="stat"><div class="num">2029</div><div class="lbl">First fiscal year SB 6346 revenue is available</div></div>
+</div>
+
+<hr class="section">
+
+<h2>What Moody's actually said</h2>
+
+<p>The full operative sentence from the outlook revision is worth reading directly, because it does not leave room to be misread:</p>
+
+<blockquote>
+  Reflects rising downside risks to the state's financial flexibility given continued reliance on one-time budget solutions to support General Fund spending, a projected narrowing of budgetary reserves and ongoing legal challenges to new revenues intended to help restore budget balance.
+  <cite>Moody's Ratings, outlook revision on Washington State, April 23, 2026</cite>
+</blockquote>
+
+<p>Three drivers, presented in order of immediacy. One-time budget solutions to support recurring General Fund spending. A projected narrowing of budgetary reserves. Legal challenges to new revenues that the budget is counting on. Each is a structural condition. Together, they describe a budget that no longer balances on its own terms.</p>
+
+<p>Moody's also noted, in the underlying credit analysis, that the state's general fund deficit is expected to materialize through fiscal 2027, "driven by the state's escalating tort claims, rising health and human service costs and more limited policy level cost containment to date; further, the recently enacted income tax on high-earners, part of the strategy to help restore general fund structural balance, will not be available until fiscal 2029, even if upheld by the courts."<a class="fn" href="#fn3">3</a></p>
+
+<p>That last clause is the one to sit with. The income tax referenced is SB 6346, the high-earner tax Governor Ferguson signed earlier this year. Moody's flagged it explicitly as part of the structural-balance strategy that, on its current timeline, cannot help. The legislature passed a tax in 2025, the governor signed it in early 2026, and even in the most favorable legal scenario, the first dollar of revenue arrives in fiscal 2029. The budget the state is currently operating under counts on that revenue. The court has not yet ruled.</p>
+
+<h2>The reserves cliff</h2>
+
+<p>The single most concrete element of the outlook revision is the reserves trajectory. The Treasurer's office has been publishing the chart for two years.</p>
+
+<figure class="chart">
+  <div class="top-rule"></div>
+  <div class="body">
+    <div class="ck">Exhibit 1 &middot; The Reserves Cliff</div>
+    <h4>From $2.0 billion to $558 million in twenty-four months</h4>
+    <div class="sub">Total Washington State budgetary reserves at fiscal year start, $ billions</div>
+    <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart showing Washington State reserves declining from $2.0 billion in July 2025 to a projected $558 million in July 2027 and $530 million by July 2028">
+      <!-- Scale: 0 to 2.5, x range 80 to 660 -->
+      <!-- Y: bottom 270, top 50, range 220px = 2.5B -->
+      <!-- y(v) = 270 - (v/2.5)*220 -->
+      <!-- 2024: 1.8 -> 270 - 158.4 = 111.6 -->
+      <!-- 2025: 2.0 -> 270 - 176 = 94 -->
+      <!-- 2026: 1.45 -> 270 - 127.6 = 142.4 -->
+      <!-- 2027: 0.558 -> 270 - 49.1 = 220.9 -->
+      <!-- 2028: 0.53 -> 270 - 46.6 = 223.4 -->
+      <g>
+        <line class="grid" x1="80" x2="660" y1="50" y2="50"/>
+        <line class="grid" x1="80" x2="660" y1="94" y2="94"/>
+        <line class="grid" x1="80" x2="660" y1="138" y2="138"/>
+        <line class="grid" x1="80" x2="660" y1="182" y2="182"/>
+        <line class="grid" x1="80" x2="660" y1="226" y2="226"/>
+        <line class="axis" x1="80" x2="660" y1="270" y2="270"/>
+        <text class="tick-label" x="72" y="54" text-anchor="end">$2.5B</text>
+        <text class="tick-label" x="72" y="98" text-anchor="end">$2.0B</text>
+        <text class="tick-label" x="72" y="142" text-anchor="end">$1.5B</text>
+        <text class="tick-label" x="72" y="186" text-anchor="end">$1.0B</text>
+        <text class="tick-label" x="72" y="230" text-anchor="end">$0.5B</text>
+        <text class="tick-label" x="72" y="274" text-anchor="end">$0</text>
+      </g>
+      <!-- Bars: width 70, gap based on 5 bars across 540px -->
+      <!-- xCenter for 2024-2028: 160, 260, 360, 460, 560 -->
+      <g>
+        <!-- 2024 actual -->
+        <rect class="bar-fill" x="125" y="111.6" width="70" height="158.4"/>
+        <text class="data-label" x="160" y="103" text-anchor="middle">$1.80B</text>
+        <text class="x-label" x="160" y="290" text-anchor="middle">Jul 2024</text>
+        <!-- 2025 actual -->
+        <rect class="bar-fill" x="225" y="94" width="70" height="176"/>
+        <text class="data-label" x="260" y="85" text-anchor="middle">$2.00B</text>
+        <text class="x-label" x="260" y="290" text-anchor="middle">Jul 2025</text>
+        <!-- 2026 projected -->
+        <rect class="bar-fill" x="325" y="142.4" width="70" height="127.6" fill-opacity="0.55"/>
+        <text class="data-label" x="360" y="134" text-anchor="middle">$1.45B</text>
+        <text class="x-label" x="360" y="290" text-anchor="middle">Jul 2026</text>
+        <!-- 2027 projected (highlighted) -->
+        <rect class="bar-fill-proposed" x="425" y="220.9" width="70" height="49.1"/>
+        <text class="data-label-red" x="460" y="212" text-anchor="middle">$558M</text>
+        <text class="x-label" x="460" y="290" text-anchor="middle">Jul 2027</text>
+        <!-- 2028 projected -->
+        <rect class="bar-fill-proposed" x="525" y="223.4" width="70" height="46.6"/>
+        <text class="data-label-red" x="560" y="215" text-anchor="middle">$530M</text>
+        <text class="x-label" x="560" y="290" text-anchor="middle">Jul 2028</text>
+      </g>
+      <!-- Drawdown annotation -->
+      <g transform="translate(295,42)">
+        <text class="data-label-red" x="0" y="0" style="font-size:24px">&minus;72%</text>
+        <text class="annotation" x="0" y="16">in 24 months</text>
+      </g>
+      <!-- Pellicciotti benchmark -->
+      <line x1="80" y1="79" x2="660" y2="79" stroke="var(--rd)" stroke-width="1.4" stroke-dasharray="5,4" opacity="0.6"/>
+      <text class="annotation" x="660" y="73" text-anchor="end" style="fill:var(--rd)">Treasurer-recommended floor: 10% of GF revenue</text>
+    </svg>
+    <figcaption>Source: Washington State Treasurer's Office, FY 2026 Debt and Credit Analysis (January 2026); Washington State Standard reporting on Moody's outlook revision, April 24, 2026. Reserves include the General Fund and Budget Stabilization Account.</figcaption>
+  </div>
+</figure>
+
+<p>The chart is the audit trail. Reserves at the start of fiscal year 2025 stood at $2.0 billion. The current adopted budget projects them to fall to $558 million by July 2027 — a drawdown of roughly 72 percent in twenty-four months.<a class="fn" href="#fn4">4</a> By the end of fiscal year 2028, total reserves are projected to dip to 1.4 percent of general fund revenues.<a class="fn" href="#fn5">5</a> The Treasurer has recommended for two sessions that reserves equal at least 10 percent of general fund revenues. The current trajectory is more than seven times below that benchmark.</p>
+
+<p>Reserves are not a slush fund. They are the buffer that lets a state absorb a recession, a natural disaster, a federal funding interruption, or a court ruling against a tax that has been built into the budget. When the buffer goes, the state has to make whatever cut or raise whatever new tax the moment requires, in the timeframe the moment allows. That posture is how a Aaa state stops being a Aaa state.</p>
+
+<h2>Spending outpaces revenue, structurally</h2>
+
+<p>The second Moody's driver is "continued reliance on one-time budget solutions to support General Fund spending." That phrase describes a specific behavior. The legislature has been balancing each biennium's budget by transferring money from accounts that are not part of the General Fund — the Budget Stabilization Account, climate-program revenues, dedicated funds — into the General Fund to cover ongoing spending. One-time transfers can paper over a one-time shortfall. They cannot paper over a recurring one. That is what "structural" means in this context. The shortfall is recurring.</p>
+
+<p>The shape of the underlying mismatch is visible in the budgets themselves. The 2023-25 biennial budget totaled $69.3 billion. The current 2025-27 biennial budget, after Governor Ferguson's March supplemental adjustment, totals roughly $79.4 billion.<a class="fn" href="#fn6">6</a> That is a 14.5 percent increase across two years. State revenue, even with the $9.4 billion tax package signed in 2025, has not grown at the same rate. The gap is what the reserves and the one-time transfers have been filling.</p>
+
+<p>One specific contributor to the recurring side of that growth is collective bargaining. In 2024, the state negotiated public-employee compensation agreements that took effect in the current biennium. Those agreements created spending obligations that exceed the rate of growth permitted by the I-960 spending limit. To honor the agreements, additional tax revenue has to be raised. The agreement obligations recur. The revenue to honor them, on the current trajectory, does not arrive on the same schedule. The 2025-27 budget bridges the gap with reserves and transfers.</p>
+
+<p>The arithmetic, simplified, is this. Each new revenue source the legislature has enacted produces less new revenue than the spending baseline it implicitly authorizes. The structural imbalance does not close by adding revenue. It closes by either reducing the spending baseline or sustaining new revenue at a rate that exceeds the spending obligations already in place. Neither is the current trajectory.</p>
+
+<figure class="chart">
+  <div class="top-rule"></div>
+  <div class="body">
+    <div class="ck">Exhibit 2 &middot; The Spending Gap</div>
+    <h4>The biennial budget grew faster than revenue closed</h4>
+    <div class="sub">Washington State biennial budget totals, $ billions</div>
+    <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart showing Washington State biennial budgets growing from $59.2B in 2021-23 to $69.3B in 2023-25 to $79.4B in 2025-27">
+      <!-- Scale: 0 to 90, x: 80 to 660 -->
+      <!-- Y: bottom 270, top 50, range 220px = 90B -->
+      <!-- y(v) = 270 - (v/90)*220 -->
+      <!-- 2019-21: 52.3 -> 270 - 127.8 = 142.2 -->
+      <!-- 2021-23: 59.2 -> 270 - 144.7 = 125.3 -->
+      <!-- 2023-25: 69.3 -> 270 - 169.4 = 100.6 -->
+      <!-- 2025-27: 79.4 -> 270 - 194.1 = 75.9 -->
+      <g>
+        <line class="grid" x1="80" x2="660" y1="50" y2="50"/>
+        <line class="grid" x1="80" x2="660" y1="100" y2="100"/>
+        <line class="grid" x1="80" x2="660" y1="150" y2="150"/>
+        <line class="grid" x1="80" x2="660" y1="200" y2="200"/>
+        <line class="grid" x1="80" x2="660" y1="250" y2="250"/>
+        <line class="axis" x1="80" x2="660" y1="270" y2="270"/>
+        <text class="tick-label" x="72" y="54" text-anchor="end">$90B</text>
+        <text class="tick-label" x="72" y="104" text-anchor="end">$70B</text>
+        <text class="tick-label" x="72" y="154" text-anchor="end">$50B</text>
+        <text class="tick-label" x="72" y="204" text-anchor="end">$30B</text>
+        <text class="tick-label" x="72" y="254" text-anchor="end">$10B</text>
+      </g>
+      <!-- Bars: 4 bars, centers at 200, 340, 480, 620 -->
+      <g>
+        <rect class="bar-fill" x="160" y="142.2" width="80" height="127.8"/>
+        <text class="data-label" x="200" y="134" text-anchor="middle">$52.3B</text>
+        <text class="x-label" x="200" y="290" text-anchor="middle">2019&ndash;21</text>
+        <rect class="bar-fill" x="300" y="125.3" width="80" height="144.7"/>
+        <text class="data-label" x="340" y="117" text-anchor="middle">$59.2B</text>
+        <text class="x-label" x="340" y="290" text-anchor="middle">2021&ndash;23</text>
+        <rect class="bar-fill" x="440" y="100.6" width="80" height="169.4"/>
+        <text class="data-label" x="480" y="92" text-anchor="middle">$69.3B</text>
+        <text class="x-label" x="480" y="290" text-anchor="middle">2023&ndash;25</text>
+        <rect class="bar-fill-proposed" x="580" y="75.9" width="80" height="194.1"/>
+        <text class="data-label-red" x="620" y="67" text-anchor="middle">$79.4B</text>
+        <text class="x-label" x="620" y="290" text-anchor="middle">2025&ndash;27</text>
+      </g>
+      <!-- Growth callout -->
+      <g transform="translate(160,55)">
+        <text class="data-label-red" x="0" y="0" style="font-size:22px">+52%</text>
+        <text class="annotation" x="0" y="14">across three bienniums</text>
+        <text class="annotation" x="0" y="28">while reserves draw to depletion</text>
+      </g>
+    </svg>
+    <figcaption>Source: Washington State Office of Financial Management; budget enactment figures and supplemental adjustments. The 2025-27 figure reflects the supplemental adjusted total signed by Governor Ferguson in March 2026.</figcaption>
+  </div>
+</figure>
+
+<h2>The tax in court</h2>
+
+<p>The third Moody's driver is "ongoing legal challenges to new revenues intended to help restore budget balance." That clause refers, primarily, to SB 6346.</p>
+
+<p>The bill imposes a 9.9 percent tax on income above one million dollars. It was sponsored by Senator Jamie Pedersen, with the House companion led by Representative Joe Fitzgibbon. Critical amendments came from Representative Liz Berry. Governor Ferguson signed it in March 2026.<a class="fn" href="#fn7">7</a> A constitutional challenge was filed within weeks. Washington's constitution, as interpreted continuously since the 1933 Culliton decision, prohibits non-uniform taxation of income because the courts have characterized income as property. SB 6346 taxes income above a threshold at a single rate, a structure that is functionally graduated and that the bill's drafters knew would face this challenge.</p>
+
+<p>The bill includes provisions designed to address the legal vulnerability. The drafters used statutory language that frames the tax as an excise on the privilege of receiving income above the threshold, drawing on the 2023 Quinn v. State decision that upheld the capital gains tax on similar grounds. Whether that framing survives at the state Supreme Court is the question the courts will answer. The earliest the case could be resolved is fiscal year 2027. Even if upheld, the first revenue arrives in fiscal year 2029.<a class="fn" href="#fn8">8</a></p>
+
+<p>This produces a specific budgeting condition. The 2025-27 biennial budget, the one currently in effect, counts on revenue from a tax that has not yet been ruled constitutional and that, regardless of the ruling, cannot collect a dollar during the biennium. Moody's flagged this directly. The Treasurer flagged it directly. The bill's sponsors are aware of it. The budget treats the revenue as available for planning purposes anyway.</p>
+
+<p>That is what Moody's means by "ongoing legal challenges to new revenues intended to help restore budget balance." The plain-language version is that the legislature is balancing on revenue that has not yet been confirmed.</p>
+
+<h2>The cost, in dollars, of being downgraded</h2>
+
+<p>The outlook revision is not, itself, a downgrade. It is a signal that a downgrade is now meaningfully more likely within the agency's standard one to two year window. If a downgrade does occur, the cost lands in the budget within months.</p>
+
+<figure class="chart">
+  <div class="top-rule"></div>
+  <div class="body">
+    <div class="ck">Exhibit 3 &middot; The Cost of a Notch</div>
+    <h4>$60 million per year, per credit notch</h4>
+    <div class="sub">Estimated annual budget cost of a one-notch downgrade from Aaa to Aa1</div>
+    <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram explaining the math of a one-notch downgrade: 0.1 percent rate increase on $4 billion in annual bond issuance equals roughly $60 million in additional annual debt service">
+      <g>
+        <!-- Three boxes connected by arrows -->
+        <!-- Box 1: rate -->
+        <rect x="40" y="80" width="160" height="100" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1"/>
+        <text x="120" y="118" text-anchor="middle" class="data-label-red" style="font-size:32px">+0.1%</text>
+        <text x="120" y="142" text-anchor="middle" class="annotation">interest rate increase</text>
+        <text x="120" y="158" text-anchor="middle" class="annotation">per notch downgrade</text>
+        <!-- Arrow -->
+        <line x1="210" y1="130" x2="260" y2="130" stroke="var(--rd)" stroke-width="1.5"/>
+        <polygon points="260,130 252,126 252,134" fill="var(--rd)"/>
+        <text x="235" y="120" text-anchor="middle" class="annotation">on</text>
+        <!-- Box 2: issuance -->
+        <rect x="270" y="80" width="160" height="100" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1"/>
+        <text x="350" y="118" text-anchor="middle" class="data-label-red" style="font-size:32px">$4B</text>
+        <text x="350" y="142" text-anchor="middle" class="annotation">annual bond</text>
+        <text x="350" y="158" text-anchor="middle" class="annotation">issuance</text>
+        <!-- Arrow -->
+        <line x1="440" y1="130" x2="490" y2="130" stroke="var(--rd)" stroke-width="1.5"/>
+        <polygon points="490,130 482,126 482,134" fill="var(--rd)"/>
+        <text x="465" y="120" text-anchor="middle" class="annotation">=</text>
+        <!-- Box 3: cost -->
+        <rect x="500" y="80" width="160" height="100" fill="var(--sf2)" stroke="var(--rd)" stroke-width="1.4"/>
+        <text x="580" y="118" text-anchor="middle" class="data-label-red" style="font-size:32px">~$60M</text>
+        <text x="580" y="142" text-anchor="middle" class="annotation">added annual</text>
+        <text x="580" y="158" text-anchor="middle" class="annotation">debt service cost</text>
+      </g>
+      <!-- Compounding note -->
+      <g transform="translate(40,210)">
+        <line class="axis" x1="0" x2="640" y1="0" y2="0"/>
+        <text class="annotation" x="0" y="20" style="font-size:11px;fill:var(--tx);font-weight:600">Plus: depleting reserves carries its own cost.</text>
+        <text class="annotation" x="0" y="38" style="font-size:11px">Reserves earn $30M to $40M per billion in interest. The $1.4B drawdown forfeits roughly $42M to $56M annually.</text>
+      </g>
+    </svg>
+    <figcaption>Source: Washington State Treasurer's Office. Estimate assumes a one-notch downgrade from Aaa to Aa1, applied to typical annual general obligation issuance of approximately $4 billion. Reserves yield estimate from same source.</figcaption>
+  </div>
+</figure>
+
+<p>The Treasurer's office estimates that a one-notch downgrade from Aaa to Aa1 would add approximately 0.1 percent to the interest rate on the state's bond issuances. Washington issues roughly $4 billion in bonds each year. The math, applied straightforwardly, produces approximately $60 million in additional annual debt service costs that would have to be paid out of the operating budget.<a class="fn" href="#fn9">9</a></p>
+
+<p>That is the direct cost. The indirect cost is the foregone interest on the reserves themselves. The state earns $30 million to $40 million in interest per billion dollars held in reserve.<a class="fn" href="#fn10">10</a> Drawing reserves down by $1.4 billion, as the current budget plans to do, forfeits roughly $42 million to $56 million in annual interest income. That income is not, in budgetary terms, a one-time loss. It is a recurring loss for the years the reserves remain depleted. The two effects compound. A downgrade adds debt service. A drawdown removes interest income. Both consequences land in the General Fund, the same fund that is already structurally short.</p>
+
+<h2>The state-to-local connection</h2>
+
+<p>This is where the state-level story connects to the local-level stories Sunshine Docket has been documenting. The bond markets do not care about Washington's reputation for fiscal prudence. They care about the rating. When the rating moves, the cost of borrowing moves with it. And much of what Washington borrows for is local infrastructure: school buildings, college facilities, transportation, capital projects.</p>
+
+<p>Washington operates a school bond guarantee program that lets local school districts borrow at the state's credit rating, which has historically meant they borrow at Aaa terms. Moody's outlook revision affects the school bond guarantee program directly.<a class="fn" href="#fn11">11</a> If the state is downgraded, school construction borrowing becomes more expensive at the local level. School construction levies are a significant component of property tax bills across Washington. The mechanism by which a state-level credit decision lands on a homeowner's property tax statement is direct and unhedged.</p>
+
+<p>Sunshine Docket has documented Seattle's voter-approved levy stack, which has grown more than fourfold in twelve years and now sits within reach of its statutory cap.<a class="fn" href="#fn12">12</a> A state credit downgrade would put upward pressure on every levy that touches state-guaranteed borrowing, at exactly the moment the city's capacity to absorb additional levy ask is becoming binding. The two pressures compound. Each is independent. Together they describe the cost a homeowner ultimately bears for a structural budget imbalance the homeowner did not create.</p>
+
+<div class="pullquote">
+  <p>Moody's is reporting the cycle, not creating the news. The legislature has been budgeting around a tax its own sponsor designed knowing it would be challenged. The Treasurer has been saying so for two sessions.</p>
+</div>
+
+<h2>The pattern is the point</h2>
+
+<p>What the outlook revision documents, in dry rating-agency language, is the same structural pattern that Sunshine Docket has been tracking across separate investigations.</p>
+
+<p>The KCRHA forensic audit established that $533.9 million in public funds passed through an agency that could not reliably trace where most of it went. The deeper finding was not the missing money. It was that the records sufficient to demonstrate the spending produced its intended outcomes did not exist for most of the period.<a class="fn" href="#fn13">13</a></p>
+
+<p>The Seattle levy stack analysis established that voter-approved property tax collections grew from $133 million in 2014 to $570 million in 2026, with each individual levy approved on its own merits and the cumulative stack now approaching its statutory cap. The city's plan for what comes next is a workaround through junior taxing districts.<a class="fn" href="#fn12">12</a></p>
+
+<p>The Caregiver Cartel investigation established that SEIU 775 is Washington's largest single political contributor since 2016, with approximately $30 million in net external political spending, structured to fund both candidates and ballot measures, and connected through federal labor disclosures to consulting contracts with sitting legislators.<a class="fn" href="#fn14">14</a></p>
+
+<p>Now, at the state level, Moody's documents that the budgets those legislators have enacted are spending faster than revenue is growing, drawing down reserves to fill the gap, and counting on contested revenue to close the structural deficit later. The pattern is consistent across institutional levels. It is the same pattern.</p>
+
+<p>The cycle, stated plainly: revenue grows. Outcomes do not improve at the same rate, and in some cases worsen. Accounting and oversight either fail or are bypassed. The remedy proposed each time the cycle completes is more revenue. The remedy is then proposed before the previous remedy can be evaluated.</p>
+
+<p>None of these claims is novel. Each is sourced. What the Moody's outlook revision adds is institutional weight. A credit rating agency, professionally indifferent to politics and required to defend its reasoning in writing, has now ratified the structural diagnosis the Treasurer has been giving for two sessions and the diagnosis Sunshine Docket has been documenting at the agency, city, and union levels. The check engine light is on for a reason.</p>
+
+<h2>What to watch</h2>
+
+<p>Three dates are worth tracking specifically.</p>
+
+<p><strong>September 2026: the next state revenue forecast.</strong> The Economic and Revenue Forecast Council publishes quarterly forecasts that update the assumptions underlying the biennial budget. The September forecast will be the first major revision after the Moody's action. If the forecast is revised downward, the structural-balance problem becomes harder, not easier, before the next legislative session begins.</p>
+
+<p><strong>The SB 6346 court ruling.</strong> The constitutional challenge is moving through Washington courts. A ruling against the tax pulls a planned revenue stream out of the budget entirely. A ruling for the tax preserves the legal foundation but does not change the timing — first revenue does not arrive until fiscal 2029.</p>
+
+<p><strong>The 2026 supplemental and the 2027-29 biennial budget.</strong> The legislature returns to Olympia in January 2027 with a new biennial budget to write. Moody's outlook places that budget under intensified scrutiny. If the structural mismatch is not addressed in that budget, the outlook revision is likely to convert into a downgrade within the agency's standard window. If it is addressed, the question becomes whether the addressing is structural or whether it relies on a new round of one-time solutions and a new round of contested revenue.</p>
+
+<p>None of these is a partisan question. They are budget questions. The Treasurer who issued the warning is a Democrat. The Governor who signed the budget under outlook is a Democrat. The legislators who control both chambers are Democrats. The diagnosis is structural, not ideological, and the path to restoring stable footing requires the institutions that hold the budget pen to act on the diagnosis the rating agency has now formally documented.</p>
+
+<p>The check engine light is on. Drivers can choose to address the warning. They can also choose to keep driving. The cost of the second choice is documented above, in dollars per year, and it lands on the residents of the state regardless of which choice the legislature makes.</p>
+
+<hr class="section">
+
+<footer class="article-foot">
+  <p><strong>Sunshine Docket</strong> publishes public records-based accountability journalism about Washington State government. All financial figures and direct quotations in this piece are sourced to Moody's Ratings publications, the Washington State Treasurer's Office FY 2026 Debt and Credit Analysis, the Washington State Office of Financial Management adopted budgets and supplemental adjustments, and contemporaneous reporting from the Washington State Standard, OPB, KUOW, the Bond Buyer, and other regional outlets. We welcome corrections at <a href="mailto:sunshinedocket@proton.me">sunshinedocket@proton.me</a>.</p>
+</footer>
+
+<section class="notes" id="notes">
+  <h2>Notes &amp; Sources</h2>
+  <ol>
+    <li id="fn1">Moody's outlook revision: Moody's Ratings, "Washington State outlook revised to negative from stable; Aaa GO rating affirmed," April 23, 2026. Reported in Bond Buyer, "Moody's revises Washington state's outlook to negative," April 24, 2026, and Washington State Standard, "Top credit rating agency puts Washington on notice," April 24, 2026.</li>
+    <li id="fn2">Pellicciotti "check engine light" quotation: email from Treasurer Mike Pellicciotti, reported across multiple Washington outlets including the Washington State Standard, OPB, KUOW, and the Daily Chronicle, April 24, 2026.</li>
+    <li id="fn3">Moody's analyst quotation regarding SB 6346 timing: Bond Buyer reporting on the underlying Moody's credit analysis, citing Moody's analyst Eric Zhu, April 24, 2026.</li>
+    <li id="fn4">Reserves trajectory ($2.0B July 2025 to $558M projected July 2027): Washington State Treasurer's Office, FY 2026 Debt and Credit Analysis (January 2026), available at tre.wa.gov; reported by Washington State Standard and Bond Buyer, April 24, 2026.</li>
+    <li id="fn5">Reserves at 1.4% of general fund revenues by end of fiscal year 2028: same Treasurer's office source.</li>
+    <li id="fn6">Biennial budget figures: Washington State Office of Financial Management, biennial budget enactments. The 2025-27 figure of approximately $79.4 billion reflects the supplemental adjusted total signed by Governor Ferguson in March 2026, replacing the originally enacted $77.8 billion. Reported in Washington State Standard, "Top credit rating agency puts Washington on notice," April 24, 2026.</li>
+    <li id="fn7">SB 6346 sponsorship and signing: Washington State Legislature bill records; Governor's signing statement, March 2026. The bill imposes a 9.9 percent tax on income above one million dollars. Sponsorship: Sen. Jamie Pedersen prime, Rep. Joe Fitzgibbon House companion lead, Rep. Liz Berry critical amendment.</li>
+    <li id="fn8">SB 6346 fiscal-year availability: 2026 enactment with collections beginning fiscal year 2029. Confirmed in Moody's outlook commentary and Treasurer's office analysis. Constitutional precedent context: Culliton v. Chase (1933) on income as property; Quinn v. State (2023) on excise framing of capital gains tax.</li>
+    <li id="fn9">Cost of a one-notch downgrade ($60 million annually): Washington State Treasurer's Office estimate, applying 0.1 percent rate increase to approximately $4 billion in annual general obligation bond issuance. Reported by Washington State Standard, April 24, 2026.</li>
+    <li id="fn10">Reserves yield ($30M-$40M per billion): Washington State Treasurer's Office; same Standard reporting.</li>
+    <li id="fn11">School bond guarantee program effect: Bond Buyer, "Moody's revises Washington state's outlook to negative," April 24, 2026, noting the outlook revision affects the Washington State School Bond Guarantee Program directly.</li>
+    <li id="fn12">Seattle levy stack: see Sunshine Docket, "The Levy Stack," available at /reports/levy-stack-article.html.</li>
+    <li id="fn13">KCRHA audit: see Sunshine Docket, "The Missing Money Is Not the Story," available at /reports/kcrha-audit-article.html, and the underlying Clark Nuber forensic evaluation, April 17, 2026.</li>
+    <li id="fn14">SEIU 775 political spending: see Sunshine Docket, "The Caregiver Cartel," available at /reports/caregiver-cartel.html. Sources include PDC datasets kv7h-kjye and tijg-9zyp; DOL OLMS LM-2 filings.</li>
+  </ol>
+</section>
+
+</div>
+</body>
+</html>
