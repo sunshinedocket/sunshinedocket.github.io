@@ -346,6 +346,54 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
       margin-top: 4px;
     }
 
+  
+    /* Report article tiles - 2 column grid */
+    .report-tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 0 0 24px;
+    }
+    .report-tile {
+      display: block;
+      text-decoration: none;
+      color: var(--ink, #1a1a1a);
+      border: 1px solid var(--rule, #ddd);
+      border-top: 3px solid var(--ac, #E3120B);
+      border-radius: 6px;
+      padding: 20px 24px;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .report-tile:hover {
+      border-color: var(--ac, #E3120B);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .report-tile .rt-tag {
+      font-family: var(--mono, 'Space Mono', monospace);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ac, #E3120B);
+      margin-bottom: 6px;
+    }
+    .report-tile h3 {
+      font-family: var(--body, 'Libre Baskerville', serif);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .report-tile .rt-desc {
+      font-family: var(--body, 'Libre Baskerville', serif);
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+    @media (max-width: 700px) {
+      .report-tiles { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -373,6 +421,28 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
   </div>
 
   <!-- FEATURED: Pedersen (top, full width) -->
+  
+  <div class="report-tiles fade-in">
+    <a href="/reports/jumpstart-traceability-article.html" class="report-tile">
+      <div class="rt-tag">Seattle // JumpStart Tax</div>
+      <h3>The Promise and the Piggybank</h3>
+      <div class="rt-desc">Seattle's JumpStart payroll tax was sold as dedicated revenue for housing and climate. Six years and $1.5 billion later, the dedications have become suggestions.</div>
+    </a>
+    <a href="/reports/moodys-outlook-article.html" class="report-tile">
+      <div class="rt-tag">Washington State // Fiscal</div>
+      <h3>The Check Engine Light</h3>
+      <div class="rt-desc">Moody's revised Washington's outlook from stable to negative. The diagnosis is structural: spending outpacing revenue, reserves nearly depleted.</div>
+    </a>
+  </div>
+
+  <a href="/reports/" class="reports-banner fade-in">
+    <div class="rb-tag">Reports &amp; Commentary</div>
+    <h3>Reports &amp; Commentary</h3>
+    <div class="rb-sub">Investigations, analysis, and editorial connecting public records to policy. Data-driven accountability journalism about Washington State government.</div>
+    <div class="rb-meta">Latest: The Levy Stack // Seattle Property Tax // April 2026</div>
+    <div class="rb-arrow">Read &rarr;</div>
+  </a>
+
   <div class="tile-grid">
     <a href="profiles/pedersen.html" class="tile tile-featured">
       <img src="tiles/pedersen.jpg" alt="Jamie Pedersen investigation" class="tile-img">
@@ -435,13 +505,7 @@ body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-
 
   <!-- BOTTOM ROW: Legislature screener, Money Tracking, Methodology -->
   
-  <a href="/reports/" class="reports-banner fade-in">
-    <div class="rb-tag">Reports &amp; Commentary</div>
-    <h3>Reports &amp; Commentary</h3>
-    <div class="rb-sub">Investigations, analysis, and editorial connecting public records to policy. Data-driven accountability journalism about Washington State government.</div>
-    <div class="rb-meta">Latest: The Levy Stack // Seattle Property Tax // April 2026</div>
-    <div class="rb-arrow">Read &rarr;</div>
-  </a>
+  
 
   <div class="bottom-row">
     <a href="/legislature.html" class="util-tile">
