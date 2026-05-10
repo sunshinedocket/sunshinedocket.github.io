@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Closed Loop | Sunshine Docket</title>
+<meta name="description" content="A state payroll tax, a workforce, an automatic dues stream, and a $13 million campaign to defend the whole arrangement. How WA Cares funds its own political defense.">
+<link rel="canonical" href="https://sunshinedocket.org/reports/wa-cares-closed-loop.html">
+<meta property="og:title" content="The Closed Loop: How WA Cares Pays for Its Own Defense">
+<meta property="og:description" content="A state payroll tax, a workforce, an automatic dues stream, and a $13 million campaign to defend the whole arrangement.">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; font-size: 18px; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+h1 { font-family: var(--serif); font-weight: 900; font-size: 44px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
+h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
+.dek { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 640px; }
+.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding-bottom: 18px; border-bottom: 1px solid var(--bd); margin-bottom: 36px; }
+.byline span { color: var(--td); margin: 0 8px; }
+
+h2 { font-family: var(--serif); font-weight: 700; font-size: 24px; line-height: 1.25; margin: 40px 0 14px; letter-spacing: -0.01em; }
+h2 em { color: var(--rd); font-style: italic; }
+
+p { margin-bottom: 20px; font-size: 18px; line-height: 1.7; }
+
+.lede { font-size: 21px; line-height: 1.55; color: var(--tx); margin-bottom: 26px; }
+.lede:first-letter { font-weight: 900; font-size: 64px; line-height: 1; float: left; padding: 6px 10px 0 0; color: var(--rd); }
+
+a.cite { color: var(--tx); text-decoration: underline; text-decoration-color: var(--td); text-underline-offset: 2px; }
+a.cite:hover { text-decoration-color: var(--rd); }
+
+sup.fn { font-family: var(--mono); font-size: 10px; color: var(--rd); font-weight: 600; padding-left: 1px; }
+sup.fn a { color: var(--rd); text-decoration: none; }
+sup.fn a:hover { text-decoration: underline; }
+
+.pull { border-left: 3px solid var(--rd); padding: 8px 0 8px 20px; margin: 28px 0; font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--tx); max-width: 640px; }
+
+.table-wrap { margin: 28px 0; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-family: var(--serif); font-size: 16px; }
+table caption { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tm); text-align: left; padding-bottom: 10px; }
+th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--bd); }
+th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tm); font-weight: 600; border-bottom: 2px solid var(--bd); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 14px; }
+tr.total td { border-top: 1px solid var(--bd); border-bottom: 2px solid var(--rd); font-weight: 700; color: var(--rd); }
+tr.total td.num { color: var(--rd); }
+
+.figure { margin: 36px 0; }
+.figure svg { width: 100%; height: auto; display: block; }
+.figure .caption { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tm); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--bd); }
+
+.diagram { background: var(--sf); border: 1px solid var(--bd); padding: 24px 18px 14px; }
+
+.footnotes { margin-top: 60px; padding-top: 24px; border-top: 2px solid var(--bd); }
+.footnotes h3 { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); margin-bottom: 16px; font-weight: 600; }
+.footnotes ol { padding-left: 28px; }
+.footnotes li { font-family: var(--serif); font-size: 14px; line-height: 1.6; color: var(--tm); margin-bottom: 10px; }
+.footnotes li::marker { color: var(--rd); font-family: var(--mono); font-weight: 600; }
+.footnotes a { color: var(--ac); text-decoration: none; word-break: break-word; }
+.footnotes a:hover { text-decoration: underline; }
+
+.foot { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--bd); font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--td); text-align: center; }
+.foot a { color: var(--ac); text-decoration: none; }
+.foot a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  h1 { font-size: 34px; }
+  .dek { font-size: 17px; }
+  .lede { font-size: 19px; }
+  .lede:first-letter { font-size: 52px; }
+  h2 { font-size: 21px; }
+  .pull { font-size: 19px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav"><a href="/">← Sunshine Docket</a> &nbsp;//&nbsp; <a href="/reports/">All Reports</a></nav>
+
+<div class="kicker">Washington State // SEIU 775</div>
+<h1>The <em>Closed Loop</em></h1>
+<p class="dek">How a state payroll tax, an automatic dues stream, and a $13 million ballot campaign add up to one self-funded political machine.</p>
+<div class="byline">By Sunshine Docket <span>//</span> May 10, 2026 <span>//</span> Reading time: 8 min</div>
+
+<p class="lede">Look at your pay stub. Find the line that reads "WA Cares" or "LTC." It is 58 cents on every hundred dollars you earn, with no income cap, deducted from your wages by your employer and remitted to the state. On a $100,000 salary that is $580 a year. On a $200,000 salary it is $1,160. The deduction started July 1, 2023. The benefit, capped at $36,500 over your lifetime and available only after you have paid in for ten years without a five-year break, becomes payable beginning July 1, 2026.<sup class="fn"><a href="#fn1">1</a></sup></p>
+
+<p>That is one end of the pipe. This article is about the other end.</p>
+
+<h2>What WA Cares actually is</h2>
+
+<p>The Long Term Services and Supports Trust Act passed the Washington Legislature in 2019 with Rep. Laurie Jinkins as prime sponsor. Governor Inslee signed it. It established a state-run, payroll-tax-funded long-term care insurance program, the first of its kind in the country.<sup class="fn"><a href="#fn2">2</a></sup></p>
+
+<p>The program is overseen by the Long-Term Services and Supports Trust Commission, a body composed of legislators, agency heads, and stakeholder representatives. Its purpose is to recommend changes to the program, set rules, and report annually to the legislature. The fund balance reached approximately $1.3 billion by mid-2024, with that number growing as employer remittances continue.<sup class="fn"><a href="#fn3">3</a></sup></p>
+
+<p>The services WA Cares pays for are largely home care services. Personal care, bathing, dressing, medication management, transfers, meals, and similar daily-living support delivered in the recipient's home. In Washington, the workforce that performs those services is almost entirely represented by a single union: SEIU 775. Individual provider home care workers are paid through the state's ProviderOne system, with payroll administered by Consumer Direct Care Network Washington (CDWA), the state-contracted fiscal intermediary.<sup class="fn"><a href="#fn4">4</a></sup></p>
+
+<p>So the public dollars flow this way. Workers across Washington pay the premium. The state collects it. Caregivers represented by SEIU 775 deliver the services. CDWA processes the payroll. And out of that payroll, the state deducts 3.2 percent of every caregiver's wages and forwards it directly to SEIU 775 as union dues. That dues stream is automatic. It is encoded in the collective bargaining agreement. CDWA sends SEIU 775 a "Caregiver Daily Feed File" and a "Deductions Update Response File" every day to keep the dues roster current.<sup class="fn"><a href="#fn5">5</a></sup></p>
+
+<div class="figure diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" aria-label="Diagram of the WA Cares closed loop">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="currentColor"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#e3120b"/>
+    </marker>
+  </defs>
+  <g fill="currentColor" color="var(--tx)">
+    <text x="40" y="38" font-family="'Source Serif 4', Georgia, serif" font-size="22" font-weight="700">The WA Cares closed loop</text>
+    <text x="40" y="62" font-family="'DM Mono', monospace" font-size="11" fill="var(--tm)">A state payroll tax, a workforce, a dues stream, and a campaign to defend the whole arrangement</text>
+    <line x1="40" y1="82" x2="860" y2="82" stroke="var(--bd)" stroke-width="1"/>
+  </g>
+
+  <!-- Nodes (all use var(--sf) fill and var(--bd) stroke so they theme-switch) -->
+  <g font-family="'Source Serif 4', Georgia, serif">
+    <!-- 1. Worker -->
+    <rect x="60" y="120" width="200" height="80" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1.2"/>
+    <text x="160" y="150" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">Washington workers</text>
+    <text x="160" y="170" font-size="11" text-anchor="middle" fill="var(--tm)">0.58% of W-2 wages</text>
+    <text x="160" y="186" font-size="11" text-anchor="middle" fill="var(--tm)">No income cap</text>
+
+    <!-- 2. Trust Fund -->
+    <rect x="350" y="120" width="200" height="80" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1.2"/>
+    <text x="450" y="150" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">WA Cares Trust Fund</text>
+    <text x="450" y="170" font-size="11" text-anchor="middle" fill="var(--tm)">$1.3 billion balance</text>
+    <text x="450" y="186" font-size="11" text-anchor="middle" fill="var(--tm)">June 2024</text>
+
+    <!-- 3. Home care services -->
+    <rect x="640" y="120" width="200" height="80" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1.2"/>
+    <text x="740" y="150" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">Home care services</text>
+    <text x="740" y="170" font-size="11" text-anchor="middle" fill="var(--tm)">Up to $36,500 lifetime</text>
+    <text x="740" y="186" font-size="11" text-anchor="middle" fill="var(--tm)">Benefits begin July 2026</text>
+
+    <!-- 4. CDWA payroll -->
+    <rect x="640" y="280" width="200" height="80" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1.2"/>
+    <text x="740" y="310" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">CDWA payroll</text>
+    <text x="740" y="330" font-size="11" text-anchor="middle" fill="var(--tm)">State-contracted</text>
+    <text x="740" y="346" font-size="11" text-anchor="middle" fill="var(--tm)">fiscal intermediary</text>
+
+    <!-- 5. Caregivers -->
+    <rect x="350" y="280" width="200" height="80" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1.2"/>
+    <text x="450" y="310" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">Caregivers</text>
+    <text x="450" y="330" font-size="11" text-anchor="middle" fill="var(--tm)">~60,000 SEIU 775 members</text>
+    <text x="450" y="346" font-size="11" text-anchor="middle" fill="var(--tm)">3.2% wage dues, automatic</text>
+
+    <!-- 6. SEIU 775 -->
+    <rect x="60" y="280" width="200" height="80" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1.2"/>
+    <text x="160" y="310" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">SEIU 775</text>
+    <text x="160" y="330" font-size="11" text-anchor="middle" fill="var(--tm)">$26.9M dues revenue (2016)</text>
+    <text x="160" y="346" font-size="11" text-anchor="middle" fill="var(--tm)">~36% to non-rep activity</text>
+
+    <!-- 7. Political operations -->
+    <rect x="60" y="440" width="200" height="80" fill="var(--sf2)" stroke="#e3120b" stroke-width="1.5"/>
+    <text x="160" y="470" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">Political operations</text>
+    <text x="160" y="490" font-size="11" text-anchor="middle" fill="var(--tm)">$17.8M in 2024 alone</text>
+    <text x="160" y="506" font-size="11" text-anchor="middle" fill="var(--tm)">PDC-reportable contributions</text>
+
+    <!-- 8. Legislators -->
+    <rect x="350" y="440" width="200" height="80" fill="var(--sf2)" stroke="var(--bd)" stroke-width="1.2"/>
+    <text x="450" y="470" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">Legislators</text>
+    <text x="450" y="490" font-size="11" text-anchor="middle" fill="var(--tm)">Sponsor: Speaker Jinkins</text>
+    <text x="450" y="506" font-size="11" text-anchor="middle" fill="var(--tm)">SEIU-funded every cycle</text>
+
+    <!-- 9. Defeat I-2124 -->
+    <rect x="640" y="440" width="200" height="80" fill="var(--sf2)" stroke="#e3120b" stroke-width="1.5"/>
+    <text x="740" y="468" font-size="14" font-weight="700" text-anchor="middle" fill="var(--tx)">Defeat I-2124</text>
+    <text x="740" y="488" font-size="11" text-anchor="middle" fill="var(--tm)">$13.1M of $13.3M from SEIU</text>
+    <text x="740" y="504" font-size="11" text-anchor="middle" fill="#e3120b" font-weight="600">98.5% of opposition funding</text>
+
+    <!-- 10. Commission -->
+    <rect x="350" y="600" width="200" height="80" fill="var(--bg)" stroke="var(--tm)" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="450" y="628" font-size="13" font-weight="700" text-anchor="middle" fill="var(--tx)">LTSS Trust Commission</text>
+    <text x="450" y="648" font-size="11" text-anchor="middle" fill="var(--tm)">Oversees program design</text>
+    <text x="450" y="664" font-size="11" text-anchor="middle" fill="#e3120b" font-weight="600">SEIU 775 lobbyist holds voting seat</text>
+  </g>
+
+  <!-- Arrows -->
+  <g color="var(--tx)">
+    <line x1="260" y1="160" x2="345" y2="160" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="302" y="150" font-family="'DM Mono', monospace" font-size="10" text-anchor="middle" fill="var(--tm)">payroll tax</text>
+
+    <line x1="550" y1="160" x2="635" y2="160" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="592" y="150" font-family="'DM Mono', monospace" font-size="10" text-anchor="middle" fill="var(--tm)">benefits</text>
+
+    <line x1="740" y1="200" x2="740" y2="275" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="752" y="242" font-family="'DM Mono', monospace" font-size="10" fill="var(--tm)">paid through</text>
+
+    <line x1="635" y1="320" x2="555" y2="320" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <text x="595" y="310" font-family="'DM Mono', monospace" font-size="10" text-anchor="middle" fill="var(--tm)">wages</text>
+
+    <line x1="345" y1="320" x2="265" y2="320" stroke="#e3120b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+    <text x="305" y="310" font-family="'DM Mono', monospace" font-size="10" text-anchor="middle" fill="#e3120b" font-weight="600">dues capture</text>
+
+    <line x1="160" y1="360" x2="160" y2="435" stroke="#e3120b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+    <text x="170" y="402" font-family="'DM Mono', monospace" font-size="10" fill="#e3120b" font-weight="600">~36% of dues</text>
+
+    <line x1="260" y1="480" x2="345" y2="480" stroke="#e3120b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+    <text x="302" y="470" font-family="'DM Mono', monospace" font-size="10" text-anchor="middle" fill="#e3120b" font-weight="600">campaign $</text>
+
+    <path d="M 260 500 Q 450 570 640 480" fill="none" stroke="#e3120b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+    <text x="450" y="550" font-family="'DM Mono', monospace" font-size="10" text-anchor="middle" fill="#e3120b" font-weight="600">$13.1M to defeat opt-out</text>
+
+    <path d="M 410 440 Q 380 370 405 205" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+    <text x="370" y="385" font-family="'DM Mono', monospace" font-size="10" font-style="italic" fill="var(--tm)">passed HB 1087 (2019)</text>
+
+    <line x1="450" y1="600" x2="450" y2="365" stroke="currentColor" stroke-width="1.0" stroke-dasharray="3 3"/>
+    <text x="460" y="480" font-family="'DM Mono', monospace" font-size="10" font-style="italic" fill="var(--tm)">recommends rules</text>
+  </g>
+</svg>
+<div class="caption">Figure 1 // Public dollars enter from the worker. Roughly 36% of the dues captured at the bottom of the loop fund the political operation that defends it. Sources: PDC dataset kv7h-kjye, LTSS Trust Commission minutes, SEIU 775 LM-2, CDWA CBA 2023-2025.</div>
+</div>
+
+<h2>Who built it</h2>
+
+<p>The standard story is that WA Cares was built by a broad coalition of advocates concerned about the looming long-term care crisis. That is partly true. But the academic record is clearer about who designed it. A 2023 case study published by the USC Dornsife Equity Research Institute, funded by the Ford Foundation and produced at the request of Caring Across Generations, identifies SEIU 775 as one of three core constituency organizations in the coalition that built the policy, alongside AARP and Caring Across Generations. The report acknowledges Jess Morales and Madeleine Foutch of SEIU 775 as the people who put the researchers in touch with the key players.<sup class="fn"><a href="#fn6">6</a></sup></p>
+
+<p>Madeleine Foutch's name appears in another place too. She has been a registered SEIU 775 lobbyist in Olympia since 2018. And she sits as a voting member on the LTSS Trust Commission, the body that oversees and recommends changes to the program. The September 2022, November 2023, and September 2024 commission minutes show her making and seconding motions on questions of premium rate setting, portability, qualification rules, and program design.<sup class="fn"><a href="#fn7">7</a></sup></p>
+
+<div class="pull">A union that helped design a state program now has a salaried lobbyist for that union seated as a voting member on the commission that governs the program. The conflict is not buried. It is on the meeting minutes.</div>
+
+<h2>What happened when someone tried to make it optional</h2>
+
+<p>In 2024, Initiative 2124 appeared on the Washington ballot. It would have made WA Cares optional rather than mandatory, allowing workers to opt out of the payroll tax. Its sponsors were Brian Heywood's Let's Go Washington committee and state Rep. Jim Walsh.<sup class="fn"><a href="#fn8">8</a></sup></p>
+
+<p>A committee called "No On 2124" registered to defeat it. Public Disclosure Commission records show the committee raised $13,329,584. Of that total, the following came from SEIU and its affiliates:<sup class="fn"><a href="#fn9">9</a></sup></p>
+
+<div class="table-wrap">
+<table>
+<caption>No On 2124 receipts // SEIU stack contributions, 2023-2024</caption>
+<thead><tr><th>Contributor</th><th style="text-align:right">Amount</th></tr></thead>
+<tbody>
+<tr><td>SEIU 775 Ballot Fund</td><td class="num">$8,034,716</td></tr>
+<tr><td>SEIU 775 (direct)</td><td class="num">$4,000,000</td></tr>
+<tr><td>Service Employees International Union (national)</td><td class="num">$500,000</td></tr>
+<tr><td>SEIU Initiative Fund</td><td class="num">$250,000</td></tr>
+<tr><td>SEIU Local 2015 (California home care)</td><td class="num">$250,000</td></tr>
+<tr><td>SEIU 503 (Oregon home care)</td><td class="num">$50,000</td></tr>
+<tr><td>SEIU Healthcare 1199NW</td><td class="num">$50,000</td></tr>
+<tr class="total"><td>SEIU stack subtotal</td><td class="num">$13,134,716</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>That is 98.5 percent of the entire opposition campaign. The next-largest contributor outside the SEIU stack was Consumer Direct Care Network Washington, the state-contracted fiscal intermediary that processes payments to home care workers and forwards daily roster files to SEIU 775, which gave $50,000. UFCW Local 3000, the Washington State Democratic Committee, AARP Washington State, and a small handful of other entities accounted for the rest.</p>
+
+<p>I-2124 lost, 55 to 45. The deduction continues.</p>
+
+<h2>The loop, stated plainly</h2>
+
+<p>Step through it:</p>
+
+<p>The state imposes a payroll tax. The tax funds a program. The program will pay home care providers represented by SEIU 775. The workers' wages are processed by CDWA, which automatically forwards 3.2 percent of those wages to SEIU 775 as dues. SEIU 775 used $50 million in cumulative political spending over the last decade, $17.8 million in 2024 alone, to elect the legislators who passed and sustained the program, and to defeat the initiative that would have made it optional. When the initiative came, SEIU and its allied entities provided 98.5 percent of the opposition funding. The legislator who sponsored the underlying statute, Speaker Laurie Jinkins, has received SEIU contributions in every election cycle since 2014. A salaried SEIU 775 lobbyist holds a voting seat on the commission that oversees the program. The state-contracted vendor that disburses the caregiver payments and forwards the union dues was itself a five-figure contributor to defeating the initiative.<sup class="fn"><a href="#fn10">10</a></sup></p>
+
+<p>You do not have to assert that anyone acted in bad faith. You do not have to assume coordination or motive. You only have to draw the arrows.</p>
+
+<h2>What this is <em>not</em></h2>
+
+<p>WA Cares may turn out to be good policy. Washington's demographics are real, the long-term care affordability crisis is real, and a publicly-funded insurance approach has serious advocates whose arguments deserve a serious hearing. The Milliman actuarial work suggests the fund is solvent under most modeling assumptions. Reasonable people disagree about the program's design, its mandatory structure, and its benefit-to-premium ratio. Those are policy questions.</p>
+
+<p>This article is not about those questions. It is about a structural question that exists independently of whether WA Cares is wise policy: when the same organization helps draft a law, sits on the commission that oversees it, employs the workforce that delivers the services it funds, captures a fixed percentage of those workers' wages, and uses that revenue to defeat any attempt to make the underlying tax optional, what should we call that arrangement?</p>
+
+<p>The honest answer is that we have a name for it in every other context. We just have not been using it for this one.</p>
+
+<h2>Where this goes next</h2>
+
+<p>The closed loop is one feature of a larger system. Subsequent pieces in this series will look at the architects of that system: the figure who built SEIU 775, term-limited himself out of its presidency, and remained chairman of the trusts, the credentialing pipeline, and the policy nonprofits that surround it; the board interlock that makes the various trust funds, technology platforms, and political organizations function as a single network rather than a federation of independent entities; the recurring pattern of Public Disclosure Commission enforcement actions, each one quietly settled and folded into the cost of doing business.</p>
+
+<p>Each of these stories is its own loop. They all close at roughly the same place.</p>
+
+<div class="footnotes">
+<h3>Sources &amp; Footnotes</h3>
+<ol>
+<li id="fn1">WA Cares Fund program parameters. Premium rate of 0.58% on uncapped W-2 wages, effective July 1, 2023. Lifetime benefit of $36,500 indexed to inflation, with benefits payable beginning July 1, 2026. Vesting requires either three of the last six years of contributions or ten years total without a five-year break. <a href="https://wacaresfund.wa.gov/about">wacaresfund.wa.gov/about</a>; RCW 50B.04.</li>
+<li id="fn2">HB 1087, Long-Term Services and Supports Trust Act, signed by Gov. Inslee May 13, 2019. Prime sponsor: Rep. Laurie Jinkins (D-27, current Speaker of the House). <a href="https://app.leg.wa.gov/billsummary?BillNumber=1087&Year=2019">app.leg.wa.gov/billsummary?BillNumber=1087&amp;Year=2019</a>.</li>
+<li id="fn3">Milliman, "WA Cares Fund Actuarial Valuation as of June 30, 2024" (published October 2024). Fund balance approximately $1.3 billion. Premium revenue began accruing July 1, 2023. <a href="https://leg.wa.gov/media/riior0zb/report01-wa-cares-actuarial-valuation-as-of-june-30-2024.pdf">leg.wa.gov/media/riior0zb/report01-wa-cares-actuarial-valuation-as-of-june-30-2024.pdf</a>.</li>
+<li id="fn4">Consumer Direct Care Network Washington (CDWA) became the contracted fiscal intermediary for individual provider home care services under a state contract that took effect in 2021. SEIU 775 is the certified bargaining representative for individual providers under RCW 74.39A.270. <a href="https://www.dshs.wa.gov/altsa/individual-providers">dshs.wa.gov/altsa/individual-providers</a>.</li>
+<li id="fn5">SEIU 775 Collective Bargaining Agreement with Consumer Direct Care Network of Washington, 2023-2025, Section 2.4 and Memorandum of Understanding regarding data file exchange. The CBA prescribes a daily "Caregiver Daily Feed File," a "Caregiver Roster Dues File," a "775 Membership Cards File," and a "Deductions Update Response File" exchanged between CDWA and SEIU 775. <a href="https://seiu775.org/wp-content/uploads/2023/08/Consumer-Direct-Washington-2023-2025-CBA.pdf">seiu775.org/wp-content/uploads/2023/08/Consumer-Direct-Washington-2023-2025-CBA.pdf</a>.</li>
+<li id="fn6">USC Dornsife Equity Research Institute, "Washington Long-Term Care Trust Fund: A Campaign Explained" (2023). Funded by the Ford Foundation; produced at the request of Caring Across Generations. SEIU 775's Madeleine Foutch and Jess Morales are acknowledged as the people who connected the researchers to the key players in the coalition. <a href="https://dornsife.usc.edu/eri/wp-content/uploads/sites/41/2023/01/FINAL_WashingtonLongTermCareTrust_Report_v2.pdf">dornsife.usc.edu/eri/wp-content/uploads/sites/41/2023/01/FINAL_WashingtonLongTermCareTrust_Report_v2.pdf</a>.</li>
+<li id="fn7">PDC AccessHub lobbyist registration: Madeleine Foutch lobbying for SEIU 775, filed December 22, 2017, amended through 2020. <a href="https://accesshub.pdc.wa.gov/node/38876">accesshub.pdc.wa.gov/node/38876</a>. LTSS Trust Commission meeting minutes for Sept. 13, 2022, Nov. 7, 2023, and Sept. 11, 2024, recording Foutch's motions and seconds on portability, premium rates, and qualification rules.</li>
+<li id="fn8">Initiative 2124 to the Legislature, certified to the November 2024 ballot. Sponsor: state Rep. Jim Walsh (R-19), chair of the Washington State Republican Party. Funded by Let's Go Washington, the political committee organized by Brian Heywood. Failed approximately 55-45.</li>
+<li id="fn9">Washington Public Disclosure Commission, "Contributions to Candidates and Political Committees" dataset (kv7h-kjye), filer "No On 2124." Query: <code>where ballot_number = '2124'</code>, grouped by contributor. Totals through end of cycle reporting. <a href="https://data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye">data.wa.gov/Politics/Contributions-to-Candidates-and-Political-Committe/kv7h-kjye</a>.</li>
+<li id="fn10">SEIU 775 cumulative PDC-reportable contributions, 2014-2025: derived from PDC dataset kv7h-kjye, contributor_name matching "%SEIU 775%," aggregated by election_year. 2024 election year total: $17,822,762. Cumulative through 2025: approximately $52 million. Speaker Jinkins SEIU contributions: PDC kv7h-kjye, filer matching "JINKINS," every cycle 2014-2026.</li>
+</ol>
+</div>
+
+<div class="foot">
+Sunshine Docket // <a href="https://sunshinedocket.org">sunshinedocket.org</a> // <a href="https://x.com/minty_hawk">@minty_hawk</a>
+<br>
+Public accountability research on Washington State. Methodology and prior reports at the <a href="/reports/">Reports index</a>.
+</div>
+
+</div>
+</body>
+</html>
