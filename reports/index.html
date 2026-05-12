@@ -77,7 +77,67 @@
     margin: 0 12px;
   }
   .nav-footer a:hover { color: var(--accent); }
-</style>
+
+    /* Latest tiles - 2 column featured grid */
+    .latest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 32px 0 40px;
+    }
+    .latest-tile {
+      display: block;
+      text-decoration: none;
+      color: var(--ink, #1a1a1a);
+      border: 1px solid var(--rule, #ddd);
+      border-top: 3px solid var(--accent, #E3120B);
+      border-radius: 6px;
+      padding: 20px 24px;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .latest-tile:hover {
+      border-color: var(--accent, #E3120B);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .latest-tile .lt-tag {
+      font-family: var(--mono, 'Space Mono', monospace);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent, #E3120B);
+      margin-bottom: 6px;
+    }
+    .latest-tile h3 {
+      font-family: var(--body, 'Libre Baskerville', serif);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .latest-tile .lt-desc {
+      font-family: var(--body, 'Libre Baskerville', serif);
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+    @media (max-width: 700px) {
+      .latest-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Subject section headers */
+    .subject-header {
+      font-family: var(--mono, 'Space Mono', monospace);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent, #E3120B);
+      margin: 40px 0 4px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule, #ccc);
+    }
+
+  </style>
 <script data-goatcounter="https://sunshinedocket.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -90,6 +150,23 @@
 
   <h1 class="page-title">Reports &amp; Commentary</h1>
   <p class="page-sub">Investigations, analysis, and editorial connecting findings to policy.</p>
+
+  <div class="subject-header">Latest</div>
+
+  <div class="latest-grid">
+    <a href="wa-cares-closed-loop.html" class="latest-tile">
+      <div class="lt-tag">Investigation // WA Cares // SEIU 775</div>
+      <h3>The Closed Loop</h3>
+      <div class="lt-desc">A state payroll tax, a workforce, an automatic dues stream, and a $13 million campaign to defend the whole arrangement. How WA Cares funds its own political defense.</div>
+    </a>
+    <a href="mccleary-esser-trap.html" class="latest-tile">
+      <div class="lt-tag">Commentary // Education Funding</div>
+      <h3>The McCleary-ESSER Trap</h3>
+      <div class="lt-desc">Two funding windfalls, one institutional pattern: how Washington school districts converted temporary money into permanent obligations.</div>
+    </a>
+  </div>
+
+  <div class="subject-header">Investigations</div>
 
   <div class="report-card">
     <div class="tag">Investigation // SEIU 775</div>
@@ -105,12 +182,7 @@
     <p>A state payroll tax, a workforce, an automatic dues stream, and a $13 million campaign to defend the whole arrangement. How WA Cares funds its own political defense.</p>
   </div>
 
-  <div class="report-card">
-    <div class="tag">Commentary // Washington State // Education Funding</div>
-    <h2><a href="mccleary-esser-trap.html">The McCleary-ESSER Trap</a></h2>
-    <div class="byline">May 2026 // Public records sourced</div>
-    <p>Two funding windfalls, one institutional pattern: how Washington school districts converted temporary money into permanent obligations.</p>
-  </div>
+  <div class="subject-header">Seattle</div>
 
   <div class="report-card">
     <div class="tag">Commentary // Seattle // JumpStart Tax</div>
@@ -120,24 +192,35 @@
   </div>
 
   <div class="report-card">
-    <div class="tag">Commentary // King County // KCRHA</div>
-    <h2><a href="kcrha-audit-article.html">The Missing Money Is Not the Story</a></h2>
-    <div class="byline">April 2026 // Public records sourced</div>
-    <p>A forensic audit found $533.9 million in public funds passed through the King County Regional Homelessness Authority. The deeper finding is that the agency could not reliably trace any of it.</p>
-  </div>
-
-  <div class="report-card">
     <div class="tag">Commentary // Seattle // Property Tax</div>
     <h2><a href="levy-stack-article.html">The Levy Stack</a></h2>
     <div class="byline">April 2026 // Public records sourced</div>
     <p>Seattle voters have approved property tax levies that will collect $570 million in 2026, more than four times what they collected in 2014. The library levy on the August ballot pushes the city toward a state-mandated cap.</p>
   </div>
 
+  <div class="subject-header">State Fiscal</div>
+
   <div class="report-card">
     <div class="tag">Commentary // Washington State // Fiscal</div>
     <h2><a href="moodys-outlook-article.html">The Check Engine Light</a></h2>
     <div class="byline">April 2026 // Public records sourced</div>
     <p>Moody's revised Washington's outlook from stable to negative. The diagnosis is structural: spending outpacing revenue, reserves nearly depleted, and a tax the legislature is budgeting around while it sits in court.</p>
+  </div>
+
+  <div class="report-card">
+    <div class="tag">Commentary // Washington State // Education Funding</div>
+    <h2><a href="mccleary-esser-trap.html">The McCleary-ESSER Trap</a></h2>
+    <div class="byline">May 2026 // Public records sourced</div>
+    <p>Two funding windfalls, one institutional pattern: how Washington school districts converted temporary money into permanent obligations.</p>
+  </div>
+
+  <div class="subject-header">King County</div>
+
+  <div class="report-card">
+    <div class="tag">Commentary // King County // KCRHA</div>
+    <h2><a href="kcrha-audit-article.html">The Missing Money Is Not the Story</a></h2>
+    <div class="byline">April 2026 // Public records sourced</div>
+    <p>A forensic audit found $533.9 million in public funds passed through the King County Regional Homelessness Authority. The deeper finding is that the agency could not reliably trace any of it.</p>
   </div>
 
 
