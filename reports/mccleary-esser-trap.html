@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The McCleary-ESSER Trap: How Washington's School Districts Built a Fiscal Crisis | Sunshine Docket</title>
+<meta name="description" content="Two funding windfalls, one institutional pattern: how Washington school districts converted temporary money into permanent obligations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E3120B;
+    --ink: #121212;
+    --body: #1a1a1a;
+    --muted: #6b6b6b;
+    --rule: #d9d3c7;
+    --paper: #f5f1e8;
+    --paper-soft: #faf7ef;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--body);
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .topbar {
+    height: 6px;
+    background: var(--red);
+    width: 100%;
+  }
+
+  .masthead {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 24px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .masthead .brand {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .masthead .section {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    font-weight: 500;
+  }
+
+  article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+
+  h1.headline {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+
+  p.deck {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+
+  .byline {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .byline .author { color: var(--ink); font-weight: 500; }
+
+  article h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 44px 0 14px;
+    letter-spacing: -0.01em;
+  }
+
+  article h2::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 3px;
+    background: var(--red);
+    margin-bottom: 14px;
+  }
+
+  article p {
+    margin: 0 0 18px;
+    color: var(--body);
+  }
+
+  article p.lede::first-letter {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 0.85;
+    float: left;
+    padding: 6px 10px 0 0;
+    color: var(--red);
+  }
+
+  article em, article i { font-style: italic; }
+  article strong { font-weight: 600; color: var(--ink); }
+
+  .pullstat {
+    margin: 36px 0;
+    padding: 24px 0 24px 24px;
+    border-left: 3px solid var(--red);
+    background: var(--paper-soft);
+    padding-right: 24px;
+  }
+
+  .pullstat .figure {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+
+  .pullstat .label {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  sup.fn {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--red);
+    padding-left: 1px;
+  }
+
+  sup.fn a {
+    color: var(--red);
+    text-decoration: none;
+  }
+
+  sup.fn a:hover { text-decoration: underline; }
+
+  .sources {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 3px solid var(--ink);
+  }
+
+  .sources h2 {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+    margin: 0 0 20px;
+    font-weight: 600;
+  }
+
+  .sources h2::before { display: none; }
+
+  .sources ol {
+    list-style: none;
+    counter-reset: src;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sources li {
+    counter-increment: src;
+    position: relative;
+    padding: 8px 0 8px 36px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--body);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sources li:last-child { border-bottom: none; }
+
+  .sources li::before {
+    content: counter(src);
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--red);
+    width: 24px;
+    text-align: right;
+    padding-right: 6px;
+  }
+
+  .sources li:target {
+    background: var(--paper-soft);
+    margin-left: -12px;
+    padding-left: 48px;
+  }
+
+  footer.colophon {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer.colophon a {
+    color: var(--red);
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    h1.headline { font-size: 32px; }
+    p.deck { font-size: 19px; }
+    article h2 { font-size: 22px; }
+    .pullstat .figure { font-size: 28px; }
+    article { padding: 32px 20px 60px; }
+    .masthead { padding: 20px 20px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="masthead">
+  <a href="/" class="brand">Sunshine Docket</a>
+  <span class="section">Education Finance</span>
+</div>
+
+<article>
+
+  <div class="kicker">Investigation &middot; Washington State</div>
+
+  <h1 class="headline">The McCleary-ESSER Trap</h1>
+
+  <p class="deck">How Washington's school districts converted two temporary funding windfalls into permanent obligations, and why the bill is coming due now.</p>
+
+  <div class="byline">
+    <span class="author">By Sunshine Docket</span>
+    <span>Published May 11, 2026</span>
+  </div>
+
+  <p class="lede">Washington's school districts are hitting a wall. Bellingham is cutting 60 certificated positions despite voters approving $4 million in new annual levy funding, and could still close elementary schools as early as 2027. Seattle faces a structural deficit that has exceeded $100 million for two consecutive years. Class sizes are rising while the decisions that created this situation remain largely unexamined.</p>
+
+  <p>How did we get here? Two major funding windfalls, McCleary and federal COVID relief, created an institutional trap. Districts converted temporary and one-time money into permanent salary obligations. Now those revenue sources are gone, and the obligations remain.</p>
+
+  <h2>McCleary: Resetting the Baseline</h2>
+
+  <p>In 2012, the Washington Supreme Court ruled unanimously in <em>McCleary v. Washington</em> that the state had failed its constitutional duty to fully fund basic education. Years of legislative maneuvering followed. In 2017 and 2018, the legislature finally enacted the required funding increases, including an infusion of roughly $2 billion for educator compensation.</p>
+
+  <p>The effect on salaries was substantial. According to a 2020 Washington Research Council analysis of OSPI data, the average base salary for certificated teachers jumped from $55,718 in the 2017-18 school year to $73,101 in 2018-19, an increase of 31.2 percent.<sup class="fn"><a href="#fn1">1</a></sup> State salary allocations for certificated instructional staff were set at $65,216 for 2018-19, confirmed in Washington Supreme Court records from the McCleary oversight proceedings.<sup class="fn"><a href="#fn2">2</a></sup></p>
+
+  <div class="pullstat">
+    <div class="figure">+31.2%</div>
+    <div class="label">Single-year jump in average base salary for Washington certificated teachers, 2017-18 to 2018-19, following the McCleary settlement.</div>
+  </div>
+
+  <p>The Washington Education Association (WEA) was a major funder and coalition participant in the McCleary litigation from its inception. The case was filed in 2007 by the Network for Excellence in Washington Schools (NEWS), a coalition that included WEA, local education associations, school districts, and parent groups. WEA contributed approximately $4 million to the litigation over its course, raised through member dues assessments.<sup class="fn"><a href="#fn3">3</a></sup> After the court's 2012 ruling, WEA pressed hard for McCleary dollars to flow into salary increases, a position WEA described publicly as a "once in a lifetime" opportunity.</p>
+
+  <p>The strategic logic was straightforward: salary increases written into multi-year collective bargaining contracts become structurally fixed. Unlike technology purchases, tutoring programs, or staffing levels, negotiated salaries are resistant to reduction when enrollment declines or funding shifts. The McCleary money reset the baseline. Districts absorbed permanent obligations that would outlast the conditions that made them affordable.</p>
+
+  <p>According to a Washington Policy Center analysis, WEA's annual revenue from member dues grew from approximately $29 million before McCleary to roughly $37 million in the years following, a figure consistent with the salary increases that drove up the dues base.<sup class="fn"><a href="#fn3">3</a></sup> The WEA's total revenue for the 2021-22 fiscal year was $50.4 million, according to the union's IRS Form 990 filing for that period.<sup class="fn"><a href="#fn4">4</a></sup></p>
+
+  <h2>ESSER: The Same Trap, Repeated</h2>
+
+  <p>Then came the pandemic.</p>
+
+  <p>Congress authorized approximately $190 billion nationwide in Elementary and Secondary School Emergency Relief (ESSER) funds across three legislative packages. Washington school districts received more than $2.6 billion in ESSER funding, with the state receiving an additional $279.5 million, according to reporting based on data from the state Office of Superintendent of Public Instruction.<sup class="fn"><a href="#fn5">5</a></sup></p>
+
+  <div class="pullstat">
+    <div class="figure">$2.6 billion</div>
+    <div class="label">Federal ESSER funding flowed to Washington school districts across three pandemic-era authorizations, with another $279.5 million to the state.</div>
+  </div>
+
+  <p>The money was temporary by federal design, intended for pandemic response, technology, learning loss recovery, and emergency operations. Districts had advance notice of the spending deadlines.</p>
+
+  <p>Many districts used the money to sustain or expand staffing anyway. Bellingham Public Schools is the clearest documented example. In April 2023, as the budget reckoning was becoming visible, Superintendent Greg Baker acknowledged publicly that the district had added 204 staff positions since the 2016-17 school year, a 15 percent increase, and that the loss of ESSER funding was a central factor in the coming cuts. Baker described the district as sitting with "a surplus of staff employed during the COVID-19 pandemic" and no corresponding surplus of students or revenue to sustain them.<sup class="fn"><a href="#fn6">6</a></sup></p>
+
+  <p>Reporting from The 74 and the Washington State Standard found that Washington districts spent the majority of their ESSER dollars on "teaching," a category that includes hiring instructional aides, extending teacher contracts, and afterschool staffing. A Georgetown University Edunomics Lab researcher cited in that reporting called it "a missed opportunity" to use the funds for academic recovery, noting that states more aggressive on reading and math remediation had already fully recovered from COVID learning losses.<sup class="fn"><a href="#fn5">5</a></sup></p>
+
+  <p>Now ESSER has expired. The Bellingham district faces a $7.5 million budget shortfall for 2026-27, resulting in roughly 60 certificated position reductions spread across teachers, librarians, counselors, and physical education and music staff. Voters approved a $4 million annual supplemental levy in November 2025, which helped narrow the gap but was not enough to close it. A facilities planning task force is considering elementary school closures, with any such closures not expected before summer 2027 at the earliest.<sup class="fn"><a href="#fn7">7</a></sup></p>
+
+  <p>Seattle Public Schools has faced structural deficits exceeding $100 million for multiple consecutive budget cycles. The 2024-25 budget acknowledged a projected on-going gap of approximately $94 million, with district officials citing declining enrollment, expiration of federal relief funds, and previous staffing commitments as the primary drivers.<sup class="fn"><a href="#fn8">8</a></sup></p>
+
+  <h2>The Ratchet Effect</h2>
+
+  <p>What the McCleary and ESSER episodes share is a structural pattern: money flows in, contractual obligations are created, revenue declines, costs remain. Salary increases written into collective bargaining agreements during flush years cannot easily be reversed when conditions change. Staffing levels added during temporary funding periods generate permanent budget pressure.</p>
+
+  <p>This is not unique to Washington. The national ESSER expiration has produced fiscal crises in districts across the country. What distinguishes Washington's situation is the compounding of two successive ratchet cycles, one from McCleary, one from COVID, with enrollment decline accelerating in between.</p>
+
+  <p>The teachers who bear the consequences of these decisions are, in many cases, not the teachers who benefited from them. Washington's seniority-based layoff rules, negotiated through collective bargaining, require that newer employees be reduced first regardless of performance. The result is that less senior teachers, often younger and earlier in their careers, absorb the institutional costs of choices made before they arrived.</p>
+
+  <h2>The Administrative Layer</h2>
+
+  <p>The Bellingham fiscal situation has drawn additional scrutiny over district administration. A guest commentary published in <em>Cascadia Daily News</em> in April 2026 documented that, during the same period when student opportunities were being cut, the number of district-level administrators increased from 16 to 27, with an accompanying rise in administrative salaries. The author noted that the district completed a $32 million district office building in 2024 while budget shortfalls were already becoming apparent.<sup class="fn"><a href="#fn9">9</a></sup></p>
+
+  <p>The superintendents of the two districts discussed at length in this piece are well-compensated by any measure. Bellingham Superintendent Greg Baker earned $398,393 in the 2024-25 school year, according to a fact-check published by <em>Cascadia Daily News</em>, the highest superintendent salary in Whatcom County and, as of the 2023-24 year, the 12th highest among all school employees in Washington state. In the 2023-24 school year Baker earned $386,058, again per <em>Cascadia Daily News</em> reporting.<sup class="fn"><a href="#fn10">10</a></sup> Seattle Superintendent Brent Jones received total compensation of approximately $390,940 under his 2024 contract, a package the Seattle School Board approved in October 2024, simultaneous with announcing school closure plans to address the district's $100 million deficit. The board's action drew criticism as "out of touch" from community members and editorial observers. Jones has since stepped down; his successor, Ben Shuldiner, was contracted at $425,000 annually beginning February 2026.<sup class="fn"><a href="#fn11">11</a></sup></p>
+
+  <p>Washington school superintendents as a class are among the higher-paid in the country. According to Salary.com data as of 2026, the average school superintendent salary in Washington is approximately $173,702, ranking the state fourth nationally. The Chehalis School District paid its former superintendent $545,618 in the 2023-24 fiscal year, though that figure included a $350,000 severance payment on top of a $225,000 base salary.<sup class="fn"><a href="#fn12">12</a></sup></p>
+
+  <h2>The Full Cost of Salary: Pensions and Benefits</h2>
+
+  <p>The compensation figures above understate the true cost to districts, because pension contributions are salary-indexed and rise in lockstep with base pay.</p>
+
+  <p>Washington school superintendents and administrators participate in the Teachers' Retirement System (TRS), the state's defined-benefit pension program. Under TRS Plan 2, the most common plan for newer employees, the benefit formula is straightforward: 2 percent multiplied by years of service, multiplied by the employee's Average Final Compensation (the average of their five highest consecutive earning years). Under current contribution rates set by the Washington State Pension Funding Council, school districts contribute 7.74 percent of each employee's salary directly to the pension system, effective September 2025. Employees contribute an additional 7.54 percent.<sup class="fn"><a href="#fn13">13</a></sup></p>
+
+  <p>The practical consequence: a salary increase is not just a salary increase. When Bellingham's superintendent salary rises from, say, $330,000 to $398,000, the district's pension contribution alone increases by approximately $5,260 per year on top of the base salary change. For a district with hundreds of certificated employees all receiving negotiated raises simultaneously, as happened in the McCleary and ESSER periods, the pension tail on each raise compounds the total cost significantly above the headline wage figure.</p>
+
+  <div class="pullstat">
+    <div class="figure">~$199,000</div>
+    <div class="label">Estimated annual TRS Plan 2 pension benefit for a superintendent retiring after 25 years at Baker's current salary. Inflation-adjusted, lifetime, guaranteed.</div>
+  </div>
+
+  <p>A TRS Plan 2 superintendent retiring after 25 years at Baker's current salary level could expect an annual pension benefit of roughly $199,000, more than twice the average Washington teacher salary and a guaranteed, inflation-adjusted lifetime income stream paid from district and state contributions. These pension obligations accumulate quietly in the background of every salary negotiation, grow with each raise, and are backed by state law.</p>
+
+  <p>Beyond pension, certificated employees receive health benefits through the School Employees Benefits Board (SEBB), with district contributions partially indexed to enrollment and staffing levels. The combination of base salary, pension obligations, and health benefits means the fully-loaded cost of a senior administrator or veteran teacher is materially higher than the salary line in any press release or contract announcement.</p>
+
+  <p>A 2022 National Center for Education Statistics study found that Washington spends more per pupil on administration than the national average, a finding that has been cited across the political spectrum in discussions of the state's education finance structure.<sup class="fn"><a href="#fn14">14</a></sup></p>
+
+  <p>At the union level, WEA's hired executive director received total compensation of $415,545 in the 2021-22 fiscal year, according to the union's IRS Form 990 filing. WEA president Larry Delaney, an elected officer, received $312,281 in total compensation the same year.<sup class="fn"><a href="#fn4">4</a></sup></p>
+
+  <section class="sources">
+    <h2>Sources &amp; Notes</h2>
+    <ol>
+      <li id="fn1">Washington Research Council, "School Funding: Accounting for the Billions Spent in Response to McCleary" (October 2020); OSPI SY 2018-19 salary data.</li>
+      <li id="fn2">Washington Supreme Court McCleary oversight filings (April 2018); ESSB 6032 § 503(1)(c).</li>
+      <li id="fn3">Washington Education Association website and Network for Excellence in Washington Schools coalition records; Washington Policy Center, "Was public education money used to fund the McCleary lawsuit?" (September 2016).</li>
+      <li id="fn4">Washington Education Association IRS Form 990 for fiscal year ending August 2022 (publicly available via IRS / ProPublica Nonprofit Explorer, EIN 91-0460645).</li>
+      <li id="fn5">Washington State Standard / The 74, "Washington Districts Received $2.6 Billion in Federal COVID Relief Funding" (October 2024); OSPI state funding page.</li>
+      <li id="fn6">Cascadia Daily News, April 26, 2023; Bellingham Public Schools superintendent communications.</li>
+      <li id="fn7">Bellingham Public Schools budget page and superintendent communications; Cascadia Daily News, March 30, 2026; My Bellingham Now, April 2, 2026.</li>
+      <li id="fn8">Seattle Public Schools 2024-25 Budget Book; KUOW reporting, multiple dates 2024-2025.</li>
+      <li id="fn9">Cascadia Daily News guest commentary, April 15, 2026.</li>
+      <li id="fn10">Cascadia Daily News letters editor fact-check, February 18, 2026 (2024-25: $398,393); Cascadia Daily News, May 12, 2025 (2023-24: $386,058, 12th highest school employee salary in state).</li>
+      <li id="fn11">Seattle Times, October 3, 2024 (Jones total compensation $390,940); Center Square / Black Chronicle, January 2026 (Shuldiner contract $425,000).</li>
+      <li id="fn12">Salary.com School Superintendent Salary benchmark, Washington (May 2026); The Daily Chronicle, "Former Chehalis superintendent was paid $545K" (February 2025). Note: Chehalis figure includes $350,000 severance on $225,000 base salary.</li>
+      <li id="fn13">Washington Department of Retirement Systems, TRS Plan 2 (drs.wa.gov/plan/trs2); DRS Notice 25-015, employer contribution rate 7.74 percent effective September 2025; DRS Notice 24-017. Pension formula: 2 percent x service years x Average Final Compensation. Benefit and contribution figures are illustrative calculations based on the published formula and current rates.</li>
+      <li id="fn14">National Center for Education Statistics (2022).</li>
+    </ol>
+  </section>
+
+</article>
+
+<footer class="colophon">
+  <span>Sunshine Docket &middot; Washington State public accountability</span>
+  <span><a href="https://x.com/minty_hawk">@minty_hawk</a></span>
+</footer>
+
+</body>
+</html>
