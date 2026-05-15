@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CourtWatch WA | Sunshine Docket</title>
+<meta name="description" content="Five of nine Washington Supreme Court seats are on the 2026 ballot. The court that will rule on the income tax is being rebuilt in real time.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --body: 'Source Serif 4', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+  --ink: #1a1a1a;
+  --paper: #f8f7f4;
+  --accent: #E3120B;
+  --muted: #888;
+  --rule: #ccc;
+  --card-bg: #fff;
+  --on-ballot: #FFF3F0;
+  --not-up: #f4f4f2;
+  --open: #E3120B;
+  --incumbent: #2B6CB0;
+  --appointed: #D97706;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header bar */
+.top-bar {
+  background: var(--accent);
+  height: 4px;
+  width: 100%;
+}
+.site-header {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.site-header a {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-header .cat {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Content */
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* Hero */
+.hero-section {
+  margin: 40px 0 32px;
+}
+.hero-section .tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.hero-section h1 {
+  font-family: var(--body);
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+.hero-section h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-section .subtitle {
+  font-family: var(--body);
+  font-size: 18px;
+  font-style: italic;
+  color: #555;
+  line-height: 1.5;
+  max-width: 680px;
+}
+.hero-section .byline {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+/* Key dates bar */
+.dates-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.date-item {
+  text-align: center;
+}
+.date-item .d-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.date-item .d-value {
+  font-family: var(--body);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.date-item .d-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+  margin-top: 2px;
+}
+
+/* The bench - 9 seat visual */
+.bench-section {
+  margin: 40px 0;
+}
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.bench-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.seat {
+  text-align: center;
+  padding: 16px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  transition: transform 0.2s;
+}
+.seat:hover {
+  transform: translateY(-2px);
+}
+.seat.on-ballot {
+  background: var(--on-ballot);
+  border-color: var(--accent);
+  border-width: 2px;
+}
+.seat.not-up {
+  background: var(--not-up);
+}
+.seat .s-pos {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.seat .s-name {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.seat .s-status {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.seat .s-status.open { background: var(--accent); color: #fff; }
+.seat .s-status.special { background: var(--appointed); color: #fff; }
+.seat .s-status.running { background: var(--incumbent); color: #fff; }
+.seat .s-status.safe { background: #ccc; color: #666; }
+.bench-legend {
+  display: flex;
+  gap: 20px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.bench-legend span::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.bench-legend .l-open::before { background: var(--accent); }
+.bench-legend .l-special::before { background: var(--appointed); }
+.bench-legend .l-running::before { background: var(--incumbent); }
+.bench-legend .l-safe::before { background: #ccc; }
+
+@media (max-width: 700px) {
+  .bench-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Context block */
+.context-block {
+  background: var(--on-ballot);
+  border-left: 3px solid var(--accent);
+  padding: 20px 24px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.context-block strong {
+  font-weight: 700;
+}
+
+/* Race cards */
+.races-section {
+  margin: 40px 0;
+}
+.race-card {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+}
+.race-card:last-child {
+  border-bottom: none;
+}
+.race-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.race-header h3 {
+  font-family: var(--body);
+  font-size: 22px;
+  font-weight: 700;
+}
+.race-type {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+.race-type.open-seat { background: var(--accent); color: #fff; }
+.race-type.special-election { background: var(--appointed); color: #fff; }
+.race-type.incumbent-running { background: var(--incumbent); color: #fff; }
+.race-context {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.candidates-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.candidates-table th {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--muted);
+}
+.candidates-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+.candidates-table tr.incumbent td {
+  background: #f0f7ff;
+}
+.cand-name {
+  font-weight: 700;
+}
+.cand-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.cand-tag.inc { background: var(--incumbent); color: #fff; }
+.cand-tag.challenger { background: #eee; color: #666; }
+
+/* Intro prose */
+.intro-text {
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 24px 0 16px;
+}
+.intro-text p {
+  margin-bottom: 16px;
+}
+
+/* Footer */
+.page-footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+.page-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.sources {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 32px;
+  line-height: 1.8;
+}
+.sources strong {
+  color: var(--ink);
+}
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+
+<div class="site-header">
+  <a href="/">Sunshine Docket</a>
+  <span class="cat">CourtWatch WA</span>
+</div>
+
+<div class="wrap">
+
+  <div class="hero-section">
+    <div class="tag">2026 Washington State Supreme Court</div>
+    <h1>Five seats.<br>One <em>rebuilding</em> court.</h1>
+    <p class="subtitle">The court that will rule on Washington's income tax is losing a majority of its experienced justices in a single cycle. Here is every seat, every candidate, and what is at stake.</p>
+    <div class="byline">Sunshine Docket &middot; Updated May 14, 2026 &middot; Data from PDC, SOS, Ballotpedia</div>
+  </div>
+
+  <div class="dates-bar">
+    <div class="date-item">
+      <div class="d-label">Filing Deadline</div>
+      <div class="d-value">May 8</div>
+      <div class="d-note">Closed</div>
+    </div>
+    <div class="date-item">
+      <div class="d-label">Top Two Primary</div>
+      <div class="d-value">Aug 4</div>
+      <div class="d-note">Ballots drop ~Jul 17</div>
+    </div>
+    <div class="date-item">
+      <div class="d-label">General Election</div>
+      <div class="d-value">Nov 3</div>
+      <div class="d-note"></div>
+    </div>
+  </div>
+
+  <!-- THE BENCH -->
+  <div class="bench-section">
+    <div class="section-label">The Bench</div>
+    <div class="bench-grid">
+      <div class="seat on-ballot">
+        <div class="s-pos">Pos 1</div>
+        <div class="s-name">Colleen Melody</div>
+        <div class="s-status special">Special</div>
+      </div>
+      <div class="seat not-up">
+        <div class="s-pos">Pos 2</div>
+        <div class="s-name">Sal Mungia</div>
+        <div class="s-status safe">2028</div>
+      </div>
+      <div class="seat on-ballot">
+        <div class="s-pos">Pos 3</div>
+        <div class="s-name">Open</div>
+        <div class="s-status open">Open Seat</div>
+      </div>
+      <div class="seat on-ballot">
+        <div class="s-pos">Pos 4</div>
+        <div class="s-name">Open</div>
+        <div class="s-status open">Open Seat</div>
+      </div>
+      <div class="seat on-ballot">
+        <div class="s-pos">Pos 5</div>
+        <div class="s-name">Theo Angelis</div>
+        <div class="s-status special">Special</div>
+      </div>
+      <div class="seat not-up">
+        <div class="s-pos">Pos 6</div>
+        <div class="s-name">Helen Whitener</div>
+        <div class="s-status safe">2028</div>
+      </div>
+      <div class="seat on-ballot">
+        <div class="s-pos">Pos 7</div>
+        <div class="s-name">Debra Stephens</div>
+        <div class="s-status running">Incumbent</div>
+      </div>
+      <div class="seat not-up">
+        <div class="s-pos">Pos 8</div>
+        <div class="s-name">Steven Gonzalez</div>
+        <div class="s-status safe">2030</div>
+      </div>
+      <div class="seat not-up">
+        <div class="s-pos">Pos 9</div>
+        <div class="s-name">S.G. McCloud</div>
+        <div class="s-status safe">2030</div>
+      </div>
+    </div>
+    <div class="bench-legend">
+      <span class="l-open">Open seat</span>
+      <span class="l-special">Special election (appointed)</span>
+      <span class="l-running">Incumbent running</span>
+      <span class="l-safe">Not up in 2026</span>
+    </div>
+  </div>
+
+  <!-- WHY THIS MATTERS -->
+  <div class="context-block">
+    <strong>Why this matters now.</strong> The income tax on earners above $1 million (SB 5796) is being challenged in Klickitat County Superior Court. The case will reach this court. Two of the five seats on the ballot are held by Ferguson appointees. Two more are open because sitting justices aged out or chose not to run. The composition of the court that hears the tax case will be decided by voters this November.
+  </div>
+
+  <!-- RACES -->
+  <div class="races-section">
+    <div class="section-label">The Races</div>
+
+    <!-- Position 3 -->
+    <div class="race-card">
+      <div class="race-header">
+        <h3>Position 3</h3>
+        <span class="race-type open-seat">Open Seat</span>
+      </div>
+      <div class="race-context">Justice Raquel Montoya-Lewis is not seeking re-election. Regular six-year term.</div>
+      <table class="candidates-table">
+        <thead><tr><th>Candidate</th><th>Current Role</th><th>Key Detail</th></tr></thead>
+        <tbody>
+          <tr><td><span class="cand-name">Mike Diaz</span></td><td>State appeals court judge</td><td>Endorsed by Montoya-Lewis, AG Nick Brown</td></tr>
+          <tr><td><span class="cand-name">Jaime Hawk</span></td><td>King County Superior Court judge</td><td>Endorsed by Gov. Ferguson, Justice Yu, Justice Whitener</td></tr>
+          <tr><td><span class="cand-name">David Stevens</span></td><td>Mason County Superior Court judge</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Position 4 -->
+    <div class="race-card">
+      <div class="race-header">
+        <h3>Position 4</h3>
+        <span class="race-type open-seat">Open Seat</span>
+      </div>
+      <div class="race-context">Justice Charles W. Johnson reached mandatory retirement age (75). Regular six-year term. Only two candidates filed; both advance to general election automatically.</div>
+      <table class="candidates-table">
+        <thead><tr><th>Candidate</th><th>Current Role</th><th>Key Detail</th></tr></thead>
+        <tbody>
+          <tr><td><span class="cand-name">Ian Birk</span></td><td>State appeals court judge</td><td>$200K raised</td></tr>
+          <tr><td><span class="cand-name">Sean O'Donnell</span></td><td>King County Superior Court judge</td><td>$162K raised</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Position 7 -->
+    <div class="race-card">
+      <div class="race-header">
+        <h3>Position 7</h3>
+        <span class="race-type incumbent-running">Incumbent Running</span>
+      </div>
+      <div class="race-context">Chief Justice Debra Stephens is running for re-election. Regular six-year term.</div>
+      <table class="candidates-table">
+        <thead><tr><th>Candidate</th><th>Current Role</th><th>Key Detail</th></tr></thead>
+        <tbody>
+          <tr class="incumbent"><td><span class="cand-name">Debra Stephens</span> <span class="cand-tag inc">Incumbent</span></td><td>Chief Justice</td><td></td></tr>
+          <tr><td><span class="cand-name">Todd Bloom</span></td><td>Attorney; Bar Assn. Board of Governors</td><td>Ran in 2024; past Congressional runs (R)</td></tr>
+          <tr><td><span class="cand-name">Karim Merchant</span></td><td>King County defense attorney</td><td></td></tr>
+          <tr><td><span class="cand-name">David Shelvey</span></td><td>Attorney</td><td>Ran in 2024</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Position 1 -->
+    <div class="race-card">
+      <div class="race-header">
+        <h3>Position 1</h3>
+        <span class="race-type special-election">Special Election</span>
+      </div>
+      <div class="race-context">Justice Mary Yu resigned December 2025. Gov. Ferguson appointed Colleen Melody. Two-year unexpired term; next regular election in 2028.</div>
+      <table class="candidates-table">
+        <thead><tr><th>Candidate</th><th>Current Role</th><th>Key Detail</th></tr></thead>
+        <tbody>
+          <tr class="incumbent"><td><span class="cand-name">Colleen Melody</span> <span class="cand-tag inc">Appointed</span></td><td>Justice (fmr. AG civil rights division chief)</td><td>Ferguson appointee; potential recusal on income tax?</td></tr>
+          <tr><td><span class="cand-name">Scott Edwards</span></td><td>Seattle law firm partner; UW tax law instructor</td><td></td></tr>
+          <tr><td><span class="cand-name">Laura Christensen Colberg</span></td><td>Pro tem commissioner, Snohomish Co. Superior Court</td><td>18 years on the bench</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Position 5 -->
+    <div class="race-card">
+      <div class="race-header">
+        <h3>Position 5</h3>
+        <span class="race-type special-election">Special Election</span>
+      </div>
+      <div class="race-context">Justice Barbara Madsen retired April 2026. Gov. Ferguson appointed Theo Angelis. Two-year unexpired term; next regular election in 2028.</div>
+      <table class="candidates-table">
+        <thead><tr><th>Candidate</th><th>Current Role</th><th>Key Detail</th></tr></thead>
+        <tbody>
+          <tr class="incumbent"><td><span class="cand-name">Theo Angelis</span> <span class="cand-tag inc">Appointed</span></td><td>Justice (fmr. Seattle litigator)</td><td>Ferguson appointee; first justice of Middle Eastern descent</td></tr>
+          <tr><td><span class="cand-name">Dave Larson</span></td><td>Retired Federal Way Municipal Court judge</td><td>Narrowly lost 2024 race; ran in 2020, 2016, 2000</td></tr>
+          <tr><td><span class="cand-name">Sharonda Amamilo</span></td><td>Thurston County Superior Court judge</td><td>DCYF oversight board member</td></tr>
+          <tr><td><span class="cand-name">Greg Miller</span></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- NOT ON THE BALLOT -->
+  <div class="bench-section">
+    <div class="section-label">Not on the 2026 Ballot</div>
+    <div class="intro-text">
+      <p>Four justices are not up for election this cycle. Their terms expire in 2028 or 2030.</p>
+    </div>
+    <table class="candidates-table" style="max-width:600px;">
+      <thead><tr><th>Position</th><th>Justice</th><th>Term Expires</th></tr></thead>
+      <tbody>
+        <tr><td>Position 2</td><td><strong>Sal Mungia</strong></td><td>Jan 2029</td></tr>
+        <tr><td>Position 6</td><td><strong>G. Helen Whitener</strong></td><td>Jan 2029</td></tr>
+        <tr><td>Position 8</td><td><strong>Steven Gonzalez</strong></td><td>Jan 2031</td></tr>
+        <tr><td>Position 9</td><td><strong>Sheryl Gordon McCloud</strong></td><td>Jan 2031</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <strong>Sources:</strong> Washington Secretary of State candidate filings; Public Disclosure Commission campaign finance data (kv7h-kjye); Ballotpedia; Washington State Standard; NPI Elections Visualizer. Candidate fundraising figures per PDC filings as of May 2026. This page will be updated as the campaign develops.
+  </div>
+
+</div>
+
+<footer class="page-footer">
+  <a href="/">Sunshine Docket</a> &middot;
+  <a href="/legislature.html">Full Legislature</a> &middot;
+  <a href="/reports/">Reports</a> &middot;
+  <a href="/methodology.html">Methodology</a> &middot;
+  <a href="mailto:sunshinedocket@proton.me">Tips</a>
+</footer>
+
+</body>
+</html>
