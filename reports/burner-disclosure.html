@@ -1,268 +1,370 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Outlet, the Office, and the Treasurer | Sunshine Docket</title>
-<meta name="description" content="A new Seattle progressive media outlet was founded in March 2025 at the headquarters of Washington's dominant Democratic consulting firm by the firm principal's wife. None of those relationships have ever been disclosed to readers.">
 <link rel="canonical" href="https://sunshinedocket.org/reports/burner-disclosure.html">
-<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;0,900;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<meta name="description" content="A new Seattle progressive media outlet was founded in March 2025 at the headquarters of Washington's dominant Democratic consulting firm by the firm principal's wife. None of those relationships have ever been disclosed to readers.">
 <style>
-:root {
-  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
-  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
-  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
-  --serif: 'Bitter', Georgia, serif;
-  --mono: 'JetBrains Mono', 'Courier New', monospace;
-}
-@media (prefers-color-scheme: light) {
   :root {
-    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
-    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+    --red: #E3120B;
+    --ink: #121212;
+    --muted: #555;
+    --rule: #d8d4cb;
+    --bg: #ffffff;
+    --serif: "Playfair Display", "Times New Roman", Georgia, serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-.opinion-note { border-left: 2px solid var(--bd); padding-left: 18px; font-style: italic; font-size: 16px; color: var(--tm); margin: 24px 0; max-width: 660px; line-height: 1.55; }
-body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; font-size: 18px; }
-.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
-
-.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
-.nav a { color: var(--ac); text-decoration: none; }
-.nav a:hover { text-decoration: underline; }
-
-.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
-h1 { font-family: var(--serif); font-weight: 900; font-size: 44px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
-h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
-.dek { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 620px; }
-
-.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding: 14px 0; border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd); margin-bottom: 32px; letter-spacing: 0.04em; }
-.byline span { color: var(--td); padding: 0 8px; }
-
-p { margin-bottom: 18px; }
-p.lede { font-size: 19px; }
-
-h2 { font-family: var(--serif); font-weight: 900; font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; margin-top: 44px; margin-bottom: 16px; }
-
-.fn-line { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tm); margin-top: 32px; margin-bottom: 0; border-top: 1px solid var(--bd); padding-top: 14px; }
-.fn-line span { color: var(--rd); }
-
-.dropcap::first-letter { float: left; font-family: var(--serif); font-weight: 900; font-size: 64px; line-height: 0.85; padding: 6px 10px 0 0; color: var(--rd); }
-
-a.cite { color: var(--tx); text-decoration: underline; text-decoration-color: var(--td); text-underline-offset: 2px; }
-a.cite:hover { text-decoration-color: var(--rd); }
-
-sup.fn { font-family: var(--mono); font-size: 10px; color: var(--rd); font-weight: 600; padding-left: 1px; }
-sup.fn a { color: var(--rd); text-decoration: none; }
-sup.fn a:hover { text-decoration: underline; }
-
-.pull { border-left: 3px solid var(--rd); padding: 8px 0 8px 20px; margin: 28px 0; font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--tx); max-width: 640px; }
-
-.roles-list { background: var(--sf); border: 1px solid var(--bd); padding: 22px 24px; margin: 28px 0; font-family: var(--serif); }
-.roles-list ol { padding-left: 24px; }
-.roles-list li { margin-bottom: 10px; line-height: 1.5; font-size: 17px; }
-.roles-list li::marker { color: var(--rd); font-family: var(--mono); font-weight: 700; font-size: 14px; }
-.roles-list .roles-head { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); margin-bottom: 14px; font-weight: 600; }
-
-.footnotes { margin-top: 60px; padding-top: 24px; border-top: 2px solid var(--bd); }
-.footnotes h3 { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); margin-bottom: 16px; font-weight: 600; }
-.footnotes ol { padding-left: 28px; }
-.footnotes li { font-family: var(--serif); font-size: 14px; line-height: 1.6; color: var(--tm); margin-bottom: 12px; }
-.footnotes li::marker { color: var(--rd); font-family: var(--mono); font-weight: 600; }
-.footnotes a { color: var(--ac); text-decoration: underline; text-decoration-color: var(--td); }
-.footnotes a:hover { text-decoration-color: var(--rd); }
-
-.footer-mark { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--bd); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--td); display: flex; justify-content: space-between; }
-
-@media (max-width: 600px) {
-  h1 { font-size: 34px; }
-  .dek { font-size: 18px; }
-  h2 { font-size: 24px; }
-  body { font-size: 17px; }
-  .pull { font-size: 19px; padding-left: 16px; }
-}
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .top-bar {
+    height: 6px;
+    background: var(--red);
+    width: 100%;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 24px 80px;
+  }
+  .breadcrumbs {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .breadcrumbs a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .breadcrumbs a:hover {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--red);
+    margin: 0 0 16px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--ink);
+  }
+  h1 em {
+    font-style: italic;
+  }
+  .dek {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 1.4;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+  .byline {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.25;
+    margin: 48px 0 16px;
+    color: var(--ink);
+  }
+  p {
+    margin: 0 0 20px;
+  }
+  p em {
+    font-style: italic;
+  }
+  strong {
+    font-weight: 700;
+  }
+  .editor-note {
+    border-left: 3px solid var(--red);
+    padding: 4px 0 4px 16px;
+    margin: 24px 0;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  ol.body-list {
+    padding-left: 24px;
+    margin: 0 0 24px;
+  }
+  ol.body-list li {
+    margin-bottom: 12px;
+  }
+  a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    text-decoration-color: var(--red);
+    color: var(--red);
+  }
+  sup a {
+    text-decoration: none;
+    color: var(--red);
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 0 1px;
+  }
+  sup a:hover {
+    color: var(--ink);
+  }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    margin: 56px 0 16px;
+    padding-top: 24px;
+    border-top: 2px solid var(--ink);
+  }
+  ol.footnotes {
+    padding-left: 24px;
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  ol.footnotes li {
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+  ol.footnotes em {
+    font-style: italic;
+  }
+  ol.footnotes code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: #f5f3ee;
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+  .sig {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .container { padding: 20px 20px 60px; }
+    h1 { font-size: 34px; }
+    .dek { font-size: 19px; }
+    h2 { font-size: 22px; }
+  }
 </style>
-<style id="claude-agent-animation-styles">
-      @keyframes claude-pulse {
-        0% {
-          
-        }
-        50% {
-          
-        }
-        100% {
-          
-        }
-      }
-    </style></head>
+</head>
 <body>
-<div class="wrap">
 
-<nav class="nav"><a href="/">← Sunshine Docket</a> &nbsp;//&nbsp; <a href="/reports/">All Reports</a></nav>
+<div class="top-bar"></div>
 
-<div class="kicker">Investigation // Seattle Media // Disclosure</div>
+<div class="container">
+
+<nav class="breadcrumbs">
+  <a href="https://sunshinedocket.org/">← Sunshine Docket</a> // <a href="https://sunshinedocket.org/reports/">All Reports</a>
+</nav>
+
+<p class="kicker">Investigation // Seattle Media // Disclosure</p>
 
 <h1>The Outlet, the Office, and the <em>Treasurer</em></h1>
 
 <p class="dek">A new Seattle progressive media outlet was founded in March 2025 at the headquarters of Washington's dominant Democratic consulting firm by the firm principal's wife. None of that has been disclosed to readers.</p>
 
-<div class="byline">By Sunshine Docket <span>//</span> May 17, 2026 <span>//</span> Reading time: 11 min</div>
+<p class="byline">By Sunshine Docket // May 17, 2026 // Reading time: 11 min</p>
 
-<p class="lede dropcap">Hannah Krieg, the founder and named principal of The Burner, came to a colleague's defense on May 13.</p>
+<p>On May 13, Hannah Krieg defended Brandi Kruse.</p>
 
-<p>The colleague was Brandi Kruse, the conservative independent journalist whose promotional content on behalf of Let's Go Washington ballot initiatives drew a Public Disclosure Commission complaint alleging unreported in-kind contributions.<sup class="fn"><a href="#fn1">1</a></sup> Krieg, an independent progressive journalist, came to Kruse's side. <em>"Incredibly short sighted for progressives,"</em> Krieg wrote in a quote-tweet of the <em>Seattle Times</em> report on the complaint. <em>"Hope you have fun getting bad faith PDC complaints when an influencer says something positive about your campaign or mentions your event and you forget to report an 'in-kind' contribution!"</em> A follow-up tweet clarified that she did not support the initiatives Kruse was promoting. The point was procedural.<sup class="fn"><a href="#fn2">2</a></sup></p>
+<p>Kruse is the conservative independent journalist whose promotional content for Let's Go Washington ballot initiatives had drawn a Public Disclosure Commission complaint over unreported in-kind contributions.<sup><a href="#fn1" id="fnref1">1</a></sup> Krieg runs her own independent progressive outlet on the opposite end of the ideological spectrum. She jumped in on Kruse's side anyway. <em>"Incredibly short sighted for progressives,"</em> she wrote in a quote-tweet of the <em>Seattle Times</em> coverage. <em>"Hope you have fun getting bad faith PDC complaints when an influencer says something positive about your campaign or mentions your event and you forget to report an 'in-kind' contribution!"</em> A follow-up tweet clarified she didn't support the initiatives Kruse was promoting. The point was procedural.<sup><a href="#fn2" id="fnref2">2</a></sup></p>
 
-<p>It is a reasonable position for a journalist to take in defense of another journalist. The Public Disclosure Commission's in-kind reporting rules are blunt instruments. The line between editorial advocacy and reportable campaign coordination is genuinely hard to draw. Treating advocacy media as covered campaign speech can be a one-way ratchet that hits independent outlets harder than well-funded ones. Krieg is not wrong to flag the risk to her own side.</p>
+<p>Reasonable position. The PDC's in-kind reporting rules are blunt instruments, and the line between editorial advocacy and reportable campaign coordination is genuinely hard to draw. Treat advocacy media as covered campaign speech and you've built a one-way ratchet that hits independent outlets harder than the well-funded ones. Krieg isn't wrong to flag the risk to her own side.</p>
 
-<p class="opinion-note"><em>Editor's note: This article is a work of opinion journalism, based on facts in the public record. It does not allege quid-pro-quo, contractual coordination, or any specific transaction between The Burner and the entities discussed. It argues only that the documented relationships between the publication's founding household and the candidates the publication covers should have been disclosed to readers.</em></p>
+<div class="editor-note">Editor's note: This article is a work of opinion journalism, based on facts in the public record. It does not allege quid-pro-quo, contractual coordination, or any specific transaction between The Burner and the entities discussed. It argues only that the documented relationships between the publication's founding household and the candidates the publication covers should have been disclosed to readers.</div>
 
 <p>But the warning raises a quiet question. Who specifically should worry about the door swinging back?</p>
 
-<div class="pull">The answer depends on what The Burner actually is.</div>
+<p>The answer depends on what The Burner actually is.</p>
 
 <h2>A story about an office</h2>
 
-<p>The Burner LLC was filed with the Washington Secretary of State on March 12, 2025. The principal office address listed on the Certificate of Formation was 19550 International Boulevard, Suite 103, SeaTac. The founding governor, registered agent, and sole executor was Jessica Ellen Pisane.<sup class="fn"><a href="#fn3">3</a></sup></p>
+<p>The Burner LLC was filed with the Washington Secretary of State on March 12, 2025. Principal office on the Certificate of Formation: 19550 International Boulevard, Suite 103, SeaTac. Sole governor, registered agent, and executor: Jessica Ellen Pisane.<sup><a href="#fn3" id="fnref3">3</a></sup></p>
 
-<p>The address is not a coincidence of geography. 19550 International Boulevard, Suite 103, SeaTac is the same address that appears on thousands of campaign-finance disclosures filed with the Washington Public Disclosure Commission as the invoice address for WinPower Strategies, Inc., the Democratic political consulting firm.</p>
+<p>Not a coincidence of geography. That same address shows up on thousands of campaign-finance disclosures filed with the Washington Public Disclosure Commission. It's the invoice address for WinPower Strategies, Inc., the Democratic political consulting firm.</p>
 
-<p>Jessica Pisane is married to Jacob Dylan Simpson.<sup class="fn"><a href="#fn4">4</a></sup> Simpson is a principal at WinPower Strategies. He served as Mayor of SeaTac from January 2022 to January 2024 and as a SeaTac City Councilmember (Position 2) from 2021 through 2025.<sup class="fn"><a href="#fn17">17</a></sup></p>
+<p>Jessica Pisane is married to Jacob Dylan Simpson.<sup><a href="#fn4" id="fnref4">4</a></sup> Simpson is a principal at WinPower Strategies. He also served as Mayor of SeaTac from January 2022 to January 2024 and as SeaTac City Councilmember (Position 2) from 2021 through 2025.<sup><a href="#fn17" id="fnref17">17</a></sup></p>
 
 <h2>A consulting firm</h2>
 
-<p>WinPower Strategies is the dominant Democratic campaign-services firm in Washington State. The Public Disclosure Commission's expenditure dataset, queryable by any reader at <code>data.wa.gov/resource/tijg-9zyp.json</code>, shows the firm has billed <strong>$13.2M across 3,948 individual transactions to 300 unique candidates, political committees, and party organizations since the dataset begins in 2007</strong>.<sup class="fn"><a href="#fn5">5</a></sup></p>
+<p>WinPower Strategies is the dominant Democratic campaign-services firm in Washington State. The PDC's expenditure dataset is open to any reader at <code>data.wa.gov/resource/tijg-9zyp.json</code>. Run the query and the firm comes back with <strong>$13.2M billed across 3,948 individual transactions to 300 unique candidates, political committees, and party organizations</strong> going back to the start of the dataset in 2007.<sup><a href="#fn5" id="fnref5">5</a></sup></p>
 
-<p>The top clients are state senator Mark Mullet, who paid the firm $809k across his 2024 gubernatorial primary and prior cycles; the sitting state Superintendent of Public Instruction, Chris Reykdal, $397k across 41 transactions; and the sitting Secretary of State, Steve Hobbs, $368k. Below these come former state senator Nathan Schlicher ($466k), state representative Monica Stonier ($324k), state senator Lisa Wellman ($292k), and former Seattle Mayor Michael McGinn ($275k). And beneath them, the state Democratic Party itself together with its two caucus committees, the House Democratic Campaign Committee and the Senate Democratic Campaign, which have collectively moved more than $3M through WinPower's invoices.</p>
+<p>Top of the client list: state senator Mark Mullet, who paid the firm $809k across his 2024 gubernatorial primary and prior cycles. Behind him, the sitting state Superintendent of Public Instruction, Chris Reykdal, at $397k across 41 transactions. Then the sitting Secretary of State, Steve Hobbs, at $368k. Below them come former state senator Nathan Schlicher ($466k), state representative Monica Stonier ($324k), state senator Lisa Wellman ($292k), and former Seattle Mayor Michael McGinn ($275k). And underneath all of them, the state Democratic Party together with the House Democratic Campaign Committee and the Senate Democratic Campaign, three entities that have collectively moved more than $3M through WinPower's invoices.</p>
 
-<p>The flow runs in a closed loop. The state Democratic Party funds the caucus committees. The caucus committees fund individual candidates. The candidates pay WinPower. After the election, the candidates' post-election surplus funds donate back to the caucus committees. WinPower sits at the operational pass-through where party money becomes campaign output. The firm is not one consultant among many. It is the operational backbone of the institutional Democratic apparatus in Washington State.</p>
+<p>The flow runs in a closed loop. The state Democratic Party funds the caucus committees. The caucus committees fund the individual candidates. The candidates pay WinPower. After the election, the candidates' surplus funds flow back to the caucus committees. WinPower sits at the pass-through point where party money becomes campaign output.</p>
+
+<p>Not one consultant among many. The operational backbone of the institutional Democratic apparatus in Washington State.</p>
 
 <h2>A married couple</h2>
 
-<p>The household's reach extends beyond the consulting firm.</p>
+<p>The household's reach runs past the consulting firm.</p>
 
-<p>Public records from the King County Recorder, instruments 20200416000821 and 20200416000822, document that Jessica Ellen Pisane and Jacob Dylan Simpson purchased the property at Unit 2, Building 19816, Valley View Estates, SeaTac on April 16, 2020 as <em>"a married couple."</em> They jointly executed a $239k mortgage with U.S. Bank, with the deed of trust's occupancy clause declaring the property their principal residence.<sup class="fn"><a href="#fn4">4</a></sup></p>
+<p>Public records from the King County Recorder, instruments 20200416000821 and 20200416000822, document that Jessica Ellen Pisane and Jacob Dylan Simpson purchased the property at Unit 2, Building 19816, Valley View Estates, SeaTac on April 16, 2020 as <em>"a married couple."</em> They jointly executed a $239k mortgage with U.S. Bank, and the deed of trust's occupancy clause declares the property their principal residence.<sup><a href="#fn4" id="fnref4b">4</a></sup></p>
 
-<p>The household runs four operational functions inside the apparatus described above.</p>
+<p>Four operational functions run inside that household.</p>
 
-<div class="roles-list">
-<div class="roles-head">The household's four operational roles</div>
-<ol>
-<li>Simpson is a principal at <strong>WinPower Strategies</strong>, the consulting firm headquartered in SeaTac.</li>
-<li>Simpson is a <strong>former Mayor of SeaTac (2022 to 2024) and former SeaTac City Councilmember (Position 2, 2021 to 2025)</strong>. During his two-year mayoralty, WinPower Strategies collected $1.27M across 384 transactions from 55 Washington Democratic candidates and committees.</li>
-<li>Pisane <strong>founded The Burner LLC</strong> at the firm's office in March 2025.</li>
-<li>Pisane serves as the <strong>registered campaign treasurer of record for sixty-nine unique Washington Democratic campaigns across ninety-nine active filings</strong>, queryable at the PDC's campaign-finance summary dataset.<sup class="fn"><a href="#fn6">6</a></sup></li>
+<ol class="body-list">
+  <li>Simpson is a principal at <strong>WinPower Strategies</strong>, the consulting firm headquartered in SeaTac.</li>
+  <li>Simpson is a <strong>former Mayor of SeaTac (2022 to 2024) and former SeaTac City Councilmember (Position 2, 2021 to 2025)</strong>. During his two-year mayoralty, WinPower Strategies collected $1.27M across 384 transactions from 55 Washington Democratic candidates and committees.</li>
+  <li>Pisane <strong>founded The Burner LLC</strong> at the firm's office in March 2025.</li>
+  <li>Pisane serves as the <strong>registered campaign treasurer of record for sixty-nine unique Washington Democratic campaigns across ninety-nine active filings</strong>, queryable at the PDC's campaign-finance summary dataset.<sup><a href="#fn6" id="fnref6">6</a></sup></li>
 </ol>
-</div>
 
-<p>Pisane's treasurer portfolio is worth its own pause. She is the registered C-1 treasurer for Chris Reykdal's 2028 Superintendent of Public Instruction reelection campaign, filed in advance of the cycle. She is the registered treasurer for the 33rd Legislative District Democrats, a position she has held continuously since 2009. She is the registered treasurer for Caesar Kalinowski, a sitting King County Superior Court judge. And as of May 14, 2026, she is the registered treasurer for the campaign of Greg Miller, a 2026 candidate for Position 5 of the Washington Supreme Court.<sup class="fn"><a href="#fn7">7</a></sup> Position 5 is the seat currently held by Governor Ferguson's recent appointee Theo Angelis. It is the seat that will hear the constitutional challenge to SB 6346, the new 9.9 percent income tax on Washington earners above $1M.</p>
+<p>That treasurer portfolio deserves a look on its own. Pisane is the registered C-1 treasurer for Chris Reykdal's 2028 Superintendent of Public Instruction reelection campaign, filed well in advance of the cycle. She has been the registered treasurer for the 33rd Legislative District Democrats continuously since 2009. She is the registered treasurer for Caesar Kalinowski, a sitting King County Superior Court judge. And as of May 14, 2026, she is the registered treasurer for Greg Miller, a 2026 candidate for Position 5 of the Washington Supreme Court.<sup><a href="#fn7" id="fnref7">7</a></sup></p>
+
+<p>Position 5 is the seat currently held by Governor Ferguson's recent appointee Theo Angelis. The seat that will hear the constitutional challenge to SB 6346, the new 9.9 percent income tax on Washington earners above $1M.</p>
 
 <h2>An editorial pattern</h2>
 
-<p>Now turn to the media outlet.</p>
+<p>Now the media outlet.</p>
 
-<p>The Burner bills itself, in its own footer language, as <em>"Hannah Krieg's independent, progressive media."</em><sup class="fn"><a href="#fn8">8</a></sup> The outlet's editorial focus is the Seattle and Washington progressive political ecosystem. It runs critical coverage of mayors, council members, state senators, and members of Congress whose positions or actions diverge from progressive priorities.</p>
+<p>The Burner bills itself, in its own footer language, as <em>"Hannah Krieg's independent, progressive media."</em><sup><a href="#fn8" id="fnref8">8</a></sup> Editorial focus: the Seattle and Washington progressive political ecosystem. The outlet runs critical coverage of mayors, council members, state senators, and members of Congress whose positions or actions diverge from progressive priorities.</p>
 
-<p>Look at where the outlet directs its most pointed coverage. Former Seattle Mayor Bruce Harrell. Seattle Council Members Bob Kettle, Sara Nelson, Maritza Rivera, and Rob Saka. U.S. Representative Adam Smith. The Democratic state senators who broke with the caucus position on SB 6346.</p>
+<p>Look at where the most pointed coverage lands. Former Seattle Mayor Bruce Harrell. Seattle Council Members Bob Kettle, Sara Nelson, Maritza Rivera, and Rob Saka. U.S. Representative Adam Smith. The Democratic state senators who broke with the caucus position on SB 6346.</p>
 
-<p>Every one of those critically-covered politicians, when queried against the PDC expenditure dataset for payments to WinPower Strategies across all available cycles, returns <strong>zero</strong>. The Burner's targets are uniformly non-clients of the firm headquartered at the outlet's founding address.<sup class="fn"><a href="#fn9">9</a></sup></p>
+<p>Run each of those critically-covered politicians against the PDC expenditure dataset for payments to WinPower Strategies across all available cycles, and you get the same number back each time. <strong>Zero.</strong> The Burner's targets are uniformly non-clients of the firm headquartered at the outlet's founding address.<sup><a href="#fn9" id="fnref9">9</a></sup></p>
 
 <h2>The Wilson case</h2>
 
-<p>Now consider the cleanest single case on the other side.</p>
+<p>The cleanest single case sits on the other side.</p>
 
-<p>Mayor Katie Wilson took office in January 2026 after defeating Bruce Harrell in the November 2025 mayoral election. The Burner covered her campaign closely. Wilson's C-1 campaign filing with the PDC names her registered treasurer of record: <strong>Jessica Pisane</strong>.<sup class="fn"><a href="#fn10">10</a></sup></p>
+<p>Mayor Katie Wilson took office in January 2026 after defeating Bruce Harrell in the November 2025 mayoral election. The Burner covered her campaign closely. Wilson's C-1 campaign filing with the PDC names her registered treasurer of record: <strong>Jessica Pisane</strong>.<sup><a href="#fn10" id="fnref10">10</a></sup></p>
 
-<p>Wilson's campaign paid WinPower Strategies $26.8k across twenty-two transactions during the 2025 mayoral cycle, between March 25 and November 12. <strong>The same household that owns the consulting firm Wilson's campaign paid, and that maintains the campaign books Wilson's campaign filed, also founded the media outlet that covered Wilson's campaign.</strong><sup class="fn"><a href="#fn11">11</a></sup></p>
+<p>Wilson's campaign also paid WinPower Strategies $26.8k across twenty-two transactions during the 2025 mayoral cycle, between March 25 and November 12. <strong>The same household that owns the consulting firm Wilson's campaign paid, and that maintains the campaign books Wilson's campaign filed, also founded the media outlet that covered Wilson's campaign.</strong><sup><a href="#fn11" id="fnref11">11</a></sup></p>
 
-<p>This is not a finding about whether The Burner's coverage of Wilson is favorable. The disclosure question is structural, not editorial. The question is whether the relationship exists and is hidden from readers. Both are documented and verifiable. Wilson's payments to WinPower are in the PDC expenditure dataset under filer "Katie Wilson." The treasurer designation is in the PDC summary dataset under treasurer "Pisane." Neither relationship has ever been disclosed in any Burner article, on the outlet's About page, on its podcast, or anywhere on its website.</p>
+<p>This isn't a finding about whether the coverage of Wilson is favorable. The disclosure question is structural, not editorial. The question is whether the relationship exists and is hidden from readers. Both are documented and verifiable. Wilson's payments to WinPower are in the PDC expenditure dataset under filer "Katie Wilson." The treasurer designation is in the PDC summary dataset under treasurer "Pisane." Neither relationship has ever been disclosed in any Burner article, on the outlet's About page, on its podcast, or anywhere on its website.</p>
 
-<p>That The Burner has run sustained adversarial coverage of Mayor Wilson on specific policy fights does not change this. Between December 8, 2025 and April 15, 2026, The Burner published at least eight articles pressuring Wilson to shut off the Seattle Police Department's Real Time Crime Center surveillance program, an Axon Fusus cloud-based hub with a $3.7M annual operating budget.<sup class="fn"><a href="#fn12">12</a></sup> The coverage has been pointed, sustained, and substantively progressive. It has also operated inside a structural conflict of interest that the readers of those articles have never been told about.</p>
+<p>The publication has run sustained adversarial coverage of Mayor Wilson on specific policy fights. That doesn't change the calculus. Between December 8, 2025 and April 15, 2026, The Burner published at least eight articles pressuring Wilson to shut off the Seattle Police Department's Real Time Crime Center surveillance program, an Axon Fusus cloud-based hub with a $3.7M annual operating budget.<sup><a href="#fn12" id="fnref12">12</a></sup> Pointed coverage. Sustained. Substantively progressive. And operating inside a structural conflict of interest the readers of those articles have never been told about.</p>
 
-<p>A reader scrolling through the Burner's eight Wilson-on-surveillance pieces cannot evaluate them by reference to the journalism alone, because the journalism is not the only thing in the room. Two other things are also in the room, both undisclosed. The first is that the household publishing the articles also serves as Wilson's registered campaign treasurer. The second is that the household has been paid more than $26k in campaign-vendor fees by the same mayor's campaign during the calendar period the coverage spans. The journalism may be excellent on its merits. The reader is not in a position to judge.</p>
+<p>A reader scrolling through those eight Wilson-on-surveillance pieces can't evaluate them by reference to the journalism alone, because the journalism isn't the only thing in the room. Two other things are also in the room, both undisclosed. First, the household publishing the articles also serves as Wilson's registered campaign treasurer. Second, that same household has been paid more than $26k in campaign-vendor fees by the same mayor's campaign during the calendar period the coverage spans. The journalism may be excellent on its merits. The reader isn't in a position to judge.</p>
 
 <h2>Other cases</h2>
 
-<p>The Wilson case is the most documented, but it is not the only case where the network's operational and editorial functions overlap.</p>
+<p>The Wilson case is the most documented one. It's not the only one.</p>
 
-<p>Hannah Sabio-Howell, the lefty challenger The Burner has covered favorably in her challenge to state senator Jamie Pedersen, lists Abbot Taylor as her registered C-1 treasurer.<sup class="fn"><a href="#fn13">13</a></sup> Taylor is one of four people in Washington who collectively serve as the registered treasurer of record for the bulk of state Democratic campaigns this cycle. He handles 59 active 2026 client engagements, including seventeen state representatives, eleven district court judges, nine state senators, and ten political committees.</p>
+<p>Hannah Sabio-Howell, the lefty challenger The Burner has covered favorably in her challenge to state senator Jamie Pedersen, lists Abbot Taylor as her registered C-1 treasurer.<sup><a href="#fn13" id="fnref13">13</a></sup> Taylor is one of four people in Washington who collectively serve as the registered treasurer of record for the bulk of state Democratic campaigns this cycle. He handles 59 active 2026 client engagements, including seventeen state representatives, eleven district court judges, nine state senators, and ten political committees.</p>
 
 <p>Alexis Mercedes Rinck, the Seattle City Council member whose Seattle Shield Initiative policy The Burner has amplified, also lists Abbot Taylor as her registered treasurer.</p>
 
-<p>In a March 2026 article about Seattle School Board candidate Janis White, The Burner quoted Stephen Paolini as <em>"White's consultant"</em> providing analysis of the rival political action committee opposing her.<sup class="fn"><a href="#fn14">14</a></sup> Paolini, queried against the PDC dataset as a recipient of campaign expenditures, has been paid $69.8k across 44 transactions by entities including People for a Balanced Tax Code (the ballot vehicle for SB 6346's predecessor income-tax initiative), De-Escalate Washington, Tammy Morales's council campaign, Dan Strauss's council campaign, the Alliance for Gun Responsibility, and Jessyn Farrell's gubernatorial campaign. Paolini's payment record establishes a documented financial relationship with the same Democratic political infrastructure The Burner covers. He is not an arm's-length observer. The Burner did not disclose the relationship.</p>
+<p>In a March 2026 article about Seattle School Board candidate Janis White, The Burner quoted Stephen Paolini as <em>"White's consultant"</em> providing analysis of the rival political action committee opposing her.<sup><a href="#fn14" id="fnref14">14</a></sup> Run Paolini against the PDC dataset as a recipient of campaign expenditures and you get $69.8k across 44 transactions. Top payers: People for a Balanced Tax Code (the ballot vehicle for SB 6346's predecessor income-tax initiative), De-Escalate Washington, Tammy Morales's council campaign, Dan Strauss's council campaign, the Alliance for Gun Responsibility, and Jessyn Farrell's gubernatorial campaign. Paolini has a documented financial relationship with the same Democratic political infrastructure The Burner covers. He's not an arm's-length observer. The Burner didn't disclose the relationship.</p>
 
 <h2>A previous pattern</h2>
 
-<p>This is not Hannah Krieg's first situation involving undisclosed material relationships with subjects of her coverage.</p>
+<p>This isn't Hannah Krieg's first situation involving undisclosed material relationships with subjects of her coverage.</p>
 
-<p>In January 2025, The Stranger placed Krieg and her colleague Ashley Nerbovig on paid administrative leave pending an internal investigation. The investigation, as reported by Erica C. Barnett at PubliCola, concerned allegations that the two reporters had behaved unethically by failing to disclose, and in the alleged process actively concealing, information about an alleged ethical breach by the paper's then-editor, Rich Smith.<sup class="fn"><a href="#fn15">15</a></sup> Smith had been the news editor and chair of the endorsement board. PubliCola's reporting described the alleged breach as involving a sexual encounter between Smith and a then-candidate for Seattle City Council whom The Stranger subsequently endorsed. PubliCola's reporting, citing sources familiar with the matter, stated that Krieg and Nerbovig were aware of the incident shortly after it happened and were discussing it with people outside the paper while it remained undisclosed to their editors.</p>
+<p>In January 2025, The Stranger placed Krieg and her colleague Ashley Nerbovig on paid administrative leave pending an internal investigation. The investigation, as reported by Erica C. Barnett at PubliCola, concerned allegations that the two reporters had behaved unethically by failing to disclose, and in the alleged process actively concealing, information about an alleged ethical breach by the paper's then-editor, Rich Smith.<sup><a href="#fn15" id="fnref15">15</a></sup> Smith had been the news editor and chair of the endorsement board. PubliCola described the alleged breach as involving a sexual encounter between Smith and a then-candidate for Seattle City Council whom The Stranger subsequently endorsed. Citing sources familiar with the matter, PubliCola reported that Krieg and Nerbovig were aware of the incident shortly after it happened and were discussing it with people outside the paper while it remained undisclosed to their editors.</p>
 
 <p>The investigation never reached formal findings. Krieg and Nerbovig resigned on January 31, 2025 via a separation agreement that resolved the allegations without adjudication.</p>
 
 <p>Six weeks later, on March 12, 2025, The Burner LLC was filed with the Secretary of State at WinPower Strategies' SeaTac office, with Jessica Pisane named as sole governor.</p>
 
-<div class="pull">The reporter who resigned from one publication amid allegations of failing to disclose a material conflict involving a then-candidate became, six weeks later, the named principal of a new publication founded at the headquarters of the consulting firm whose Pisane-treasured candidates that same official now votes alongside.</div>
+<p>Read the sequence again. The reporter who resigned from one publication amid allegations of failing to disclose a material conflict involving a then-candidate became, six weeks later, the named principal of a new publication founded at the headquarters of the consulting firm whose Pisane-treasured candidates that same official now votes alongside.</p>
 
-<p>Whether Krieg had any operational role in the founding of The Burner LLC is not visible in the corporate filings. What is visible is the sequence.</p>
+<p>Whether Krieg had any operational role in the founding of The Burner LLC isn't visible in the corporate filings. What's visible is the sequence.</p>
 
 <h2>What changed in July</h2>
 
-<p>On July 21, 2025, four months after the LLC's founding, Pisane filed an amendment with the Secretary of State transferring The Burner LLC's governor and registered agent roles to Krieg. The principal office address moved from the WinPower SeaTac suite to Krieg's apartment in Capitol Hill.<sup class="fn"><a href="#fn3">3</a></sup></p>
+<p>On July 21, 2025, four months after the LLC's founding, Pisane filed an amendment with the Secretary of State transferring The Burner LLC's governor and registered agent roles to Krieg. The principal office address moved from the WinPower SeaTac suite to Krieg's apartment in Capitol Hill.<sup><a href="#fn3" id="fnref3b">3</a></sup></p>
 
-<p>The Washington Secretary of State does not require LLC membership, that is, ownership, to be publicly disclosed. Whether Pisane retains a membership interest in The Burner LLC after July 2025 is not visible in the corporate record.</p>
+<p>The Washington Secretary of State doesn't require LLC membership, that is, ownership, to be publicly disclosed. Whether Pisane retains a membership interest in The Burner LLC after July 2025 isn't visible in the corporate record.</p>
 
 <h2>The disclosure standard</h2>
 
-<p>The Society of Professional Journalists Code of Ethics is direct on this category of situation: <em>"Avoid conflicts of interest, real or perceived. Disclose unavoidable conflicts."</em><sup class="fn"><a href="#fn16">16</a></sup> This is not a contested or fringe standard. It is the median expectation across mainstream, alt-weekly, independent, and digital-native journalism. The Stranger discloses staff conflicts. ProPublica does. PubliCola does. Most one-person Substacks include a "who funds this" note. The disclosure norm is universal because the reader's ability to discount for bias is the entire basis of journalistic credibility.</p>
+<p>The Society of Professional Journalists Code of Ethics is direct on this category of situation: <em>"Avoid conflicts of interest, real or perceived. Disclose unavoidable conflicts."</em><sup><a href="#fn16" id="fnref16">16</a></sup> Not a contested or fringe standard. The median expectation across mainstream, alt-weekly, independent, and digital-native journalism. The Stranger discloses staff conflicts. ProPublica does. PubliCola does. Most one-person Substacks include a "who funds this" note. The disclosure norm is universal because the reader's ability to discount for bias is the entire basis of journalistic credibility.</p>
 
-<p>What The Burner discloses publicly: nothing. The website's footer reads <em>"© 2025 by The Burner LLC."</em> The About page identifies Krieg as the publication's author and links to her Ko-fi donation page. There is no masthead identifying the LLC's founding governor or governance history, no relationship-disclosure language on individual articles, no notice of recusal anywhere on the website or in the podcast feed.</p>
+<p>What The Burner discloses publicly: nothing. The website's footer reads <em>"© 2025 by The Burner LLC."</em> The About page identifies Krieg as the publication's author and links to her Ko-fi donation page. No masthead identifying the LLC's founding governor or governance history. No relationship-disclosure language on individual articles. No notice of recusal anywhere on the website or in the podcast feed.</p>
 
-<p>What is not disclosed: the founding governance by Pisane, the WinPower Strategies office address as the LLC's original principal place of business, the marriage between Pisane and Simpson, Simpson's recent service as Mayor and Councilmember of SeaTac throughout the period the LLC was founded and operated, Pisane's portfolio of ninety-nine active C-1 treasurer filings, Pisane's specific role as Mayor Wilson's registered campaign treasurer, the $26.8k in WinPower vendor payments to Wilson's campaign during the 2025 cycle, the same household's treasurer-of-record relationships with Sabio-Howell and Rinck, the consultant-of-record relationship between The Burner and Paolini, the principal-office change from the consulting firm's office to the editor's apartment four months after founding, or any of the dozens of other smaller-scale relationships the corporate and PDC records expose.</p>
+<p>What isn't disclosed: the founding governance by Pisane, the WinPower Strategies office address as the LLC's original principal place of business, the marriage between Pisane and Simpson, Simpson's recent service as Mayor and Councilmember of SeaTac throughout the period the LLC was founded and operated, Pisane's portfolio of ninety-nine active C-1 treasurer filings, Pisane's specific role as Mayor Wilson's registered campaign treasurer, the $26.8k in WinPower vendor payments to Wilson's campaign during the 2025 cycle, the same household's treasurer-of-record relationships with Sabio-Howell and Rinck, the consultant-of-record relationship between The Burner and Paolini, the principal-office change from the consulting firm's office to the editor's apartment four months after founding, or any of the dozens of other smaller-scale relationships the corporate and PDC records expose.</p>
 
 <h2>The practical effect</h2>
 
-<p>Without disclosure, readers cannot distinguish between accountability journalism and network-aligned commentary on a network's rivals. The ambiguity is itself a brand asset for the outlet. Adversarial coverage of Mayor Wilson on surveillance reads as principled journalism. Adversarial coverage of Sara Nelson or Bruce Harrell on a related policy fight reads as principled journalism too. The reader cannot weigh which is which, because the reader has not been told that one of those subjects has a campaign-vendor relationship with the firm headquartered at the publication's founding address and a treasurer-of-record relationship with the publication's founding household, while the other subjects have no such relationship to the publisher.</p>
+<p>Without disclosure, readers can't tell accountability journalism apart from network-aligned commentary on a network's rivals. The ambiguity is itself a brand asset for the outlet. Adversarial coverage of Mayor Wilson on surveillance reads as principled journalism. Adversarial coverage of Sara Nelson or Bruce Harrell on a related policy fight reads as principled journalism too. The reader can't weigh which is which, because the reader hasn't been told that one of those subjects has a campaign-vendor relationship with the firm headquartered at the publication's founding address and a treasurer-of-record relationship with the publication's founding household, while the other subjects have no such relationship to the publisher.</p>
 
-<div class="pull">Critics of the publication, when they raise structural questions about why The Burner's coverage takes the shapes it does, get treated as personal attackers or as bad-faith partisans. Their structural arguments cannot land because the structure has not been visible. They are, in effect, shadowboxing the financial relationships of the publication's founding household, whose existence they do not know about.</div>
+<p>Critics who raise structural questions about why the coverage takes the shapes it does get treated as personal attackers or as bad-faith partisans. Their structural arguments can't land because the structure hasn't been visible. They've been shadowboxing the financial relationships of the publication's founding household, whose existence they didn't know about.</p>
 
 <h2>Calibration</h2>
 
-<p>None of this proves editorial coordination. Hannah Krieg may write every word of The Burner independently of any input from Jessica Pisane, Jake Simpson, WinPower Strategies, or any of the firm's clients. The corporate filings do not establish that anyone tells Krieg what to publish. They establish only that an undisclosed network of material relationships exists between the publication's founding household and the candidates the publication covers.</p>
+<p>None of this proves editorial coordination. Hannah Krieg may write every word of The Burner without input from Jessica Pisane, Jake Simpson, WinPower Strategies, or any of the firm's clients. The corporate filings don't establish that anyone tells Krieg what to publish. They establish only that an undisclosed network of material relationships exists between the publication's founding household and the candidates the publication covers.</p>
 
-<p>The claim the documents support is narrower than coordination, and it is twice-substantiated. Hannah Krieg has now run political coverage in Seattle from inside undisclosed material relationships with the candidates she was covering, in two separate publications, separated by six weeks of formal unemployment. The Stranger investigated whether she failed to disclose a personal relationship between an editor and a candidate. She resigned via separation agreement before formal findings issued. The publication she founded at WinPower's office six weeks later operates inside a structural set of relationships of comparable scale to the one alleged at the prior employer. Neither set of relationships has been disclosed to readers.</p>
+<p>The claim the documents support is narrower than coordination, and it's twice-substantiated. Hannah Krieg has now run political coverage in Seattle from inside undisclosed material relationships with the candidates she was covering, in two separate publications, separated by six weeks of formal unemployment. The Stranger investigated whether she failed to disclose a personal relationship between an editor and a candidate. She resigned via separation agreement before formal findings issued. The publication she founded at WinPower's office six weeks later operates inside a structural set of relationships of comparable scale to the one alleged at the prior employer. Neither set has been disclosed to readers.</p>
 
-<p>That is the disclosure failure. That is the pattern. And it is reachable on the public record in three datasets, four primary instruments, and roughly twenty minutes of cross-referencing.</p>
+<p>That's the disclosure failure. That's the pattern. Reachable on the public record in three datasets, four primary instruments, and roughly twenty minutes of cross-referencing.</p>
 
 <h2>Close</h2>
 
-<p>Whether The Burner's coverage is right or wrong on any given story, the reader has not been given the relationships needed to weigh it. That is the failure this article is about. The publication's founder is talented, productive, and ideologically committed to the politics she covers. The work she does on policy questions has, on the merits, often been right. None of that is at issue here.</p>
+<p>Whether The Burner's coverage is right or wrong on any given story, the reader hasn't been given the relationships needed to weigh it. That's the failure this article is about. The publication's founder is talented, productive, and ideologically committed to the politics she covers. The work she does on policy questions has, on the merits, often been right. None of that is at issue here.</p>
 
-<p>What is at issue is a basic journalistic standard the publication has not met, and a structural network whose existence the publication's readers have been entitled to know about and have not been told.</p>
+<p>What's at issue is a basic journalistic standard the publication hasn't met, and a structural network whose existence the publication's readers were entitled to know about and weren't told.</p>
 
-<div class="footnotes">
 <h3>Sources &amp; Footnotes</h3>
-<ol>
-<li id="fn1">Brandi Kruse, PDC complaint regarding Let's Go Washington promotional content. Coverage and complaint summary in the <em>Seattle Times</em>, May 12, 2026. <a href="https://www.seattletimes.com/" target="_blank" rel="noopener">seattletimes.com</a>.</li>
-<li id="fn2">Hannah Krieg quote-tweet of Brandi Kruse, May 13, 2026. <a href="https://x.com/hannahkrieg" target="_blank" rel="noopener">x.com/hannahkrieg</a>. Full text quoted in body. Follow-up tweet by the same account on the same date clarifying she does not support the initiatives Kruse promotes.</li>
-<li id="fn3">The Burner LLC, Certificate of Formation, filed March 12, 2025, and Amended Annual Report, filed July 21, 2025. Washington Secretary of State Corporations and Charities Filing System, UBI 605 791 267. Original principal office: 19550 International Blvd Ste 103, SeaTac. Amended principal office: 400 Boylston Ave E Apt 1, Seattle. Original sole governor: Jessica Ellen Pisane. Amended sole governor: Hannah Krieg. <a href="https://ccfs.sos.wa.gov/" target="_blank" rel="noopener">ccfs.sos.wa.gov</a>.</li>
-<li id="fn4">King County Recorder, Statutory Warranty Deed Instrument 20200416000821 and Deed of Trust Instrument 20200416000822, both recorded April 16, 2020. Grantees: <em>"Jessica Ellen Pisane and Jacob Dylan Simpson, a married couple."</em> Property: Unit 2, Building 19816, Valley View Estates, SeaTac, Washington 98188. Parcel 8858180030. $239,265 mortgage, U.S. Bank National Association. Deed of Trust Section 6 establishes the property as principal residence. <a href="https://recordsearch.kingcounty.gov/" target="_blank" rel="noopener">recordsearch.kingcounty.gov</a>.</li>
-<li id="fn5">Washington Public Disclosure Commission, Expenditures dataset. Direct API: <a href="https://data.wa.gov/resource/tijg-9zyp.json" target="_blank" rel="noopener">data.wa.gov/resource/tijg-9zyp.json</a>. Aggregate query filter: <code>upper(recipient_name) LIKE '%WINPOWER%'</code>. Returns $13,222,972.84 across 3,948 transactions from 300 unique filer_names since the dataset begins in 2007. Reader-friendly equivalent search: <a href="https://www.pdc.wa.gov/political-disclosure-reporting-data/browse-search-data/expenditures" target="_blank" rel="noopener">PDC Expenditures Search</a>, Recipient Name "WinPower."</li>
-<li id="fn6">Washington Public Disclosure Commission, Campaign Finance Summary dataset. Direct API: <a href="https://data.wa.gov/resource/3h9x-7bvm.json" target="_blank" rel="noopener">data.wa.gov/resource/3h9x-7bvm.json</a>. Aggregate query filter: <code>upper(treasurer_name) LIKE '%PISANE%'</code>. Returns 99 records across 69 unique filer_names. Office distribution: 28 State Representative, 20 City Council Member, 4 Mayor, 3 State Senator, 3 County Commissioner, 3 School Director, 2 Port Commissioner, 1 each Superintendent of Public Instruction, State Supreme Court Justice, Superior Court Judge, District Court Judge, Municipal Court Judge, City Attorney, County Council Member, County Assessor, Fire Commissioner, plus 26 political-committee filings.</li>
-<li id="fn7">Same dataset. Filer "Greg Miller", office "STATE SUPREME COURT JUSTICE", jurisdiction "SUPREME COURT", position "5", election_year 2026, receipt_date 2026-05-14, treasurer_name "Jessica Pisane", treasurer_city "SeaTac", committee_email <em>info@millerforjustice.org</em>. For Reykdal 2028: filer "CHRIS REYKDAL (Chris Reykdal)", office "SUPERINTENDENT OF PUBLIC INSTRUCTION", election_year 2028, treasurer_name "Jessica Pisane". For Kalinowski: filer "Caesar Kalinowski", office "SUPERIOR COURT JUDGE", jurisdiction "KING COUNTY SUPERIOR COURT", election_year 2024.</li>
-<li id="fn8">Footer language captured May 2026 from <a href="https://www.theburnerseattle.com/" target="_blank" rel="noopener">theburnerseattle.com</a>.</li>
-<li id="fn9">PDC Expenditures dataset, individual queries for each named subject filtering for recipient_name LIKE '%WINPOWER%'. Results returned zero across all available election cycles for: Bruce Harrell, Bob Kettle, Sara Nelson, Maritza Rivera, Rob Saka, and Adam Smith. Equivalent zero result for the four Democratic state senators who broke with caucus on SB 6346.</li>
-<li id="fn10">PDC Campaign Finance Summary dataset. Filer "Katie Wilson", treasurer_name "Jessica Pisane", office "MAYOR", jurisdiction "CITY OF SEATTLE", election_year 2025.</li>
-<li id="fn11">PDC Expenditures dataset. Filer "Katie Wilson", recipient_name LIKE '%WINPOWER%'. Returns 22 transactions, total $26,813.51, first transaction 2025-03-25, last transaction 2025-11-12.</li>
-<li id="fn12">Eight articles published at <a href="https://www.theburnerseattle.com/" target="_blank" rel="noopener">theburnerseattle.com</a>, sequence beginning December 8, 2025 with <em>"Mayor-Elect Wilson Won't Commit To Shutting Down The Surveillance Cameras She Campaigned Against"</em> and continuing through April 15, 2026 with <em>"Did Mayor Wilson Keep Her Promise on the Planned Parenthood Camera? It Depends How You Count."</em> Real Time Crime Center vendor identification and budget: <em>GeekWire</em>, July 16, 2025 (<em>"It's a game-changer: Seattle touts high-tech Real Time Crime Center amid privacy concerns"</em>); <em>Capitol Hill Seattle News</em>, April 10, 2026 (<em>"Groups call on Seattle mayor to choose 'Community Not Cameras'"</em>) cites the $3.7 million annual budget and the Axon Fusus subscription.</li>
-<li id="fn13">PDC Campaign Finance Summary dataset. Filer "Hannah Sabio-Howell", treasurer_name "Abbot Taylor", office "STATE SENATOR", jurisdiction "LEG DISTRICT 43", election_year 2026. Filer "Alexis Mercedes Rinck", treasurer_name "Abbot Taylor", office "CITY COUNCIL MEMBER", jurisdiction "CITY OF SEATTLE". Aggregate query: <code>upper(treasurer_name) LIKE '%ABBOT TAYLOR%' AND election_year='2026'</code> returns 59 active 2026 client engagements.</li>
-<li id="fn14">The Burner, article on Janis White and the rival PAC opposing her, March 2026. Article URL on file. Stephen Paolini's payment record: PDC Expenditures dataset, <code>upper(recipient_name) LIKE '%PAOLINI%'</code>, returns $69,802 total across 44 transactions. Top payers include "People for a Balanced Tax Code", "De-Escalate Washington", "Friends of Tammy Morales", "Friends of Dan Strauss", "Alliance for Gun Responsibility", and "Jessyn Farrell for Governor".</li>
-<li id="fn15">Erica C. Barnett, <em>"Two Stranger Reporters Put on Leave for Investigation Into Potential Ethical Violations,"</em> PubliCola, January 17, 2025. Follow-up: <em>"Two Stranger Reporters Resign, Concluding Investigation Into Ethical Breaches,"</em> PubliCola, February 3, 2025. <a href="https://publicola.com/" target="_blank" rel="noopener">publicola.com</a>.</li>
-<li id="fn16">Society of Professional Journalists, Code of Ethics, current revision. <a href="https://www.spj.org/ethicscode.asp" target="_blank" rel="noopener">spj.org/ethicscode.asp</a>.</li>
-<li id="fn17">Jacob Simpson, SeaTac City Council Position 2. Sworn in December 22, 2021 after winning a November 2021 special election to fill the unexpired term of Stan Tombs (term ending December 31, 2021), then to serve the full term January 1, 2022 through December 31, 2025. Selected by the council to serve as Mayor of SeaTac for the two-year ceremonial term beginning January 11, 2022. Succeeded as Mayor by Councilmember Mohamed Egal on January 9, 2024; continued to serve as Councilmember. Simpson did not appear on the November 4, 2025 ballot for Position 2; Takele Gobena (as appointed incumbent) lost that race to Caitlin Konya. As of May 2026, the SeaTac City Council roster is Senayet Negusse, Caitlin Konya, Peter Kwon, Mohamed Egal, James W. Lovell, Bedria Abdullahi, and Joe Vinson. Simpson is not on the current council. Sources: <em>"Three new Councilmembers sworn in,"</em> City of SeaTac, December 30, 2021; <em>"SeaTac City Council selects new Mayor, Deputy Mayor,"</em> City of SeaTac, January 12, 2022; <em>"SeaTac Makes History: Egal is the New Mayor, Guzman the Deputy,"</em> Runta News, January 14, 2024; <em>"ELECTION RESULTS 1: Konya, Sanford lead in early SeaTac City Council returns,"</em> The SeaTac Blog, November 4, 2025; City of SeaTac Council roster, <a href="https://www.seatacwa.gov/government/city-council" target="_blank" rel="noopener">seatacwa.gov/government/city-council</a>, accessed May 2026. SeaTac uses the "weak mayor" form: the mayoralty is a two-year ceremonial chair selected by the seven-member council from among themselves, not a separately elected office.</li>
+
+<ol class="footnotes">
+  <li id="fn1">Brandi Kruse, PDC complaint regarding Let's Go Washington promotional content. Coverage and complaint summary in the <em>Seattle Times</em>, May 12, 2026. <a href="https://www.seattletimes.com/">seattletimes.com</a>.</li>
+  <li id="fn2">Hannah Krieg quote-tweet of Brandi Kruse, May 13, 2026. <a href="https://x.com/hannahkrieg">x.com/hannahkrieg</a>. Full text quoted in body. Follow-up tweet by the same account on the same date clarifying she does not support the initiatives Kruse promotes.</li>
+  <li id="fn3">The Burner LLC, Certificate of Formation, filed March 12, 2025, and Amended Annual Report, filed July 21, 2025. Washington Secretary of State Corporations and Charities Filing System, UBI 605 791 267. Original principal office: 19550 International Blvd Ste 103, SeaTac. Amended principal office: 400 Boylston Ave E Apt 1, Seattle. Original sole governor: Jessica Ellen Pisane. Amended sole governor: Hannah Krieg. <a href="https://ccfs.sos.wa.gov/">ccfs.sos.wa.gov</a>.</li>
+  <li id="fn4">King County Recorder, Statutory Warranty Deed Instrument 20200416000821 and Deed of Trust Instrument 20200416000822, both recorded April 16, 2020. Grantees: <em>"Jessica Ellen Pisane and Jacob Dylan Simpson, a married couple."</em> Property: Unit 2, Building 19816, Valley View Estates, SeaTac, Washington 98188. Parcel 8858180030. $239,265 mortgage, U.S. Bank National Association. Deed of Trust Section 6 establishes the property as principal residence. <a href="https://recordsearch.kingcounty.gov/">recordsearch.kingcounty.gov</a>.</li>
+  <li id="fn5">Washington Public Disclosure Commission, Expenditures dataset. Direct API: <a href="https://data.wa.gov/resource/tijg-9zyp.json">data.wa.gov/resource/tijg-9zyp.json</a>. Aggregate query filter: <code>upper(recipient_name) LIKE '%WINPOWER%'</code>. Returns $13,222,972.84 across 3,948 transactions from 300 unique filer_names since the dataset begins in 2007. Reader-friendly equivalent search: <a href="https://www.pdc.wa.gov/political-disclosure-reporting-data/browse-search-data/expenditures">PDC Expenditures Search</a>, Recipient Name "WinPower."</li>
+  <li id="fn6">Washington Public Disclosure Commission, Campaign Finance Summary dataset. Direct API: <a href="https://data.wa.gov/resource/3h9x-7bvm.json">data.wa.gov/resource/3h9x-7bvm.json</a>. Aggregate query filter: <code>upper(treasurer_name) LIKE '%PISANE%'</code>. Returns 99 records across 69 unique filer_names. Office distribution: 28 State Representative, 20 City Council Member, 4 Mayor, 3 State Senator, 3 County Commissioner, 3 School Director, 2 Port Commissioner, 1 each Superintendent of Public Instruction, State Supreme Court Justice, Superior Court Judge, District Court Judge, Municipal Court Judge, City Attorney, County Council Member, County Assessor, Fire Commissioner, plus 26 political-committee filings.</li>
+  <li id="fn7">Same dataset. Filer "Greg Miller", office "STATE SUPREME COURT JUSTICE", jurisdiction "SUPREME COURT", position "5", election_year 2026, receipt_date 2026-05-14, treasurer_name "Jessica Pisane", treasurer_city "SeaTac", committee_email <em>info@millerforjustice.org</em>. For Reykdal 2028: filer "CHRIS REYKDAL (Chris Reykdal)", office "SUPERINTENDENT OF PUBLIC INSTRUCTION", election_year 2028, treasurer_name "Jessica Pisane". For Kalinowski: filer "Caesar Kalinowski", office "SUPERIOR COURT JUDGE", jurisdiction "KING COUNTY SUPERIOR COURT", election_year 2024.</li>
+  <li id="fn8">Footer language captured May 2026 from <a href="https://www.theburnerseattle.com/">theburnerseattle.com</a>.</li>
+  <li id="fn9">PDC Expenditures dataset, individual queries for each named subject filtering for recipient_name LIKE '%WINPOWER%'. Results returned zero across all available election cycles for: Bruce Harrell, Bob Kettle, Sara Nelson, Maritza Rivera, Rob Saka, and Adam Smith. Equivalent zero result for the four Democratic state senators who broke with caucus on SB 6346.</li>
+  <li id="fn10">PDC Campaign Finance Summary dataset. Filer "Katie Wilson", treasurer_name "Jessica Pisane", office "MAYOR", jurisdiction "CITY OF SEATTLE", election_year 2025.</li>
+  <li id="fn11">PDC Expenditures dataset. Filer "Katie Wilson", recipient_name LIKE '%WINPOWER%'. Returns 22 transactions, total $26,813.51, first transaction 2025-03-25, last transaction 2025-11-12.</li>
+  <li id="fn12">Eight articles published at <a href="https://www.theburnerseattle.com/">theburnerseattle.com</a>, sequence beginning December 8, 2025 with <em>"Mayor-Elect Wilson Won't Commit To Shutting Down The Surveillance Cameras She Campaigned Against"</em> and continuing through April 15, 2026 with <em>"Did Mayor Wilson Keep Her Promise on the Planned Parenthood Camera? It Depends How You Count."</em> Real Time Crime Center vendor identification and budget: <em>GeekWire</em>, July 16, 2025 (<em>"It's a game-changer: Seattle touts high-tech Real Time Crime Center amid privacy concerns"</em>); <em>Capitol Hill Seattle News</em>, April 10, 2026 (<em>"Groups call on Seattle mayor to choose 'Community Not Cameras'"</em>) cites the $3.7 million annual budget and the Axon Fusus subscription.</li>
+  <li id="fn13">PDC Campaign Finance Summary dataset. Filer "Hannah Sabio-Howell", treasurer_name "Abbot Taylor", office "STATE SENATOR", jurisdiction "LEG DISTRICT 43", election_year 2026. Filer "Alexis Mercedes Rinck", treasurer_name "Abbot Taylor", office "CITY COUNCIL MEMBER", jurisdiction "CITY OF SEATTLE". Aggregate query: <code>upper(treasurer_name) LIKE '%ABBOT TAYLOR%' AND election_year='2026'</code> returns 59 active 2026 client engagements.</li>
+  <li id="fn14">The Burner, article on Janis White and the rival PAC opposing her, March 2026. Article URL on file. Stephen Paolini's payment record: PDC Expenditures dataset, <code>upper(recipient_name) LIKE '%PAOLINI%'</code>, returns $69,802 total across 44 transactions. Top payers include "People for a Balanced Tax Code", "De-Escalate Washington", "Friends of Tammy Morales", "Friends of Dan Strauss", "Alliance for Gun Responsibility", and "Jessyn Farrell for Governor".</li>
+  <li id="fn15">Erica C. Barnett, <em>"Two Stranger Reporters Put on Leave for Investigation Into Potential Ethical Violations,"</em> PubliCola, January 17, 2025. Follow-up: <em>"Two Stranger Reporters Resign, Concluding Investigation Into Ethical Breaches,"</em> PubliCola, February 3, 2025. <a href="https://publicola.com/">publicola.com</a>.</li>
+  <li id="fn16">Society of Professional Journalists, Code of Ethics, current revision. <a href="https://www.spj.org/ethicscode.asp">spj.org/ethicscode.asp</a>.</li>
+  <li id="fn17">Jacob Simpson, SeaTac City Council Position 2. Sworn in December 22, 2021 after winning a November 2021 special election to fill the unexpired term of Stan Tombs (term ending December 31, 2021), then to serve the full term January 1, 2022 through December 31, 2025. Selected by the council to serve as Mayor of SeaTac for the two-year ceremonial term beginning January 11, 2022. Succeeded as Mayor by Councilmember Mohamed Egal on January 9, 2024; continued to serve as Councilmember. Simpson did not appear on the November 4, 2025 ballot for Position 2; Takele Gobena (as appointed incumbent) lost that race to Caitlin Konya. As of May 2026, the SeaTac City Council roster is Senayet Negusse, Caitlin Konya, Peter Kwon, Mohamed Egal, James W. Lovell, Bedria Abdullahi, and Joe Vinson. Simpson is not on the current council. Sources: <em>"Three new Councilmembers sworn in,"</em> City of SeaTac, December 30, 2021; <em>"SeaTac City Council selects new Mayor, Deputy Mayor,"</em> City of SeaTac, January 12, 2022; <em>"SeaTac Makes History: Egal is the New Mayor, Guzman the Deputy,"</em> Runta News, January 14, 2024; <em>"ELECTION RESULTS 1: Konya, Sanford lead in early SeaTac City Council returns,"</em> The SeaTac Blog, November 4, 2025; City of SeaTac Council roster, <a href="https://www.seatacwa.gov/government/city-council">seatacwa.gov/government/city-council</a>, accessed May 2026. SeaTac uses the "weak mayor" form: the mayoralty is a two-year ceremonial chair selected by the seven-member council from among themselves, not a separately elected office.</li>
 </ol>
-</div>
 
-<div class="footer-mark">
-<span>sunshinedocket.org</span>
-<span>@minty_hawk</span>
-</div>
+<div class="sig">sunshinedocket.org @minty_hawk</div>
 
 </div>
 
-</body></html>
+</body>
+</html>
