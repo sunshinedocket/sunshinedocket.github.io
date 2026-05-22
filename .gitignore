@@ -1,3 +1,5 @@
 *.py
 .DS_Store
 tiles/.DS_Store
+CLAUDE.md
+SUNSHINE_DOCKET_PROMPT.md
