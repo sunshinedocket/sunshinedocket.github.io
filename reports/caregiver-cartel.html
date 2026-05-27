@@ -4,346 +4,119 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Caregiver Cartel | Sunshine Docket</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="Since 2016, SEIU 775 has been Washington State's single largest named political contributor, outspending Microsoft, Amazon, and Boeing combined. A public-records investigation into the union's political footprint.">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
+  --serif: 'Bitter', Georgia, serif;
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+  /* compatibility vars used by the inline SVG charts + tables (theme-aware) */
+  --body: 'Bitter', Georgia, serif;
+  --ink: #e0e0e0; --muted: #999; --rule: #262626; --paper: #0c0c0c;
+  --accent: #e3120b; --accent-light: rgba(227,18,11,0.12);
+}
+@media (prefers-color-scheme: light) {
   :root {
-    --ink: #1c1c1e;
-    --paper: #f8f7f4;
-    --accent: #b91c1c;
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+    --ink: #1a1a1a; --muted: #666; --rule: #d4c9b0; --paper: #f8f7f4;
     --accent-light: #fef2f2;
-    --gold: #92400e;
-    --muted: #6b6b6b;
-    --rule: #d4c9b0;
-    --node-seiu: #b91c1c;
-    --node-legislator: #1e3a5f;
-    --node-pac: #166534;
-    --node-gov: #6b21a8;
-    --node-firm: #92400e;
   }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+h1 { font-family: var(--serif); font-weight: 900; font-size: 40px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
+h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
+.dek { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 640px; }
+.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding-bottom: 18px; border-bottom: 1px solid var(--bd); margin-bottom: 32px; }
+.byline strong { color: var(--tx); }
 
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Bitter', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.75;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 40px 24px 80px;
-  }
+h2 { font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1.2; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.01em; }
+h3 { font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.3; margin-top: 32px; margin-bottom: 10px; }
 
-  /* ---- MASTHEAD ---- */
-  .masthead {
-    text-align: center;
-    border-top: 4px solid var(--ink);
-    border-bottom: 4px solid var(--ink);
-    padding: 18px 0 14px;
-    margin-bottom: 40px;
-  }
-  .masthead-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .masthead-site a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-  }
-  .masthead-site a:hover { text-decoration: underline; }
-  .masthead-rule {
-    width: 40px;
-    height: 2px;
-    background: var(--rule);
-    margin: 8px auto;
-  }
+p { font-size: 17px; line-height: 1.65; margin-bottom: 18px; }
+p.lead { font-size: 19px; line-height: 1.55; }
+p.lead::first-letter { font-family: var(--serif); font-weight: 900; font-size: 56px; float: left; line-height: 0.95; padding-right: 8px; padding-top: 4px; color: var(--rd); }
 
-  /* ---- HEADLINE BLOCK ---- */
-  .hed-block {
-    margin-bottom: 36px;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 28px;
-  }
-  .kicker {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 6vw, 56px);
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-  }
-  .dek {
-    font-size: 20px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--muted);
-    line-height: 1.5;
-    max-width: 640px;
-  }
-  .byline-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 20px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
-  .byline-row span:not(:last-child)::after {
-    content: ' //';
-    margin-left: 16px;
-    color: var(--rule);
-  }
+a.fn { font-family: var(--mono); font-size: 11px; color: var(--rd); text-decoration: none; vertical-align: super; line-height: 0; padding: 0 1px; }
+a.fn:hover { text-decoration: underline; }
+strong { font-weight: 700; }
+em, i { font-style: italic; }
 
-  /* ---- SECTION HEADERS ---- */
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    margin: 48px 0 16px;
-    line-height: 1.25;
-  }
-  h2::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 3px;
-    background: var(--accent);
-    margin-bottom: 12px;
-  }
+blockquote { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; border-left: 3px solid var(--rd); padding: 4px 0 4px 20px; margin: 26px 0 26px 8px; color: var(--tx); }
 
-  /* ---- BODY TEXT ---- */
-  p { margin-bottom: 20px; }
+/* callout, re-themed to match the design system */
+.callout { background: var(--sf2); border: 1px solid var(--bd); border-left: 3px solid var(--rd); padding: 18px 22px; margin: 28px 0; font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.55; color: var(--tx); }
+.callout p { font-style: italic; margin-bottom: 10px; }
+.callout p:last-child { margin-bottom: 0; }
 
-  /* ---- CALLOUT ---- */
-  .callout {
-    border-left: 4px solid var(--accent);
-    background: var(--accent-light);
-    padding: 16px 20px;
-    margin: 28px 0;
-    font-size: 17px;
-    font-style: italic;
-    color: #7f1d1d;
-  }
+/* tables ported into the design system */
+table { width: 100%; border-collapse: collapse; margin: 26px 0; font-family: var(--serif); font-size: 15px; }
+caption { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tm); text-align: left; padding-bottom: 10px; }
+th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tm); font-weight: 600; text-align: left; padding: 9px 12px; border-bottom: 2px solid var(--bd); }
+td { padding: 9px 12px; border-bottom: 1px solid var(--bd); vertical-align: top; }
+.amt { font-family: var(--mono); font-weight: 700; }
+.total-row td { border-top: 2px solid var(--rd); border-bottom: 2px solid var(--rd); font-family: var(--mono); font-weight: 700; color: var(--rd); }
 
-  /* ---- TABLES ---- */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0;
-    font-size: 15px;
-  }
-  th {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: transparent;
-    color: var(--paper);
-    padding: 10px 14px;
-    text-align: left;
-  }
-  td {
-    padding: 9px 14px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-  }
-  tr:nth-child(even) td { background: rgba(0,0,0,0.03); }
-  .amt { font-family: 'JetBrains Mono', monospace; font-weight: 700; }
-  .total-row td {
-    background: var(--ink) !important;
-    color: var(--paper);
-    font-weight: 600;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-  }
+/* inline SVG figure containers */
+.network-wrap { margin: 32px 0; }
+.network-label, .chart-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); margin-bottom: 12px; }
+.network-caption, .chart-caption { font-family: var(--mono); font-size: 11px; color: var(--tm); font-style: normal; line-height: 1.5; margin-top: 10px; }
+#networkSvg { width: 100%; height: auto; display: block; }
 
-  /* ---- CHART WRAPPER ---- */
-  .chart-wrap {
-    background: white;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 24px;
-    margin: 28px 0;
-  }
-  .chart-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-  .chart-caption {
-    font-size: 13px;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 10px;
-  }
+/* Chart.js canvas card stays light so its dark-on-white render is legible */
+.chart-wrap { background: #fff; border: 1px solid var(--bd); padding: 22px 24px; margin: 28px 0; }
 
-  /* ---- NETWORK GRAPHIC ---- */
-  .network-wrap {
-    margin: 36px 0;
-    background: transparent;
-    border-radius: 6px;
-    padding: 8px;
-    position: relative;
-    overflow: hidden;
-  }
-  .network-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    padding: 8px 12px 0;
-    margin-bottom: -4px;
-  }
-  #networkSvg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .network-caption {
-    font-size: 13px;
-    color: var(--muted);
-    font-style: italic;
-    padding: 10px 12px 4px;
-  }
+.chain-table { font-size: 14px; }
+.chain-table td:first-child { font-family: var(--mono); font-size: 12px; }
+.source-tag { font-family: var(--mono); font-size: 10px; color: var(--tm); border: 1px solid var(--bd); border-radius: 2px; padding: 1px 5px; white-space: nowrap; }
 
-  /* ---- CHAIN TABLE ---- */
-  .chain-table { font-size: 14px; }
-  .chain-table td:first-child { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
-  .source-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    padding: 1px 5px;
-    white-space: nowrap;
-  }
+/* references + footer, re-themed */
+.refs { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--bd); }
+.refs h3 { font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; margin-top: 0; color: var(--tx); }
+.refs ol { padding-left: 22px; }
+.refs li { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--tm); margin-bottom: 10px; }
+.refs a { color: var(--ac); text-decoration: none; word-break: break-all; }
+.refs a:hover { text-decoration: underline; }
+.refs li:target { background: rgba(227,18,11,0.08); padding: 4px 6px; margin-left: -6px; }
 
-  /* ---- CHECKLIST ---- */
-  .checklist {
-    background: #fafaf7;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 20px 24px;
-    margin: 32px 0;
-  }
-  .checklist h3 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 14px;
-  }
-  .checklist ul { list-style: none; }
-  .checklist li {
-    font-size: 15px;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--rule);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .checklist li:last-child { border-bottom: none; }
-  .checklist li::before {
-    content: '☐';
-    color: var(--accent);
-    font-size: 16px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
+.footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--bd); text-align: center; font-family: var(--mono); font-size: 12px; color: var(--tm); line-height: 1.7; letter-spacing: 0.04em; }
+.footer a { color: var(--ac); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
 
-  /* ---- REFERENCES ---- */
-  .refs {
-    margin-top: 56px;
-    border-top: 2px solid var(--ink);
-    padding-top: 24px;
-  }
-  .refs h3 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .refs ol {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--muted);
-    padding-left: 20px;
-  }
-  .refs li { margin-bottom: 8px; }
-  .refs a { color: var(--accent); }
-
-  /* ---- FOOTER ---- */
-  .footer {
-    margin-top: 48px;
-    padding-top: 20px;
-    border-top: 1px solid var(--rule);
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-  }
-  .footer a { color: var(--accent); text-decoration: none; }
-  .footer a:hover { text-decoration: underline; }
-
-  /* ---- ANIMATION ---- */
-  @keyframes drawLine {
-    from { stroke-dashoffset: 600; opacity: 0; }
-    to { stroke-dashoffset: 0; opacity: 1; }
-  }
-  @keyframes fadeNode {
-    from { opacity: 0; transform: scale(0.7); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  .net-line { stroke-dasharray: 600; animation: drawLine 1.2s ease forwards; }
-  .net-node { animation: fadeNode 0.5s ease forwards; opacity: 0; }
+@media (max-width: 600px) {
+  h1 { font-size: 32px; }
+  .dek { font-size: 17px; }
+  p { font-size: 16px; }
+  blockquote { font-size: 17px; }
+}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<!-- MASTHEAD -->
-<div class="masthead">
-  <div class="masthead-name">Sunshine Docket &mdash; WA Legislative Accountability</div>
-  <div class="masthead-rule"></div>
-  <div class="masthead-site"><a href="https://sunshinedocket.org">sunshinedocket.org</a></div>
-</div>
+<nav class="nav">
+  <a href="/">Sunshine Docket</a> &nbsp;/&nbsp; <a href="/reports/">Reports</a> &nbsp;/&nbsp; <span style="color: var(--tm)">The Caregiver Cartel</span>
+</nav>
 
-<!-- HEADLINE -->
-<div class="hed-block">
-  <div class="kicker">Investigation // SEIU 775 // Washington State Legislature</div>
-  <h1>The Caregiver Cartel</h1>
-  <p class="dek">Washington's #1 political contributor for the last decade isn't Microsoft, Amazon, or Boeing. It's a home care workers' union, and it's not even close.</p>
-  <div class="byline-row">
-    <span>Sunshine Docket Staff</span>
-    <span>April 2026</span>
-    <span>Public records sourced</span>
-  </div>
+<div class="kicker">Investigation &middot; SEIU 775 &middot; Washington State Legislature</div>
+
+<h1>The Caregiver <em>Cartel</em></h1>
+
+<p class="dek">Washington's #1 political contributor for the last decade isn't Microsoft, Amazon, or Boeing. It's a home care workers' union, and it's not even close.</p>
+
+<div class="byline">
+  <strong>Sunshine Docket Staff</strong> &middot; April 2026 &middot; <span>Public records sourced</span>
 </div>
 
 <!-- LEAD NETWORK GRAPHIC -->
@@ -447,7 +220,7 @@
 </div>
 
 <!-- BODY COPY -->
-<p>SEIU 775 is the single largest named political contributor in Washington State. Since 2016, the union and its affiliated PACs have moved roughly $30 million in net external political spending through the state's campaign finance system. More than Microsoft, Amazon, and Boeing combined, by more than two to one. Every major election cycle, SEIU 775 funds 175 or more candidates simultaneously while running a $6.8 million ballot measure war chest, keeping nine registered lobbyists in Olympia, and routing payments through consulting companies connected to the legislators who chair the committees where SEIU's agenda originates.</p>
+<p class="lead">SEIU 775 is the single largest named political contributor in Washington State. Since 2016, the union and its affiliated PACs have moved roughly $30 million in net external political spending through the state's campaign finance system. More than Microsoft, Amazon, and Boeing combined, by more than two to one. Every major election cycle, SEIU 775 funds 175 or more candidates simultaneously while running a $6.8 million ballot measure war chest, keeping nine registered lobbyists in Olympia, and routing payments through consulting companies connected to the legislators who chair the committees where SEIU's agenda originates.</p>
 
     <p>There's a story Washington's political press refuses to tell. Not because it's complicated. Because the people who would tell it are on the payroll.</p>
 
@@ -580,13 +353,13 @@
 
 <p>The compliance record here isn't a footnote. It's a pattern.</p>
 
-<p>In 2015, then-Attorney General Bob Ferguson, a Democrat, and hardly a union antagonist, sued SEIU 775 in Thurston County Superior Court for failing to properly report $1.39 million in contributions to its political action committee.<sup><a href="#ref1">1</a></sup> The contributions hadn't disappeared. They had been disclosed by the PAC. What SEIU failed to do was report them in the union's own lobbying paperwork, obscuring the connection between the lobbying entity and the political spending entity. The AG's office also found that in-kind contributions, staff time, office space, phones, web services, postage, had never been reported at all by the PAC.</p>
+<p>In 2015, then-Attorney General Bob Ferguson, a Democrat, and hardly a union antagonist, sued SEIU 775 in Thurston County Superior Court for failing to properly report $1.39 million in contributions to its political action committee.<a class="fn" href="#ref1">1</a> The contributions hadn't disappeared. They had been disclosed by the PAC. What SEIU failed to do was report them in the union's own lobbying paperwork, obscuring the connection between the lobbying entity and the political spending entity. The AG's office also found that in-kind contributions, staff time, office space, phones, web services, postage, had never been reported at all by the PAC.</p>
 
 <div class="callout">
-  "SEIU 775 has operated, for far too long, above the law. In reality, SEIU 775 is a shadow candidate in nearly every Washington election." -- Freedom Foundation complaint to the AG, 2015<sup><a href="#ref2">2</a></sup>
+  "SEIU 775 has operated, for far too long, above the law. In reality, SEIU 775 is a shadow candidate in nearly every Washington election." -- Freedom Foundation complaint to the AG, 2015<a class="fn" href="#ref2">2</a>
 </div>
 
-<p>More recently, the Ballot Fund Committee was hit with a PDC complaint in 2024 for failing to accurately disclose expenditures across six ballot propositions it was actively opposing.<sup><a href="#ref3">3</a></sup> It amended within four days of being contacted, which bought it leniency. A pattern of amending under pressure isn't the same as a pattern of compliance.</p>
+<p>More recently, the Ballot Fund Committee was hit with a PDC complaint in 2024 for failing to accurately disclose expenditures across six ballot propositions it was actively opposing.<a class="fn" href="#ref3">3</a> It amended within four days of being contacted, which bought it leniency. A pattern of amending under pressure isn't the same as a pattern of compliance.</p>
 
 <h2>Joe Fitzgibbon: Fourteen Years of Loyalty, Fully Funded</h2>
 
@@ -746,7 +519,7 @@
 
 <p>The most structurally brazen arrangement in this whole apparatus has nothing to do with the PAC.</p>
 
-<p>The SEIU 775 Benefits Group, a separate 501(c) entity that controls healthcare, retirement, and training benefits for 60,000-plus union members, has a board that includes active state government officials. Catherine Kinnaman, Director of the Home and Community Services Division at DSHS, sits on that board. Seth Miller, Assistant Director of the Retirement Services Division at the Washington Department of Retirement Systems, also sits on that board.<sup><a href="#ref4">4</a></sup></p>
+<p>The SEIU 775 Benefits Group, a separate 501(c) entity that controls healthcare, retirement, and training benefits for 60,000-plus union members, has a board that includes active state government officials. Catherine Kinnaman, Director of the Home and Community Services Division at DSHS, sits on that board. Seth Miller, Assistant Director of the Retirement Services Division at the Washington Department of Retirement Systems, also sits on that board.<a class="fn" href="#ref4">4</a></p>
 
 <p>These aren't advisory roles in name only. The Benefits Group holds real assets. It negotiates with the state over benefit structures. And the state officials who administer those same benefit structures, at DSHS and DRS, sit at the same governance table as the union that lobbies the legislature over the Medicaid reimbursement rates that fund all of it.</p>
 
@@ -847,5 +620,6 @@
   });
 </script>
 
+</div>
 </body>
 </html>
