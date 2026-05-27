@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disclosures | Sunshine Docket</title>
+<meta name="description" content="Who runs Sunshine Docket, how it is funded, what its analytical priors are, and which working relationships exist that readers should know about.">
+<link rel="canonical" href="https://sunshinedocket.org/disclosures.html">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
+  --serif: 'Bitter', Georgia, serif;
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; font-size: 18px; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+h1 { font-family: var(--serif); font-weight: 900; font-size: 44px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
+h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
+.dek { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 620px; }
+
+.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding: 14px 0; border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd); margin-bottom: 32px; letter-spacing: 0.04em; }
+.byline span { color: var(--td); padding: 0 8px; }
+
+p { margin-bottom: 18px; }
+p.lede { font-size: 19px; }
+
+h2 { font-family: var(--serif); font-weight: 900; font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; margin-top: 44px; margin-bottom: 16px; }
+
+.opinion-note { border-left: 2px solid var(--bd); padding-left: 18px; font-style: italic; font-size: 16px; color: var(--tm); margin: 24px 0; max-width: 660px; line-height: 1.55; }
+
+.dropcap::first-letter { float: left; font-family: var(--serif); font-weight: 900; font-size: 64px; line-height: 0.85; padding: 6px 10px 0 0; color: var(--rd); }
+
+code { font-family: var(--mono); font-size: 0.85em; background: var(--bl); padding: 1px 5px; border-radius: 2px; }
+
+sup.fn { font-family: var(--mono); font-size: 10px; color: var(--rd); font-weight: 600; padding-left: 1px; }
+sup.fn a { color: var(--rd); text-decoration: none; }
+sup.fn a:hover { text-decoration: underline; }
+
+.pull { border-left: 3px solid var(--rd); padding: 8px 0 8px 20px; margin: 28px 0; font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--tx); max-width: 640px; }
+
+.roles-list { background: var(--sf); border: 1px solid var(--bd); padding: 22px 24px; margin: 28px 0; font-family: var(--serif); }
+.roles-list ol { padding-left: 24px; }
+.roles-list li { margin-bottom: 10px; line-height: 1.5; font-size: 17px; }
+.roles-list li::marker { color: var(--rd); font-family: var(--mono); font-weight: 700; font-size: 14px; }
+.roles-list .roles-head { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); margin-bottom: 14px; font-weight: 600; }
+
+.footnotes { margin-top: 60px; padding-top: 24px; border-top: 2px solid var(--bd); }
+.footnotes h3 { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); margin-bottom: 16px; font-weight: 600; }
+.footnotes ol { padding-left: 28px; }
+.footnotes li { font-family: var(--serif); font-size: 14px; line-height: 1.6; color: var(--tm); margin-bottom: 12px; }
+.footnotes li::marker { color: var(--rd); font-family: var(--mono); font-weight: 600; }
+.footnotes code { background: var(--bl); }
+.footnotes a { color: var(--ac); text-decoration: underline; text-decoration-color: var(--td); }
+.footnotes a:hover { text-decoration-color: var(--rd); }
+
+.footer-mark { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--bd); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--td); display: flex; justify-content: space-between; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 34px; }
+  .dek { font-size: 18px; }
+  h2 { font-size: 24px; }
+  body { font-size: 17px; }
+  .pull { font-size: 19px; padding-left: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav"><a href="/">&larr; Sunshine Docket</a> &nbsp;//&nbsp; <a href="/reports/">All Reports</a></nav>
+
+<div class="kicker">Sunshine Docket // Editorial Standards // Disclosures</div>
+
+<h1>Disclosures</h1>
+
+<p class="dek">Who runs Sunshine Docket, how it is funded, what its analytical priors are, and which working relationships exist that readers should know about.</p>
+
+<div class="byline">Standing policy <span>//</span> Last updated May 26, 2026</div>
+
+<p class="lede">Sunshine Docket holds other Washington publications to a disclosure standard. The publication should be willing to do the same about itself.</p>
+
+<p>This page documents who publishes Sunshine Docket, how it is funded, what its analytical priors are, what working relationships exist that could be material to a reader's evaluation of the work, and how corrections and pre-publication contact are handled. It will be updated when any of these change.</p>
+
+<h2>Who publishes Sunshine Docket</h2>
+
+<p>Sunshine Docket is published by <strong>@minty_hawk</strong> on X, with editorial contributions from a small number of additional people who are not publicly identified.</p>
+
+<p>Editorial responsibility for everything the publication publishes rests with @minty_hawk, who is reachable through normal legal and journalistic accountability channels via the contact path at the bottom of this page.</p>
+
+<h2>How Sunshine Docket is funded</h2>
+
+<div class="pull">Sunshine Docket has no funding model.</div>
+
+<p>The editorial lead personally pays domain registration and hosting costs. The publication accepts no advertising, no donations, no Patreon or Ko-fi subscriptions, no paid subscriptions, no sponsorship arrangements, and no consulting fees from any subject of its coverage. No contributor has ever received any funds, in any direction, in exchange for any specific piece of coverage.</p>
+
+<h2>Working relationships and conflicts</h2>
+
+<p>Sunshine Docket's contributors collectively maintain professional and personal relationships across the Washington political ecosystem. Where any contributor's relationship becomes material to a specific piece of coverage, that piece will carry an attached disclosure note, with recusal where appropriate. The categorical relationship that spans multiple pieces is documented below.</p>
+
+<p><strong>Other recurring conversational interlocutors.</strong> The publication's contributors collectively maintain regular conversations with a small number of figures across the Washington political spectrum, including individuals affiliated with both major parties and with third-party formations such as the Cascade Party. None of these individuals has editorial control over Sunshine Docket, pre-publication review of pieces, or any financial relationship with the publication.</p>
+
+<h2>Analytical priors</h2>
+
+<p>Every publication operates from analytical priors. Sunshine Docket states its priors explicitly so readers can weigh the work against them.</p>
+
+<p><strong>Fiscal accountability.</strong> The publication is interested in how public money flows, who receives it, and whether the flows are documented in records the public can verify. Stories that involve documented public spending, campaign finance, agency contracts, and the gap between budget claims and budget realities are the publication's natural beat.</p>
+
+<p><strong>Government transparency.</strong> The publication is interested in records that are nominally public but practically invisible (PDC datasets, Secretary of State filings, Recorder instruments, judicial dockets, agency PRR productions) and in the gap between what an institution claims about itself and what its own primary records show.</p>
+
+<p><strong>Skepticism of single-party institutional power.</strong> Washington State has been governed by a Democratic majority long enough that institutional power and Democratic power are difficult to separate in many domains. The publication writes about that situation. It has also published critiques of Republican and conservative misconduct where the records support them, and it will continue to do so.</p>
+
+<p>These priors produce coverage that often critiques Democratic incumbents, public-sector unions, and progressive fiscal policy. A hostile reader can characterize the resulting pattern as partisan. The publication's response is that the analytical lens is structural rather than partisan, and that the cumulative body of work is the evidence on which that question should be decided. Readers are invited to disagree, in writing, with specific receipts.</p>
+
+<h2>Methodology</h2>
+
+<p>Sunshine Docket operates under a <strong>surface-evidentiary rule</strong> for site articles: every factual claim is sourced to a primary record. The acceptable categories of primary record are Public Disclosure Commission datasets, Washington Secretary of State filings, county Recorder instruments, court records, agency PRR productions, F-1 financial-affairs disclosures, and similar institutional artifacts that any reader can independently re-query. Each footnote includes either a direct URL, a queryable dataset filter, or an instrument number that supports independent verification.</p>
+
+<p>For thread-form publishing on X, the publication uses inference, framing, and rhetorical compression more liberally than site articles allow, but the underlying factual claims remain queryable against the same primary sources.</p>
+
+<p>The publication does not use anonymous sources for affirmative factual claims. Where another outlet's reporting is republished, attribution is explicit and the original publication's URL is provided.</p>
+
+<h2>AI workflow</h2>
+
+<p>Sunshine Docket pieces are drafted with assistance from Claude, an AI model from Anthropic. The standing process is straightforward: a contributor generates ideas and a first draft; Claude refines the draft; the contributor refines back; the work is quality-checked against primary sources; the editorial lead signs off; the work is published.</p>
+
+<p>Claude is not used to generate factual claims that have not been independently verified, to author pieces in a contributor's absence, or to surface sources outside the documented primary-source rule. The primary-source footnotes that anchor each article are the same regardless of which portions of the prose Claude helped refine.</p>
+
+<h2>Corrections</h2>
+
+<p>If you believe Sunshine Docket has made a factual error, write to the contact address below. Correction requests will be evaluated against primary sources and either corrected with a dated correction note attached to the article, or declined with a brief explanation of why the existing claim is supported.</p>
+
+<p>For pre-publication contact requests (i.e., a subject of forthcoming coverage requesting an opportunity to respond), the publication will engage if the request is specific (referencing a particular factual claim) and timely (received within a reasonable window before publication).</p>
+
+<h2>Contact</h2>
+
+<p>For corrections, pre-publication contact, or other accountability inquiries: <a href="mailto:sunshinedocket@proton.me"><strong>sunshinedocket@proton.me</strong></a></p>
+
+<p>For everything else: <a href="https://x.com/minty_hawk" target="_blank" rel="noopener">@minty_hawk on X</a>.</p>
+
+<div class="footer-mark">
+<span>sunshinedocket.org</span>
+<span>@minty_hawk</span>
+</div>
+
+</div>
+</body>
+</html>
