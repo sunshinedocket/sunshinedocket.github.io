@@ -83,6 +83,13 @@ section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px;
   p { font-size: 16px; }
   blockquote { font-size: 17px; }
 }
+
+/* Share buttons (added by add_share_buttons.py) */
+.sd-share { display: flex; gap: 18px; align-items: center; padding: 12px 0 6px; margin: -14px 0 28px; }
+.sd-share-btn { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; color: currentColor; opacity: .6; background: transparent; border: 0; padding: 0; cursor: pointer; line-height: 0; transition: color .15s, opacity .15s, transform .15s; }
+.sd-share-btn:hover { color: #e3120b; opacity: 1; transform: translateY(-1px); }
+.sd-share-btn svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.sd-share-btn.copied { color: #e3120b; opacity: 1; }
 </style>
 </head>
 <body>
@@ -101,6 +108,14 @@ section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px;
 <div class="byline">
   <strong>Sunshine Docket</strong> &middot; April 25, 2026 &middot; <span>~9 minute read</span>
 </div>
+<div class="sd-share" data-share>
+  <button type="button" class="sd-share-btn" data-platform="facebook" title="Share on Facebook" aria-label="Share on Facebook"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M16 8.05a8.02 8.02 0 0 0-8-8.04 8.02 8.02 0 0 0-1.25 15.94v-5.59H4.72V8.05h2.03V6.28c0-2.01 1.2-3.12 3.02-3.12.88 0 1.8.16 1.8.16v1.97h-1.01c-1 0-1.31.62-1.31 1.25v1.51h2.22l-.35 2.31H9.25v5.59A8.02 8.02 0 0 0 16 8.05z"/></svg></button>
+  <button type="button" class="sd-share-btn" data-platform="x" title="Share on X" aria-label="Share on X"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12.6 1H15l-5.27 6.03L16 15.5h-4.85l-3.8-4.97-4.35 4.97H.6l5.64-6.45L0 1h4.97l3.43 4.54L12.6 1zm-.84 13.16h1.34L4.31 2.27H2.87l8.89 11.89z"/></svg></button>
+  <button type="button" class="sd-share-btn" data-platform="linkedin" title="Share on LinkedIn" aria-label="Share on LinkedIn"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.15 0h13.7C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.15 1.15H1.15A1.15 1.15 0 0 1 0 14.85V1.15zM4.94 13.84V6.17H2.4v7.67h2.55zM3.68 5.13a1.32 1.32 0 1 0 0-2.64 1.32 1.32 0 0 0 0 2.64zm2.97 8.71h2.54V9.56c0-.23.02-.46.08-.62.18-.45.6-.93 1.29-.93.91 0 1.27.69 1.27 1.7v4.13h2.55V9.41c0-2.35-1.25-3.45-2.93-3.45-1.34 0-1.95.74-2.29 1.26h.02V6.17H6.65c.03.72 0 7.67 0 7.67z"/></svg></button>
+  <button type="button" class="sd-share-btn" data-platform="copy" title="Copy link" aria-label="Copy link"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.35 8.78a3.5 3.5 0 0 1 0-4.95l3-3a3.5 3.5 0 1 1 4.95 4.95l-1.42 1.42a.75.75 0 1 1-1.06-1.06l1.42-1.42a2 2 0 0 0-2.83-2.83l-3 3a2 2 0 0 0 0 2.83.75.75 0 0 1-1.06 1.06zm3.3-1.56a3.5 3.5 0 0 1 0 4.95l-3 3a3.5 3.5 0 1 1-4.95-4.95l1.42-1.42a.75.75 0 1 1 1.06 1.06l-1.42 1.42a2 2 0 0 0 2.83 2.83l3-3a2 2 0 0 0 0-2.83.75.75 0 0 1 1.06-1.06z"/></svg></button>
+</div>
+<script>(function(){var l=document.querySelector('link[rel=canonical]');var u=l?l.href:location.href;var t=document.title.replace(/ \| .*$/,'');document.querySelectorAll('.sd-share [data-platform]').forEach(function(b){b.addEventListener('click',function(){var p=b.dataset.platform,h;if(p==='facebook'){h='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u);}else if(p==='x'){h='https://twitter.com/intent/tweet?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t);}else if(p==='linkedin'){h='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(u);}else{if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){b.classList.add('copied');setTimeout(function(){b.classList.remove('copied');},1200);});}return;}window.open(h,'_blank','noopener,noreferrer,width=600,height=480');});});})();</script>
+
 
 <p class="lead">A forensic audit of the King County Regional Homelessness Authority landed last week, and most of the coverage led with the same number: $13 million in unaccounted public funds.<a class="fn" href="#fn1">1</a> That figure is real, and it matters. But it isn't the most important finding in the auditor's report. The most important finding is that the records sufficient to verify what happened to most of the money don't exist.</p>
 
