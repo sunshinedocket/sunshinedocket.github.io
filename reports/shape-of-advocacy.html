@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shape of Advocacy | Sunshine Docket</title>
+<meta name="description" content="Ron Davis's GeekWire op-ed calls Washington's tax burden a myth and asks for evidence over vibes. The data is largely accurate; the framing is not. Five framing choices, the ITEP methodology beneath them, and what the legislature could do to actually reduce regressivity.">
+<link rel="canonical" href="https://sunshinedocket.org/reports/shape-of-advocacy.html">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
+  --serif: 'Bitter', Georgia, serif;
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 60px; }
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+h1 { font-family: var(--serif); font-weight: 900; font-size: 40px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
+h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
+.dek { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 640px; }
+.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding-bottom: 18px; border-bottom: 1px solid var(--bd); margin-bottom: 32px; }
+.byline strong { color: var(--tx); }
+
+h2 { font-family: var(--serif); font-weight: 700; font-size: 26px; line-height: 1.2; margin-top: 44px; margin-bottom: 14px; letter-spacing: -0.01em; }
+h3 { font-family: var(--serif); font-weight: 700; font-size: 19px; line-height: 1.3; margin-top: 32px; margin-bottom: 10px; }
+
+p { font-size: 17px; line-height: 1.65; margin-bottom: 18px; }
+p.lead { font-size: 19px; line-height: 1.55; }
+p.lead::first-letter { font-family: var(--serif); font-weight: 900; font-size: 56px; float: left; line-height: 0.95; padding-right: 8px; padding-top: 4px; color: var(--rd); }
+
+a.fn { font-family: var(--mono); font-size: 11px; color: var(--rd); text-decoration: none; vertical-align: super; line-height: 0; padding: 0 1px; }
+a.fn:hover { text-decoration: underline; }
+
+blockquote { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; border-left: 3px solid var(--rd); padding: 4px 0 4px 20px; margin: 26px 0 26px 8px; color: var(--tx); }
+blockquote cite { display: block; margin-top: 10px; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--tm); }
+
+.pullquote { background: var(--sf2); border: 1px solid var(--bd); padding: 22px 24px; margin: 28px 0; border-left: 3px solid var(--rd); }
+.pullquote p { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.5; margin-bottom: 0; color: var(--tx); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 28px 0; }
+.stat { background: var(--sf2); border: 1px solid var(--bd); padding: 18px 18px; }
+.stat .num { font-family: var(--serif); font-weight: 900; font-size: 30px; line-height: 1.1; color: var(--rd); margin-bottom: 4px; letter-spacing: -0.02em; }
+.stat .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--tm); line-height: 1.35; }
+
+.callout { border: 1px solid var(--bd); background: var(--sf2); padding: 20px 22px; margin: 28px 0; }
+.callout .head { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-bottom: 8px; }
+.callout p { font-size: 16px; line-height: 1.55; margin-bottom: 10px; }
+.callout p:last-child { margin-bottom: 0; }
+
+table.stack { width: 100%; border-collapse: collapse; margin: 28px 0; font-family: var(--serif); }
+table.stack th, table.stack td { padding: 12px 10px; border-bottom: 1px solid var(--bd); text-align: left; vertical-align: top; }
+table.stack th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tm); font-weight: 600; border-bottom: 2px solid var(--bd); }
+table.stack td.num { font-family: var(--mono); font-size: 14px; text-align: right; white-space: nowrap; }
+table.stack th.num { text-align: right; }
+table.stack tr.total td { border-top: 2px solid var(--bd); border-bottom: none; padding-top: 16px; font-weight: 700; }
+table.stack tr.total td.num { color: var(--rd); }
+table.stack tr.proposed td { background: rgba(227, 18, 11, 0.06); }
+table.stack td .desc { font-size: 14px; color: var(--tm); margin-top: 2px; line-height: 1.45; }
+
+ol.findings, ul.findings { margin: 18px 0 24px 0; padding-left: 22px; }
+ol.findings li, ul.findings li { font-size: 16px; line-height: 1.55; margin-bottom: 10px; padding-left: 6px; }
+
+hr.section { border: none; border-top: 1px solid var(--bd); margin: 44px auto; width: 80px; }
+
+footer.article-foot { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--bd); font-family: var(--mono); font-size: 12px; color: var(--tm); line-height: 1.7; }
+footer.article-foot a { color: var(--ac); text-decoration: none; }
+footer.article-foot a:hover { text-decoration: underline; }
+
+section.notes { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--bd); }
+section.notes h2 { font-size: 18px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; margin-top: 0; }
+section.notes ol { padding-left: 22px; }
+section.notes li { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--tm); margin-bottom: 10px; }
+section.notes li a { color: var(--ac); text-decoration: none; word-break: break-all; }
+section.notes li a:hover { text-decoration: underline; }
+section.notes li:target { background: rgba(227, 18, 11, 0.08); padding: 4px 6px; margin-left: -6px; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 32px; }
+  .dek { font-size: 17px; }
+  p { font-size: 16px; }
+  blockquote { font-size: 17px; }
+  table.stack th, table.stack td { padding: 10px 6px; font-size: 14px; }
+}
+
+/* Share buttons (added by add_share_buttons.py) */
+.sd-share { display: flex; gap: 18px; align-items: center; padding: 12px 0 6px; margin: -14px 0 28px; }
+.sd-share-btn { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; color: currentColor; opacity: .6; background: transparent; border: 0; padding: 0; cursor: pointer; line-height: 0; transition: color .15s, opacity .15s, transform .15s; }
+.sd-share-btn:hover { color: #e3120b; opacity: 1; transform: translateY(-1px); }
+.sd-share-btn svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.sd-share-btn.copied { color: #e3120b; opacity: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav">
+  <a href="/">Sunshine Docket</a> &nbsp;/&nbsp; <a href="/reports/">Reports</a> &nbsp;/&nbsp; <span style="color: var(--tm)">The Shape of Advocacy</span>
+</nav>
+
+<div class="kicker">Counterpoint &middot; Washington Tax Policy</div>
+
+<h1>The shape of <em>advocacy</em>.</h1>
+
+<p class="dek">Ron Davis asked Washington to argue from evidence, not vibes. His GeekWire op-ed gets the numbers right and the framing wrong. A look at five choices that quietly carry the conclusion, the ITEP methodology underneath them, and the one reform agenda that would actually reduce the regressivity everyone claims to care about.</p>
+
+<div class="byline">
+  <strong>Sunshine Docket</strong> &middot; May 31, 2026 &middot; <span>~8 minute read</span>
+</div>
+<div class="sd-share" data-share>
+  <button type="button" class="sd-share-btn" data-platform="facebook" title="Share on Facebook" aria-label="Share on Facebook"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M16 8.05a8.02 8.02 0 0 0-8-8.04 8.02 8.02 0 0 0-1.25 15.94v-5.59H4.72V8.05h2.03V6.28c0-2.01 1.2-3.12 3.02-3.12.88 0 1.8.16 1.8.16v1.97h-1.01c-1 0-1.31.62-1.31 1.25v1.51h2.22l-.35 2.31H9.25v5.59A8.02 8.02 0 0 0 16 8.05z"/></svg></button>
+  <button type="button" class="sd-share-btn" data-platform="x" title="Share on X" aria-label="Share on X"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12.6 1H15l-5.27 6.03L16 15.5h-4.85l-3.8-4.97-4.35 4.97H.6l5.64-6.45L0 1h4.97l3.43 4.54L12.6 1zm-.84 13.16h1.34L4.31 2.27H2.87l8.89 11.89z"/></svg></button>
+  <button type="button" class="sd-share-btn" data-platform="linkedin" title="Share on LinkedIn" aria-label="Share on LinkedIn"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.15 0h13.7C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.15 1.15H1.15A1.15 1.15 0 0 1 0 14.85V1.15zM4.94 13.84V6.17H2.4v7.67h2.55zM3.68 5.13a1.32 1.32 0 1 0 0-2.64 1.32 1.32 0 0 0 0 2.64zm2.97 8.71h2.54V9.56c0-.23.02-.46.08-.62.18-.45.6-.93 1.29-.93.91 0 1.27.69 1.27 1.7v4.13h2.55V9.41c0-2.35-1.25-3.45-2.93-3.45-1.34 0-1.95.74-2.29 1.26h.02V6.17H6.65c.03.72 0 7.67 0 7.67z"/></svg></button>
+  <button type="button" class="sd-share-btn" data-platform="copy" title="Copy link" aria-label="Copy link"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.35 8.78a3.5 3.5 0 0 1 0-4.95l3-3a3.5 3.5 0 1 1 4.95 4.95l-1.42 1.42a.75.75 0 1 1-1.06-1.06l1.42-1.42a2 2 0 0 0-2.83-2.83l-3 3a2 2 0 0 0 0 2.83.75.75 0 0 1-1.06 1.06zm3.3-1.56a3.5 3.5 0 0 1 0 4.95l-3 3a3.5 3.5 0 1 1-4.95-4.95l1.42-1.42a.75.75 0 1 1 1.06 1.06l-1.42 1.42a2 2 0 0 0 2.83 2.83l3-3a2 2 0 0 0 0-2.83.75.75 0 0 1 1.06-1.06z"/></svg></button>
+</div>
+<script>(function(){var l=document.querySelector('link[rel=canonical]');var u=l?l.href:location.href;var t=document.title.replace(/ \| .*$/,'');document.querySelectorAll('.sd-share [data-platform]').forEach(function(b){b.addEventListener('click',function(){var p=b.dataset.platform,h;if(p==='facebook'){h='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u);}else if(p==='x'){h='https://twitter.com/intent/tweet?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t);}else if(p==='linkedin'){h='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(u);}else{if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){b.classList.add('copied');setTimeout(function(){b.classList.remove('copied');},1200);});}return;}window.open(h,'_blank','noopener,noreferrer,width=600,height=480');});});})();</script>
+
+<p class="lead">In a recent GeekWire op-ed, Ron Davis argued that Washington's tax burden is a "myth" and called for the discussion to "rely more on evidence, less on vibes."<a class="fn" href="#fn1">1</a></p>
+
+<p>We agree with the aspiration. We do not think his piece achieves it.</p>
+
+<p>The data Davis cites is largely accurate. The ITEP percentages, the OECD comparisons, the state budget figures, the millionaire migration research: all verifiable, all roughly as he describes. Our disagreement is not about the numbers. It is about the methodological choices that connect those numbers to the conclusion.</p>
+
+<p>Five framing choices in his piece, examined honestly, reveal something the analysis would prefer to leave implicit. The same pattern runs through ITEP, the source Davis relies on most. We want to walk through both, because the test of evidence over vibes is the willingness to question your own variable selection, not just other people's.</p>
+
+<div class="stats">
+  <div class="stat"><div class="num">10.6% &rarr; 8.47%</div><div class="lbl">Tax as a share of state GDP, 2019 to today (Davis's load-bearing ratio)</div></div>
+  <div class="stat"><div class="num">29%</div><div class="lbl">How much smaller the budget would be at population-plus-inflation growth, by Davis's own figure</div></div>
+  <div class="stat"><div class="num">2nd</div><div class="lbl">Most regressive state, per ITEP, after both new progressive taxes were enacted</div></div>
+  <div class="stat"><div class="num">12.7% &rarr; 8.7%</div><div class="lbl">New York's share of US millionaires, 2010 to 2022</div></div>
+</div>
+
+<hr class="section">
+
+<h2>Five framing choices that shape the conclusion</h2>
+
+<h3>1. Tax-as-share-of-GDP measures the wrong thing</h3>
+
+<p>Davis's load-bearing claim is that taxes fell from 10.6 percent of state GDP in 2019 to 8.47 percent today. Take a moment to think about what that ratio actually does.</p>
+
+<p>Washington's nominal GDP grew substantially over that period, driven by the concentration of major tech employers (Microsoft, Amazon, Meta) and, more recently, the surge in AI-related investment. When the denominator inflates faster than the numerator, the ratio falls even when the numerator grows substantially. A household whose income doubled while property tax bills rose 30 percent would also see "tax as percentage of income" fall. The actual bill went up.</p>
+
+<p>Davis treats his ratio as evidence about household tax burden. It is not. It is evidence about Washington's GDP growth relative to its tax revenue. That is a different question, and one most Washington families would not recognize as an answer to anything they are actually asking.</p>
+
+<h3>2. The 29-percent admission undercuts the cost-disease defense</h3>
+
+<p>Davis acknowledges Washington's budget would be 29 percent smaller today if it had grown only at the rate of inflation plus population. He attributes the entire gap to cost disease.</p>
+
+<p>Cost disease is real. It is also bounded. A 29-point gap above population-plus-inflation exceeds what services inflation alone explains. The rest is policy choice: expanded programs, broader eligibility, higher per-capita services. Reasonable people can defend those choices on their merits. Cost disease cannot function as a blanket alibi for any growth above the demographic baseline. Treating it that way is exactly the move Davis warned against: a vibe dressed up as an explanation.</p>
+
+<p>The 29-point gap is the visible footprint of identifiable policy choices: Medicaid expansion under the Affordable Care Act, McCleary-driven K-12 expansion, and other deliberate program growth across multiple categories. Each is defensible on its merits. None is cost disease. Calling the entire gap cost disease conceals the choices the state actually made.</p>
+
+<h3>3. The regressivity argument is the most revealing one in the piece</h3>
+
+<p>Davis cites Washington's regressivity to argue for further taxation of the wealthy.</p>
+
+<p>Stop and look at what the argument is actually doing. Washington's regressive base is sales tax, B&amp;O, and property tax through levy stacking. Olympia built that base over decades and maintains it as a matter of policy. Capital gains was added in 2021. The millionaires' tax was added in 2026.<a class="fn" href="#fn2">2</a> Per ITEP's own data, Washington stayed second-most-regressive after both new taxes were enacted.<a class="fn" href="#fn3">3</a> That is the load-bearing fact.</p>
+
+<p>Adding progressive layers on top of a regressive structure does not reduce regressivity. It compounds total burden. Olympia could reduce regressivity by lowering sales tax, reforming B&amp;O, or capping levy stacking. None of those are on the agenda. The same legislature that maintains the regressive base then cites the resulting regressivity as the rationale for adding more taxation. We are asked to accept "the system is regressive, therefore add more" without ever asking why the regressive base persists.</p>
+
+<p>The regressivity Davis cites is not a fact of nature driven by the lack of an income tax. It is a policy outcome. The policy is set in Olympia. So is the policy that would reduce it.</p>
+
+<h3>4. The comparisons are stacked</h3>
+
+<p>Davis argues Washington should match OECD tax levels (US at 25 percent of GDP, Western Europe 35 to 43 percent), but the US figure includes federal taxes Washington does not set.<a class="fn" href="#fn4">4</a> The OECD comparison substitutes "the federal-plus-state burden in the US is below European levels" for "Washington should raise state taxes." Those are not the same proposition.</p>
+
+<p>He also writes that Washington's top one percent pays less than "Texas or Idaho." Texas has no state income tax. Idaho has a flat 5.3 percent income tax.<a class="fn" href="#fn5">5</a> The peer comparison for a no-income-tax state like Washington is to other no-income-tax states (Texas, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Alaska, Wyoming), where the structural comparison is valid. Mixing in an income-tax state muddles the peer set in a way that flatters the conclusion.</p>
+
+<h3>5. The migration argument measures the wrong thing for Washington's situation</h3>
+
+<p>Davis cites research (Cristobal Young et al.) finding that millionaires move less than other earners.<a class="fn" href="#fn6">6</a> About 250 family migrations per year out of roughly 12,000 millionaires. The research is real and the framing is generally fair on its own terms.</p>
+
+<p>But the research measures realized migration after a tax change among existing residents. It does not measure pre-emptive non-relocation, non-creation of new economic activity, or domiciling games (legal residency in Florida, Nevada, or Wyoming while keeping a Washington address). Davis acknowledges domiciling games and waves them off. They are not negligible. State revenue agencies in California, New York, and New Jersey track them carefully because they are material.<a class="fn" href="#fn7">7</a></p>
+
+<p>The piece also conflates absolute counts with market share. The number of millionaires grew everywhere during these periods because the national pie grew. The relevant test is each state's share of US millionaires.<a class="fn" href="#fn8">8</a> By that measure, the shift over 2010 to 2022 is not subtle:</p>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th>State</th>
+      <th class="num">Change in share of US millionaires, 2010&ndash;2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="proposed">
+      <td><strong>New York</strong><div class="desc">12.7% &rarr; 8.7%, the largest percentage-point drop of any state, a 31% relative decline</div></td>
+      <td class="num"><strong>&minus;4.0 pts</strong></td>
+    </tr>
+    <tr>
+      <td>Florida</td>
+      <td class="num">+2.8 pts</td>
+    </tr>
+    <tr>
+      <td>California</td>
+      <td class="num">+1.2 pts</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Whether the cause is taxes, weather, remote work, or some combination is debated in the literature. The fact of the relative decline is not. Davis cited the absolute counts and omitted the market share that complicates his framing.</p>
+
+<h2>A familiar habit</h2>
+
+<p>This is a recurring move in progressive policy debate: assemble a set of individually defensible data points and methodological choices, then treat the assembled package as ipso facto support for a conclusion that would not stand on its own. Each piece is real. Each choice is defensible in isolation. None of the choices, in a well-made instance of this move, pushes the result the other way. The asymmetry is telling.</p>
+
+<p>ITEP's Who Pays, Davis's cornerstone source, is the habit at the data layer: annual rather than lifetime income (which makes consumption taxes look maximally regressive because retirees and students typically have low annual income but consume at lifetime-average levels), B&amp;O modeled as full pass-through despite contested incidence,<a class="fn" href="#fn9">9</a> the federal layer excluded, net benefits excluded.<a class="fn" href="#fn10">10</a> Each is defensible. Each pushes regressivity in the same direction. The conclusion is then cited as data.</p>
+
+<p>Davis's piece is the same habit at the framing layer. Each individual claim is verifiable. Each framing choice is defensible. None complicates his thesis. We are asked to treat that uniform tilt as evidence.</p>
+
+<div class="pullquote">
+  <p>It is not evidence. It is the shape of advocacy.</p>
+</div>
+
+<h2>What the legislature should actually do</h2>
+
+<p>If Olympia is serious about reducing regressivity, the path is well-marked and does not require new revenue measures.</p>
+
+<p><strong>Lower the sales tax rate.</strong> Sales tax is the single largest contributor to Washington's regressive incidence. A meaningful reduction (or a graduated structure that exempts groceries and essentials more aggressively than current law) would do more to reduce regressivity than any layer of progressive taxation ever could.</p>
+
+<p><strong>Reform B&amp;O.</strong> Whatever its true incidence, B&amp;O is a gross-receipts tax that hits businesses regardless of profitability. Relief on B&amp;O paired with offsets elsewhere would reduce the regressive transmission ITEP measures and improve the business climate at the same time.</p>
+
+<p><strong>Cap levy stacking.</strong> Washington's property tax burden is largely the cumulative result of city, county, school, fire, library, parks, and special-purpose levies layered on top of one another. Statutory limits exist, but voters routinely lift them. A meaningful reform would constrain the stack rather than expand it.</p>
+
+<p><strong>Index thresholds.</strong> Where progressive layers do exist, they should be indexed to inflation so that bracket creep does not silently expand who is captured.</p>
+
+<p>None of these are on the legislative agenda. That is the data point. Olympia can reduce regressivity any time it chooses. So far it has chosen not to, while citing the regressivity as justification for additional taxation.</p>
+
+<p>The reason for the choice is not mysterious. Walking back any element of the regressive base reduces revenue, and the current revenue mix funds the current spending level. Adding progressive layers on top does not require giving up the regressive layers below. It allows both to continue funding expanded spending. That is the structure of the trade-off, and it is rarely named openly. We are asked to accept "the system is regressive, so add more taxes" without ever asking why the regressive base could not be reduced first. The answer is that the spending the regressive base funds is not on the table for reduction.</p>
+
+<div class="callout">
+  <div class="head">What This Argument Is Not</div>
+  <p>This is not a complaint about specific programs. It is an observation about why the regressivity persists. If a reader believes the current spending level is justified, the honest framing is: "we keep the regressive base because we want to fund X, and we add progressive layers because we want additional revenue on top." That framing has the virtue of accuracy. The regressivity-as-injustice framing, paired with refusal to reduce the regressive base, does not.</p>
+</div>
+
+<h2>A path forward</h2>
+
+<p>A discussion that lived up to Davis's "evidence over vibes" framing would compare Washington to its actual structural peers, distinguish cost disease from program expansion, measure tax burden in dollar terms before macro ratios, and acknowledge that incidence studies on every side involve methodological choices.</p>
+
+<p>Davis asked for evidence, not vibes. We are asking for the same. We are also asking the legislature for something more concrete: if regressivity is the problem, treat it as one. The path is well-marked. The choice is whether to walk it.</p>
+
+<hr class="section">
+
+<footer class="article-foot">
+  <p><strong>Sunshine Docket</strong> publishes public records-based accountability journalism about Washington State government. This piece is a response to Ron Davis, "Opinion: The myth of Washington's tax burden, by the numbers," GeekWire, May 6, 2026. The underlying data in that op-ed is, as noted throughout, largely accurate; the disagreement here is methodological. We welcome corrections at <a href="mailto:sunshinedocket@proton.me">sunshinedocket@proton.me</a>.</p>
+</footer>
+
+<section class="notes" id="notes">
+  <h2>Notes &amp; Sources</h2>
+  <ol>
+    <li id="fn1">The op-ed being responded to: Ron Davis, "Opinion: The myth of Washington's tax burden, by the numbers," GeekWire, May 6, 2026. <a href="https://www.geekwire.com/2026/opinion-the-myth-of-washingtons-tax-burden-by-the-numbers/">https://www.geekwire.com/2026/opinion-the-myth-of-washingtons-tax-burden-by-the-numbers/</a></li>
+    <li id="fn2">Washington tax legislation: RCW 82.87 (capital gains excise tax, enacted 2021); SB 6346 (Washington's "millionaires' tax," enacted 2026; takes effect January 1, 2028; first returns due in 2029).</li>
+    <li id="fn3">ITEP regressivity ranking, before and after the new progressive taxes: ITEP, Who Pays? 7th Edition (Washington page), January 2024, <a href="https://itep.org/washington-who-pays-7th-edition/">https://itep.org/washington-who-pays-7th-edition/</a>; and ITEP, "Washington State Passes Millionaires' Tax as More States Look to Tax the Wealthy," March 2026, <a href="https://itep.org/washington-state-passes-millionaires-tax-as-more-states-look-to-tax-the-wealthy/">https://itep.org/washington-state-passes-millionaires-tax-as-more-states-look-to-tax-the-wealthy/</a></li>
+    <li id="fn4">On the federal layer: ITEP's Who Pays? is explicitly state-and-local-only. Combined federal-plus-state-and-local incidence in the United States, including Congressional Budget Office analyses, is progressive across income groups. CBO, "The Distribution of Household Income," updated annually. <a href="https://www.cbo.gov/topic/budget/distribution-household-income">https://www.cbo.gov/topic/budget/distribution-household-income</a></li>
+    <li id="fn5">State income tax rates referenced: Idaho State Tax Commission, "Individual Income Tax Rate Schedule." Idaho's flat 5.3% rate took effect January 1, 2025 (HB 40, 2025), reduced from the prior 5.695%. <a href="https://tax.idaho.gov/taxes/income-tax/individual-income/individual-income-tax-rate-schedule/">https://tax.idaho.gov/taxes/income-tax/individual-income/individual-income-tax-rate-schedule/</a></li>
+    <li id="fn6">Millionaire migration research: Cristobal Young, Charles Varner, Ithai Z. Lurie, and Richard Prisinzano, "Millionaire Migration and Taxation of the Elite: Evidence from Administrative Data," American Sociological Review, Vol. 81, No. 3 (June 2016).</li>
+    <li id="fn7">On state-level migration patterns: migration data from the IRS Statistics of Income migration files and state revenue agency reports document outflow patterns from high-tax states following the 2017 SALT cap. Magnitudes and tax-causation attributions remain debated in the academic literature.</li>
+    <li id="fn8">New York millionaire share data: Citizens Budget Commission of New York, "The Hidden Cost of New York's Shrinking Millionaire Share," August 2025, <a href="https://cbcny.org/research/hidden-cost-new-yorks-shrinking-millionaire-share">https://cbcny.org/research/hidden-cost-new-yorks-shrinking-millionaire-share</a>. Comparative state share figures from the same source. Causation between the SALT cap, state tax policy, remote-work patterns, and migration remains contested in the academic literature; the fact of the relative shift is not.</li>
+    <li id="fn9">On B&amp;O incidence: the economic incidence of Washington's Business &amp; Occupation tax is genuinely contested in the literature. ITEP models full pass-through to consumers; the Washington Research Council and others argue significant portions are absorbed by capital owners, workers, or rents. We cite this as a methodological choice rather than a settled question.</li>
+    <li id="fn10">ITEP regressivity methodology (annual rather than lifetime income, B&amp;O pass-through, federal layer excluded, net benefits excluded): ITEP, Who Pays? 7th Edition: Methodology and Discussion, January 2024. <a href="https://itep.org/who-pays-7th-edition-methodology-and-discussion/">https://itep.org/who-pays-7th-edition-methodology-and-discussion/</a></li>
+  </ol>
+</section>
+
+</div>
+</body>
+</html>
