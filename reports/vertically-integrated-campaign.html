@@ -1,0 +1,215 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vertically Integrated Campaign | Sunshine Docket</title>
+<meta name="description" content="A naive query says Washington's dominant Democratic consulting firm has billed $1.6M to campaigns its own compliance manager treasures. The honest number is smaller, more recent, and harder to wave away: since 2023, more than four in ten committees that paid WinPower list her as their treasurer of record.">
+<link rel="canonical" href="https://sunshinedocket.org/reports/vertically-integrated-campaign.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;0,900;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c0c; --sf: #151515; --sf2: #1c1c1c; --bd: #262626; --bl: #333;
+  --tx: #e0e0e0; --tm: #999; --td: #5a5a5a; --ac: #5b9bd5;
+  --cc: #d94040; --rv: #d98c40; --rd: #e3120b;
+  --serif: 'Bitter', Georgia, serif;
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f7f4; --sf: #fff; --sf2: #fafaf8; --bd: #e4e2dc; --bl: #eceae4;
+    --tx: #1a1a1a; --tm: #666; --td: #aaa;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--serif); background: var(--bg); color: var(--tx); line-height: 1.7; font-size: 18px; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+
+.nav { font-family: var(--mono); font-size: 12px; padding: 16px 0; }
+.nav a { color: var(--ac); text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rd); font-weight: 600; margin-top: 24px; margin-bottom: 12px; }
+h1 { font-family: var(--serif); font-weight: 900; font-size: 44px; line-height: 1.05; letter-spacing: -0.015em; margin-bottom: 18px; }
+h1 em { color: var(--rd); font-style: italic; font-weight: 900; }
+.dek { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.45; color: var(--tm); margin-bottom: 28px; max-width: 620px; }
+
+.byline { font-family: var(--mono); font-size: 12px; color: var(--tm); padding: 14px 0; border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd); margin-bottom: 32px; letter-spacing: 0.04em; }
+.byline span { color: var(--td); padding: 0 8px; }
+
+p { margin-bottom: 18px; }
+p.lede { font-size: 19px; }
+
+h2 { font-family: var(--serif); font-weight: 900; font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; margin-top: 44px; margin-bottom: 16px; }
+
+.opinion-note { border-left: 2px solid var(--bd); padding-left: 18px; font-style: italic; font-size: 16px; color: var(--tm); margin: 24px 0; max-width: 660px; line-height: 1.55; }
+
+.dropcap::first-letter { float: left; font-family: var(--serif); font-weight: 900; font-size: 64px; line-height: 0.85; padding: 6px 10px 0 0; color: var(--rd); }
+
+code { font-family: var(--mono); font-size: 0.85em; background: var(--bl); padding: 1px 5px; border-radius: 2px; }
+
+sup.fn { font-family: var(--mono); font-size: 10px; color: var(--rd); font-weight: 600; padding-left: 1px; }
+sup.fn a { color: var(--rd); text-decoration: none; }
+sup.fn a:hover { text-decoration: underline; }
+
+.pull { border-left: 3px solid var(--rd); padding: 8px 0 8px 20px; margin: 28px 0; font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--tx); max-width: 640px; }
+
+.roles-list { background: var(--sf); border: 1px solid var(--bd); padding: 22px 24px; margin: 28px 0; font-family: var(--serif); }
+.roles-list ol { padding-left: 24px; }
+.roles-list li { margin-bottom: 10px; line-height: 1.5; font-size: 17px; }
+.roles-list li::marker { color: var(--rd); font-family: var(--mono); font-weight: 700; font-size: 14px; }
+.roles-list .roles-head { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); margin-bottom: 14px; font-weight: 600; }
+
+/* data table for the loop measurement */
+.data-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-family: var(--mono); font-size: 13px; }
+.data-table caption { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); text-align: left; margin-bottom: 12px; font-weight: 600; }
+.data-table th { text-align: right; font-weight: 700; color: var(--tm); border-bottom: 1px solid var(--bd); padding: 8px 10px; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+.data-table th.l, .data-table td.l { text-align: left; }
+.data-table td { padding: 9px 10px; border-bottom: 1px solid var(--bl); text-align: right; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table .em { color: var(--rd); font-weight: 700; }
+.data-table .mut { color: var(--td); }
+
+.footnotes { margin-top: 60px; padding-top: 24px; border-top: 2px solid var(--bd); }
+.footnotes h3 { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tm); margin-bottom: 16px; font-weight: 600; }
+.footnotes ol { padding-left: 28px; }
+.footnotes li { font-family: var(--serif); font-size: 14px; line-height: 1.6; color: var(--tm); margin-bottom: 12px; }
+.footnotes li::marker { color: var(--rd); font-family: var(--mono); font-weight: 600; }
+.footnotes code { background: var(--bl); }
+.footnotes a { color: var(--ac); text-decoration: underline; text-decoration-color: var(--td); }
+.footnotes a:hover { text-decoration-color: var(--rd); }
+
+.footer-mark { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--bd); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--td); display: flex; justify-content: space-between; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 34px; }
+  .dek { font-size: 18px; }
+  h2 { font-size: 24px; }
+  body { font-size: 17px; }
+  .pull { font-size: 19px; padding-left: 16px; }
+  .data-table { font-size: 12px; }
+  .data-table th, .data-table td { padding: 7px 6px; }
+}
+</style>
+  <script data-goatcounter="https://sunshinedocket.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav"><a href="/">← Sunshine Docket</a> &nbsp;//&nbsp; <a href="/reports/">All Reports</a></nav>
+
+<div class="kicker">Investigation // Campaign Finance // Disclosure</div>
+
+<h1>The Vertically Integrated <em>Campaign</em></h1>
+
+<p class="dek">A careless query says Washington's dominant Democratic consulting firm has billed $1.6 million to campaigns its own compliance manager keeps the books for. The careless query is wrong. The honest number is smaller, more recent, and a great deal harder to wave away.</p>
+
+<div class="byline">By Sunshine Docket <span>//</span> DRAFT <span>//</span> Companion to "The Outlet, the Office, and the Treasurer"</div>
+
+<p class="opinion-note"><em>Editor's note: A data companion to <a href="/reports/burner-disclosure.html" style="color:var(--ac)">"The Outlet, the Office, and the Treasurer,"</a> which sourced the relationships named here: Simpson is a WinPower partner, Pisane its compliance manager, the two are married, and Pisane is the PDC treasurer of record on ninety-nine filings. This piece measures how much of WinPower's billing runs through committees she keeps the books for.</em></p>
+
+<p class="lede dropcap">Start with the scary number, because someone will run it.</p>
+
+<p>WinPower Strategies has billed campaigns and committees $13.3 million since the Public Disclosure Commission's expenditure data begins in 2007. That is across 3,950 separate payments.<sup class="fn"><a href="#fn1" id="fnref1">1</a></sup> Pisane is the treasurer of record on 99 PDC filings.<sup class="fn"><a href="#fn2" id="fnref2">2</a></sup> Join the two datasets on the committee identifier, ask how much WinPower was paid by any committee Pisane has ever treasured, and the machine hands you $1,625,840. Twelve percent of everything the firm has ever billed, flowing from campaigns whose books are kept by a partner's spouse.<sup class="fn"><a href="#fn3" id="fnref3">3</a></sup></p>
+
+<p>It's a clean headline. We're not going to use it. The why matters here, because the reason is the whole point.</p>
+
+<div class="pull">Three-quarters of that $1.6 million was paid years before Pisane had anything to do with the committee.</div>
+
+<h2>Why the easy number lies</h2>
+
+<p>The PDC summary table records a committee's treasurer of record. One name, the current one, attached to a committee that may have existed for fifteen years. The expenditure table records every payment, dated. The naive join takes Pisane's name off today's filing and staples it to every check the committee ever wrote to WinPower, back to the beginning. It doesn't ask whether she was the treasurer when the check cleared.</p>
+
+<p>Two campaigns make the problem concrete. They are the two largest payers in that $1.6 million figure, and between them they are three-quarters of it.</p>
+
+<p>Mark Mullet's campaign committee paid WinPower $811,312 across 194 payments. Every one of those payments landed in the 2012, 2016, 2020, or 2024 election cycles. The treasurers of record in those cycles were, in order, Philip Lloyd, Suzanne Naughton, Josie Olsen, and Jay Petterson. Pisane became the treasurer of Mullet's committee in 2025, by which point the WinPower payments had stopped.<sup class="fn"><a href="#fn4" id="fnref4">4</a></sup> She inherited a paid invoice history, not a billing relationship.</p>
+
+<p>Chris Reykdal's committee paid WinPower $407,196. Those payments run from 2010 through 2024. Pisane's name attaches to Reykdal's filing for the 2028 cycle, a campaign that, as of this writing, has barely begun to spend.<sup class="fn"><a href="#fn5" id="fnref5">5</a></sup></p>
+
+<p>Mullet plus Reykdal is $1.22 million. Strip out money paid under someone else's treasurership, and the easy number loses three-quarters of its weight before you've looked at anyone else. So we throw it out. A figure that counts a payment as part of the loop when the loop didn't yet exist isn't an upper bound. It's just wrong, and a wrong number on this site is worse than no number at all.</p>
+
+<h2>The honest measurement</h2>
+
+<p>The defensible question is narrower and answerable: how much was WinPower paid by a committee <em>in the same election cycle</em> that Pisane was its treasurer of record? Match the payment year to the treasurer year, and the loop comes to $174,740, across 32 committees.<sup class="fn"><a href="#fn6" id="fnref6">6</a></sup> All but $450 of it falls in 2023 or later.<sup class="fn"><a href="#fn7" id="fnref7">7</a></sup></p>
+
+<p>Which tells you the thing the lifetime denominator hides. This is not an old arrangement. It is a new one, and measuring it against eighteen years of billing is the wrong frame. Measure it against the window in which it actually exists.</p>
+
+<table class="data-table">
+<caption>WinPower billing inside the Pisane treasurership, by window</caption>
+<thead>
+<tr><th class="l">Window</th><th>WinPower billed</th><th>Committees</th><th>On Pisane</th><th>Inside $</th><th>Inside %</th></tr>
+</thead>
+<tbody>
+<tr><td class="l">Lifetime (since 2007)</td><td>$13,295,466</td><td class="mut">n/a</td><td class="mut">99 filings</td><td>$174,740</td><td>1.3%</td></tr>
+<tr><td class="l">2023-2026</td><td>$1,102,618</td><td>73</td><td class="em">31 (42%)</td><td>$174,290</td><td class="em">15.8%</td></tr>
+<tr><td class="l">2025-2026</td><td>$107,361</td><td>31</td><td class="em">17 (55%)</td><td>$82,431</td><td class="em">76.8%</td></tr>
+</tbody>
+</table>
+
+<p>Read the table from the bottom up and the dollars stop being the story. Since the start of 2023, 73 distinct committees have paid WinPower. Thirty-one of them, more than four in ten, list Jessica Pisane as their PDC treasurer of record.<sup class="fn"><a href="#fn8" id="fnref8">8</a></sup> Narrow to the current 2025 and 2026 cycles and it is 17 of 31, a clear majority, and those committees account for more than three-quarters of what WinPower has billed in the window.<sup class="fn"><a href="#fn9" id="fnref9">9</a></sup></p>
+
+<p>The honest dollar figure is modest. A hundred and seventy-five thousand dollars is not a scandal by volume. But notice what the careful number reveals that the careless one buried: a firm whose own compliance manager has, in the space of three years, become the treasurer of record for a plurality, and lately a majority, of the very campaigns the firm bills. The small dollar total is not evidence the pattern is trivial. It is evidence the pattern is young.</p>
+
+<div class="pull">The compliance manager who signs the campaign's PDC reports works for the vendor the reports disclose paying.</div>
+
+<h2>What a treasurer is, and why this is the conflict</h2>
+
+<p>It helps to be plain about the role. A campaign treasurer is not a clerk. Under Washington law the treasurer is the officer personally responsible for the accuracy of the committee's PDC filings: the C-3 contribution reports, the C-4 expenditure reports, the disclosures that tell the public who paid whom. The treasurer is the person the state holds accountable if a payment to a vendor is misreported or not reported at all.</p>
+
+<p>Now place the people. The treasurer signing off that the campaign's payments to WinPower are accurately disclosed is WinPower's own compliance manager. She is married to a WinPower partner whose income from the firm runs into six figures.<sup class="fn"><a href="#fn10" id="fnref10">10</a></sup> The party responsible for disclosing the vendor relationship to the public is inside the vendor, and inside the vendor's household.</p>
+
+<p>This isn't an allegation that any report is false. We haven't found a misreported WinPower payment, and we're not claiming one exists. The point is structural and it is the same point the disclosure rules exist to serve: the watcher and the watched should not be the same person. A campaign hiring a consulting firm is ordinary. A campaign hiring the consulting firm and then seating that firm's compliance manager as the public-facing guarantor of its books is the loop closing on itself. Forty-two percent of recent WinPower clients have closed it.</p>
+
+<h2>Three chairs, one <em>household</em></h2>
+
+<p>That loop, measured above, is one chair. The companion article documented the other two. Step back from the dollars and look at the shape. Around any campaign there are three jobs meant to sit in three different pairs of hands. The vendor it hires and pays. The treasurer who certifies, to the state and to the public, that what the campaign reports paying that vendor is accurate. And the press that covers the campaign so voters can size it up. Keep the three apart and the design works: the vendor wants to bill, the treasurer is on the hook to disclose, the reporter is paid to be skeptical, and none of them can quietly cover for the others.</p>
+
+<p>Now collapse them into one household. WinPower is the vendor. Jessica Pisane, WinPower's compliance manager and a partner's wife, is the treasurer who certifies the books. And on March 12, 2025, at WinPower's office at 19550 International Boulevard in SeaTac, Pisane founded The Burner, a Seattle news outlet now run by Hannah Krieg that covers the same progressive candidates WinPower works for.<sup class="fn"><a href="#fn12" id="fnref12">12</a></sup> One household, three chairs. That is what vertical integration is: you own the line end to end, from the money that goes in, to the disclosure that is supposed to police the money, to the coverage that is supposed to tell the voter about both.</p>
+
+<p>Katie Wilson is what it looks like in a single case. Wilson's mayoral campaign paid WinPower $26,814 across 22 payments. Pisane was her treasurer of record. And The Burner ran eight pieces working over Wilson's surveillance-camera policy between December 2025 and April 2026.<sup class="fn"><a href="#fn13" id="fnref13">13</a></sup></p>
+
+<p>The vendor billed her, the vendor's compliance manager kept her books, and the outlet that compliance manager founded covered her. A reader could see the third chair. The reader could not see the first two, because nobody disclosed them.</p>
+
+<div class="pull">The same household that vouches for the accuracy of a campaign's public filings also founded the newsroom covering that campaign. The reader was told about neither.</div>
+
+<p>Be exact about who owes what to whom, because there are two disclosures here and they point at two different audiences. The campaign owes its voters one line on its PDC report: our treasurer works for the consultant we pay. The outlet owes its readers a different line, on its coverage: this newsroom was founded at our subject's consultant's office, by that consultant's compliance manager. The first obligation is the one this article measures. The second is the one the companion piece documented.<sup class="fn"><a href="#fn14" id="fnref14">14</a></sup> Same household, two silences, two audiences kept in the dark about the same handful of facts.</p>
+
+<p>This is where the count stops being an accounting exercise and starts mattering for the journalism. A single case can always be waved off as a one-off. The 42% answers the question that comes next, which is how often. Not every Burner story about a WinPower client sits inside the conflict. But as a baseline, more than four in ten do: the campaign's books are kept by the outlet's own founder, and the reader, denied the disclosure, cannot tell which stories those are. Wilson is not the rare example the pattern had to be argued from. For WinPower's current clientele, she is close to the median.</p>
+
+<h2>The number we would have published</h2>
+
+<p>We're leaving the $1.6 million figure in this article on purpose, taken apart but not hidden, because it's the number a hostile or a careless reader will generate on their own, and the responsible thing is to show why it doesn't hold. The honest figures are less dramatic and more durable: $174,740 matched by cycle, and the count that actually carries the weight, 31 of 73 committees since 2023.<sup class="fn"><a href="#fn11" id="fnref11">11</a></sup></p>
+
+<p>A reader is entitled to ask whether a hundred and seventy-five thousand dollars is worth an article. Fair. The dollars are not the case. The case is that the disclosure architecture Washington built, the architecture meant to let a voter see who is paying a campaign's bills, has a node in it where the vendor and the discloser are one household, and that node now sits under a plurality of one firm's active campaigns. The remedy is not a prosecution. It's two sentences of disclosure, and they almost write themselves. On the campaign's PDC filing: our treasurer is employed by the consulting firm this committee pays. On the outlet's masthead, and on any story that touches a WinPower client: this newsroom was founded by the compliance manager of a consulting firm whose clients we cover. Any reader who's come this far would already write both for them.</p>
+
+<p class="opinion-note"><em>Editor's note: This article is a work of opinion journalism, based on facts in the public record. It does not allege quid-pro-quo, falsified disclosure, contractual coordination, or any specific improper transaction between WinPower Strategies, Jessica Pisane, Jacob Simpson, Hannah Krieg, The Burner, or any committee named or counted here. It does not allege that any Burner coverage was bought, coordinated, or written in bad faith. It argues only that the treasurer-of-record relationship between a consulting firm's compliance manager and that firm's own campaign clients, and the editorial relationships documented in the companion report, are disclosable conflicts that went undisclosed, and that the public record supports measuring the pattern carefully rather than carelessly.</em></p>
+
+<p class="opinion-note"><em>Editor's note on outreach: Sunshine Docket extended the findings in this article to Jessica Pisane, Jacob Simpson, and Hannah Krieg on [DATE], inviting a response. [Pending publication.]</em></p>
+
+<div class="footnotes">
+<h3>Sources &amp; Footnotes</h3>
+<ol>
+<li id="fn1">Washington Public Disclosure Commission, Expenditures dataset. Direct API: <a href="https://data.wa.gov/resource/tijg-9zyp.json" target="_blank" rel="noopener">data.wa.gov/resource/tijg-9zyp.json</a>. Aggregate query filter: <code>upper(recipient_name) LIKE '%WINPOWER%'</code>. Returns $13,295,465.87 across 3,950 transactions since the dataset begins in 2007. The filter captures every recorded spelling variant of the firm's name ("WinPower," "Winpower Strategies," "WINPOWER STRATEGIES INC," and so on). Data current as of June 5, 2026; the small difference from the $13,294,465.87 figure cited in the companion article reflects filings added since May 27, 2026.</li>
+<li id="fn2">Washington Public Disclosure Commission, Campaign Finance Summary dataset. Direct API: <a href="https://data.wa.gov/resource/3h9x-7bvm.json" target="_blank" rel="noopener">data.wa.gov/resource/3h9x-7bvm.json</a>. Aggregate query filter: <code>upper(treasurer_name) LIKE '%PISANE%'</code>. Returns 99 records across 69 unique committees.</li>
+<li id="fn3">The naive join: sum of all <code>tijg-9zyp</code> payments where <code>recipient_name LIKE '%WINPOWER%'</code> and the paying committee's <code>filer_id</code> appears anywhere in the set of <code>filer_id</code> values returned by the Pisane treasurer query in note 2, ignoring year. Returns $1,625,840 across 35 committees and 194-plus transactions, 12.2% of the lifetime WinPower total. This figure is reported here only to be rejected; see notes 4 and 5.</li>
+<li id="fn4">PDC Expenditures and Campaign Finance Summary datasets, committee "Mark Mullet" (<code>filer_id</code> MULLM 027). WinPower payments by cycle: 2012 ($158,044, 30 txns), 2016 ($320,803, 47 txns), 2020 ($330,465, 116 txns), 2024 ($2,000, 1 txn); total $811,312 across 194 transactions. Treasurer of record by cycle, from the summary table: 2012 Philip Lloyd, 2016 Suzanne Naughton, 2020 Josie Olsen, 2024 Josie Olsen, 2025 Jessica Pisane. No WinPower payment is recorded for the 2025 cycle, the only cycle Pisane treasures.</li>
+<li id="fn5">PDC datasets, committee "Chris Reykdal" (<code>filer_id</code> REYKC 512). WinPower payments by cycle: 2010 ($31,802), 2012 ($8,000), 2016 ($144,158), 2020 ($212,736), 2024 ($10,500); total $407,196. Pisane is the treasurer of record on the Reykdal filing for the 2028 cycle (Superintendent of Public Instruction), consistent with note 7 of the companion article.</li>
+<li id="fn6">The year-matched join: sum of <code>tijg-9zyp</code> WinPower payments where the pair (<code>filer_id</code>, <code>election_year</code>) of the payment also appears as a (<code>filer_id</code>, <code>election_year</code>) pair in the Pisane treasurer query of note 2. Returns $174,740.40 across 32 committees. This restricts the count to payments made in an election cycle for which Pisane is the treasurer of record, the conservative and defensible measure.</li>
+<li id="fn7">Of the $174,740.40 year-matched total, $174,290 falls in election cycles 2023 through 2026. The remaining $450 is a single 2012 payment by the 33rd Legislative District Democrats, a committee Pisane has treasured continuously since 2009.</li>
+<li id="fn8">Window 2023-2026, PDC datasets. Committees with at least one WinPower payment in an election cycle 2023 through 2026: 73 distinct <code>filer_id</code> values, $1,102,618 billed. Of those 73, 31 list Pisane as treasurer of record for the matching cycle; those 31 account for $174,290 (15.8%) of the window's WinPower billing.</li>
+<li id="fn9">Window 2025-2026, same method. 31 distinct committees paid WinPower, $107,361 billed; 17 list Pisane as treasurer for the matching cycle, accounting for $82,431 (76.8%). The 2026 cycle is in its early spending phase as of this writing, so this window is small-sample and is reported as a trend indicator, not a headline.</li>
+<li id="fn10">Jake Simpson, F-1 Personal Financial Affairs Statement for calendar year 2025, filed April 10, 2026, Apollo PDC submission ID 134211. Income, verbatim: filer "WinPower Strategies, PARTNER, $100,000 to $199,999"; spouse "WinPower Strategies, COMPLIANCE MANAGER, $30,000 to $59,999," both at 19550 International Blvd Ste 103, SeaTac. <a href="https://apollo.pdc.wa.gov/financial-affairs/public/-#/public/statement/134211" target="_blank" rel="noopener">apollo.pdc.wa.gov</a>. Marriage documented in the companion article via King County Recorder deed instruments 20200416000821 and 20200416000822.</li>
+<li id="fn11">All figures in this article are reproducible from two PDC Socrata endpoints, <code>tijg-9zyp</code> (expenditures) and <code>3h9x-7bvm</code> (campaign finance summary), joined on <code>filer_id</code> and, for the honest measure, on <code>election_year</code>. The full extraction script is held on file and the queries are stated in the notes above so any reader can run them. Data current as of June 5, 2026.</li>
+<li id="fn12">The Burner LLC, Certificate of Formation, Washington Secretary of State, UBI 605 791 267. Original sole governor and registered agent Jessica Ellen Pisane, amended July 21, 2025 to Hannah Krieg. The founding date and office address stated in the body, the WinPower titles (from Jacob Simpson's F-1, Apollo PDC submission 134211), and the marriage are documented in full in the companion report, <a href="/reports/burner-disclosure.html">"The Outlet, the Office, and the Treasurer."</a></li>
+<li id="fn13">Katie Wilson. PDC Campaign Finance Summary, filer "Katie Wilson," office "MAYOR," jurisdiction "CITY OF SEATTLE," election_year 2025, treasurer_name "Jessica Pisane." PDC Expenditures, filer "Katie Wilson," <code>recipient_name LIKE '%WINPOWER%'</code>, returns 22 transactions totaling $26,813.51, first 2025-03-25, last 2025-11-12. The Burner's coverage: eight articles on Wilson's surveillance-camera policy, December 8, 2025 through April 15, 2026, enumerated in the companion report.</li>
+<li id="fn14"><a href="/reports/burner-disclosure.html">"The Outlet, the Office, and the Treasurer,"</a> Sunshine Docket, May 17, 2026. That report establishes the marriage, the WinPower titles, the SeaTac office, The Burner's founding, and the non-disclosure of those relationships to the outlet's readers.</li>
+</ol>
+</div>
+
+<div class="footer-mark">
+<span>sunshinedocket.org</span>
+<span>@minty_hawk</span>
+</div>
+
+</div>
+</body></html>
